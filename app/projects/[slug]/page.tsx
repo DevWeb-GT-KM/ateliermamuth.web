@@ -4,8 +4,8 @@ import { draftMode } from "next/headers";
 import { loadQuery } from "@/../sanity/lib/store";
 import { PROJECTS_QUERY, PROJECT_QUERY } from "@/../sanity/lib/queries";
 import { client } from "@/../sanity/lib/client";
-import Project from "@/components/projects/Project";
-import ProjectPreview from "@/components/projects/ProjectPreview";
+import { ProjectPreview } from "../components/ProjectPreview";
+import { Project } from "../components/Project";
 
 export async function generateStaticParams() {
   const projects = await client.fetch<SanityDocument[]>(PROJECTS_QUERY);

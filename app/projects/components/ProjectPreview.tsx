@@ -3,8 +3,7 @@
 import { PROJECT_QUERY } from "@/../sanity/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import { QueryParams, SanityDocument } from "next-sanity";
-
-import { Project } from "@/components/projects/Project";
+import { Project } from "./Project";
 
 type ProjectPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;

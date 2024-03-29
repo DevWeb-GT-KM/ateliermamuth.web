@@ -15,7 +15,7 @@ export const ProjectsListing: React.FC<ProjectsListingProps> = ({
           <Link
             className="project-listing-item"
             key={project._id}
-            href={project.slug.current}
+            href={`projects/${project.slug.current}`}
           >
             <h2>{project.name}</h2>
           </Link>
