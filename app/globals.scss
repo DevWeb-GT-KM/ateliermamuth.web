@@ -79,9 +79,11 @@
   margin: 0;
 }
 
+// TODO - Valider width et height qu'on devrais mettre ici pour partir sur une bonne base
 html,
 body {
   max-width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
 }
 
