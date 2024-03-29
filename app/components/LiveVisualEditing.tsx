@@ -9,7 +9,7 @@ import { client } from "@/../sanity/lib/client";
 // Always enable stega in Live Mode
 const stegaClient = client.withConfig({ stega: true });
 
-export default function LiveVisualEditing() {
+export const LiveVisualEditing: React.FC = () => {
   useLiveMode({ client: stegaClient });
   useEffect(() => {
     // If not an iframe or a Vercel Preview deployment, turn off Draft Mode
@@ -19,4 +19,4 @@ export default function LiveVisualEditing() {
   }, []);
 
   return <VisualEditing />;
-}
+};

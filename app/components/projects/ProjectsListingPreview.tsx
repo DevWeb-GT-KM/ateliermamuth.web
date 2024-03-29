@@ -10,7 +10,7 @@ type ProjectsListingPreviewProps = {
   initial: QueryResponseInitial<SanityDocument[]>;
 };
 
-const ProjectsListingPreview: React.FC<ProjectsListingPreviewProps> = ({
+export const ProjectsListingPreview: React.FC<ProjectsListingPreviewProps> = ({
   initial,
 }) => {
   const { data } = useQuery<SanityDocument[] | null>(
@@ -25,5 +25,3 @@ const ProjectsListingPreview: React.FC<ProjectsListingPreviewProps> = ({
     <p className="projects-listing-none">No projects found</p>
   );
 };
-
-export default ProjectsListingPreview;
