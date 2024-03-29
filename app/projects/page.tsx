@@ -6,7 +6,7 @@ import { SanityDocument } from "next-sanity";
 
 import { loadQuery } from "@/../sanity/lib/store";
 import { PROJECTS_QUERY } from "@/../sanity/lib/queries";
-import ProjectsListingPreview from "./components/ProjectsListingPreview";
+import { ProjectsListingPreview } from "./components/ProjectsListingPreview";
 import { ProjectsListing } from "./components/ProjectsListing";
 
 export const metadata: Metadata = {
