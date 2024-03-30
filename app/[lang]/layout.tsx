@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { Inter } from "next/font/google";
 import { LiveVisualEditing } from "../common/components/LiveVisualEditing";
+import { QueryParams } from "next-sanity";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,15 +15,16 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: React.ReactNode;
+  params: QueryParams;
 };
 
 export async function generateStaticParams() {
   return [{ lang: "fr" }, { lang: "en" }];
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+const RootLayout: React.FC<RootLayoutProps> = ({ children, params }) => {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body className={inter.className}>
         {children}
         {draftMode().isEnabled && <LiveVisualEditing />}

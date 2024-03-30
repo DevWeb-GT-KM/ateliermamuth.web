@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./page.scss";
 
 import { Metadata } from "next";
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
   return (
     <main className="home-page-container">
       <h1 className="home-page-title">Home page</h1>
+      <Link href={"/en/projects"}>Go to projects</Link>
     </main>
   );
 };
