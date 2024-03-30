@@ -15,6 +15,17 @@ export const metadata: Metadata = {
   description: "Listing of all the projects made by Atelier Mamuth.",
 };
 
+export async function generateStaticParams() {
+  return [
+    {
+      paths: [
+        { params: { projects: "projects", lang: "en" } },
+        { params: { projects: "projets", lang: "fr" } },
+      ],
+    },
+  ];
+}
+
 type ProjectsProps = {
   params: QueryParams;
 };
