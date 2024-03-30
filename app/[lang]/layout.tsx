@@ -3,7 +3,7 @@ import "./globals.scss";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { Inter } from "next/font/google";
-import { LiveVisualEditing } from "./common/components/LiveVisualEditing";
+import { LiveVisualEditing } from "../common/components/LiveVisualEditing";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +15,10 @@ export const metadata: Metadata = {
 type RootLayoutProps = {
   children: React.ReactNode;
 };
+
+export async function generateStaticParams() {
+  return [{ lang: "fr" }, { lang: "en" }];
+}
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
