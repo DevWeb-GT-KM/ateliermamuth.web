@@ -1,36 +1,25 @@
-import { NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { locales, localePrefix, pathnames, FRENCH_LOCALE } from "./navigation";
 
-// TODO - Valider le code ici (configurer le getLocale (aller lire si des cookies ont étés enregistrés pour la locale préférée), la configuration exportée en bas, etc)
-let locales = ["fr", "en"];
+export default createMiddleware({
+  defaultLocale: FRENCH_LOCALE,
+  localePrefix,
+  locales,
+  pathnames,
+});
 
-// Get the preferred locale, similar to the above or using a library
-function getLocale(request: any) {
-  return "fr";
-}
-
-export function middleware(request: any) {
-  // Check if there is any supported locale in the pathname
-  const { pathname } = request.nextUrl;
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
-
-  if (pathnameHasLocale) return;
-
-  // Redirect if there is no locale
-  const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
-  // e.g. incoming request is /products
-  // The new URL is now /en-US/products
-  return NextResponse.redirect(request.nextUrl);
-}
-
+// TODO - Valider la config (prise sur https://stackoverflow.com/questions/76871896/i-have-a-problem-with-my-middleware-in-next-js/76873535#76873535)
 export const config = {
+  // Match only internationalized pathnames
   matcher: [
-    // Skip all internal paths (_next)
-    // "/((?!_next).*)",
-    "/((?!_next|studio).*)",
-    // Optional: only run on root (/) URL
-    // '/'
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - studio (CMS)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    "/((?!api|studio|_next/static|_next/image|favicon.ico).*)",
   ],
 };

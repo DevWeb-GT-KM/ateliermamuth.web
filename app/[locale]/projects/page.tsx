@@ -1,33 +1,26 @@
 import "./page.scss";
-
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { QueryParams, SanityDocument } from "next-sanity";
+import { unstable_setRequestLocale } from "next-intl/server";
 
+import { ProjectsListing } from "./components/ProjectsListing";
+import { ProjectsListingPreview } from "./components/ProjectsListingPreview";
 import { loadQuery } from "@/../sanity/lib/store";
 import { PROJECTS_QUERY_BY_LANG } from "@/../sanity/lib/queries";
-import { ProjectsListingPreview } from "./components/ProjectsListingPreview";
-import { ProjectsListing } from "./components/ProjectsListing";
-import Link from "next/link";
+import { Link } from "@/../navigation";
 
 export const metadata: Metadata = {
   title: "Projects",
   description: "Listing of all the projects made by Atelier Mamuth.",
 };
 
-export async function generateStaticParams() {
-  return [
-    { projects: "projects", lang: "en" },
-    { projects: "projets", lang: "fr" },
-  ];
-}
-
-type ProjectsProps = {
+type ProjectsPageProps = {
   params: QueryParams;
 };
 
-const Projects: React.FC<ProjectsProps> = async ({ params }) => {
-  // const data = useData(isDrafModeEnabled, PROJECTS_QUERY);
+const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params }) => {
+  unstable_setRequestLocale(params.locale);
 
   const initial = await loadQuery<SanityDocument[]>(
     PROJECTS_QUERY_BY_LANG,
@@ -38,22 +31,18 @@ const Projects: React.FC<ProjectsProps> = async ({ params }) => {
   );
 
   return (
-    <main className="projects-page-container">
+    <div className="projects-page-container">
       <h1 className="projects-page-title">Projects page</h1>
       {draftMode().isEnabled ? (
         <ProjectsListingPreview initial={initial} />
       ) : (
         <ProjectsListing projects={initial.data} />
       )}
-      <Link href={"/fr"} style={{ marginTop: "20px" }}>
-        Go to french homepage
+      <Link href={"/"} style={{ marginTop: "20px" }}>
+        Go to homepage
       </Link>
-
-      <Link href={"/en"} style={{ marginTop: "20px" }}>
-        Go to english homepage
-      </Link>
-    </main>
+    </div>
   );
 };
 
-export default Projects;
+export default ProjectsPage;
