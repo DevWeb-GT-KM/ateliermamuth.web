@@ -8,9 +8,11 @@ import { ProjectPreview } from "../components/ProjectPreview";
 import { Project } from "../components/Project";
 
 export async function generateStaticParams() {
-  const projects = await client.fetch<SanityDocument[]>(PROJECTS_QUERY);
+  const allProjects = await client.fetch<SanityDocument[]>(PROJECTS_QUERY);
 
-  return projects.map((project: any) => ({
+  return allProjects.map((project: any) => ({
+    projects: project.language === "fr" ? "projets" : "projects",
+    lang: project.language,
     slug: project.slug.current,
   }));
 }

@@ -13,7 +13,8 @@ const Home: React.FC = () => {
   return (
     <main className="home-page-container">
       <h1 className="home-page-title">Home page</h1>
-      <Link href={"/en/projects"}>Go to projects</Link>
+      <Link href={"/fr/projets"}>Go to french projects</Link>
+      <Link href={"/en/projects"}>Go to english projects</Link>
     </main>
   );
 };

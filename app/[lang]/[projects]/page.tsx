@@ -17,12 +17,8 @@ export const metadata: Metadata = {
 
 export async function generateStaticParams() {
   return [
-    {
-      paths: [
-        { params: { projects: "projects", lang: "en" } },
-        { params: { projects: "projets", lang: "fr" } },
-      ],
-    },
+    { projects: "projects", lang: "en" },
+    { projects: "projets", lang: "fr" },
   ];
 }
 
@@ -49,8 +45,12 @@ const Projects: React.FC<ProjectsProps> = async ({ params }) => {
       ) : (
         <ProjectsListing projects={initial.data} />
       )}
-      <Link href={"/"} style={{ marginTop: "20px" }}>
-        Go to homepage
+      <Link href={"/fr"} style={{ marginTop: "20px" }}>
+        Go to french homepage
+      </Link>
+
+      <Link href={"/en"} style={{ marginTop: "20px" }}>
+        Go to english homepage
       </Link>
     </main>
   );

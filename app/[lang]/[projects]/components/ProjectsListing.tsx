@@ -15,7 +15,11 @@ export const ProjectsListing: React.FC<ProjectsListingProps> = ({
           <Link
             className="project-listing-item"
             key={project._id}
-            href={`projects/${project.slug.current}`}
+            href={
+              project.language === "fr"
+                ? `projets/${project.slug.current}`
+                : `projects/${project.slug.current}`
+            }
           >
             <h2>{project.name}</h2>
           </Link>
