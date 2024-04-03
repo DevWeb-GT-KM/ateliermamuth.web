@@ -1,12 +1,13 @@
 import { defineField, defineType } from "sanity";
-import { DotIcon } from "@sanity/icons";
+import { EnvelopeIcon } from "@sanity/icons";
 import service from "../service/service";
+import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "contactForm",
   title: "Formulaire contact",
   type: "document",
-  icon: DotIcon,
+  icon: EnvelopeIcon,
   fields: [
     defineField({
       name: "nameLabel",
@@ -99,5 +100,19 @@ export default defineType({
       title: "Bouton envoyer",
       type: "string",
     }),
+    defineField(LANGUAGE_FIELD),
   ],
+  preview: {
+    select: {
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return {
+        ...selection,
+        title: `Formulaire contact ${language.toUpperCase()}`,
+        subtitle: language.toUpperCase(),
+      };
+    },
+  },
 });

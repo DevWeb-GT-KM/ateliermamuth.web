@@ -1,9 +1,9 @@
 import { type SchemaTypeDefinition } from "sanity";
 import project from "./schemaTypes/project/project";
-import faqs from "./schemaTypes/faq/faqs";
 import faq from "./schemaTypes/faq/faq";
-import blog from "./schemaTypes/blog/article";
-import blogs from "./schemaTypes/blog/blog";
+import question from "./schemaTypes/faq/question";
+import article from "./schemaTypes/blog/article";
+import blog from "./schemaTypes/blog/blog";
 import contact from "./schemaTypes/contact/contact";
 import aboutUs from "./schemaTypes/aboutUs/aboutUs";
 import publication from "./schemaTypes/aboutUs/publication";
@@ -38,9 +38,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     publications,
     publication,
     employee,
-    blogs,
     blog,
-    faqs,
+    article,
+    question,
     faq,
     contact,
     contactForm,

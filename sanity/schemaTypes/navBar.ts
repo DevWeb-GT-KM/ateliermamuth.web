@@ -4,6 +4,7 @@ import aboutUs from "./aboutUs/aboutUs";
 import services from "./service/services";
 import blog from "./blog/blog";
 import projects from "./project/projects";
+import { LANGUAGE_FIELD } from "./constants";
 
 export default defineType({
   name: "navBar",
@@ -40,5 +41,19 @@ export default defineType({
       title: "Logo Mamuth",
       type: "image",
     }),
+    defineField(LANGUAGE_FIELD),
   ],
+  preview: {
+    select: {
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return {
+        ...selection,
+        title: `Barre de navigation ${language.toUpperCase()}`,
+        subtitle: language.toUpperCase(),
+      };
+    },
+  },
 });

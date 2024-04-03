@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { DotIcon } from "@sanity/icons";
+import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "project",
@@ -33,12 +34,6 @@ export default defineType({
       ],
     }),
     defineField({
-      name: "language",
-      type: "string",
-      readOnly: true,
-      hidden: true,
-    }),
-    defineField({
       name: "shortDescription",
       title: "Description courte",
       type: "text",
@@ -63,11 +58,16 @@ export default defineType({
         },
       ],
     }),
+    defineField(LANGUAGE_FIELD),
   ],
   preview: {
     select: {
       title: "name",
-      language: "language",
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return { ...selection, subtitle: language.toUpperCase() };
     },
   },
 });

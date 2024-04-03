@@ -1,25 +1,41 @@
 import { defineField, defineType } from "sanity";
-import { DotIcon } from "@sanity/icons";
+import { CircleIcon } from "@sanity/icons";
+import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "faq",
-  title: "Faq",
-  type: "object",
+  title: "FAQ",
+  type: "document",
+  icon: CircleIcon,
   fields: [
     defineField({
-      name: "question",
-      title: "Question",
+      name: "pageTitle",
+      title: "Titre de la page",
       type: "string",
     }),
     defineField({
-      name: "answer",
-      title: "Réponse",
-      type: "text",
+      name: "questions",
+      title: "Questions",
+      type: "array",
+      of: [
+        {
+          type: "question",
+        },
+      ],
     }),
-    defineField({
-      name: "link",
-      title: "Lien",
-      type: "string",
-    }),
+    defineField(LANGUAGE_FIELD),
   ],
+  preview: {
+    select: {
+      title: "pageTitle",
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return {
+        ...selection,
+        subtitle: language.toUpperCase(),
+      };
+    },
+  },
 });

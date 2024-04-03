@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
-import step from "./step";
 import { DotIcon } from "@sanity/icons";
+import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "service",
@@ -58,5 +58,16 @@ export default defineType({
       title: "Photo",
       type: "image",
     }),
+    defineField(LANGUAGE_FIELD),
   ],
+  preview: {
+    select: {
+      title: "name",
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return { ...selection, subtitle: language.toUpperCase() };
+    },
+  },
 });

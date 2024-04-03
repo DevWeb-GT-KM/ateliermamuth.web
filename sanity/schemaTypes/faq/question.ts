@@ -1,23 +1,23 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "publication",
-  title: "Parution",
+  name: "question",
+  title: "Question",
   type: "object",
   fields: [
     defineField({
-      name: "mediaName",
-      title: "Nom du média",
+      name: "question",
+      title: "Question",
       type: "string",
     }),
     defineField({
-      name: "publicationDate",
-      title: "Date de parution",
-      type: "string",
+      name: "answer",
+      title: "Réponse",
+      type: "text",
     }),
     defineField({
       name: "link",
-      title: "Lien vers la parution",
+      title: "Lien",
       type: "string",
     }),
   ],

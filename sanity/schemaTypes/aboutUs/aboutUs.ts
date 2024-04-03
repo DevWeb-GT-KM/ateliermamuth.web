@@ -1,8 +1,7 @@
 import { defineField, defineType } from "sanity";
-import employee from "./employee";
-import publication from "./publication";
 import { CircleIcon } from "@sanity/icons";
 import publications from "./publications";
+import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "aboutUs",
@@ -47,5 +46,19 @@ export default defineType({
       type: "reference",
       to: [{ type: publications.name }],
     }),
+    defineField(LANGUAGE_FIELD),
   ],
+  preview: {
+    select: {
+      title: "pageTitle",
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return {
+        ...selection,
+        subtitle: language.toUpperCase(),
+      };
+    },
+  },
 });

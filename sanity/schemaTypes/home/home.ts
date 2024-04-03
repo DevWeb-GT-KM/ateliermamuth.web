@@ -6,6 +6,7 @@ import values from "./values";
 import { CircleIcon } from "@sanity/icons";
 import blog from "../blog/blog";
 import projects from "../project/projects";
+import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "home",
@@ -54,5 +55,19 @@ export default defineType({
       type: "reference",
       to: [{ type: blog.name }],
     }),
+    defineField(LANGUAGE_FIELD),
   ],
+  preview: {
+    select: {
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return {
+        ...selection,
+        title: `Page accueil ${language.toUpperCase()}`,
+        subtitle: language.toUpperCase(),
+      };
+    },
+  },
 });

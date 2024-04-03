@@ -4,7 +4,8 @@ import aboutUs from "./aboutUs/aboutUs";
 import services from "./service/services";
 import blog from "./blog/blog";
 import projects from "./project/projects";
-import faqs from "./faq/faqs";
+import faq from "./faq/faq";
+import { LANGUAGE_FIELD } from "./constants";
 
 export default defineType({
   name: "footer",
@@ -40,7 +41,7 @@ export default defineType({
       name: "faq",
       title: "Faq",
       type: "reference",
-      to: [{ type: faqs.name }],
+      to: [{ type: faq.name }],
     }),
     defineField({
       name: "termsAndConditions",
@@ -77,5 +78,19 @@ export default defineType({
       title: "Droits d'auteur",
       type: "string",
     }),
+    defineField(LANGUAGE_FIELD),
   ],
+  preview: {
+    select: {
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return {
+        ...selection,
+        title: `Pied de page ${language.toUpperCase()}`,
+        subtitle: language.toUpperCase(),
+      };
+    },
+  },
 });

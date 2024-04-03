@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { CircleIcon } from "@sanity/icons";
+import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "contact",
@@ -42,5 +43,19 @@ export default defineType({
       title: "Photo",
       type: "image",
     }),
+    defineField(LANGUAGE_FIELD),
   ],
+  preview: {
+    select: {
+      title: "pageTitle",
+      language: LANGUAGE_FIELD.name,
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return {
+        ...selection,
+        subtitle: language.toUpperCase(),
+      };
+    },
+  },
 });
