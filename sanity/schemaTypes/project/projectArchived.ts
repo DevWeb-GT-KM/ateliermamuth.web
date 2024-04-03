@@ -1,0 +1,31 @@
+import { defineField, defineType } from "sanity";
+import { DotIcon } from "@sanity/icons";
+
+export default defineType({
+  name: "projectArchived",
+  title: "Projet archivé",
+  type: "object",
+  fields: [
+    defineField({
+      name: "name",
+      title: "Nom",
+      type: "string",
+    }),
+    defineField({
+      name: "completionYear",
+      title: "Année de réalisation",
+      type: "date",
+    }),
+    defineField({
+      name: "location",
+      title: "Endroit de réalisation",
+      type: "string",
+    }),
+    defineField({
+      name: "images",
+      title: "Photos",
+      type: "array",
+      of: [{ type: "image" }],
+    }),
+  ],
+});
