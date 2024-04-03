@@ -1,9 +1,10 @@
 "use client";
 
-import { PROJECT_QUERY } from "@/../sanity/lib/queries";
-import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import { QueryParams, SanityDocument } from "next-sanity";
+import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
+
 import { Project } from "./Project";
+import { PROJECT_QUERY } from "@/../sanity/lib/queries";
 
 type ProjectPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;
