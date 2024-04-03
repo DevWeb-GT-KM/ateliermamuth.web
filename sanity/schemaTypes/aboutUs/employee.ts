@@ -4,8 +4,7 @@ import { DotIcon } from "@sanity/icons";
 export default defineType({
   name: "employee",
   title: "Employé",
-  type: "document",
-  icon: DotIcon,
+  type: "object",
   fields: [
     defineField({
       name: "name",

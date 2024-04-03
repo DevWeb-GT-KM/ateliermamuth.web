@@ -23,6 +23,16 @@ export default defineType({
       },
     }),
     defineField({
+      name: "projectTypes",
+      title: "Types de projet",
+      type: "array",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+    }),
+    defineField({
       name: "language",
       type: "string",
       readOnly: true,
@@ -34,64 +44,30 @@ export default defineType({
       type: "text",
     }),
     defineField({
-      name: "entrepreneurLabel",
-      title: "Entrepreneur étiquette",
-      type: "string",
+      name: "description",
+      title: "Description",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+      ],
     }),
     defineField({
-      name: "entrepreneur",
-      title: "Entrepreneur",
-      type: "string",
-    }),
-    defineField({
-      name: "cabinetMakerLabel",
-      title: "Ébéniste étiquette",
-      type: "string",
-    }),
-    defineField({
-      name: "cabinetMaker",
-      title: "Ébéniste",
-      type: "string",
-    }),
-    defineField({
-      name: "budgetLabel",
-      title: "Budget étiquette",
-      type: "string",
-    }),
-    defineField({
-      name: "budget",
-      title: "Budget",
-      type: "string",
-    }),
-    defineField({
-      name: "photographerLabel",
-      title: "Photographe étiquette",
-      type: "string",
-    }),
-    defineField({
-      name: "photographer",
-      title: "Photographe",
-      type: "string",
-    }),
-    defineField({
-      name: "architectLabel",
-      title: "Architecte étiquette",
-      type: "string",
-    }),
-    defineField({
-      name: "architect",
-      title: "Architecte",
-      type: "string",
+      name: "credits",
+      title: "Crédits",
+      type: "array",
+      of: [
+        {
+          type: "credit",
+        },
+      ],
     }),
   ],
   preview: {
     select: {
       title: "name",
       language: "language",
-    },
-    prepare(selection) {
-      const { language } = selection;
-      return { ...selection, subtitle: language.toUpperCase() };
     },
   },
 });

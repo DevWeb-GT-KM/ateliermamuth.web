@@ -1,6 +1,5 @@
 import { defineField, defineType } from "sanity";
 import { DotIcon } from "@sanity/icons";
-import value from "./value";
 
 export default defineType({
   name: "values",
@@ -24,8 +23,7 @@ export default defineType({
       type: "array",
       of: [
         {
-          type: "reference",
-          to: [{ type: value.name }],
+          type: "string",
         },
       ],
     }),

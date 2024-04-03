@@ -4,8 +4,7 @@ import { DotIcon } from "@sanity/icons";
 export default defineType({
   name: "publication",
   title: "Parution",
-  type: "document",
-  icon: DotIcon,
+  type: "object",
   fields: [
     defineField({
       name: "mediaName",

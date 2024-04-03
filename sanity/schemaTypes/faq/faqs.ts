@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import faq from "./faq";
 import { CircleIcon } from "@sanity/icons";
 
 export default defineType({
@@ -19,8 +18,7 @@ export default defineType({
       type: "array",
       of: [
         {
-          type: "reference",
-          to: [{ type: faq.name }],
+          type: "faq",
         },
       ],
     }),

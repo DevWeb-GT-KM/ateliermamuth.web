@@ -4,8 +4,7 @@ import { DotIcon } from "@sanity/icons";
 export default defineType({
   name: "faq",
   title: "Faq",
-  type: "document",
-  icon: DotIcon,
+  type: "object",
   fields: [
     defineField({
       name: "question",

@@ -1,20 +1,18 @@
 import { defineField, defineType } from "sanity";
-import { DotIcon } from "@sanity/icons";
 
 export default defineType({
   name: "step",
   title: "Étape",
-  type: "document",
-  icon: DotIcon,
+  type: "object",
   fields: [
     defineField({
-      name: "name",
-      title: "Nom",
+      name: "index",
+      title: "Index",
       type: "string",
     }),
     defineField({
-      name: "serviceType",
-      title: "Type de service",
+      name: "name",
+      title: "Nom",
       type: "string",
     }),
     defineField({
@@ -23,10 +21,4 @@ export default defineType({
       type: "text",
     }),
   ],
-  preview: {
-    select: {
-      title: "name",
-      subtitle: "serviceType",
-    },
-  },
 });
