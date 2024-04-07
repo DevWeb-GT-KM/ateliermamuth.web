@@ -6,7 +6,8 @@ import { draftMode } from "next/headers";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import { LiveVisualEditing } from "../common/components/LiveVisualEditing";
-import { ENGLISH_LOCALE, FRENCH_LOCALE, Link } from "@/../navigation";
+import { FRENCH_LOCALE } from "@/../navigation";
+import favIcon from "../common/assets/favicon.ico";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,14 @@ export const dynamicParams = false;
 export const metadata: Metadata = {
   title: "Generic CMS title",
   description: "Generic CMS description",
+  icons: [
+    {
+      rel: "icon",
+      sizes: "32x32",
+      url: favIcon.src,
+      type: "image/x-icon",
+    },
+  ],
 };
 
 type RootLayoutProps = {
