@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rm -rf ./.next",
+    "cleanmodule": "rm -rf ./node_modules"
   },
   "dependencies": {
     "@sanity/client": "^6.15.7",
