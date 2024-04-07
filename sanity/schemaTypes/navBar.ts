@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import { CircleIcon } from "@sanity/icons";
+import { TbLayoutNavbarCollapseFilled } from "react-icons/tb";
 import aboutUs from "./aboutUs/aboutUs";
 import services from "./service/services";
 import blog from "./blog/blog";
@@ -10,7 +10,7 @@ export default defineType({
   name: "navBar",
   title: "Barre de navigation",
   type: "document",
-  icon: CircleIcon,
+  icon: TbLayoutNavbarCollapseFilled,
   fields: [
     defineField({
       name: "projects",

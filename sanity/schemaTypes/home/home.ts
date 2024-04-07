@@ -3,16 +3,16 @@ import project from "../project/project";
 import aboutUs from "../aboutUs/aboutUs";
 import services from "../service/services";
 import values from "./values";
-import { CircleIcon } from "@sanity/icons";
+import { CiHome } from "react-icons/ci";
 import blog from "../blog/blog";
 import projects from "../project/projects";
 import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "home",
-  title: "Accueil",
+  title: "Page accueil",
   type: "document",
-  icon: CircleIcon,
+  icon: CiHome,
   fields: [
     defineField({
       name: "caroussel",
