@@ -19,25 +19,16 @@ export const pathnames = {
     en: "/projects/[slug]",
   },
 
-  "/services": {
-    fr: "/services",
-    en: "/services",
-  },
+  "/services": "/services",
 
-  "/services/[slug]": {
-    fr: "/services/[slug]",
-    en: "/services/[slug]",
-  },
+  "/services/[slug]": "/services/[slug]",
 
   "/about-us": {
     fr: "/a-propos",
     en: "/about-us",
   },
 
-  "/contact": {
-    fr: "/contact",
-    en: "/contact",
-  },
+  "/contact": "/contact",
 
   "/contact-form": {
     fr: "/formulaire-contact",

@@ -22,10 +22,6 @@ type RootLayoutProps = {
   params: QueryParams;
 };
 
-// export async function generateStaticParams() {
-//   return [{ locale: FRENCH_LOCALE }, { locale: ENGLISH_LOCALE }];
-// }
-
 export async function generateStaticParams() {
   return [{ locale: FRENCH_LOCALE }];
 }
@@ -39,15 +35,6 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, params }) => {
         <header>
           <nav style={{ border: "2px solid green", minHeight: "100px" }}>
             <p>NavBar</p>
-            <Link
-              href={"/"}
-              locale={
-                params.locale === FRENCH_LOCALE ? ENGLISH_LOCALE : FRENCH_LOCALE
-              }
-            >
-              Switch to{" "}
-              {params.locale === FRENCH_LOCALE ? ENGLISH_LOCALE : FRENCH_LOCALE}
-            </Link>
           </nav>
         </header>
         <main>{children}</main>
