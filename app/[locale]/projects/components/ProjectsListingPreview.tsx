@@ -19,9 +19,5 @@ export const ProjectsListingPreview: React.FC<ProjectsListingPreviewProps> = ({
     { initial }
   );
 
-  return data ? (
-    <ProjectsListing projects={data} />
-  ) : (
-    <p className="projects-listing-none">No projects found</p>
-  );
+  return data ? <ProjectsListing projects={data} /> : <p>No projects found</p>;
 };

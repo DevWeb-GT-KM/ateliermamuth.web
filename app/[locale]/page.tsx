@@ -19,8 +19,8 @@ const HomePage: React.FC<HomePageProps> = ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
   return (
-    <div className="home-page-container">
-      <h1 className="home-page-title">Home page</h1>
+    <div>
+      <h1>Home page</h1>
       <Link href={"/projects"}>Go to projects</Link>
     </div>
   );

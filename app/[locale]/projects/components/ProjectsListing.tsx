@@ -25,7 +25,7 @@ export const ProjectsListing: React.FC<ProjectsListingProps> = ({
           </Link>
         ))
       ) : (
-        <p className="projects-listing-none">No projects found</p>
+        <p>No projects found</p>
       )}
     </div>
   );

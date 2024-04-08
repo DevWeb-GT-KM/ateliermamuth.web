@@ -1,14 +1,24 @@
 import "./globals.scss";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { QueryParams } from "next-sanity";
 import { draftMode } from "next/headers";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import { LiveVisualEditing } from "../common/components/LiveVisualEditing";
-import { ENGLISH_LOCALE, FRENCH_LOCALE, Link } from "@/../navigation";
+import { ENGLISH_LOCALE, FRENCH_LOCALE } from "@/../navigation";
 
-const inter = Inter({ subsets: ["latin"] });
+const saansTrial = localFont({
+  src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
+  display: "swap",
+  variable: "--font-saans-trial",
+});
+
+const centuryOldStyleStd = localFont({
+  src: "../common/assets/fonts/CenturyOldStyleStd-Regular.otf",
+  display: "swap",
+  variable: "--font-century-old-style-std",
+});
 
 export const dynamicParams = false;
 
@@ -31,30 +41,15 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, params }) => {
 
   return (
     <html lang={params.locale}>
-      <body className={inter.className}>
+      <body className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}>
         <header>
-          <nav style={{ border: "2px solid green", minHeight: "100px" }}>
-            <p>NavBar</p>
-            <Link
-              href={"/"}
-              locale={
-                params.locale === FRENCH_LOCALE ? ENGLISH_LOCALE : FRENCH_LOCALE
-              }
-            >
-              Switch to{" "}
-              {params.locale === FRENCH_LOCALE ? ENGLISH_LOCALE : FRENCH_LOCALE}
-            </Link>
+          <nav>
+            <h1>NavBar TEXTE</h1>
           </nav>
         </header>
         <main>{children}</main>
-        <footer
-          style={{
-            border: "2px solid red",
-            minHeight: "100px",
-            verticalAlign: "bottom",
-          }}
-        >
-          Footer
+        <footer>
+          <h1>Footer TEXTE</h1>
         </footer>
         {draftMode().isEnabled && <LiveVisualEditing />}
       </body>

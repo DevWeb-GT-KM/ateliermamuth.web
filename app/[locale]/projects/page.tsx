@@ -31,16 +31,13 @@ const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params }) => {
   );
 
   return (
-    <div className="projects-page-container">
+    <div>
       <h1 className="projects-page-title">Projects page</h1>
       {draftMode().isEnabled ? (
         <ProjectsListingPreview initial={initial} />
       ) : (
         <ProjectsListing projects={initial.data} />
       )}
-      <Link href={"/"} style={{ marginTop: "20px" }}>
-        Go to homepage
-      </Link>
     </div>
   );
 };
