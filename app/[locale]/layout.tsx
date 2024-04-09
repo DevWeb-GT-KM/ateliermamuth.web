@@ -44,12 +44,12 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, params }) => {
       <body className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}>
         <header>
           <nav>
-            <h1>NavBar TEXTE</h1>
+            <h1>NavBar</h1>
           </nav>
         </header>
         <main>{children}</main>
         <footer>
-          <h1>Footer TEXTE</h1>
+          <h1>Footer</h1>
         </footer>
         {draftMode().isEnabled && <LiveVisualEditing />}
       </body>
