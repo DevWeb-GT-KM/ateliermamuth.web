@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import { CircleIcon } from "@sanity/icons";
+import { TbLayoutNavbarExpandFilled } from "react-icons/tb";
 import aboutUs from "./aboutUs/aboutUs";
 import services from "./service/services";
 import blog from "./blog/blog";
@@ -11,7 +11,7 @@ export default defineType({
   name: "footer",
   title: "Pied de page",
   type: "document",
-  icon: CircleIcon,
+  icon: TbLayoutNavbarExpandFilled,
   fields: [
     defineField({
       name: "projects",

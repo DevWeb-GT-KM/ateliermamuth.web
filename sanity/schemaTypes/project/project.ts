@@ -4,7 +4,7 @@ import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "project",
-  title: "Projet",
+  title: "Page d'un projet",
   type: "document",
   icon: DotIcon,
   fields: [

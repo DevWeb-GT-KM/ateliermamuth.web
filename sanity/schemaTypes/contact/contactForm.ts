@@ -1,13 +1,13 @@
 import { defineField, defineType } from "sanity";
-import { EnvelopeIcon } from "@sanity/icons";
+import { MdOutlineEmail } from "react-icons/md";
 import service from "../service/service";
 import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "contactForm",
-  title: "Formulaire contact",
+  title: "Page formulaire contact",
   type: "document",
-  icon: EnvelopeIcon,
+  icon: MdOutlineEmail,
   fields: [
     defineField({
       name: "nameLabel",

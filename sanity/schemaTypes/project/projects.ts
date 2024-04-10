@@ -1,13 +1,13 @@
 import { defineField, defineType } from "sanity";
 import project from "./project";
-import { CircleIcon } from "@sanity/icons";
+import { MdOutlineFormatListNumberedRtl } from "react-icons/md";
 import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "projects",
-  title: "Projets",
+  title: "Page des projets",
   type: "document",
-  icon: CircleIcon,
+  icon: MdOutlineFormatListNumberedRtl,
   fields: [
     defineField({
       name: "pageTitle",

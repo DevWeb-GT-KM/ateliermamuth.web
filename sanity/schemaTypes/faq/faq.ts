@@ -1,12 +1,12 @@
 import { defineField, defineType } from "sanity";
-import { CircleIcon } from "@sanity/icons";
+import { MdOutlineQuestionMark } from "react-icons/md";
 import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "faq",
-  title: "FAQ",
+  title: "Page FAQ",
   type: "document",
-  icon: CircleIcon,
+  icon: MdOutlineQuestionMark,
   fields: [
     defineField({
       name: "pageTitle",
