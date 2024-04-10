@@ -1,12 +1,12 @@
 import { defineField, defineType } from "sanity";
-import { CircleIcon } from "@sanity/icons";
+import { IoIosPeople } from "react-icons/io";
 import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "contact",
-  title: "Contact",
+  title: "Page contact",
   type: "document",
-  icon: CircleIcon,
+  icon: IoIosPeople,
   fields: [
     defineField({
       name: "pageTitle",

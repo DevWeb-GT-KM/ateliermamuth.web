@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rm -rf ./.next",
+    "cleanmodule": "rm -rf ./node_modules"
   },
   "dependencies": {
     "@sanity/client": "^6.15.7",
@@ -21,6 +23,7 @@
     "next-sanity": "^7.1.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.0.1",
     "sanity": "^3.36.2",
     "sass": "^1.72.0",
     "styled-components": "^6.1.8"

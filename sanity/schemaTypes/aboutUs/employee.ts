@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import { DotIcon } from "@sanity/icons";
 
 export default defineType({
   name: "employee",
