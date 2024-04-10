@@ -1,5 +1,5 @@
 import "./globals.scss";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { QueryParams } from "next-sanity";
 import { draftMode } from "next/headers";
@@ -9,7 +9,17 @@ import { LiveVisualEditing } from "../common/components/LiveVisualEditing";
 import { FRENCH_LOCALE } from "@/../navigation";
 import favIcon from "../common/assets/favicon.ico";
 
-const inter = Inter({ subsets: ["latin"] });
+const saansTrial = localFont({
+  src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
+  display: "swap",
+  variable: "--font-saans-trial",
+});
+
+const centuryOldStyleStd = localFont({
+  src: "../common/assets/fonts/CenturyOldStyleStd-Regular.otf",
+  display: "swap",
+  variable: "--font-century-old-style-std",
+});
 
 export const dynamicParams = false;
 
@@ -40,21 +50,15 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, params }) => {
 
   return (
     <html lang={params.locale}>
-      <body className={inter.className}>
+      <body className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}>
         <header>
-          <nav style={{ border: "2px solid green", minHeight: "100px" }}>
-            <p>NavBar</p>
+          <nav>
+            <h1>NavBar</h1>
           </nav>
         </header>
         <main>{children}</main>
-        <footer
-          style={{
-            border: "2px solid red",
-            minHeight: "100px",
-            verticalAlign: "bottom",
-          }}
-        >
-          Footer
+        <footer>
+          <h1>Footer</h1>
         </footer>
         {draftMode().isEnabled && <LiveVisualEditing />}
       </body>

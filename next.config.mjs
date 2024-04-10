@@ -11,6 +11,9 @@ const nextConfig = {
   experimental: {
     taint: true,
   },
+  sassOptions: {
+    additionalData: `@import "./app/common/scss/variables";`,
+  },
 };
 
 export default nextConfig;

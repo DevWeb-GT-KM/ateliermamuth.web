@@ -1,14 +1,4 @@
-.projects-page-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .projects-page-title {
-    font-weight: bold;
-    margin-bottom: 2rem;
-  }
+.projects-page-title {
+  font-family: $centuryOldStyleStd;
+  font-size: 50px;
 }
