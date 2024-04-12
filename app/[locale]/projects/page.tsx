@@ -6,9 +6,8 @@ import { unstable_setRequestLocale } from "next-intl/server";
 
 import { ProjectsListing } from "./components/ProjectsListing";
 import { ProjectsListingPreview } from "./components/ProjectsListingPreview";
-import { loadQuery } from "@/../sanity/lib/store";
-import { PROJECTS_QUERY_BY_LANG } from "@/../sanity/lib/queries";
 import { Link } from "@/../navigation";
+import { useService } from "@/common/hooks/useService";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -22,13 +21,10 @@ type ProjectsPageProps = {
 const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
-  const initial = await loadQuery<SanityDocument[]>(
-    PROJECTS_QUERY_BY_LANG,
-    params,
-    {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
-    }
-  );
+  const services = useService("query");
+
+  const initial = await services.getProjects(params);
+  const test = await services.getProjects(params);
 
   return (
     <div className="projects-page-container">

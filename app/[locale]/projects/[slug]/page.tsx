@@ -25,8 +25,6 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
   const initial = await loadQuery<SanityDocument>(PROJECT_QUERY, params, {
-    // Because of Next.js, RSC and Dynamic Routes this currently
-    // cannot be set on the loadQuery function at the "top level"
     perspective: draftMode().isEnabled ? "previewDrafts" : "published",
   });
 
