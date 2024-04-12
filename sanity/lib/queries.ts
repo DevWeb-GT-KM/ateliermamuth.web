@@ -9,3 +9,11 @@ export const ARTICLE_QUERY = groq`*[_type == "article" && slug.current == $slug]
 
 export const SERVICES_QUERY_BY_LANG = groq`*[_type == "service" && defined(slug) && language == $locale]`;
 export const SERVICE_QUERY = groq`*[_type == "service" && slug.current == $slug][0]`;
+
+export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == "fr"] {
+    carousel[]-> {
+        mainImage { asset-> },
+        projectTypes,
+        shortDescription
+    }
+  }`;

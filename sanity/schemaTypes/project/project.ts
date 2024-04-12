@@ -34,6 +34,11 @@ export default defineType({
       ],
     }),
     defineField({
+      name: "mainImage",
+      title: "Photo principale",
+      type: "image",
+    }),
+    defineField({
       name: "shortDescription",
       title: "Description courte",
       type: "text",
