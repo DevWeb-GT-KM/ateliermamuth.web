@@ -1,0 +1,90 @@
+.services-listing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  .services-listing-item {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+    padding-top: 40px;
+    border-top: 1px solid $noir-boise-200;
+
+    &:last-child {
+      border-bottom: 1px solid $noir-boise-200;
+      padding-bottom: 80px;
+    }
+
+    .services-listing-item-title {
+      color: $noir-boise-700;
+      font-family: $saansTrial;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 40px;
+    }
+
+    .services-listing-item-info-container {
+      display: flex;
+      justify-content: space-between;
+
+      .services-listing-item-description-container,
+      .services-listing-item-image-container {
+        flex: 0 1 40%;
+      }
+
+      .services-listing-item-description-container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .services-listing-item-description {
+          color: $noir-boise-400;
+          font-family: $centuryOldStyleStd;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 30px;
+        }
+
+        .services-listing-item-link {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 140px;
+          height: 40px;
+          padding: 14px 16px;
+          color: $jaune-pyrite-600;
+          border: 1px solid $jaune-pyrite-600;
+          border-radius: 5px;
+        }
+
+        .services-listing-item-project-type {
+          color: $noir-boise-600;
+          font-family: $saansTrial;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          border-top: 1px solid $noir-boise-200;
+          padding: 12px 0px;
+
+          &:last-child {
+            border-bottom: 1px solid $noir-boise-200;
+          }
+        }
+      }
+
+      .services-listing-item-image-container {
+        position: relative;
+        max-height: 400px;
+
+        .services-listing-item-image {
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
