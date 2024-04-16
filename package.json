@@ -19,6 +19,7 @@
     "@sanity/overlays": "^2.3.30",
     "@sanity/react-loader": "^1.9.5",
     "@sanity/vision": "^3.36.2",
+    "lodash": "^4.17.21",
     "next": "14.1.4",
     "next-intl": "^3.10.0",
     "next-sanity": "^7.1.4",

@@ -15,7 +15,7 @@ export default defineType({
   icon: CiHome,
   fields: [
     defineField({
-      name: "caroussel",
+      name: "carousel",
       title: "Caroussel",
       type: "array",
       of: [

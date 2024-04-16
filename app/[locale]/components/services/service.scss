@@ -1,0 +1,81 @@
+@import "../../../common/scss/variables";
+
+.home-page-service-container {
+  border-top: 1px solid $noir-boise-200;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  transition-property: height;
+  transition-duration: 800ms;
+  overflow: hidden;
+  cursor: pointer;
+
+  .home-page-service-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+
+    .home-page-service-title {
+      font-family: $saansTrial;
+      color: $noir-boise-700;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 40px;
+    }
+
+    .home-page-service-plus-img {
+      stroke-width: 2px;
+    }
+  }
+
+  .home-page-service-body {
+    .home-page-service-description-container {
+      display: flex;
+      flex-direction: row;
+
+      .home-page-service-description {
+        flex: 1;
+        color: $noir-boise-200;
+        // TODO on a pas cette font ?
+        font-family: "Century Old Style Std";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+      }
+
+      .home-page-service-project-types {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .home-page-service-project-type {
+        flex: 1;
+        border-top: 1px solid $noir-boise-200;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        width: 75%;
+
+        color: $noir-boise-600;
+        font-family: $saansTrial;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      }
+
+      .last-project-type {
+        border-bottom: 1px solid $noir-boise-200;
+      }
+    }
+  }
+}
+
+.last-service {
+  border-bottom: 1px solid $noir-boise-200;
+}

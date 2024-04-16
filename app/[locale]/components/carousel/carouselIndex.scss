@@ -1,0 +1,19 @@
+@import "../../../common/scss/variables";
+
+.carousel-index-container {
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+
+  .carousel-index-dot {
+    width: 12px;
+    height: 12px;
+    background-color: $noir-boise-200;
+    border-radius: 50%;
+    margin: 6px;
+  }
+
+  .carousel-index-dot-active {
+    background-color: $noir-boise-50;
+  }
+}
