@@ -39,8 +39,7 @@
       .home-page-service-description {
         flex: 1;
         color: $noir-boise-200;
-        // TODO on a pas cette font ?
-        font-family: "Century Old Style Std";
+        font-family: $centuryOldStyleStd;
         font-size: 24px;
         font-style: normal;
         font-weight: 400;
