@@ -1,0 +1,32 @@
+@import "../../../common/scss/variables";
+
+.about-us-container {
+  margin: 40px;
+  border-top: 1px solid $noir-boise-200;
+  padding-top: 8px;
+
+  .about-us-header {
+    margin-bottom: 160px;
+    .about-us-title {
+      font-family: $saansTrial;
+      color: $noir-boise-700;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+    }
+  }
+
+  .about-us-body {
+    padding-left: 35%;
+
+    .about-us-description {
+      font-family: $saansTrial;
+      color: $noir-boise-700;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 52px;
+    }
+  }
+}

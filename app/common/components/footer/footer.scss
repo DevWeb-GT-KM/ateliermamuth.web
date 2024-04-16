@@ -1,0 +1,83 @@
+@import "../../scss/variables";
+
+.footer-container {
+  background-color: $noir-boise-300;
+  padding: 40px 40px 8px 40px;
+
+  .footer-top {
+    display: flex;
+    flex-direction: row;
+
+    .footer-info {
+      flex: 1;
+      padding-right: 16px;
+
+      .footer-info-email,
+      .footer-info-description {
+        color: $noir-boise-50;
+        font-family: $saansTrial;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      }
+
+      .footer-info-email {
+        line-height: 16px;
+        margin-right: 60px;
+        display: inline-block;
+      }
+
+      .footer-info-description {
+        max-width: 558px;
+      }
+      .footer-info-apdiq-logo {
+        margin-top: 24px;
+        width: 180px;
+        height: auto;
+        mix-blend-mode: screen;
+      }
+    }
+
+    .footer-links {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+
+      .footer-links-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .footer-link {
+          color: $noir-boise-50;
+          font-family: $saansTrial;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16px;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin-top: 18%;
+
+    .footer-copyright {
+      display: flex;
+      flex-direction: row;
+      margin: 8px;
+
+      .footer-copyright-text {
+        margin-right: 48px;
+        font-family: $saansTrial;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
+        color: $noir-boise-50;
+      }
+    }
+  }
+}
