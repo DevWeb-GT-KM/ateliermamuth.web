@@ -59,6 +59,12 @@
           color: $jaune-pyrite-600;
           border: 1px solid $jaune-pyrite-600;
           border-radius: 5px;
+
+          &:hover {
+            color: $jaune-pyrite-50;
+            background-color: $jaune-pyrite-700;
+            border: none;
+          }
         }
 
         .services-listing-item-project-type {

@@ -1,6 +1,7 @@
 import "./ServicesPageContainer.scss";
 
 import { ServicesListing } from "./ServicesListing";
+import { Link } from "@/../navigation";
 
 export type ServicesPageContainerProps = {
   data?: {
@@ -27,7 +28,14 @@ export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
           ))}
         </div>
         <ServicesListing services={data?.[0]?.services} />
-        <div className="services-page-projects-container"></div>
+        <div className="services-page-projects-container">
+          <h2 className="services-page-projects-title">
+            Voir toutes nos réalisations
+          </h2>
+          <Link className="services-page-projects-link" href={"/projects"}>
+            en savoir plus
+          </Link>
+        </div>
       </div>
     </div>
   );
