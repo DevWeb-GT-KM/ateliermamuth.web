@@ -51,15 +51,15 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, params }) => {
   return (
     <html lang={params.locale}>
       <body className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}>
-        <header>
+        {/* <header>
           <nav>
             <h1>NavBar</h1>
           </nav>
-        </header>
+        </header> */}
         <main>{children}</main>
-        <footer>
+        {/* <footer>
           <h1>Footer</h1>
-        </footer>
+        </footer> */}
         {draftMode().isEnabled && <LiveVisualEditing />}
       </body>
     </html>

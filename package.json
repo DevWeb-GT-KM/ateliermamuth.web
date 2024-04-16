@@ -12,6 +12,7 @@
     "cleanmodule": "rm -rf ./node_modules"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "@sanity/client": "^6.15.7",
     "@sanity/document-internationalization": "^2.1.0",
     "@sanity/image-url": "^1.0.2",

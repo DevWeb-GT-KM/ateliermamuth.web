@@ -1,10 +1,14 @@
-import { QueryParams, SanityDocument } from "next-sanity";
+import { QueryParams } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
-import { loadQuery } from "@/../sanity/lib/store";
-import { SERVICES_QUERY_BY_LANG } from "../../../sanity/lib/queries";
 import { draftMode } from "next/headers";
-import { ServicesListingPreview } from "./components/ServicesListingPreview";
-import { ServicesListing } from "./components/ServicesListing";
+
+import { loadQuery } from "@/../sanity/lib/store";
+import { SERVICES_PAGE_QUERY } from "@/../sanity/lib/queries";
+import { LiveQueryWrapper } from "@/common/components/LiveQueryWrapper";
+import {
+  ServicesPageContainer,
+  ServicesPageContainerProps,
+} from "./components/ServicesPageContainer";
 
 type ServicesPageProps = {
   params: QueryParams;
@@ -13,23 +17,24 @@ type ServicesPageProps = {
 const ServicesPage: React.FC<ServicesPageProps> = async ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
-  const initial = await loadQuery<SanityDocument[]>(
-    SERVICES_QUERY_BY_LANG,
+  const { isEnabled } = draftMode();
+  const initial = await loadQuery<ServicesPageContainerProps["data"]>(
+    SERVICES_PAGE_QUERY,
     params,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
   return (
-    <div className="services-page-container">
-      <h1 className="services-page-title">Services page</h1>
-      {draftMode().isEnabled ? (
-        <ServicesListingPreview initial={initial} />
-      ) : (
-        <ServicesListing services={initial.data} />
-      )}
-    </div>
+    <LiveQueryWrapper
+      isEnabled={isEnabled}
+      query={isEnabled ? SERVICES_PAGE_QUERY : ""}
+      params={isEnabled ? params : {}}
+      initial={initial}
+    >
+      <ServicesPageContainer />
+    </LiveQueryWrapper>
   );
 };
 
