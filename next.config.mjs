@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -10,6 +11,9 @@ const nextConfig = {
   },
   experimental: {
     taint: true,
+  },
+  sassOptions: {
+    additionalData: `@import "./app/common/scss/variables";`,
   },
 };
 

@@ -1,13 +1,13 @@
 import { defineField, defineType } from "sanity";
-import { CircleIcon } from "@sanity/icons";
+import { FaShop } from "react-icons/fa6";
 import publications from "./publications";
 import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "aboutUs",
-  title: "Atelier",
+  title: "Page atelier",
   type: "document",
-  icon: CircleIcon,
+  icon: FaShop,
   fields: [
     defineField({
       name: "pageTitle",

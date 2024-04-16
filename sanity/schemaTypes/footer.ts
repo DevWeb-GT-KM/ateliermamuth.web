@@ -1,17 +1,18 @@
 import { defineField, defineType } from "sanity";
-import { CircleIcon } from "@sanity/icons";
+import { TbLayoutNavbarExpandFilled } from "react-icons/tb";
 import aboutUs from "./aboutUs/aboutUs";
 import services from "./service/services";
 import blog from "./blog/blog";
 import projects from "./project/projects";
 import faq from "./faq/faq";
 import { LANGUAGE_FIELD } from "./constants";
+import contact from "./contact/contact";
 
 export default defineType({
   name: "footer",
   title: "Pied de page",
   type: "document",
-  icon: CircleIcon,
+  icon: TbLayoutNavbarExpandFilled,
   fields: [
     defineField({
       name: "projects",
@@ -38,6 +39,12 @@ export default defineType({
       to: [{ type: services.name }],
     }),
     defineField({
+      name: "contact",
+      title: "Nous contacter",
+      type: "reference",
+      to: [{ type: contact.name }],
+    }),
+    defineField({
       name: "faq",
       title: "Faq",
       type: "reference",
@@ -49,14 +56,10 @@ export default defineType({
       type: "string",
     }),
     defineField({
-      name: "instagram",
-      title: "Instagram",
-      type: "string",
-    }),
-    defineField({
-      name: "facebook",
-      title: "Facebook",
-      type: "string",
+      name: "socialMedias",
+      title: "Médias sociaux",
+      type: "array",
+      of: [{ type: "socialMedia" }],
     }),
     defineField({
       name: "email",
@@ -64,19 +67,9 @@ export default defineType({
       type: "string",
     }),
     defineField({
-      name: "mamuthLogo",
-      title: "Logo Mamuth",
-      type: "image",
-    }),
-    defineField({
       name: "apdiqLogo",
       title: "Logo Apdiq",
       type: "image",
-    }),
-    defineField({
-      name: "copyright",
-      title: "Droits d'auteur",
-      type: "string",
     }),
     defineField(LANGUAGE_FIELD),
   ],

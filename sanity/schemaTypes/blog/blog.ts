@@ -1,13 +1,13 @@
 import { defineField, defineType } from "sanity";
 import blog from "./article";
-import { CircleIcon } from "@sanity/icons";
+import { MdOutlineFormatListNumberedRtl } from "react-icons/md";
 import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "blog",
-  title: "Rubrique",
+  title: "Page des articles",
   type: "document",
-  icon: CircleIcon,
+  icon: MdOutlineFormatListNumberedRtl,
   fields: [
     defineField({
       name: "pageTitle",

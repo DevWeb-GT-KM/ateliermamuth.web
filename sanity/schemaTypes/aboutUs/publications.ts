@@ -1,12 +1,12 @@
 import { defineField, defineType } from "sanity";
-import { DotIcon } from "@sanity/icons";
+import { AiOutlineBlock } from "react-icons/ai";
 import { LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "publications",
-  title: "Parutions",
+  title: "Bloc parutions",
   type: "document",
-  icon: DotIcon,
+  icon: AiOutlineBlock,
   fields: [
     defineField({
       name: "sectionTitle",

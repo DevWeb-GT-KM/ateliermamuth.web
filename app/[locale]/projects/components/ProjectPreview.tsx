@@ -19,9 +19,5 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({
     initial,
   });
 
-  return data ? (
-    <Project project={data} />
-  ) : (
-    <p className="projects-single-none">Project not found</p>
-  );
+  return data ? <Project project={data} /> : <p>Project not found</p>;
 };

@@ -20,6 +20,7 @@ import contactForm from "./schemaTypes/contact/contactForm";
 import footer from "./schemaTypes/footer";
 import navBar from "./schemaTypes/navBar";
 import step from "./schemaTypes/service/step";
+import socialMedia from "./schemaTypes/socialMedia";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -41,6 +42,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blog,
     article,
     question,
+    socialMedia,
     faq,
     contact,
     contactForm,

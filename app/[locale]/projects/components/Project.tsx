@@ -6,7 +6,7 @@ type ProjectProps = {
 
 export const Project: React.FC<ProjectProps> = ({ project }) => {
   return (
-    <div className="project-single-container">
+    <div>
       <h1>Project: {project.name}</h1>
     </div>
   );
