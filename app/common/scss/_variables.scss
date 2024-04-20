@@ -1,8 +1,23 @@
+// BREAKPOINT
+@mixin small {
+  @media only screen and (min-width: 0px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
 // FONTS
 $saansTrial: var(--font-saans-trial);
 $centuryOldStyleStd: var(--font-century-old-style-std);
 
 // TODO - MARGIN AND PADDING
+$sidePaddingDesktop: 40px;
+$sidePaddingMobile: 16px;
 
 // TODO - FONT-SIZE
 

@@ -1,12 +1,19 @@
+import { Metadata } from "next";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { draftMode } from "next/headers";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-import { Project } from "../components/Project";
-import { ProjectPreview } from "../components/ProjectPreview";
+import { ProjectPageContainer } from "./components/ProjectPageContainer";
+import { ProjectPageContainerPreview } from "./components/ProjectPageContainerPreview";
 import { loadQuery } from "@/../sanity/lib/store";
 import { PROJECTS_QUERY_BY_LANG, PROJECT_QUERY } from "@/../sanity/lib/queries";
 import { client } from "@/../sanity/lib/client";
+
+// TODO -> Get from CMS fr/en
+export const metadata: Metadata = {
+  title: "Nom du projet | Atelier Mamuth",
+  description: "Description du projet.",
+};
 
 export async function generateStaticParams({
   params: { locale },
@@ -38,9 +45,9 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
   });
 
   return draftMode().isEnabled ? (
-    <ProjectPreview initial={initial} params={params} />
+    <ProjectPageContainerPreview initial={initial} params={params} />
   ) : (
-    <Project project={initial.data} />
+    <ProjectPageContainer project={initial.data} />
   );
 };
 

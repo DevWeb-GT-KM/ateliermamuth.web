@@ -1,33 +1,57 @@
-.carousel-project-info-container {
+.home-page-carousel-project-info-container {
   background-color: $fondu-carroussel-description;
   backdrop-filter: blur(8px);
   border-radius: 10px;
-  width: 50%;
+  flex: 1;
   padding: 16px;
+  margin: 32px;
   cursor: pointer;
   font-family: $saansTrial;
 
-  .carousel-project-info-project-title {
+  @include small {
+    flex: none;
+    margin: 24px 16px;
+  }
+
+  .home-page-carousel-project-info-project-title {
     color: $noir-boise-50;
     font-weight: 400;
     font-size: 24px;
     line-height: 25px;
+
+    @include small {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+    }
   }
 
-  .carousel-project-info-project-description {
+  .home-page-carousel-project-info-project-description {
     color: $noir-boise-50;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
     margin-top: 24px;
+
+    @include small {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+    }
   }
 
-  .carousel-project-info-project-types {
+  .home-page-carousel-project-info-project-types {
     display: flex;
     flex-direction: row;
     margin-top: 16px;
 
-    .carousel-project-info-project-type {
+    @include small {
+      margin-top: 8px;
+    }
+
+    .home-page-carousel-project-info-project-type {
       background-color: $noir-boise-300;
       padding: 8px 16px 8px 16px;
       margin-right: 8px;
@@ -36,6 +60,11 @@
       font-size: 14px;
       line-height: 12px;
       color: $noir-boise-50;
+
+      @include small {
+        font-size: 10px;
+        padding: 4px 12px 4px 12px;
+      }
     }
   }
 }

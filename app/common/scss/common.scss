@@ -1,0 +1,43 @@
+.common-btn-jaune-pyrite {
+  cursor: pointer;
+
+  color: $jaune-pyrite-600;
+  border: 1px solid $jaune-pyrite-600;
+  border-radius: 5px;
+  font-family: $saansTrial;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+
+  display: block;
+  text-align: center;
+  width: fit-content;
+
+  &:hover {
+    color: $jaune-pyrite-50;
+    background-color: $jaune-pyrite-700;
+  }
+}
+
+.common-btn-noir-boise {
+  cursor: pointer;
+
+  color: $noir-boise-50;
+  border: 1px solid $noir-boise-50;
+  border-radius: 5px;
+  font-family: $saansTrial;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+
+  display: block;
+  text-align: center;
+  width: fit-content;
+
+  &:hover {
+    color: $noir-boise-700;
+    background-color: $noir-boise-50;
+  }
+}

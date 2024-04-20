@@ -1,6 +1,6 @@
 .services-page-container {
+  // TODO - mieux styler le calque
   .services-page-header {
-    height: 70vh;
     background-color: #c1d8d5;
     background-image: url("../../../common/assets/images/servicesPage/calque.svg");
     background-size: cover;
@@ -9,36 +9,70 @@
     justify-content: center;
     align-items: center;
 
+    // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
+    @include small {
+      height: 50vh;
+    }
+
+    @include large {
+      height: 60vh;
+    }
+
     .services-page-header-title {
       color: $gris-neutre-700;
       font-family: $saansTrial;
-      font-size: 56px;
       font-style: normal;
       font-weight: 400;
       line-height: 56px;
+
+      @include small {
+        font-size: 40px;
+      }
+
+      @include large {
+        font-size: 56px;
+      }
     }
   }
 
   .services-page-content {
     display: flex;
     flex-direction: column;
-    gap: 240px;
-    padding: 56px 40px 400px 40px;
+
+    @include small {
+      padding: 56px $sidePaddingMobile 240px;
+      gap: 160px;
+    }
+
+    @include large {
+      padding: 56px $sidePaddingDesktop 400px;
+      gap: 240px;
+    }
 
     .services-page-content-description-container {
       display: flex;
       flex-direction: column;
       gap: 40px;
-      max-width: 75%;
 
-      p {
+      @include large {
+        max-width: 75%;
+      }
+
+      .services-page-content-description-block {
         color: $noir-boise-700;
         font-family: $saansTrial;
-        font-size: 32px;
         font-style: normal;
         font-weight: 400;
-        line-height: 40px;
-        letter-spacing: -0.08px;
+
+        @include small {
+          font-size: 24px;
+          line-height: 32px;
+        }
+
+        @include large {
+          font-size: 32px;
+          line-height: 40px;
+        }
       }
     }
 
@@ -52,29 +86,23 @@
       .services-page-projects-title {
         color: $noir-boise-700;
         font-family: $saansTrial;
-        font-size: 32px;
         font-style: normal;
         font-weight: 400;
-        line-height: 30px;
+
+        @include small {
+          font-size: 24px;
+          line-height: 24px;
+        }
+
+        @include large {
+          font-size: 32px;
+          line-height: 30px;
+        }
       }
 
       .services-page-projects-link {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 140px;
-        height: 40px;
+        @extend .common-btn-jaune-pyrite;
         padding: 14px 16px;
-        color: $jaune-pyrite-600;
-        border: 1px solid $jaune-pyrite-600;
-        border-radius: 5px;
-
-        &:hover {
-          color: $jaune-pyrite-50;
-          background-color: $jaune-pyrite-700;
-          border: none;
-        }
       }
     }
   }
