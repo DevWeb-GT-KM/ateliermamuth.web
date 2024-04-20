@@ -40,12 +40,12 @@
     flex-direction: column;
 
     @include small {
-      padding: 56px 16px 240px;
+      padding: 56px $sidePaddingMobile 240px;
       gap: 160px;
     }
 
     @include large {
-      padding: 56px 40px 400px;
+      padding: 56px $sidePaddingDesktop 400px;
       gap: 240px;
     }
 
