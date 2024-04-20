@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { QueryParams } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { draftMode } from "next/headers";
@@ -9,6 +10,13 @@ import {
   ServicesPageContainer,
   ServicesPageContainerProps,
 } from "./components/ServicesPageContainer";
+
+// TODO -> Get from CMS fr/en
+export const metadata: Metadata = {
+  title: "Nos services | Atelier Mamuth",
+  description:
+    "Chez Atelier Mamuth nous offrons 3 types de services afin de bien vous guider selon vos besoins.",
+};
 
 type ServicesPageProps = {
   params: QueryParams;

@@ -31,6 +31,11 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: "projectSectionTitle",
+      title: "Titre de la section réalisations",
+      type: "string",
+    }),
     defineField(LANGUAGE_FIELD),
   ],
   preview: {

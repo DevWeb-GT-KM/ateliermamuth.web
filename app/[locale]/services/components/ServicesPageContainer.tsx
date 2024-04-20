@@ -22,8 +22,11 @@ export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
       <div className="services-page-content">
         <div className="services-page-content-description-container">
           {data?.[0].description?.map((descriptionParagraph) => (
-            <p key={descriptionParagraph._key}>
-              {descriptionParagraph.children?.[0].text}
+            <p
+              key={descriptionParagraph._key}
+              className="services-page-content-description-block"
+            >
+              {descriptionParagraph?.children?.[0]?.text}
             </p>
           ))}
         </div>
