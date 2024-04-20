@@ -1,4 +1,4 @@
-import "./ServicesPageContainer.scss";
+import "./servicesPageContainer.scss";
 
 import { ServicesListing } from "./ServicesListing";
 import { Link } from "@/../navigation";

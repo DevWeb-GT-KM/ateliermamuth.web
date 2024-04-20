@@ -1,4 +1,4 @@
-import "./ServicesListing.scss";
+import "./servicesListing.scss";
 
 import Image from "next/image";
 
