@@ -8,6 +8,7 @@ export type ServicesPageContainerProps = {
     pageTitle?: string;
     description?: any[];
     services?: any[];
+    projectSectionTitle: string;
   }[];
 };
 
@@ -21,7 +22,7 @@ export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
       </div>
       <div className="services-page-content">
         <div className="services-page-content-description-container">
-          {data?.[0].description?.map((descriptionParagraph) => (
+          {data?.[0]?.description?.map((descriptionParagraph) => (
             <p
               key={descriptionParagraph._key}
               className="services-page-content-description-block"
@@ -33,7 +34,7 @@ export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
         <ServicesListing services={data?.[0]?.services} />
         <div className="services-page-projects-container">
           <h2 className="services-page-projects-title">
-            Voir toutes nos réalisations
+            {data?.[0]?.projectSectionTitle}
           </h2>
           <Link className="services-page-projects-link" href={"/projects"}>
             en savoir plus
