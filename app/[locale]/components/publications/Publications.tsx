@@ -1,5 +1,5 @@
 import { Publication } from "./Publication";
-import "./Publications.scss";
+import "./publications.scss";
 
 type PublicationsProps = {
   data: any[];

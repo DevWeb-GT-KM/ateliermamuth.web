@@ -1,4 +1,4 @@
-import "./publication.scss";
+import "./Publication.scss";
 
 type PublicationProps = {
   data: any;
