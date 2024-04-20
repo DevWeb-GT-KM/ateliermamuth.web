@@ -1,0 +1,22 @@
+@import "../../../common/scss/variables";
+
+.home-page-publication-container {
+  .home-page-publication-item {
+    border-top: 1px solid $noir-boise-200;
+    color: $noir-boise-700;
+    font-family: $saansTrial;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    padding: 16px 0px;
+
+    @include small {
+      font-size: 18px;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $noir-boise-200;
+    }
+  }
+}

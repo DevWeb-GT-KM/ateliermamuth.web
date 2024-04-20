@@ -1,11 +1,20 @@
 @import "../../../common/scss/variables";
 
-.carousel-index-container {
+.home-page-carousel-index-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   z-index: 999;
+  margin-bottom: 32px;
+  margin-right: 32px;
+  flex: 1;
 
-  .carousel-index-dot {
+  @include small {
+    flex: none;
+    margin-bottom: 16px;
+    margin-right: 16px;
+  }
+
+  .home-page-carousel-index-dot {
     width: 12px;
     height: 12px;
     background-color: $noir-boise-200;
@@ -13,7 +22,7 @@
     margin: 6px;
   }
 
-  .carousel-index-dot-active {
+  .home-page-carousel-index-dot-active {
     background-color: $noir-boise-50;
   }
 }

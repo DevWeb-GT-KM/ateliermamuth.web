@@ -9,15 +9,15 @@ import minus from "../../../common/assets/images/homePage/services/serviceMinus.
 
 type ServiceProps = {
   data: any;
-  isLastService: boolean;
 };
 
-export const Service: React.FC<ServiceProps> = ({ data, isLastService }) => {
+export const Service: React.FC<ServiceProps> = ({ data }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [openContentHeight, setOpenContentHeight] = useState<number>(0);
-  const CLOSE_CONTENT_HEIGHT = 100;
+  const CLOSE_CONTENT_HEIGHT = 0;
 
   const contentRef = useRef<HTMLDivElement>(null);
+  const test = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (contentRef.current) {
@@ -28,12 +28,10 @@ export const Service: React.FC<ServiceProps> = ({ data, isLastService }) => {
   return (
     <div
       ref={contentRef}
-      className={`home-page-service-container ${
-        isLastService ? "last-service" : ""
-      }`}
+      className={"home-page-service-container"}
       onClick={() => setIsExpanded((prev) => !prev)}
       style={{
-        height: isExpanded ? `${openContentHeight}px` : CLOSE_CONTENT_HEIGHT,
+        height: isExpanded ? openContentHeight : CLOSE_CONTENT_HEIGHT,
       }}
     >
       <div className="home-page-service-header">
@@ -52,14 +50,7 @@ export const Service: React.FC<ServiceProps> = ({ data, isLastService }) => {
           <div className="home-page-service-project-types">
             {data.projectTypes.map((projectType: any, index: number) => {
               return (
-                <h1
-                  className={`home-page-service-project-type ${
-                    index == data.projectTypes.length - 1
-                      ? "last-project-type"
-                      : ""
-                  }`}
-                  key={index}
-                >
+                <h1 className={"home-page-service-project-type"} key={index}>
                   {projectType}
                 </h1>
               );

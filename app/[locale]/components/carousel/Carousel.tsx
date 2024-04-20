@@ -8,9 +8,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
 import { CarouselIndex } from "./CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
-import shapeA from "../../../common/assets/images/homePage/carousel/shapeA.svg";
-import shapeB from "../../../common/assets/images/homePage/carousel/shapeB.svg";
-import shapeC from "../../../common/assets/images/homePage/carousel/shapeC.svg";
+import shapes from "../../../common/assets/images/homePage/carousel/shapes.svg";
 
 type CarouselProps = {
   data: any[];
@@ -37,7 +35,7 @@ export const Carousel: React.FC<CarouselProps> = ({ data }) => {
 
   return (
     <div
-      className="carousel-container"
+      className="home-page-carousel-container"
       style={{
         backgroundImage: `url(${builder
           .image(data[0].carousel[currentIndex].mainImage.asset.url)
@@ -45,19 +43,9 @@ export const Carousel: React.FC<CarouselProps> = ({ data }) => {
       }}
     >
       <Image
-        className="carousel-shape carousel-shape-a"
-        src={shapeA}
-        alt="test"
-      />
-      <Image
-        className="carousel-shape carousel-shape-b"
-        src={shapeB}
-        alt="test"
-      />
-      <Image
-        className="carousel-shape carousel-shape-c"
-        src={shapeC}
-        alt="test"
+        className="home-page-carousel-shapes"
+        src={shapes}
+        alt="carousel-shapes"
       />
       <ProjectInformation data={data} currentIndex={currentIndex} />
       <CarouselIndex

@@ -1,31 +1,21 @@
 @import "../../../common/scss/variables";
 
 .home-page-values-container {
-  position: relative;
   margin-top: 320px;
-  height: 800px;
   background-color: $vert-pistache-700;
   overflow: hidden;
 
-  .home-page-values-shape {
-    mix-blend-mode: overlay;
-    position: absolute;
-    width: auto;
-  }
-
-  .home-page-values-shape-a {
-    bottom: 0px;
-  }
-
-  .home-page-values-shape-b {
-    right: 0px;
+  @include small {
+    margin-top: 160px;
   }
 
   .home-page-values-header {
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 40px 40px 0px 40px;
     border-top: 1px solid $noir-boise-50;
+
+    @include small {
+      margin: 16px 16px 0px 16px;
+    }
 
     .home-page-values-title {
       color: $noir-boise-50;
@@ -43,6 +33,13 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 220px;
-    height: 100%;
+    margin-bottom: 200px;
+
+    @include small {
+      flex-direction: column;
+      margin-top: 80px;
+      align-items: center;
+      margin-bottom: 140px;
+    }
   }
 }
