@@ -2,11 +2,19 @@
 
 .footer-container {
   background-color: $noir-boise-300;
-  padding: 40px 40px 8px 40px;
+  padding: 38px 40px 13px 40px;
+
+  @include small {
+    padding: 24px 16px 13px 16px;
+  }
 
   .footer-top {
     display: flex;
     flex-direction: row;
+
+    @include small {
+      flex-direction: column;
+    }
 
     .footer-info {
       flex: 1;
@@ -20,12 +28,21 @@
         font-style: normal;
         font-weight: 400;
         line-height: 20px;
+
+        @include small {
+          font-size: 16px;
+          line-height: 20px;
+        }
       }
 
       .footer-info-email {
         line-height: 16px;
         margin-right: 60px;
         display: inline-block;
+
+        @include small {
+          margin-top: 24px;
+        }
       }
 
       .footer-info-description {
@@ -36,6 +53,10 @@
         width: 180px;
         height: auto;
         mix-blend-mode: screen;
+
+        @include small {
+          margin-top: 24px;
+        }
       }
     }
 
@@ -44,11 +65,19 @@
       display: flex;
       flex-direction: row;
 
+      @include small {
+        flex-wrap: wrap;
+      }
+
       .footer-links-column {
         flex: 1;
         display: flex;
         flex-direction: column;
 
+        @include small {
+          margin-top: 80px;
+          flex: 0 1 50%;
+        }
         .footer-link {
           color: $noir-boise-50;
           font-family: $saansTrial;
@@ -63,7 +92,11 @@
   }
 
   .footer-bottom {
-    margin-top: 18%;
+    margin-top: 320px;
+
+    @include small {
+      margin-top: 160px;
+    }
 
     .footer-copyright {
       display: flex;

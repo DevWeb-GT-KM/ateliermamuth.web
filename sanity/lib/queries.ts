@@ -30,7 +30,15 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == "fr
   },
   aboutUs->{
     pageTitle,
-    shortDescription
+    shortDescription,
+    publications->{
+      sectionTitle,
+      publications[]{
+        mediaName,
+        publicationDate,
+        link
+      }
+    }
   },
   services->{
     pageTitle,

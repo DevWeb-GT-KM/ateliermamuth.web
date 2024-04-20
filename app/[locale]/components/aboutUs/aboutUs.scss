@@ -1,12 +1,17 @@
 @import "../../../common/scss/variables";
 
-.about-us-container {
+.home-page-about-us-container {
   margin: 40px;
   border-top: 1px solid $noir-boise-200;
   padding-top: 8px;
 
-  .about-us-header {
+  @include small {
+    margin: 16px;
+  }
+
+  .home-page-about-us-header {
     margin-bottom: 160px;
+
     .about-us-title {
       font-family: $saansTrial;
       color: $noir-boise-700;
@@ -14,19 +19,37 @@
       font-style: normal;
       font-weight: 400;
       line-height: 16px;
+
+      @include small {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+
+    @include small {
+      margin-bottom: 120px;
     }
   }
 
-  .about-us-body {
+  .home-page-about-us-body {
     padding-left: 35%;
 
-    .about-us-description {
+    @include small {
+      padding-left: 0px;
+    }
+
+    .home-page-about-us-description {
       font-family: $saansTrial;
       color: $noir-boise-700;
       font-size: 40px;
       font-style: normal;
       font-weight: 400;
       line-height: 52px;
+
+      @include small {
+        font-size: 28px;
+        line-height: 36px;
+      }
     }
   }
 }

@@ -11,16 +11,6 @@ type ValuesProps = {
 export const Values: React.FC<ValuesProps> = ({ data }) => {
   return (
     <div className="home-page-values-container">
-      <Image
-        className="home-page-values-shape home-page-values-shape-a"
-        src={shapeA}
-        alt="shape"
-      />
-      <Image
-        className="home-page-values-shape home-page-values-shape-b"
-        src={shapeB}
-        alt="shape"
-      />
       <div className="home-page-values-header">
         <h1 className="home-page-values-title">
           {data[0].values.sectionTitle}

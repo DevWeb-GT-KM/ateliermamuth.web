@@ -21,20 +21,23 @@ export const ProjectInformation: React.FC<ProjectInformationProps> = ({
   };
 
   return (
-    <div className="carousel-project-info-container">
-      <h1 className="carousel-project-info-project-title">
+    <div className="home-page-carousel-project-info-container">
+      <h1 className="home-page-carousel-project-info-project-title">
         {data[0].carousel[currentIndex].name}
       </h1>
-      <p className="carousel-project-info-project-description">
+      <p className="home-page-carousel-project-info-project-description">
         {formatDescription(data[0].carousel[currentIndex].shortDescription)}
       </p>
-      <div className="carousel-project-info-project-types">
+      <div className="home-page-carousel-project-info-project-types">
         {data[0].carousel[currentIndex].projectTypes.map(
           (projectType: any, index: number) => {
             return (
-              <div key={index} className="carousel-project-info-project-type">
+              <h2
+                key={index}
+                className="home-page-carousel-project-info-project-type"
+              >
                 {projectType}
-              </div>
+              </h2>
             );
           }
         )}

@@ -11,12 +11,12 @@ export const CarouselIndex: React.FC<CarouselIndexProps> = ({
   activeIndex,
 }) => {
   return (
-    <div className="carousel-index-container">
+    <div className="home-page-carousel-index-container">
       {_.times(carouselLength, (index) => (
         <div
           key={index}
-          className={`carousel-index-dot ${
-            activeIndex == index ? "carousel-index-dot-active" : ""
+          className={`home-page-carousel-index-dot ${
+            activeIndex == index ? "home-page-carousel-index-dot-active" : ""
           }`}
         />
       ))}
