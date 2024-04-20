@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import { QueryParams } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
+
+export const metadata: Metadata = {
+  title: "Contact | Atelier Mamuth",
+  description: "Contact description.",
+};
 
 type ContactPageProps = {
   params: QueryParams;

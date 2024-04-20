@@ -1,0 +1,9 @@
+.product-page-container {
+  @include small {
+    padding: 180px $sidePaddingMobile 240px;
+  }
+
+  @include large {
+    padding: 312px $sidePaddingDesktop 320px;
+  }
+}

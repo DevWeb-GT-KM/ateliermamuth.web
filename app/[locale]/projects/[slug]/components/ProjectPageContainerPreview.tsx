@@ -3,21 +3,24 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 
-import { Project } from "./Project";
+import { ProjectPageContainer } from "./ProjectPageContainer";
 import { PROJECT_QUERY } from "@/../sanity/lib/queries";
 
-type ProjectPreviewProps = {
+type ProjectPageContainerPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;
   params: QueryParams;
 };
 
-export const ProjectPreview: React.FC<ProjectPreviewProps> = ({
-  initial,
-  params,
-}) => {
+export const ProjectPageContainerPreview: React.FC<
+  ProjectPageContainerPreviewProps
+> = ({ initial, params }) => {
   const { data } = useQuery<SanityDocument | null>(PROJECT_QUERY, params, {
     initial,
   });
 
-  return data ? <Project project={data} /> : <p>Project not found</p>;
+  return data ? (
+    <ProjectPageContainer project={data} />
+  ) : (
+    <p>Project not found</p>
+  );
 };

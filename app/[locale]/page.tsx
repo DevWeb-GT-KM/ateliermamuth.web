@@ -3,7 +3,7 @@ import { QueryParams, SanityDocument } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import { Carousel } from "./components/carousel/Carousel";
-import { loadQuery } from "../../sanity/lib/store";
+import { loadQuery } from "@/../sanity/lib/store";
 import { HOME_PAGE_QUERY_BY_LANG } from "../../sanity/lib/queries";
 import { draftMode } from "next/headers";
 import { AboutUs } from "./components/aboutUs/AboutUs";

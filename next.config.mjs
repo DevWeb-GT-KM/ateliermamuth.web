@@ -13,7 +13,10 @@ const nextConfig = {
     taint: true,
   },
   sassOptions: {
-    additionalData: `@import "./app/common/scss/variables";`,
+    additionalData: `
+      @import "./app/common/scss/variables";
+      @import "./app/common/scss/common";
+    `,
   },
 };
 
