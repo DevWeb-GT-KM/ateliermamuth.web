@@ -9,7 +9,7 @@ import { LiveVisualEditing } from "../common/components/LiveVisualEditing";
 import { FRENCH_LOCALE } from "@/../navigation";
 import favIcon from "../common/assets/favicon.ico";
 import { Footer } from "@/common/components/footer/Footer";
-import { loadQuery } from "@sanity/react-loader";
+import { loadQuery } from "@/../sanity/lib/store";
 import { FOOTER_QUERY_BY_LANG } from "../../sanity/lib/queries";
 
 const saansTrial = localFont({
