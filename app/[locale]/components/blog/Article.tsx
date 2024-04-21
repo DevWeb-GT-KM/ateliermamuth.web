@@ -1,7 +1,7 @@
 import "./article.scss";
 
 type ArticleProps = {
-  data: any;
+  data: any[];
 };
 
 export const Article: React.FC<ArticleProps> = ({ data }) => {
@@ -16,14 +16,20 @@ export const Article: React.FC<ArticleProps> = ({ data }) => {
   };
 
   return (
-    <div className="home-page-blog-article-container">
-      <div className="home-page-blog-article-description">
-        <h1 className="home-page-blog-title">{data.title}</h1>
-        <p className="home-page-blog-article-description">
-          {formatDescription(data.description)}
-        </p>
-      </div>
-      <div className="home-page-blog-article-image"></div>
-    </div>
+    <>
+      {data.map((article: any, index: number) => {
+        return (
+          <div key={index} className="home-page-blog-article-container">
+            <div className="home-page-blog-article-description-container">
+              <h1 className="home-page-blog-title">{article.title}</h1>
+              <p className="home-page-blog-article-description">
+                {formatDescription(article.description)}
+              </p>
+            </div>
+            <div className="home-page-blog-article-image"></div>
+          </div>
+        );
+      })}
+    </>
   );
 };

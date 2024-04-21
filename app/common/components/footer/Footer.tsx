@@ -31,21 +31,21 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
         </div>
         <div className="footer-links">
           <div className="footer-links-column">
-            <Link className="footer-link" href={{ pathname: "/" }}>
+            <Link className="footer-link" href={{ pathname: "/projects" }}>
               {data[0].projects.pageTitle}
             </Link>
-            <Link className="footer-link" href={{ pathname: "/" }}>
+            <Link className="footer-link" href={{ pathname: "/about-us" }}>
               {data[0].aboutUs.pageTitle}
             </Link>
-            <Link className="footer-link" href={{ pathname: "/" }}>
+            <Link className="footer-link" href={{ pathname: "/blog" }}>
               {data[0].blog.pageTitle}
             </Link>
-            <Link className="footer-link" href={{ pathname: "/" }}>
+            <Link className="footer-link" href={{ pathname: "/contact" }}>
               {data[0].contact.pageTitle}
             </Link>
           </div>
           <div className="footer-links-column">
-            <Link className="footer-link" href={{ pathname: "/" }}>
+            <Link className="footer-link" href={{ pathname: "/services" }}>
               {data[0].services.pageTitle}
             </Link>
             {data[0].services.services.map((service: any, index: number) => {
@@ -53,7 +53,10 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
                 <Link
                   key={index}
                   className="footer-link"
-                  href={{ pathname: "/" }}
+                  href={{
+                    pathname: "/services/[slug]",
+                    params: { slug: service?.slug?.current },
+                  }}
                 >
                   {service.name}
                 </Link>
@@ -61,7 +64,7 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
             })}
           </div>
           <div className="footer-links-column">
-            <Link className="footer-link" href={{ pathname: "/" }}>
+            <Link className="footer-link" href={{ pathname: "/faq" }}>
               {data[0].faq.pageTitle}
             </Link>
             <Link className="footer-link" href={{ pathname: "/" }}>

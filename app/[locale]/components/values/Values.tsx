@@ -1,7 +1,8 @@
 import "./values.scss";
+
+import { Link } from "@/../navigation";
+
 import Image from "next/image";
-import shapeA from "../../../common/assets/images/homePage/values/shapeA.svg";
-import shapeB from "../../../common/assets/images/homePage/values/shapeB.svg";
 import { Value } from "./Value";
 
 type ValuesProps = {
@@ -21,6 +22,9 @@ export const Values: React.FC<ValuesProps> = ({ data }) => {
           return <Value key={index} data={value} />;
         })}
       </div>
+      <Link className="home-page-values-link" href={"/"}>
+        en savoir plus
+      </Link>
     </div>
   );
 };
