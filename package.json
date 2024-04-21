@@ -11,6 +11,7 @@
     "clean": "rm -rf ./.next && rm -rf ./node_modules"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.18",
     "@radix-ui/react-slot": "^1.0.2",
     "@sanity/client": "^6.15.7",
     "@sanity/document-internationalization": "^2.1.0",
