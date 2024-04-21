@@ -1,7 +1,9 @@
 "use client";
 import "./service.scss";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import AnimateHeight from "react-animate-height";
+import { Link } from "@/../navigation";
 
 import Image from "next/image";
 import plus from "../../../common/assets/images/homePage/services/servicePlus.svg";
@@ -12,34 +14,24 @@ type ServiceProps = {
 };
 
 export const Service: React.FC<ServiceProps> = ({ data }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [openContentHeight, setOpenContentHeight] = useState<number>(0);
-  const CLOSE_CONTENT_HEIGHT = 0;
-
-  const contentRef = useRef<HTMLDivElement>(null);
-  const test = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (contentRef.current) {
-      setOpenContentHeight(contentRef.current.scrollHeight);
-    }
-  }, [isExpanded]);
+  const MIN_HEIGHT = window.innerWidth < 768 ? 64 : 104;
+  const [height, setHeight] = useState<number | "auto">(MIN_HEIGHT);
 
   return (
-    <div
-      ref={contentRef}
+    <AnimateHeight
       className={"home-page-service-container"}
-      onClick={() => setIsExpanded((prev) => !prev)}
-      style={{
-        height: isExpanded ? openContentHeight : CLOSE_CONTENT_HEIGHT,
-      }}
+      duration={1000}
+      onClick={() => setHeight(height == "auto" ? MIN_HEIGHT : "auto")}
+      height={height}
     >
-      <div className="home-page-service-header">
+      <div
+        className="home-page-service-header"
+        onClick={() => setHeight(height == "auto" ? MIN_HEIGHT : "auto")}
+      >
         <h1 className="home-page-service-title">{data.name}</h1>
-        {/* TODO - regarder pour le sizing de l'image */}
         <Image
           className="home-page-service-plus-img"
-          src={isExpanded ? minus : plus}
+          src={height == "auto" ? minus : plus}
           alt="plus"
           width={30}
         />
@@ -47,17 +39,27 @@ export const Service: React.FC<ServiceProps> = ({ data }) => {
       <div className="home-page-service-body">
         <div className="home-page-service-description-container">
           <p className="home-page-service-description">{data.description}</p>
-          <div className="home-page-service-project-types">
-            {data.projectTypes.map((projectType: any, index: number) => {
-              return (
-                <h1 className={"home-page-service-project-type"} key={index}>
-                  {projectType}
-                </h1>
-              );
-            })}
-          </div>
+          <Link
+            className="home-page-service-link"
+            onClick={(e) => e.stopPropagation()}
+            href={{
+              pathname: "/services/[slug]",
+              params: { slug: data?.slug?.current },
+            }}
+          >
+            en savoir plus
+          </Link>
+        </div>
+        <div className="home-page-service-project-types">
+          {data.projectTypes.map((projectType: any, index: number) => {
+            return (
+              <h1 className={"home-page-service-project-type"} key={index}>
+                {projectType}
+              </h1>
+            );
+          })}
         </div>
       </div>
-    </div>
+    </AnimateHeight>
   );
 };
