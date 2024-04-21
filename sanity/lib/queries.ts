@@ -45,6 +45,7 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
     pageTitle,
     services[]->{
       name,
+      slug,
       description,
       projectTypes
     }
@@ -93,7 +94,8 @@ export const FOOTER_QUERY_BY_LANG = groq`*[_type == "footer" && language == $loc
     services->{
       pageTitle,
       services[]->{
-        name
+        name,
+        slug
       }
     },
     contact->{

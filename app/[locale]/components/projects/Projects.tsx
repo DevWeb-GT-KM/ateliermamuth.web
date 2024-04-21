@@ -1,5 +1,8 @@
-import { Project } from "./Project";
 import "./projects.scss";
+
+import { Link } from "@/../navigation";
+
+import { Project } from "./Project";
 
 type ProjectsProps = {
   data: any[];
@@ -20,6 +23,9 @@ export const Projects: React.FC<ProjectsProps> = ({ data }) => {
         <h1 className="home-page-projects-see-more-title">
           Voir toutes nos réalisations
         </h1>
+        <Link className="home-page-projects-link" href={"/projects"}>
+          projets
+        </Link>
       </div>
     </div>
   );

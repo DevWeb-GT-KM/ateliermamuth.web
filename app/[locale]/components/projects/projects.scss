@@ -46,5 +46,11 @@
         font-size: 24px;
       }
     }
+
+    .home-page-projects-link {
+      @extend .common-btn-jaune-pyrite;
+      padding: 14px 28px;
+      margin: 24px auto 0px auto;
+    }
   }
 }
