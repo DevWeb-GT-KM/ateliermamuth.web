@@ -1,0 +1,93 @@
+@import "../../../../common/scss/variables";
+
+main:has(.service-page-design-interieur-container) {
+  background: rgba(229, 229, 255, 0.5);
+}
+
+main:has(.service-page-architecture-residentielle-container) {
+  background: #eef6f0;
+}
+
+main:has(.service-page-e-design-container) {
+  background: #e5f1ff;
+}
+
+.service-page-container {
+  margin: 240px 40px 0px 40px;
+
+  @include small {
+    margin: 240px 16px 0px 16px;
+  }
+  .service-page-header {
+    .service-page-title {
+      color: $noir-boise-700;
+      font-family: $saansTrial;
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 56px;
+
+      @include small {
+        font-size: 40px;
+      }
+    }
+
+    .service-page-description {
+      color: $noir-boise-700;
+      font-family: $saansTrial;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 52px;
+      margin-top: 240px;
+      margin-left: 25%;
+
+      @include small {
+        margin-top: 160px;
+        margin-left: 0px;
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .service-page-steps-section {
+    display: flex;
+    flex-direction: row;
+    margin-top: 240px;
+    padding-top: 40px;
+    border-top: 1px solid $noir-boise-200;
+
+    @include small {
+      padding-top: 24px;
+      margin-top: 160px;
+      flex-direction: column;
+    }
+
+    .service-page-steps-section-header {
+      flex: 2;
+
+      @include small {
+        margin-bottom: 56px;
+      }
+
+      .service-page-steps-section-title {
+        color: $noir-boise-700;
+        font-family: $saansTrial;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+
+        @include small {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+    }
+
+    .service-page-steps-section-body {
+      flex: 3;
+    }
+  }
+}
