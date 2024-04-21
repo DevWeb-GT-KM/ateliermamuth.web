@@ -3,7 +3,7 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 
-import { Service } from "./Service";
+import { ServicePageContainer } from "./ServicePageContainer";
 import { PROJECT_QUERY } from "@/../sanity/lib/queries";
 
 type ServicePreviewProps = {
@@ -20,7 +20,7 @@ export const ServicePreview: React.FC<ServicePreviewProps> = ({
   });
 
   return data ? (
-    <Service service={data} />
+    <ServicePageContainer service={data} />
   ) : (
     <p className="service-single-none">Service not found</p>
   );
