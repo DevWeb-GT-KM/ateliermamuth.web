@@ -2,6 +2,7 @@ import { Employee } from "./Employee";
 import "./aboutUsPageContainer.scss";
 
 import { PortableText } from "@portabletext/react";
+import { Publications } from "./publications/Publications";
 
 export type AboutUsPageContainerProps = {
   data: any[];
@@ -31,6 +32,7 @@ export const AboutUsPageContainer: React.FC<AboutUsPageContainerProps> = ({
           return <Employee key={index} data={employee} />;
         })}
       </div>
+      <Publications data={data[0].publications} />
     </div>
   );
 };
