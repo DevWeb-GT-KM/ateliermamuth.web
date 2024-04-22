@@ -1,9 +1,137 @@
-.product-page-container {
+// TODO - mieux styler les images
+.project-page-container {
   @include small {
     padding: 180px $sidePaddingMobile 240px;
   }
 
   @include large {
     padding: 312px $sidePaddingDesktop 320px;
+  }
+
+  .project-page-title {
+    text-align: center;
+    color: $noir-boise-700;
+    font-family: $saansTrial;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 56px;
+
+    @include small {
+      font-size: 40px;
+    }
+
+    @include large {
+      font-size: 56px;
+    }
+  }
+
+  .project-page-first-block-container {
+    .project-page-first-block-image-container {
+      position: relative;
+
+      @include small {
+        height: 180px;
+      }
+
+      @include large {
+        height: 720px;
+      }
+
+      .project-page-first-block-image {
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .project-page-second-block-container {
+    .project-page-second-block-images-container {
+      display: flex;
+      gap: 16px;
+
+      @include small {
+        flex-direction: column;
+      }
+
+      .project-page-second-block-big-image {
+        position: relative;
+
+        @include large {
+          height: 720px;
+          flex: 3;
+        }
+
+        .project-page-second-block-big-image {
+          border-radius: 10px;
+        }
+      }
+
+      .project-page-second-block-carousel-container {
+        position: relative;
+
+        @include large {
+          height: 720px;
+          flex: 1;
+        }
+
+        .project-page-second-block-carousel-image {
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+  .project-page-third-block-container {
+    .project-page-third-block-image-container {
+      position: relative;
+
+      @include small {
+        height: 180px;
+      }
+
+      @include large {
+        height: 720px;
+      }
+
+      .project-page-third-block-image {
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .project-page-fourth-block-container {
+    .project-page-fourth-block-images-container {
+      display: flex;
+      gap: 16px;
+
+      @include small {
+        flex-direction: column;
+      }
+
+      .project-page-fourth-block-carousel-container {
+        position: relative;
+
+        @include large {
+          height: 720px;
+          flex: 1;
+        }
+
+        .project-page-fourth-block-carousel-image {
+          border-radius: 10px;
+        }
+      }
+
+      .project-page-fourth-block-image-container {
+        position: relative;
+
+        @include large {
+          height: 720px;
+          flex: 1;
+        }
+
+        .project-page-fourth-block-image {
+          border-radius: 10px;
+        }
+      }
+    }
   }
 }

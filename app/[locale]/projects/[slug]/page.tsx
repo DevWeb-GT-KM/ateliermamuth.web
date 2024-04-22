@@ -6,7 +6,10 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { ProjectPageContainer } from "./components/ProjectPageContainer";
 import { ProjectPageContainerPreview } from "./components/ProjectPageContainerPreview";
 import { loadQuery } from "@/../sanity/lib/store";
-import { PROJECTS_QUERY_BY_LANG, PROJECT_QUERY } from "@/../sanity/lib/queries";
+import {
+  PROJECTS_QUERY_BY_LANG,
+  PROJECT_QUERY_BY_LANG,
+} from "@/../sanity/lib/queries";
 import { client } from "@/../sanity/lib/client";
 
 // TODO -> Get from CMS fr/en
@@ -38,11 +41,13 @@ type ProjectPageProps = {
 const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
-  const initial = await loadQuery<SanityDocument>(PROJECT_QUERY, params, {
-    // Because of Next.js, RSC and Dynamic Routes this currently
-    // cannot be set on the loadQuery function at the "top level"
-    perspective: draftMode().isEnabled ? "previewDrafts" : "published",
-  });
+  const initial = await loadQuery<SanityDocument>(
+    PROJECT_QUERY_BY_LANG,
+    params,
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
 
   return draftMode().isEnabled ? (
     <ProjectPageContainerPreview initial={initial} params={params} />

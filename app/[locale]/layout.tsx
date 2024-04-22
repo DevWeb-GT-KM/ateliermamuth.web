@@ -45,6 +45,7 @@ type RootLayoutProps = {
 };
 
 export async function generateStaticParams() {
+  // return [{ locale: FRENCH_LOCALE }, { locale: ENGLISH_LOCALE }];
   return [{ locale: FRENCH_LOCALE }];
 }
 
