@@ -4,7 +4,7 @@ import { client } from "@/../sanity/lib/client";
 import { SERVICES_LIST_QUERY, SERVICE_QUERY } from "@/../sanity/lib/queries";
 import { loadQuery } from "@/../sanity/lib/store";
 import { draftMode } from "next/headers";
-import { ServicePreview } from "./components/ServicePreview";
+import { ServicePageContainerPreview } from "./components/ServicePageContainerPreview";
 import { ServicePageContainer } from "./components/ServicePageContainer";
 
 export async function generateStaticParams({
@@ -35,7 +35,7 @@ const ServicePage: React.FC<ServicePageProps> = async ({ params }) => {
   });
 
   return draftMode().isEnabled ? (
-    <ServicePreview initial={initial} params={params} />
+    <ServicePageContainerPreview initial={initial} params={params} />
   ) : (
     <ServicePageContainer service={initial.data} />
   );
