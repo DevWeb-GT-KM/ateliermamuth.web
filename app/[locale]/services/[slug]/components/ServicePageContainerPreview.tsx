@@ -6,15 +6,14 @@ import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import { ServicePageContainer } from "./ServicePageContainer";
 import { PROJECT_QUERY } from "@/../sanity/lib/queries";
 
-type ServicePreviewProps = {
+type ServicePageContainerPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;
   params: QueryParams;
 };
 
-export const ServicePreview: React.FC<ServicePreviewProps> = ({
-  initial,
-  params,
-}) => {
+export const ServicePageContainerPreview: React.FC<
+  ServicePageContainerPreviewProps
+> = ({ initial, params }) => {
   const { data } = useQuery<SanityDocument | null>(PROJECT_QUERY, params, {
     initial,
   });
