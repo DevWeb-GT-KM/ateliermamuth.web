@@ -1,7 +1,11 @@
 import "./projectPageContainer.scss";
 
 import { SanityDocument } from "next-sanity";
+import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import { getImageDimensions } from "@sanity/asset-utils";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/../sanity/lib/client";
 
 type ProjectPageContainerProps = {
   project: SanityDocument;
@@ -10,10 +14,43 @@ type ProjectPageContainerProps = {
 export const ProjectPageContainer: React.FC<ProjectPageContainerProps> = ({
   project,
 }) => {
+  // Barebones lazy-loaded image component
+  const SampleImageComponent = ({ value, isInline }: any) => {
+    const { width, height } = getImageDimensions(value);
+    return (
+      <img
+        src={imageUrlBuilder(client)
+          .image(value)
+          .width(isInline ? 100 : 800)
+          .fit("max")
+          .auto("format")
+          .url()}
+        alt={value.alt || " "}
+        style={{
+          // Display alongside text if image appears inside a block text span
+          display: isInline ? "inline-block" : "block",
+
+          // Avoid jumping around with aspect-ratio CSS property
+          aspectRatio: width / height,
+        }}
+      />
+    );
+  };
+
   return (
     <div className="project-page-container">
       <h1 className="project-page-title">{project.name}</h1>
-      <div className="project-page-first-block-container">
+
+      <PortableText
+        value={project?.description}
+        components={{
+          types: {
+            image: SampleImageComponent,
+          },
+        }}
+      />
+
+      {/* <div className="project-page-first-block-container">
         <p>{project.shortDescription}</p>
         {project.projectTypes.map((type: string, index: number) => (
           <div key={index}>{type}</div>
@@ -87,7 +124,7 @@ export const ProjectPageContainer: React.FC<ProjectPageContainerProps> = ({
             />
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="project-page-switch-page-container"></div>
     </div>
   );

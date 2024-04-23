@@ -8,7 +8,10 @@ export const PROJECT_QUERY_BY_LANG = groq`*[_type == "project" && slug.current =
   credits,
   projectTypes,
   shortDescription,
-  description,
+  description[] {
+    ...,
+    asset->
+  },
   mainImage {
     asset-> 
   }
