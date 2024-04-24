@@ -6,7 +6,7 @@ import {
   AboutUsPageContainer,
   AboutUsPageContainerProps,
 } from "./components/AboutUsPageContainer";
-import { ABOUT_US_PAGE_QUERY } from "../../../sanity/lib/queries";
+import { ABOUT_US_PAGE_QUERY_BY_LANG } from "../../../sanity/lib/queries";
 import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = async ({ params }) => {
 
   const { isEnabled } = draftMode();
   const initial = await loadQuery<AboutUsPageContainerProps["data"]>(
-    ABOUT_US_PAGE_QUERY,
+    ABOUT_US_PAGE_QUERY_BY_LANG,
     params,
     {
       perspective: isEnabled ? "previewDrafts" : "published",
