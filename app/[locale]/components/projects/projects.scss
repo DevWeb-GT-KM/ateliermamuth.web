@@ -1,10 +1,10 @@
 @import "../../../common/scss/variables";
 
 .home-page-projects-container {
-  margin: 320px 32px 0px 32px;
+  margin-top: 320px;
 
   @include small {
-    margin: 160px 16px 0px 16px;
+    margin-top: 160px;
   }
 
   .home-page-projects-header {
