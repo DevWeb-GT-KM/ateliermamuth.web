@@ -1,15 +1,30 @@
-@import "../../../../common/scss/variables";
-
-body:has(.service-page-design-interieur-container) {
-  background: rgba(229, 229, 255, 0.5);
+:has(.service-page-design-interieur-container) {
+  body {
+    background: rgba(229, 229, 255, 0.5);
+  }
+  .footer-container {
+    background-color: $lavande-500;
+  }
 }
 
-body:has(.service-page-architecture-residentielle-container) {
-  background: #eef6f0;
+:has(.service-page-architecture-residentielle-container) {
+  body {
+    background-color: #eef6f0;
+  }
+
+  .footer-container {
+    background-color: $vert-pistache-500;
+  }
 }
 
-body:has(.service-page-e-design-container) {
-  background: #e5f1ff;
+:has(.service-page-e-design-container) {
+  body {
+    background-color: #e5f1ff;
+  }
+
+  .footer-container {
+    background-color: $bleu-helvetia-500;
+  }
 }
 
 .service-page-container {
@@ -18,6 +33,7 @@ body:has(.service-page-e-design-container) {
   @include small {
     margin-top: 240px;
   }
+
   .service-page-header {
     .service-page-title {
       color: $noir-boise-700;

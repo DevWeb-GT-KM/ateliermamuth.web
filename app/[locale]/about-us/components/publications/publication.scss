@@ -1,5 +1,7 @@
-.home-page-publication-container {
-  .home-page-publication-item {
+@import "../../../../common/scss/common.scss";
+
+.publication-container {
+  .publication-item {
     border-top: 1px solid $noir-boise-200;
     padding: 16px 0px;
     display: flex;
@@ -12,7 +14,7 @@
       border-bottom: 1px solid $noir-boise-200;
     }
 
-    .home-page-publication-text {
+    .publication-text {
       color: $noir-boise-700;
       font-family: $saansTrial;
       font-size: 24px;
@@ -25,7 +27,7 @@
       }
     }
 
-    .home-page-publication-link {
+    .publication-link {
       color: $noir-boise-600;
       text-align: center;
       font-family: $saansTrial;

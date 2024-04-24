@@ -4,11 +4,11 @@ import "./servicePageContainer.scss";
 
 import { SanityDocument } from "next-sanity";
 
-type ServicePagecontainerProps = {
+type ServicePageContainerProps = {
   service: SanityDocument;
 };
 
-export const ServicePageContainer: React.FC<ServicePagecontainerProps> = ({
+export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
   service,
 }) => {
   return (

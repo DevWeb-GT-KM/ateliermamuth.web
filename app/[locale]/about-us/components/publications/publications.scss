@@ -1,14 +1,14 @@
-.home-page-publications-container {
+.publications-container {
   display: flex;
   flex-direction: row;
-  margin: 320px 0px;
+  margin: 240px 0px;
 
   @include small {
     flex-direction: column;
     margin: 160px 0px;
   }
 
-  .home-page-publications-header {
+  .publications-header {
     flex: 1;
 
     @include small {
@@ -16,7 +16,7 @@
       margin-bottom: 40px;
     }
 
-    .home-page-publications-title {
+    .publications-title {
       color: $noir-boise-600;
       font-family: $saansTrial;
       font-size: 56px;
@@ -31,7 +31,7 @@
     }
   }
 
-  .home-page-publications-body {
+  .publications-body {
     flex: 1;
   }
 }
