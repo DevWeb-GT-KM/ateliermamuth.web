@@ -1,4 +1,4 @@
-import "./Publication.scss";
+import "./publication.scss";
 
 import { Link } from "@/../navigation";
 
