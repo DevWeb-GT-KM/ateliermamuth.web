@@ -1,0 +1,37 @@
+.publications-container {
+  display: flex;
+  flex-direction: row;
+  margin: 240px 40px 240px 40px;
+
+  @include small {
+    flex-direction: column;
+    margin: 160px 16px 160px 16px;
+  }
+
+  .publications-header {
+    flex: 1;
+
+    @include small {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .publications-title {
+      color: $noir-boise-600;
+      font-family: $saansTrial;
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 56px;
+
+      @include small {
+        font-size: 40px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .publications-body {
+    flex: 1;
+  }
+}
