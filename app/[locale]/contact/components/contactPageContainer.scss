@@ -1,0 +1,102 @@
+.contact-page-container {
+  .contact-page-title {
+    color: $noir-boise-700;
+    font-family: $saansTrial;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 56px;
+    text-align: center;
+    margin-top: 280px;
+
+    @include small {
+      font-size: 40px;
+    }
+  }
+
+  .contact-page-content {
+    display: flex;
+    flex-direction: row;
+    margin: 240px 40px 0px 40px;
+
+    @include small {
+      flex-direction: column-reverse;
+      margin: 240px 16px 0px 16px;
+    }
+
+    .contact-page-information {
+      flex: 2;
+
+      @include small {
+        margin-top: 80px;
+      }
+
+      .contact-page-information-email,
+      .contact-page-information-telephone {
+        display: flex;
+        flex-direction: row;
+        border-top: 1px solid $noir-boise-200;
+        width: 80%;
+
+        @include small {
+          width: 100%;
+        }
+      }
+
+      .contact-page-information-telephone {
+        border-bottom: 1px solid $noir-boise-200;
+      }
+
+      .contact-page-telephone-label,
+      .contact-page-telephone-value,
+      .contact-page-email-label,
+      .contact-page-email-value {
+        color: $noir-boise-700;
+        font-family: $saansTrial;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+
+        margin: 16px 0px;
+        flex: 1;
+
+        @include small {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+
+      .contact-page-faq {
+        color: $noir-boise-700;
+        font-family: $saansTrial;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+
+        margin-top: 80px;
+        width: 40%;
+
+        @include small {
+          width: 100%;
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+    }
+
+    .contact-page-image {
+      flex: 1;
+      display: flex;
+      flex-direction: row-reverse;
+
+      .image-test {
+        width: 466px;
+        height: 400px;
+        border-radius: 10px;
+        background: rgba(217, 217, 217, 0.5);
+      }
+    }
+  }
+}

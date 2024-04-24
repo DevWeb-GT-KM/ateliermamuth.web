@@ -19,6 +19,15 @@ export const SERVICES_PAGE_QUERY = groq`*[_type == "services" && language == $lo
     },
     projectSectionTitle
   }`;
+
+export const CONTACT_PAGE_QUERY = groq`*[_type == "contact" && language == "fr"] {
+    pageTitle,
+    addressLabel,
+    address,
+    telephoneLabel,
+    telephone,
+    faq
+  }`;
 export const SERVICES_LIST_QUERY = groq`*[_type == "service" && defined(slug) && language == $locale]`;
 export const SERVICE_QUERY = groq`*[_type == "service" && slug.current == $slug][0]`;
 
