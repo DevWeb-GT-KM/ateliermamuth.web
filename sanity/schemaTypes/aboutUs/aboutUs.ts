@@ -29,6 +29,9 @@ export default defineType({
       name: "image",
       title: "Photo",
       type: "image",
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
       name: "employees",

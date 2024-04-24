@@ -110,6 +110,10 @@
         font-size: 16px;
         line-height: 16px;
         color: $noir-boise-50;
+
+        @include small {
+          margin-right: 16px;
+        }
       }
     }
   }
