@@ -1,5 +1,7 @@
-import { ContactUs } from "./ContactUs";
 import "./contactPageContainer.scss";
+
+import { PortableText } from "@portabletext/react";
+import { ContactUs } from "./ContactUs";
 
 type ContactPageContainerProps = {
   data: any;
@@ -11,7 +13,9 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
   return (
     <>
       <div className="contact-page-container">
-        <h1 className="contact-page-title">{data.pageTitle}</h1>
+        <div className="contact-page-header">
+          <h1 className="contact-page-title">{data.pageTitle}</h1>
+        </div>
         <div className="contact-page-content">
           <div className="contact-page-information">
             <div className="contact-page-information-email">
@@ -24,7 +28,9 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
               </h1>
               <h1 className="contact-page-telephone-value">{data.telephone}</h1>
             </div>
-            <h1 className="contact-page-faq">{data.faq}</h1>
+            <div className="contact-page-faq-rich-text">
+              <PortableText value={data.faq} />
+            </div>
           </div>
           <div className="contact-page-image">
             <div className="image-test"></div>
