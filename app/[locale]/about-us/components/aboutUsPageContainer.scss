@@ -6,9 +6,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: -$sidePaddingDesktop;
+    margin-right: -$sidePaddingDesktop;
 
     // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
     @include small {
+      margin-left: -$sidePaddingMobile;
+      margin-right: -$sidePaddingMobile;
       height: 50vh;
     }
 
@@ -34,11 +38,7 @@
   }
 
   .about-us-page-description-section {
-    margin: 40px 40px 0px 40px;
-
-    @include small {
-      margin: 40px 16px 0px 16px;
-    }
+    margin-top: 40px;
 
     .about-us-page-small-description {
       color: $noir-boise-700;

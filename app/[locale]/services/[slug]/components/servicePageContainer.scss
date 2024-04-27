@@ -1,15 +1,14 @@
 :has(.service-page-design-interieur-container) {
-  main {
+  body {
     background: rgba(229, 229, 255, 0.5);
   }
-
   .footer-container {
     background-color: $lavande-500;
   }
 }
 
 :has(.service-page-architecture-residentielle-container) {
-  main {
+  body {
     background-color: #eef6f0;
   }
 
@@ -19,7 +18,7 @@
 }
 
 :has(.service-page-e-design-container) {
-  main {
+  body {
     background-color: #e5f1ff;
   }
 
@@ -29,13 +28,24 @@
 }
 
 .service-page-container {
-  margin: 240px 40px 0px 40px;
+  margin: 0px 40px 0px 40px;
 
   @include small {
-    margin: 240px 16px 0px 16px;
+    margin: 0px 16px 0px 16px;
   }
 
   .service-page-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include small {
+      height: 50vh;
+    }
+
+    @include large {
+      height: 60vh;
+    }
     .service-page-title {
       color: $noir-boise-700;
       font-family: $saansTrial;
@@ -48,23 +58,21 @@
         font-size: 40px;
       }
     }
+  }
 
-    .service-page-description {
-      color: $noir-boise-700;
-      font-family: $saansTrial;
-      font-size: 40px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 52px;
-      margin-top: 240px;
-      margin-left: 25%;
+  .service-page-description {
+    color: $noir-boise-700;
+    font-family: $saansTrial;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px;
+    margin-left: 25%;
 
-      @include small {
-        margin-top: 160px;
-        margin-left: 0px;
-        font-size: 24px;
-        line-height: 32px;
-      }
+    @include small {
+      margin-left: 0px;
+      font-size: 24px;
+      line-height: 32px;
     }
   }
 
