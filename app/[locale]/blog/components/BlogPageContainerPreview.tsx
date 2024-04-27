@@ -3,24 +3,23 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 
-import { Article } from "./Article";
+import { BlogPageContainer } from "./BlogPageContainer";
 import { PROJECT_QUERY } from "@/../sanity/lib/queries";
 
-type ArticlePreviewProps = {
+type BlogPageContainerPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;
   params: QueryParams;
 };
 
-export const ArticlePreview: React.FC<ArticlePreviewProps> = ({
-  initial,
-  params,
-}) => {
+export const BlogPageContainerPreview: React.FC<
+  BlogPageContainerPreviewProps
+> = ({ initial, params }) => {
   const { data } = useQuery<SanityDocument | null>(PROJECT_QUERY, params, {
     initial,
   });
 
   return data ? (
-    <Article article={data} />
+    <BlogPageContainer data={data[0]} />
   ) : (
     <p className="article-single-none">Article not found</p>
   );
