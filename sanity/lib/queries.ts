@@ -4,7 +4,15 @@ export const PROJECTS_QUERY_BY_LANG = groq`*[_type == "project" && defined(slug)
 export const PROJECTS_QUERY = groq`*[_type == "project" && defined(slug)]`;
 export const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0]`;
 
-export const ARTICLES_QUERY_BY_LANG = groq`*[_type == "article" && defined(slug) && language == $locale]`;
+export const BLOG_QUERY_BY_LANG = groq`*[_type == "blog" && language == $locale] {
+  pageTitle,
+  articles[]-> {
+      title, 
+      slug,
+      description,
+      image {asset->}
+    },
+}`;
 export const ARTICLE_QUERY = groq`*[_type == "article" && slug.current == $slug][0]`;
 
 export const SERVICES_PAGE_QUERY = groq`*[_type == "services" && language == $locale] {
