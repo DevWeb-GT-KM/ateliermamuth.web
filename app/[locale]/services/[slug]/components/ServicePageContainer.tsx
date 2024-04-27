@@ -17,8 +17,8 @@ export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
     >
       <div className="service-page-header">
         <h1 className="service-page-title">{service.name}</h1>
-        <p className="service-page-description">{service.description}</p>
       </div>
+      <p className="service-page-description">{service.description}</p>
       <div className="service-page-steps-section">
         <div className="service-page-steps-section-header">
           <h2 className="service-page-steps-section-title">
