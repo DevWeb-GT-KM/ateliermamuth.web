@@ -29,11 +29,9 @@
   .contact-page-content {
     display: flex;
     flex-direction: row;
-    margin: 0px 40px;
 
     @include small {
       flex-direction: column-reverse;
-      margin: 0px 16px;
     }
 
     .contact-page-information {

@@ -1,25 +1,16 @@
 .home-page-service-container {
-  border-top: 1px solid $noir-boise-200;
-
-  transition-property: height;
-  transition-duration: 800ms;
-  overflow: hidden;
-  cursor: pointer;
-
-  &:last-child {
-    border-bottom: 1px solid $noir-boise-200;
-  }
-
   .home-page-service-header {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 80px;
-    margin-top: 32px;
+    padding: 32px 0px;
+
+    border-top: 1px solid $noir-boise-200;
 
     @include small {
-      margin-top: 16px;
+      padding: 16px 0px;
     }
 
     .home-page-service-title {
@@ -35,16 +26,16 @@
         line-height: 32px;
       }
     }
-
-    .home-page-service-plus-img {
-      stroke-width: 2px;
-    }
   }
 
   .home-page-service-body {
+    transition-property: height;
+    transition-duration: 800ms;
+    cursor: pointer;
     display: flex;
     flex-direction: row;
-    margin-top: 80px;
+
+    margin-top: 48px;
     margin-bottom: 80px;
 
     @include small {
@@ -81,7 +72,7 @@
       }
     }
 
-    .home-page-service-project-types {
+    .home-page-service-project-types-container {
       flex: 1;
       display: flex;
       flex-direction: column;

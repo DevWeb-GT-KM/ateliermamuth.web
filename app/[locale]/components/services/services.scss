@@ -1,6 +1,8 @@
 .home-page-services-container {
   margin-top: 320px;
 
+  border-bottom: 1px solid $noir-boise-200;
+
   @include small {
     margin-top: 240px;
   }
