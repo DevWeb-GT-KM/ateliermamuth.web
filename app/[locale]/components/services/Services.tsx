@@ -13,13 +13,11 @@ export const Services: React.FC<ServicesProps> = ({ data }) => {
           {data[0].services.pageTitle}
         </h1>
       </div>
-      <div className="home-page-services-body">
-        {data[0].services.services.map((service: any, index: number) => {
-          {
-            return <Service key={index} data={service} />;
-          }
-        })}
-      </div>
+      {data[0].services.services.map((service: any, index: number) => {
+        {
+          return <Service key={index} data={service} />;
+        }
+      })}
     </div>
   );
 };
