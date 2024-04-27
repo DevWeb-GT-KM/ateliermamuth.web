@@ -1,15 +1,14 @@
 :has(.service-page-design-interieur-container) {
-  main {
+  body {
     background: rgba(229, 229, 255, 0.5);
   }
-
   .footer-container {
     background-color: $lavande-500;
   }
 }
 
 :has(.service-page-architecture-residentielle-container) {
-  main {
+  body {
     background-color: #eef6f0;
   }
 
@@ -19,7 +18,7 @@
 }
 
 :has(.service-page-e-design-container) {
-  main {
+  body {
     background-color: #e5f1ff;
   }
 
@@ -29,10 +28,10 @@
 }
 
 .service-page-container {
-  margin: 240px 40px 0px 40px;
+  margin-top: 240px;
 
   @include small {
-    margin: 240px 16px 0px 16px;
+    margin-top: 240px;
   }
 
   .service-page-header {
