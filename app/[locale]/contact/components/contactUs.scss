@@ -5,14 +5,14 @@
   align-items: center;
   flex-direction: column;
   height: 560px;
-  margin: 240px 40px;
+  margin: 240px 0px;
   border-radius: 20px;
   background-color: $noir-boise-300;
 
   @include small {
     padding-left: 21px;
     padding-right: 21px;
-    margin: 240px 16px;
+    margin: 240px 0px;
   }
 
   .contact-page-contact-us-message {

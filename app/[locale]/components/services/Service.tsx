@@ -14,19 +14,13 @@ type ServiceProps = {
 };
 
 export const Service: React.FC<ServiceProps> = ({ data }) => {
-  const MIN_HEIGHT = window.innerWidth < 768 ? 64 : 104;
-  const [height, setHeight] = useState<number | "auto">(MIN_HEIGHT);
+  const [height, setHeight] = useState<number | "auto">(0);
 
   return (
-    <AnimateHeight
-      className={"home-page-service-container"}
-      duration={1000}
-      onClick={() => setHeight(height == "auto" ? MIN_HEIGHT : "auto")}
-      height={height}
-    >
+    <div className="home-page-service-container">
       <div
         className="home-page-service-header"
-        onClick={() => setHeight(height == "auto" ? MIN_HEIGHT : "auto")}
+        onClick={() => setHeight(height == "auto" ? 0 : "auto")}
       >
         <h1 className="home-page-service-title">{data.name}</h1>
         <Image
@@ -36,30 +30,36 @@ export const Service: React.FC<ServiceProps> = ({ data }) => {
           width={30}
         />
       </div>
-      <div className="home-page-service-body">
-        <div className="home-page-service-description-container">
-          <p className="home-page-service-description">{data.description}</p>
-          <Link
-            className="home-page-service-link"
-            onClick={(e) => e.stopPropagation()}
-            href={{
-              pathname: "/services/[slug]",
-              params: { slug: data?.slug?.current },
-            }}
-          >
-            en savoir plus
-          </Link>
+      <AnimateHeight
+        duration={1000}
+        onClick={() => setHeight(height == "auto" ? 0 : "auto")}
+        height={height}
+      >
+        <div className="home-page-service-body">
+          <div className="home-page-service-description-container">
+            <p className="home-page-service-description">{data.description}</p>
+            <Link
+              className="home-page-service-link"
+              onClick={(e) => e.stopPropagation()}
+              href={{
+                pathname: "/services/[slug]",
+                params: { slug: data?.slug?.current },
+              }}
+            >
+              en savoir plus
+            </Link>
+          </div>
+          <div className="home-page-service-project-types-container">
+            {data.projectTypes.map((projectType: any, index: number) => {
+              return (
+                <h1 className={"home-page-service-project-type"} key={index}>
+                  {projectType}
+                </h1>
+              );
+            })}
+          </div>
         </div>
-        <div className="home-page-service-project-types">
-          {data.projectTypes.map((projectType: any, index: number) => {
-            return (
-              <h1 className={"home-page-service-project-type"} key={index}>
-                {projectType}
-              </h1>
-            );
-          })}
-        </div>
-      </div>
-    </AnimateHeight>
+      </AnimateHeight>
+    </div>
   );
 };

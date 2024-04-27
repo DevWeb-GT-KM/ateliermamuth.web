@@ -1,0 +1,37 @@
+.faq-page-question-container {
+  .faq-page-question-header {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 0px;
+
+    border-top: 1px solid $noir-boise-200;
+
+    .faq-page-question-question {
+      font-family: $saansTrial;
+      color: $noir-boise-700;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+    }
+  }
+
+  .faq-page-question-answer-rich-text {
+    p {
+      transition-property: height;
+      transition-duration: 400ms;
+      overflow: visible;
+      color: $noir-boise-200;
+      font-family: $centuryOldStyleStd;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+      margin-bottom: 16px;
+    }
+  }
+}

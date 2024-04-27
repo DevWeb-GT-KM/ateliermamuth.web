@@ -13,12 +13,12 @@ export default defineType({
     defineField({
       name: "answer",
       title: "Réponse",
-      type: "text",
-    }),
-    defineField({
-      name: "link",
-      title: "Lien",
-      type: "string",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+      ],
     }),
   ],
 });
