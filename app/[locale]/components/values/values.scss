@@ -1,18 +1,26 @@
 .home-page-values-container {
   margin-top: 320px;
+  margin-left: -$sidePaddingDesktop;
+  margin-right: -$sidePaddingDesktop;
   background-color: $vert-pistache-700;
   overflow: hidden;
 
   @include small {
     margin-top: 160px;
+    margin-left: -$sidePaddingMobile;
+    margin-right: -$sidePaddingMobile;
   }
 
   .home-page-values-header {
-    margin: 40px 40px 0px 40px;
+    margin-top: 40px;
+    margin-left: $sidePaddingDesktop;
+    margin-right: $sidePaddingDesktop;
     border-top: 1px solid $noir-boise-50;
 
     @include small {
-      margin: 16px 16px 0px 16px;
+      margin-top: 16px;
+      margin-left: $sidePaddingMobile;
+      margin-right: $sidePaddingMobile;
     }
 
     .home-page-values-title {

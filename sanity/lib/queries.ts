@@ -31,6 +31,32 @@ export const CONTACT_PAGE_QUERY = groq`*[_type == "contact" && language == "fr"]
 export const SERVICES_LIST_QUERY = groq`*[_type == "service" && defined(slug) && language == $locale]`;
 export const SERVICE_QUERY = groq`*[_type == "service" && slug.current == $slug][0]`;
 
+export const ABOUT_US_PAGE_QUERY_BY_LANG = groq`*[_type == "aboutUs" && language == $locale]{
+  pageTitle,
+  shortDescription,
+  image{
+    asset->
+  },
+  description,
+  employees[]{
+    name,
+    role,
+    email,
+    description,
+    image{
+    asset->
+    }
+  },
+  publications->{
+    sectionTitle,
+    publications[]{
+        mediaName,
+        publicationDate,
+        link
+    }
+  }
+}`;
+
 export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $locale] {
   carousel[]->{
       mainImage { asset-> },

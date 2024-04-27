@@ -1,11 +1,7 @@
 .home-page-about-us-container {
-  margin: 40px;
+  margin-top: 40px;
   border-top: 1px solid $noir-boise-200;
   padding-top: 8px;
-
-  @include small {
-    margin: 16px;
-  }
 
   .home-page-about-us-header {
     margin-bottom: 160px;

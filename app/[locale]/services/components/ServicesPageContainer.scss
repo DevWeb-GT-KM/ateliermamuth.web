@@ -8,10 +8,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px -$sidePaddingDesktop;
 
     // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
     @include small {
       height: 50vh;
+      margin: 0px -$sidePaddingMobile;
     }
 
     @include large {
@@ -40,12 +42,14 @@
     flex-direction: column;
 
     @include small {
-      padding: 56px $sidePaddingMobile 240px;
+      padding-top: 56px;
+      padding-bottom: 240px;
       gap: 160px;
     }
 
     @include large {
-      padding: 56px $sidePaddingDesktop 400px;
+      padding-top: 56px;
+      padding-bottom: 400px;
       gap: 240px;
     }
 
