@@ -1,0 +1,63 @@
+.projects-page-project-archived-container {
+  width: 75%;
+  margin: auto;
+
+  &:last-child {
+    border-bottom: 1px solid $noir-boise-200;
+  }
+
+  @include small {
+    width: 100%;
+  }
+
+  .project-archived-open {
+    color: $noir-boise-600 !important;
+  }
+
+  .projects-page-project-archived-header {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid $noir-boise-200;
+
+    padding: 16px 0px;
+    color: $noir-boise-200;
+    font-family: $saansTrial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+    .projects-page-project-archived-name,
+    .projects-page-project-archived-project-types {
+      flex: 3;
+    }
+
+    .projects-page-project-archived-completion-year,
+    .projects-page-project-archived-location {
+      flex: 1;
+    }
+
+    .projects-page-project-archived-image-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  .projects-page-project-archived-images {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    .project-archived-image {
+      width: 346px;
+      height: 235px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+  }
+}

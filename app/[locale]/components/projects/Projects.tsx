@@ -1,8 +1,7 @@
+import { Project } from "@/common/components/Project";
 import "./projects.scss";
 
 import { Link } from "@/../navigation";
-
-import { Project } from "./Project";
 
 type ProjectsProps = {
   data: any[];

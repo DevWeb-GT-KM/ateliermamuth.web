@@ -4,6 +4,26 @@ export const PROJECTS_QUERY_BY_LANG = groq`*[_type == "project" && defined(slug)
 export const PROJECTS_QUERY = groq`*[_type == "project" && defined(slug)]`;
 export const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0]`;
 
+export const PROJECTS_PAGE_QUERY = groq`*[_type == "projects" && language == $locale]{
+  pageTitle,
+  projects[]->{
+    mainImage{ asset-> },
+    projectTypes,
+    name,
+    shortDescription,
+    },
+  archiveSectionTitle,
+  projectsArchived[]{
+    completionYear,
+    projectTypes,
+    name,
+    location,
+    images[]{
+      asset->
+    }
+  }
+}`;
+
 export const BLOG_QUERY_BY_LANG = groq`*[_type == "blog" && language == $locale] {
   pageTitle,
   articles[]-> {
