@@ -37,6 +37,27 @@ export const CONTACT_PAGE_QUERY = groq`*[_type == "contact" && language == $loca
     faq
   }`;
 
+export const CONTACT_FORM_PAGE_QUERY = groq`*[_type == "contactForm" && language == "fr"]{
+  sendButton,
+  budgetRanges,
+  nameLabel,
+  budgetRangeLabel,
+  contactLabel,
+  pronoun,
+  name,
+  projectsType[]->{
+    name
+  },
+  previousButton,
+  phoneNumber,
+  projectTypeLabel,
+  email,
+  confirmationMessage,
+  nextButton,
+  moreDetails,
+  moreDetailsLabel
+}`;
+
 export const FAQ_PAGE_QUERY = groq`*[_type == "faq" && language == $locale]{
     pageTitle,
     questions[]{
