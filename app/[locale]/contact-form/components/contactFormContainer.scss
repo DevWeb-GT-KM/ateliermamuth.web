@@ -1,0 +1,289 @@
+:has(.contact-form-container) {
+  body {
+    background: $bleu-helvetia-500;
+  }
+  .footer-container {
+    display: none;
+  }
+}
+
+.contact-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15rem;
+
+  @include small {
+    margin-top: 4rem;
+  }
+
+  .contact-form-step-container {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+
+    @include small {
+      font-size: 24px;
+      line-height: 32px;
+      height: 520px;
+    }
+
+    .contact-form-step-title {
+      color: $noir-boise-50;
+      text-align: center;
+      font-family: $saansTrial;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 40px;
+
+      @include small {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+
+    input:-webkit-autofill {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: $noir-boise-50 !important;
+    }
+
+    .contact-form-contact-information-step-inputs,
+    .contact-form-personal-information-step-inputs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 80px;
+
+      @include small {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 40px;
+      }
+
+      .form-text-input-container {
+        margin-right: 16px;
+        width: 346px;
+
+        @include small {
+          margin-right: 0px;
+          width: 100%;
+        }
+
+        .form-text-input-box {
+          border-bottom: 1px solid $noir-boise-50;
+        }
+
+        .form-text-input-error-message {
+          color: $noir-boise-50;
+          font-family: $saansTrial;
+          line-height: 24px;
+          font-size: 12px;
+          font-style: normal;
+        }
+
+        input {
+          background-color: $bleu-helvetia-500;
+          border: 0;
+          color: $noir-boise-50;
+          font-family: $saansTrial;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          width: 100%;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-form-project-type-step-inputs,
+  .contact-form-budget-step-inputs {
+    margin: 0px auto;
+
+    .form-radio-input-container {
+      margin-top: 80px;
+
+      @include small {
+        margin-top: 40px;
+      }
+
+      .form-radio-input-error-message {
+        color: $noir-boise-50;
+        font-family: $saansTrial;
+        line-height: 24px;
+        font-size: 12px;
+        font-style: normal;
+        margin-top: 8px;
+        margin-left: 4px;
+      }
+
+      .form-radio-input-group-title,
+      .form-radio-input-label {
+        color: $noir-boise-50;
+        font-family: $saansTrial;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+
+        @include small {
+          font-size: 18px;
+        }
+      }
+
+      .form-radio-input-group-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+
+        @include small {
+          font-size: 24px;
+        }
+      }
+
+      .form-radio-input-option {
+        display: flex;
+        flex-direction: row;
+        margin-top: 8px;
+
+        input[type="radio"] {
+          appearance: none;
+          background-color: $bleu-helvetia-500;
+          min-width: 24px;
+          height: 24px;
+          margin-right: 16px;
+          border: 1px solid $noir-boise-50;
+          border-radius: 20px;
+          cursor: pointer;
+
+          &[type="radio"]:checked {
+            background-color: $noir-boise-50;
+          }
+
+          @include small {
+            min-width: 20px;
+            height: 20px;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-form-textarea-input-container {
+    margin-top: 80px;
+
+    @include small {
+      margin-top: 40px;
+    }
+    .contact-form-textarea-input {
+      color: $noir-boise-50;
+      font-family: $saansTrial;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; /* 100% */
+
+      border: none;
+      overflow: auto;
+      outline: none;
+
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+
+      resize: none;
+
+      width: 1000px;
+      height: 240px;
+      border-radius: 10px;
+      background-color: #2f6ec5;
+
+      @include small {
+        width: 100%;
+        height: 300px;
+      }
+
+      padding: 16px;
+    }
+
+    .contact-form-textarea-input-error-message {
+      color: $noir-boise-50;
+      font-family: $saansTrial;
+      line-height: 24px;
+      font-size: 12px;
+      font-style: normal;
+      margin-left: 4px;
+    }
+  }
+
+  .contact-form-sending-email-error {
+    color: $noir-boise-50;
+    font-family: $saansTrial;
+    line-height: 24px;
+    font-size: 12px;
+    font-style: normal;
+    margin-left: 4px;
+  }
+
+  .contact-form-confirmation-step-container {
+    @include small {
+      margin-top: 50%;
+    }
+
+    .contact-form-step-content {
+      .contact-form-step-title {
+        color: $noir-boise-50;
+        text-align: center;
+        font-family: $saansTrial;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        margin-bottom: 80px;
+
+        @include small {
+          font-size: 24px;
+          line-height: 32px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  .contact-form-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    gap: 80px;
+
+    @include small {
+      gap: 40px;
+    }
+
+    .contact-form-back-home-link,
+    .contact-form-navigation-btn {
+      @extend .common-btn-noir-boise;
+
+      padding: 14px 28px;
+      width: 140px;
+
+      &:disabled {
+        cursor: none;
+        background-color: $bleu-helvetia-500;
+      }
+    }
+
+    .contact-form-back-home-link {
+      width: auto !important;
+    }
+  }
+}
+
+::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}

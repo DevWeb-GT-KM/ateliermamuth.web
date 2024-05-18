@@ -10,59 +10,48 @@ export default defineType({
   icon: MdOutlineEmail,
   fields: [
     defineField({
+      name: "personalInformationTitle",
+      title: "Informations personnelles titre",
+      type: "string",
+    }),
+    defineField({
+      name: "pronounLabel",
+      title: "Pronom étiquette",
+      type: "string",
+    }),
+    defineField({
       name: "nameLabel",
       title: "Nom étiquette",
       type: "string",
     }),
     defineField({
-      name: "pronoun",
-      title: "Pronom",
+      name: "contactInformationTitle",
+      title: "Informations de contact titre",
       type: "string",
     }),
     defineField({
-      name: "name",
-      title: "Nom",
+      name: "emailLabel",
+      title: "Courriel étiquette",
       type: "string",
     }),
     defineField({
-      name: "contactLabel",
-      title: "Contact étiquette",
+      name: "phoneNumberLabel",
+      title: "Numéro de téléphone étiquette",
       type: "string",
     }),
     defineField({
-      name: "email",
-      title: "Adresse courriel",
+      name: "projectTypeTitle",
+      title: "Type de projet titre",
       type: "string",
     }),
     defineField({
-      name: "phoneNumber",
-      title: "Numéro de téléphone",
+      name: "projectNatureSubtitle",
+      title: "Nature du projet sous-titre",
       type: "string",
     }),
     defineField({
-      name: "projectTypeLabel",
-      title: "Type de projet étiquette",
-      type: "string",
-    }),
-    defineField({
-      name: "projectsType",
-      title: "Type de projet",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: service.name }],
-        },
-      ],
-    }),
-    defineField({
-      name: "budgetRangeLabel",
-      title: "Fourchette de budget étiquette",
-      type: "string",
-    }),
-    defineField({
-      name: "budgetRanges",
-      title: "Fourchette de budget",
+      name: "projectNatures",
+      title: "Natures du projet",
       type: "array",
       of: [
         {
@@ -71,13 +60,43 @@ export default defineType({
       ],
     }),
     defineField({
-      name: "moreDetailsLabel",
-      title: "Plus de d'étails étiquette",
+      name: "projectTypeSubtitle",
+      title: "Type de projet sous-titre",
       type: "string",
     }),
     defineField({
-      name: "moreDetails",
-      title: "Plus de d'étails",
+      name: "projectTypes",
+      title: "Types de projet",
+      type: "array",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+    }),
+    defineField({
+      name: "budgetTitle",
+      title: "Budget titre",
+      type: "string",
+    }),
+    defineField({
+      name: "budgetRanges",
+      title: "Fourchettes de budget",
+      type: "array",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+    }),
+    defineField({
+      name: "moreDetailsTitle",
+      title: "Plus de d'étails titre",
+      type: "string",
+    }),
+    defineField({
+      name: "moreDetailsLabel",
+      title: "Plus de d'étails étiquette",
       type: "string",
     }),
     defineField({
@@ -96,8 +115,33 @@ export default defineType({
       type: "string",
     }),
     defineField({
-      name: "sendButton",
+      name: "submitButton",
       title: "Bouton envoyer",
+      type: "string",
+    }),
+    defineField({
+      name: "backHomeButton",
+      title: "Bouton retourner à l'accueil",
+      type: "string",
+    }),
+    defineField({
+      name: "errorRequired",
+      title: "Erreur - champ obligatoire",
+      type: "string",
+    }),
+    defineField({
+      name: "errorEmail",
+      title: "Erreur - courriel invalide",
+      type: "string",
+    }),
+    defineField({
+      name: "errorPhoneNumber",
+      title: "Erreur - numéro de téléphone invalide",
+      type: "string",
+    }),
+    defineField({
+      name: "errorSubmitForm",
+      title: "Erreur - envoie du formulaire",
       type: "string",
     }),
     defineField(LANGUAGE_FIELD),
