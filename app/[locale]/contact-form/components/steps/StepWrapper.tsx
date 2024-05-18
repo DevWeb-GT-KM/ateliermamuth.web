@@ -1,54 +1,55 @@
+import { ContactFormContext } from "@/common/contexts/ContactFormContext";
+import { useContext } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+
 type StepWrapperProps = {
   title: string;
-  updateCurrentStep: (increment: number) => void;
+  previousStep?: () => void;
   children: React.ReactNode;
-  previousButton?: string;
-  nextButton?: string;
-  submitButton?: string;
-  backHomeButton?: string;
+  isLoading?: boolean;
 };
 
 export const StepWrapper: React.FC<StepWrapperProps> = ({
   title,
-  updateCurrentStep,
+  previousStep,
   children,
-  previousButton,
-  nextButton,
-  submitButton,
-  backHomeButton,
+  isLoading,
 }) => {
+  const contactFormContext = useContext(ContactFormContext);
   return (
     <div>
-      <div className="contact-form-step-content">
+      <div className="contact-form-step-container">
         <h1 className="contact-form-step-title">{title}</h1>
         {children}
       </div>
-
       <div className="contact-form-btn-container">
-        {previousButton && (
+        {contactFormContext.currentStep != 0 && (
           <button
-            onClick={() => updateCurrentStep(1)}
+            onClick={() => previousStep && previousStep()}
             className="contact-form-navigation-btn"
           >
-            {previousButton}
+            {contactFormContext.textButtons.previous}
           </button>
         )}
-        {(nextButton || submitButton) && (
-          <button
-            onClick={() => updateCurrentStep(-1)}
-            className="contact-form-navigation-btn"
-          >
-            {nextButton ?? submitButton}
-          </button>
-        )}
-        {backHomeButton && (
-          <button
-            onClick={() => updateCurrentStep(-1)}
-            className="contact-form-navigation-btn"
-          >
-            {backHomeButton}
-          </button>
-        )}
+        <button
+          type="submit"
+          className="contact-form-navigation-btn"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <ClipLoader
+              loading={isLoading}
+              color={"#f4f3f0"}
+              size={12}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          ) : contactFormContext.currentStep == 4 ? (
+            contactFormContext.textButtons.submit
+          ) : (
+            contactFormContext.textButtons.next
+          )}
+        </button>
       </div>
     </div>
   );

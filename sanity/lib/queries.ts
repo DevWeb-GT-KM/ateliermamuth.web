@@ -38,23 +38,29 @@ export const CONTACT_PAGE_QUERY = groq`*[_type == "contact" && language == $loca
   }`;
 
 export const CONTACT_FORM_PAGE_QUERY = groq`*[_type == "contactForm" && language == "fr"]{
-  sendButton,
-  budgetRanges,
-  nameLabel,
-  budgetRangeLabel,
-  contactLabel,
-  pronoun,
-  name,
-  projectsType[]->{
-    name
-  },
+  submitButton,
+  backHomeButton,
   previousButton,
-  phoneNumber,
-  projectTypeLabel,
-  email,
+  errorRequired,
+  errorEmail,
+  errorPhoneNumber,
+  errorSubmitForm,
   confirmationMessage,
   nextButton,
-  moreDetails,
+  personalInformationTitle,
+  pronounLabel,
+  nameLabel,
+  contactInformationTitle,
+  emailLabel,
+  phoneNumberLabel,
+  projectTypeTitle,
+  projectTypeSubtitle,
+  projectTypes[],
+  projectNatureSubtitle,
+  projectNatures[],
+  budgetTitle,
+  budgetRanges[],
+  moreDetailsTitle,
   moreDetailsLabel
 }`;
 

@@ -1,3 +1,6 @@
+"use client";
+
+import { ContactFormProvider } from "@/common/contexts/ContactFormProvider";
 import { ContactForm } from "./ContactForm";
 import "./contactFormContainer.scss";
 
@@ -10,7 +13,9 @@ export const ContactFormContainer: React.FC<ContactFormContainerProps> = ({
 }) => {
   return (
     <div className="contact-form-container">
-      <ContactForm data={data} />
+      <ContactFormProvider>
+        <ContactForm data={data} />
+      </ContactFormProvider>
     </div>
   );
 };
