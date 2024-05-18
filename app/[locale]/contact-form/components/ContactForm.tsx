@@ -1,6 +1,6 @@
 import "./contactFormContainer.scss";
 
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import { ContactInformationStep } from "./steps/ContactInformationStep";
 import { PersonalInformationStep } from "./steps/PersonalInformationStep";
 import { ProjectTypeStep } from "./steps/ProjectTypeStep";
@@ -35,28 +35,39 @@ export const ContactForm: React.FC<ContactFormProps> = ({ data }) => {
   const steps = useMemo(
     () => [
       <PersonalInformationStep
+        key={1}
         title={data.personalInformationTitle}
         pronounLabel={data.pronounLabel}
         nameLabel={data.nameLabel}
       />,
       <ContactInformationStep
+        key={2}
         title={data.contactInformationTitle}
         emailLabel={data.emailLabel}
         phoneNumberLabel={data.phoneNumberLabel}
       />,
       <ProjectTypeStep
+        key={3}
         title={data.projectTypeTitle}
         projectNatureSubtitle={data.projectNatureSubtitle}
         projectNatureOptions={data.projectNatures}
         projectTypeSubtitle={data.projectTypeSubtitle}
         projectTypeOptions={data.projectTypes}
       />,
-      <BudgetStep title={data.budgetTitle} budgetOptions={data.budgetRanges} />,
+      <BudgetStep
+        key={4}
+        title={data.budgetTitle}
+        budgetOptions={data.budgetRanges}
+      />,
       <MoreDetailsStep
+        key={5}
         moreDetailsLabel={data.moreDetailsLabel}
         title={data.moreDetailsTitle}
       />,
-      <ConfirmationStep confirmationMessage={data.confirmationMessage} />,
+      <ConfirmationStep
+        key={6}
+        confirmationMessage={data.confirmationMessage}
+      />,
     ],
     [
       PersonalInformationStep,
