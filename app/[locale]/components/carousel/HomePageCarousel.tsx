@@ -65,7 +65,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
   return (
     <div {...swipeHandlers} className="home-page-carousel-container">
-      {isMobile != undefined ? (
+      {/* {isMobile != undefined ? (
         <SanityImageWrapper
           sanityImage={data[0].carousel[currentIndex].mainImage}
           imageBuilderConfig={{
@@ -84,7 +84,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
         />
       ) : (
         <></>
-      )}
+      )} */}
 
       <Image
         className="home-page-carousel-shapes"
