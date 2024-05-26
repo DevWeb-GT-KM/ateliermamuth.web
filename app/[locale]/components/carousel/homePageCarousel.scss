@@ -1,18 +1,19 @@
-@import "../../../common/scss/variables";
-
 .home-page-carousel-container {
   position: relative;
-  width: 100%;
   height: 100vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
+  margin-left: -$sidePaddingDesktop;
+  margin-right: -$sidePaddingDesktop;
 
   @include small {
     flex-direction: column;
     justify-content: flex-end;
+    margin-left: -$sidePaddingMobile;
+    margin-right: -$sidePaddingMobile;
   }
 
   .home-page-carousel-shapes {
@@ -21,7 +22,7 @@
     width: 100%;
     height: auto;
     box-sizing: border-box;
-    animation: zoom-in-zoom-out 50s ease infinite;
+    animation: zoom-in-zoom-out 100s ease infinite;
     z-index: 995;
   }
 
@@ -30,7 +31,7 @@
       transform: scale(1, 1);
     }
     50% {
-      transform: scale(1.5, 1.5);
+      transform: scale(2, 2);
     }
     100% {
       transform: scale(1, 1);

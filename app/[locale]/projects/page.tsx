@@ -8,7 +8,6 @@ import { ProjectsListing } from "./components/ProjectsListing";
 import { ProjectsListingPreview } from "./components/ProjectsListingPreview";
 import { loadQuery } from "@/../sanity/lib/store";
 import { PROJECTS_QUERY_BY_LANG } from "@/../sanity/lib/queries";
-import { Link } from "@/../navigation";
 
 export const metadata: Metadata = {
   title: "Projects",

@@ -1,10 +1,8 @@
-@import "../../../common/scss/variables";
-
 .home-page-projects-container {
-  margin: 320px 32px 0px 32px;
+  margin-top: 320px;
 
   @include small {
-    margin: 160px 16px 0px 16px;
+    margin-top: 160px;
   }
 
   .home-page-projects-header {
@@ -45,6 +43,12 @@
       @include small {
         font-size: 24px;
       }
+    }
+
+    .home-page-projects-link {
+      @extend .common-btn-jaune-pyrite;
+      padding: 14px 28px;
+      margin: 24px auto 0px auto;
     }
   }
 }

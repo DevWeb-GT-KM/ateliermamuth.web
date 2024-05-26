@@ -1,0 +1,47 @@
+.blog-page-container {
+  .blog-page-header {
+    background-color: $rouge-fauve-vineux-400;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -$sidePaddingDesktop;
+    margin-right: -$sidePaddingDesktop;
+
+    // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
+    @include small {
+      margin-left: -$sidePaddingMobile;
+      margin-right: -$sidePaddingMobile;
+      height: 50vh;
+    }
+
+    @include large {
+      height: 60vh;
+    }
+  }
+
+  .blog-page-title {
+    color: $rouge-fauve-vineux-700;
+    font-family: $saansTrial;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 56px;
+
+    @include small {
+      font-size: 40px;
+    }
+  }
+
+  .blog-page-content {
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include small {
+      margin: 16px 0px;
+    }
+  }
+}

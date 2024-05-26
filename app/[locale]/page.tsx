@@ -35,7 +35,7 @@ const HomePage: React.FC<HomePageProps> = async ({ params }) => {
   );
 
   return (
-    <div>
+    <div className="home-page-container">
       <HomePageCarousel data={initial.data} />
       <AboutUs data={initial.data} />
       <Services data={initial.data} />

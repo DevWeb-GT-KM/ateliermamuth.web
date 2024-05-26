@@ -1,13 +1,11 @@
-@import "../../../common/scss/variables";
-
 .home-page-publications-container {
   display: flex;
   flex-direction: row;
-  margin: 320px 40px 320px 40px;
+  margin: 320px 0px;
 
   @include small {
     flex-direction: column;
-    margin: 160px 16px 160px 16px;
+    margin: 160px 0px;
   }
 
   .home-page-publications-header {

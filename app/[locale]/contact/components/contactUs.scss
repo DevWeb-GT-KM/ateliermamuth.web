@@ -1,0 +1,38 @@
+.contact-page-contact-us-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 560px;
+  margin: 240px 0px;
+  border-radius: 20px;
+  background-color: $noir-boise-300;
+
+  @include small {
+    padding-left: 21px;
+    padding-right: 21px;
+    margin: 240px 0px;
+  }
+
+  .contact-page-contact-us-message {
+    color: $noir-boise-50;
+    font-family: $saansTrial;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+
+    @include small {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  .contact-page-contact-us-link {
+    @extend .common-btn-noir-boise;
+
+    margin-top: 16px;
+    padding: 14px 18px;
+  }
+}

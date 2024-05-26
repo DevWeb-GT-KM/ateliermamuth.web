@@ -70,6 +70,16 @@ export const ARTICLE_QUERY_BY_LANG = groq`*[_type == "article" && language == $l
   "nextArticle": coalesce(*[_type == "article" && defined(slug) && language == $locale && slug.current != ^.slug.current && publicationDate >= ^.publicationDate] | order(publicationDate asc)[0], *[_type == "article" && defined(slug) && language == $locale && slug.current != ^.slug.current] | order(publicationDate asc)[0]) { slug, title, subtitle, mainImage { alt, asset->, hotspot } }
 }`;
 
+export const BLOG_QUERY_BY_LANG = groq`*[_type == "blog" && language == $locale] {
+  pageTitle,
+  articles[]-> {
+      title, 
+      slug,
+      description,
+      image {asset->}
+    },
+}`;
+
 export const SERVICES_PAGE_QUERY = groq`*[_type == "services" && language == $locale] {
     pageTitle,
     description[],
@@ -82,8 +92,80 @@ export const SERVICES_PAGE_QUERY = groq`*[_type == "services" && language == $lo
     },
     projectSectionTitle
   }`;
+
+export const CONTACT_PAGE_QUERY = groq`*[_type == "contact" && language == $locale] {
+    pageTitle,
+    addressLabel,
+    address,
+    telephoneLabel,
+    telephone,
+    faq
+  }`;
+
+export const CONTACT_FORM_PAGE_QUERY = groq`*[_type == "contactForm" && language == "fr"]{
+  submitButton,
+  backHomeButton,
+  previousButton,
+  errorRequired,
+  errorEmail,
+  errorPhoneNumber,
+  errorSubmitForm,
+  confirmationMessage,
+  nextButton,
+  personalInformationTitle,
+  pronounLabel,
+  nameLabel,
+  contactInformationTitle,
+  emailLabel,
+  phoneNumberLabel,
+  projectTypeTitle,
+  projectTypeSubtitle,
+  projectTypes[],
+  projectNatureSubtitle,
+  projectNatures[],
+  budgetTitle,
+  budgetRanges[],
+  moreDetailsTitle,
+  moreDetailsLabel
+}`;
+
+export const FAQ_PAGE_QUERY = groq`*[_type == "faq" && language == $locale]{
+    pageTitle,
+    questions[]{
+      question,
+      answer,
+      link
+    },
+}`;
+
 export const SERVICES_LIST_QUERY = groq`*[_type == "service" && defined(slug) && language == $locale]`;
 export const SERVICE_QUERY = groq`*[_type == "service" && slug.current == $slug][0]`;
+
+export const ABOUT_US_PAGE_QUERY_BY_LANG = groq`*[_type == "aboutUs" && language == $locale]{
+  pageTitle,
+  shortDescription,
+  image{
+    asset->
+  },
+  description,
+  employees[]{
+    name,
+    role,
+    email,
+    description,
+    image{
+    asset->
+    }
+  },
+  publications->{
+    sectionTitle,
+    publications[]{
+        mediaName,
+        publicationDate,
+        link
+    }
+  }
+}`;
 
 export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $locale] {
   carousel[]->{
@@ -109,6 +191,7 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
     pageTitle,
     services[]->{
       name,
+      slug,
       description,
       projectTypes
     }
@@ -135,6 +218,14 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
   }
 }`;
 
+export const NAV_BAR_BY_LANG = groq`*[_type == "navBar" && language == "fr"]{
+  projectsLink,
+  servicesLink,
+  blogLink,
+  aboutUsLink,
+  contactUs
+}`;
+
 export const FOOTER_QUERY_BY_LANG = groq`*[_type == "footer" && language == $locale] {
     projects->{
       pageTitle,
@@ -157,7 +248,8 @@ export const FOOTER_QUERY_BY_LANG = groq`*[_type == "footer" && language == $loc
     services->{
       pageTitle,
       services[]->{
-        name
+        name,
+        slug
       }
     },
     contact->{

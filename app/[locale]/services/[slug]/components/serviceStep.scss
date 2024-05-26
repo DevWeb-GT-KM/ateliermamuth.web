@@ -1,0 +1,63 @@
+.service-page-step-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
+  .service-page-step-header {
+    flex: 1;
+
+    .service-page-step-index {
+      flex: 1;
+      color: $noir-boise-700;
+      font-family: $saansTrial;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+
+      @include small {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .service-page-step-body {
+    flex: 6;
+
+    @include small {
+      flex: 5;
+    }
+
+    .service-page-step-name {
+      flex: 4;
+      color: $noir-boise-700;
+      font-family: $centuryOldStyleStd;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+
+      @include small {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+    .service-page-step-description {
+      color: $noir-boise-400;
+      font-family: $centuryOldStyleStd;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px; /* 125% */
+      letter-spacing: 0.24px;
+      margin-top: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid $noir-boise-200;
+    }
+  }
+}

@@ -3,7 +3,7 @@
 import "./pageOverlay.scss";
 import { usePageOverlay } from "./PageOverlayContext";
 
-export const PageOverlay: React.FC = ({}) => {
+export const PageOverlay: React.FC = () => {
   const { isPageOverlayHidden, setIsPageOverlayHidden } = usePageOverlay();
 
   return (

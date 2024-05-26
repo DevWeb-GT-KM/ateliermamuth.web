@@ -1,31 +1,17 @@
-@import "../../../common/scss/variables";
-
 .home-page-service-container {
-  border-top: 1px solid $noir-boise-200;
-  padding-top: 32px;
-  padding-bottom: 32px;
-
-  @include small {
-    padding-top: 16px;
-    padding-bottom: 16px;
-    margin-top: 56px;
-  }
-
-  transition-property: height;
-  transition-duration: 800ms;
-  overflow: hidden;
-  cursor: pointer;
-
-  &:last-child {
-    border-bottom: 1px solid $noir-boise-200;
-  }
-
   .home-page-service-header {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 80px;
+    padding: 32px 0px;
+
+    border-top: 1px solid $noir-boise-200;
+
+    @include small {
+      padding: 16px 0px;
+    }
 
     .home-page-service-title {
       font-family: $saansTrial;
@@ -40,25 +26,28 @@
         line-height: 32px;
       }
     }
-
-    .home-page-service-plus-img {
-      stroke-width: 2px;
-    }
   }
 
   .home-page-service-body {
-    .home-page-service-description-container {
-      display: flex;
-      flex-direction: row;
-      margin-top: 80px;
+    transition-property: height;
+    transition-duration: 800ms;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
 
-      @include small {
-        flex-direction: column;
-        margin-top: 56px;
-      }
+    margin-top: 48px;
+    margin-bottom: 80px;
+
+    @include small {
+      flex-direction: column;
+      margin-top: 56px;
+      margin-bottom: 56px;
+    }
+
+    .home-page-service-description-container {
+      flex: 1;
 
       .home-page-service-description {
-        flex: 1;
         color: $noir-boise-200;
         font-family: $centuryOldStyleStd;
         font-size: 24px;
@@ -72,19 +61,28 @@
         }
       }
 
-      .home-page-service-project-types {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+      .home-page-service-link {
+        @extend .common-btn-jaune-pyrite;
+        padding: 14px 16px;
+        margin-top: 40px;
 
         @include small {
-          margin-top: 56px;
+          margin-top: 24px;
         }
+      }
+    }
+
+    .home-page-service-project-types-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      @include small {
+        margin-top: 56px;
       }
 
       .home-page-service-project-type {
-        flex: 1;
         border-top: 1px solid $noir-boise-200;
         padding-top: 12px;
         padding-bottom: 12px;
@@ -97,12 +95,12 @@
         font-weight: 400;
         line-height: 20px;
 
-        @include small {
-          width: 100%;
-        }
-
         &:last-child {
           border-bottom: 1px solid $noir-boise-200;
+        }
+
+        @include small {
+          width: 100%;
         }
       }
     }

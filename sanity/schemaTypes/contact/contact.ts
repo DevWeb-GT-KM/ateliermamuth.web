@@ -36,7 +36,12 @@ export default defineType({
     defineField({
       name: "faq",
       title: "Faq",
-      type: "string",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+      ],
     }),
     defineField({
       name: "image",
