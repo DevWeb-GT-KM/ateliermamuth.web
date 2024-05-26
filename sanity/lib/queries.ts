@@ -152,6 +152,14 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
   }
 }`;
 
+export const NAV_BAR_BY_LANG = groq`*[_type == "navBar" && language == "fr"]{
+  projectsLink,
+  servicesLink,
+  blogLink,
+  aboutUsLink,
+  contactUs
+}`;
+
 export const FOOTER_QUERY_BY_LANG = groq`*[_type == "footer" && language == $locale] {
     projects->{
       pageTitle,

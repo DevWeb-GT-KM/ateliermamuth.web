@@ -4,13 +4,18 @@ import type { Metadata } from "next";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { draftMode } from "next/headers";
 import { unstable_setRequestLocale } from "next-intl/server";
-
 import { LiveVisualEditing } from "../common/components/LiveVisualEditing";
 import { FRENCH_LOCALE } from "@/../navigation";
 import favIcon from "../common/assets/favicon.ico";
 import { Footer } from "@/common/components/footer/Footer";
 import { loadQuery } from "@/../sanity/lib/store";
-import { FOOTER_QUERY_BY_LANG } from "../../sanity/lib/queries";
+import {
+  FOOTER_QUERY_BY_LANG,
+  NAV_BAR_BY_LANG,
+} from "../../sanity/lib/queries";
+import { NavBar } from "@/common/components/navBar/NavBar";
+import { PageOverlay } from "./components/pageOverlay/PageOverlay";
+import { PageOverlayProvider } from "./components/pageOverlay/PageOverlayContext";
 
 const saansTrial = localFont({
   src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
@@ -51,7 +56,7 @@ export async function generateStaticParams() {
 const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
   unstable_setRequestLocale(params.locale);
 
-  const initial = await loadQuery<SanityDocument[]>(
+  const footerData = await loadQuery<SanityDocument[]>(
     FOOTER_QUERY_BY_LANG,
     params,
     {
@@ -59,21 +64,32 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
     }
   );
 
+  const navBarData = await loadQuery<SanityDocument[]>(
+    NAV_BAR_BY_LANG,
+    params,
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
+
   return (
-    <html lang={params.locale}>
-      <body className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}>
-        {/* <header>
-          <nav>
-            <h1>NavBar</h1>
-          </nav>
-        </header> */}
-        <main>{children}</main>
-        <footer>
-          <Footer data={initial.data} />
-        </footer>
-        {draftMode().isEnabled && <LiveVisualEditing />}
-      </body>
-    </html>
+    <PageOverlayProvider>
+      <html lang={params.locale}>
+        <body
+          className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
+        >
+          <PageOverlay />
+          <header>
+            <NavBar data={navBarData.data} />
+          </header>
+          <main>{children}</main>
+          <footer>
+            <Footer data={footerData.data} />
+          </footer>
+          {draftMode().isEnabled && <LiveVisualEditing />}
+        </body>
+      </html>
+    </PageOverlayProvider>
   );
 };
 
