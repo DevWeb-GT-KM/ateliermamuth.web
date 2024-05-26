@@ -1,6 +1,6 @@
 type SanityImageSize = {
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
 };
 
 export enum SANITY_IMAGE_FORMAT {
@@ -11,12 +11,7 @@ export enum SANITY_IMAGE_FORMAT {
 }
 
 export type SanityImageBuilderConfig = {
-  size?: SanityImageSize;
+  size: SanityImageSize;
   quality: number;
   format: SANITY_IMAGE_FORMAT;
-};
-
-export const DEFAULT_IMAGE_BUILDER_CONFIG: SanityImageBuilderConfig = {
-  quality: 85,
-  format: SANITY_IMAGE_FORMAT.Jpg,
 };

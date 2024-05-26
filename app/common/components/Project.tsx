@@ -2,6 +2,7 @@ import "./project.scss";
 
 import { SanityImageWrapper } from "./images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "./images/sanityImageBuilderConfig";
+import { Link } from "@/../navigation";
 
 type ProjectProps = {
   data: any;
@@ -22,10 +23,14 @@ export const Project: React.FC<ProjectProps> = ({
     }
   };
   return (
-    <div
+    <Link
       className={`project-container ${
         isSecondaryProject ? "secondary" : "primary"
       }`}
+      href={{
+        pathname: "/projects/[slug]",
+        params: { slug: data.slug.current },
+      }}
     >
       <SanityImageWrapper
         sanityImage={data.mainImage}
@@ -55,6 +60,6 @@ export const Project: React.FC<ProjectProps> = ({
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 };

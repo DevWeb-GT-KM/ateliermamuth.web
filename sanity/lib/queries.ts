@@ -77,7 +77,8 @@ export const PROJECTS_PAGE_QUERY = groq`*[_type == "projects" && language == $lo
     projectTypes,
     name,
     shortDescription,
-    },
+    slug
+  },
   archiveSectionTitle,
   projectsArchived[]{
     completionYear,
@@ -226,14 +227,16 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
       mainImage{ asset-> },
       projectTypes,
       name,
-      shortDescription
+      shortDescription,
+      slug
     }
   },
   blog->{
     pageTitle,
     articles[]->{
       title,
-      description
+      description,
+      slug
     }
   }
 }`;
@@ -264,7 +267,6 @@ export const FOOTER_QUERY_BY_LANG = groq`*[_type == "footer" && language == $loc
         mediaName,
         link
       },
-    termsAndConditions,
     services->{
       pageTitle,
       services[]->{
