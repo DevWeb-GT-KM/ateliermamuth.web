@@ -1,13 +1,12 @@
-import "./page.scss";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-import { ProjectsListing } from "./components/ProjectsListing";
-import { ProjectsListingPreview } from "./components/ProjectsListingPreview";
 import { loadQuery } from "@/../sanity/lib/store";
-import { PROJECTS_QUERY_BY_LANG } from "@/../sanity/lib/queries";
+import { PROJECTS_PAGE_QUERY } from "../../../sanity/lib/queries";
+import { ProjectsPageContainerPreview } from "./components/ProjectsPageContainerPreview";
+import { ProjectsPageContainer } from "./components/ProjectsPageContainer";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -21,21 +20,16 @@ type ProjectsPageProps = {
 const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
-  const initial = await loadQuery<SanityDocument[]>(
-    PROJECTS_QUERY_BY_LANG,
-    params,
-    {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
-    }
-  );
+  const initial = await loadQuery<SanityDocument>(PROJECTS_PAGE_QUERY, params, {
+    perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+  });
 
   return (
     <div>
-      <h1 className="projects-page-title">Projects page</h1>
       {draftMode().isEnabled ? (
-        <ProjectsListingPreview initial={initial} />
+        <ProjectsPageContainerPreview initial={initial} params={params} />
       ) : (
-        <ProjectsListing projects={initial.data} />
+        <ProjectsPageContainer data={initial.data[0]} />
       )}
     </div>
   );
