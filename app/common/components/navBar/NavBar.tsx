@@ -10,13 +10,13 @@ type NavBarProps = {
 };
 
 export const NavBar: React.FC<NavBarProps> = ({ data }) => {
-  const NAV_BAR_BREAK_POINT = 30;
+  const NAV_BAR_BREAK_POINT = 100;
   const [showNavBar, setShowNavBar] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const controlNavbar = () => {
-    if (window.scrollY > lastScrollY) {
+    if (window.scrollY > lastScrollY && window.scrollY > NAV_BAR_BREAK_POINT) {
       setShowNavBar(false);
       setShowMobileMenu(false);
     } else {
@@ -102,10 +102,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
         )}
       </div>
       {showMobileMenu && (
-        <div
-          className="nav-bar-mobile-menu"
-          onClick={() => setShowMobileMenu(false)}
-        >
+        <div className="nav-bar-mobile-menu">
           <Link
             className="nav-bar-mobile-menu-link"
             href={{ pathname: "/" }}
@@ -114,30 +111,35 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
           <Link
             className="nav-bar-mobile-link nav-bar-link-services"
             href={{ pathname: "/services" }}
+            onClick={() => setShowMobileMenu(false)}
           >
             {data[0].servicesLink}
           </Link>
           <Link
             className="nav-bar-mobile-link nav-bar-link-projects"
             href={{ pathname: "/projects" }}
+            onClick={() => setShowMobileMenu(false)}
           >
             {data[0].projectsLink}
           </Link>
           <Link
             className="nav-bar-mobile-link nav-bar-link-about-us"
             href={{ pathname: "/about-us" }}
+            onClick={() => setShowMobileMenu(false)}
           >
             {data[0].aboutUsLink}
           </Link>
           <Link
             className="nav-bar-mobile-link nav-bar-link-blog"
             href={{ pathname: "/blog" }}
+            onClick={() => setShowMobileMenu(false)}
           >
             {data[0].blogLink}
           </Link>
           <Link
             className="nav-bar-mobile-link"
             href={{ pathname: "/contact-form" }}
+            onClick={() => setShowMobileMenu(false)}
           >
             {data[0].contactUs}
           </Link>
