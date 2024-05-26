@@ -1,12 +1,11 @@
-"use client";
-
 import "./sanityImageWrapper.scss";
+
+import { useMemo } from "react";
 import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 
 import { client } from "@/../sanity/lib/client";
 import { SanityImageBuilderConfig } from "./sanityImageBuilderConfig";
-import { useMemo } from "react";
 
 const builder = imageUrlBuilder(client);
 

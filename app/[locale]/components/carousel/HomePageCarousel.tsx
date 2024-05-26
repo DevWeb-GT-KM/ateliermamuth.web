@@ -1,13 +1,11 @@
 "use client";
 
 import "./homePageCarousel.scss";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useSwipeable } from "react-swipeable";
 import { useWindowSize } from "@react-hook/window-size";
 
-import { client } from "@/../sanity/lib/client";
-import imageUrlBuilder from "@sanity/image-url";
 import { CarouselIndex } from "@/common/components/images/carousel/CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
 import shapes from "../../../common/assets/images/homePage/carousel/shapes.svg";
@@ -19,8 +17,6 @@ type CarouselProps = {
 };
 
 export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
-  const builder = imageUrlBuilder(client);
-
   const MILLISECONDS_IMAGE_CHANGE = 8000;
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -68,31 +64,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   }, [width]);
 
   return (
-    <div
-      {...swipeHandlers}
-      className="home-page-carousel-container"
-      // style={{
-      //   backgroundImage: true
-      //     ? `url(${builder
-      //         .image(data[0].carousel[currentIndex].mainImage.asset.url)
-      //         .width(1920)
-      //         .height(1920)
-      //         .focalPoint(
-      //           data[0].carousel[currentIndex].mainImage.hotspot.x,
-      //           data[0].carousel[currentIndex].mainImage.hotspot.y
-      //         )
-      //         .crop("focalpoint")
-      //         .fit("fill")
-      //         .quality(90)
-      //         .format(SANITY_IMAGE_FORMAT.Jpg)
-      //         .url()})`
-      //     : `url(${builder
-      //         .image(data[0].carousel[currentIndex].mainImage.asset.url)
-      //         .quality(90)
-      //         .format(SANITY_IMAGE_FORMAT.Jpg)
-      //         .url()})`,
-      // }}
-    >
+    <div {...swipeHandlers} className="home-page-carousel-container">
       {isMobile != undefined ? (
         <SanityImageWrapper
           sanityImage={data[0].carousel[currentIndex].mainImage}

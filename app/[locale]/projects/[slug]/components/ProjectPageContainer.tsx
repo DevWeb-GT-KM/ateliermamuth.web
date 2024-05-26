@@ -61,7 +61,7 @@ export const ProjectPageContainer: React.FC<
         <SanityImageWrapper
           sanityImage={project.secondaryImage}
           imageBuilderConfig={{
-            quality: 90,
+            quality: 75,
             format: SANITY_IMAGE_FORMAT.Jpg,
           }}
         />

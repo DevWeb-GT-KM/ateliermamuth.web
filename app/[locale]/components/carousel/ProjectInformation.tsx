@@ -1,6 +1,7 @@
 "use client";
+
 import "./projectInformation.scss";
-import { redirect, useRouter } from "@/../navigation";
+import { useRouter } from "@/../navigation";
 
 type ProjectInformationProps = {
   data: any[];
