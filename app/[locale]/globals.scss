@@ -73,14 +73,10 @@ body {
   min-height: 100vh;
 
   header {
-    position: relative;
-    border: 2px solid green;
-    min-height: 100px;
-
-    nav {
-      font-family: $saansTrial; // TODO - Enlever cette ligne
-      border: 2px solid orange;
-    }
+    position: fixed;
+    display: flex;
+    width: 100%;
+    z-index: 999;
   }
 
   main {
