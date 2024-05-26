@@ -1,6 +1,10 @@
 import { defineField, defineType } from "sanity";
 import { DotIcon } from "@sanity/icons";
-import { LANGUAGE_FIELD } from "../constants";
+import { IMAGE_FIELD, LANGUAGE_FIELD } from "../constants";
+import blockA from "../blocks/blockA";
+import blockB from "../blocks/blockB";
+import blockC from "../blocks/blockC";
+import blockD from "../blocks/blockD";
 
 export default defineType({
   name: "project",
@@ -10,7 +14,14 @@ export default defineType({
   fields: [
     defineField({
       name: "name",
-      title: "Nom",
+      title: "Nom du projet",
+      type: "string",
+    }),
+    defineField({
+      name: "subtitle",
+      title: "Sous-titre",
+      description:
+        "Est utilisé dans la composante pour changer de page (précédent, suivant)",
       type: "string",
     }),
     defineField({
@@ -22,6 +33,15 @@ export default defineType({
         source: "name",
         maxLength: 96,
       },
+      description:
+        'Vous devez simplement cliquer sur le bouton "Generate" lorsque le nom du projet sera renseigné',
+    }),
+    defineField(IMAGE_FIELD("mainImage", "Image principale")),
+    defineField(IMAGE_FIELD("secondaryImage", "Image secondaire")),
+    defineField({
+      name: "shortDescription",
+      title: "Description courte",
+      type: "text",
     }),
     defineField({
       name: "projectTypes",
@@ -34,29 +54,6 @@ export default defineType({
       ],
     }),
     defineField({
-      name: "mainImage",
-      title: "Photo principale",
-      type: "image",
-    }),
-    defineField({
-      name: "shortDescription",
-      title: "Description courte",
-      type: "text",
-    }),
-    defineField({
-      name: "description",
-      title: "Description",
-      type: "array",
-      of: [
-        {
-          type: "block",
-        },
-        {
-          type: "image",
-        },
-      ],
-    }),
-    defineField({
       name: "credits",
       title: "Crédits",
       type: "array",
@@ -65,6 +62,27 @@ export default defineType({
           type: "credit",
         },
       ],
+    }),
+    defineField({
+      name: "contentBlocks",
+      title: "Blocs de contenu",
+      type: "array",
+      of: [
+        {
+          type: blockA.name,
+        },
+        {
+          type: blockB.name,
+        },
+        {
+          type: blockC.name,
+        },
+        {
+          type: blockD.name,
+        },
+      ],
+      description:
+        "Blocs qui s'afficheront après la description principale. Il est possible de changer l'ordre d'affichage en déplaçant les items dans la liste.",
     }),
     defineField(LANGUAGE_FIELD),
   ],

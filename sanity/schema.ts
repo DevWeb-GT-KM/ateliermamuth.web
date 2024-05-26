@@ -21,9 +21,17 @@ import footer from "./schemaTypes/footer";
 import navBar from "./schemaTypes/navBar";
 import step from "./schemaTypes/service/step";
 import socialMedia from "./schemaTypes/socialMedia";
+import blockA from "./schemaTypes/blocks/blockA";
+import blockB from "./schemaTypes/blocks/blockB";
+import blockC from "./schemaTypes/blocks/blockC";
+import blockD from "./schemaTypes/blocks/blockD";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    blockA,
+    blockB,
+    blockC,
+    blockD,
     navBar,
     footer,
     home,

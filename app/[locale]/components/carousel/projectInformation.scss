@@ -1,4 +1,6 @@
 .home-page-carousel-project-info-container {
+  position: absolute;
+  z-index: 999;
   background-color: $fondu-carroussel-description;
   backdrop-filter: blur(8px);
   border-radius: 10px;
@@ -10,7 +12,13 @@
 
   @include small {
     flex: none;
-    margin: 24px 16px;
+    margin: 48px 16px;
+  }
+
+  @include large {
+    bottom: 0;
+    left: 0;
+    max-width: 640px;
   }
 
   .home-page-carousel-project-info-project-title {

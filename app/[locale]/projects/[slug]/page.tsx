@@ -41,7 +41,7 @@ type ProjectPageProps = {
 const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
-  const initial = await loadQuery<SanityDocument>(
+  const projectQuery = await loadQuery<SanityDocument>(
     PROJECT_QUERY_BY_LANG,
     params,
     {
@@ -50,9 +50,9 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
   );
 
   return draftMode().isEnabled ? (
-    <ProjectPageContainerPreview initial={initial} params={params} />
+    <ProjectPageContainerPreview initial={projectQuery} params={params} />
   ) : (
-    <ProjectPageContainer project={initial.data} />
+    <ProjectPageContainer project={projectQuery.data} />
   );
 };
 

@@ -11,6 +11,8 @@ import favIcon from "../common/assets/favicon.ico";
 import { Footer } from "@/common/components/footer/Footer";
 import { loadQuery } from "@/../sanity/lib/store";
 import { FOOTER_QUERY_BY_LANG } from "../../sanity/lib/queries";
+import { PageOverlay } from "./components/pageOverlay/PageOverlay";
+import { PageOverlayProvider } from "./components/pageOverlay/PageOverlayContext";
 
 const saansTrial = localFont({
   src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
@@ -61,20 +63,25 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
   );
 
   return (
-    <html lang={params.locale}>
-      <body className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}>
-        {/* <header>
+    <PageOverlayProvider>
+      <html lang={params.locale}>
+        <body
+          className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
+        >
+          <PageOverlay />
+          {/* <header>
           <nav>
             <h1>NavBar</h1>
           </nav>
         </header> */}
-        <main>{children}</main>
-        <footer>
-          <Footer data={initial.data} />
-        </footer>
-        {draftMode().isEnabled && <LiveVisualEditing />}
-      </body>
-    </html>
+          <main>{children}</main>
+          <footer>
+            <Footer data={initial.data} />
+          </footer>
+          {draftMode().isEnabled && <LiveVisualEditing />}
+        </body>
+      </html>
+    </PageOverlayProvider>
   );
 };
 

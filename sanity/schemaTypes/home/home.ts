@@ -16,7 +16,7 @@ export default defineType({
   fields: [
     defineField({
       name: "carousel",
-      title: "Caroussel",
+      title: "Carrousel",
       type: "array",
       of: [
         {

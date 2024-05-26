@@ -1,0 +1,35 @@
+.block-b-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .block-b-portable-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: $noir-boise-700;
+    font-family: $centuryOldStyleStd;
+    font-style: normal;
+    font-weight: 400;
+
+    @include small {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    @include large {
+      width: 50%;
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+
+  .block-b-images {
+    width: 100%;
+
+    .sanity-image {
+      height: 720px;
+      border-radius: $borderRadiusImage;
+    }
+  }
+}

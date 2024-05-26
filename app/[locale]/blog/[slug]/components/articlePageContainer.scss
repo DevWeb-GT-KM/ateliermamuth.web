@@ -1,0 +1,125 @@
+.article-page-container {
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+
+  @include small {
+    padding: 180px $sidePaddingMobile 240px;
+    gap: 56px;
+  }
+
+  @include large {
+    padding: 312px $sidePaddingDesktop 320px;
+    gap: 80px;
+  }
+
+  .article-page-header {
+    display: flex;
+    justify-content: space-between;
+
+    @include small {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .article-page-header-text-container {
+      @include large {
+        width: 50%;
+      }
+
+      .article-page-title {
+        font-family: $saansTrial;
+        line-height: 56px;
+        color: $noir-boise-700;
+        font-weight: 400;
+        font-style: normal;
+        margin-bottom: 40px;
+
+        @include small {
+          font-size: 40px;
+        }
+
+        @include large {
+          font-size: 56px;
+        }
+      }
+
+      .article-page-description {
+        font-family: $centuryOldStyleStd;
+        color: $noir-boise-700;
+        font-weight: 400;
+        font-style: normal;
+        margin-bottom: 24px;
+
+        @include small {
+          font-size: 18px;
+          line-height: 22px;
+        }
+
+        @include large {
+          font-size: 24px;
+          line-height: 30px;
+        }
+      }
+
+      .article-page-header-flex-row {
+        display: flex;
+
+        @include small {
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        @include large {
+          align-items: center;
+          gap: 34px;
+        }
+
+        .article-page-author-publication-date-container {
+          display: flex;
+          gap: 34px;
+
+          @include small {
+            order: 2;
+          }
+
+          .article-page-author,
+          .article-page-publication-date {
+            font-family: $saansTrial;
+            color: $noir-boise-400;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 16px;
+            line-height: 16px;
+          }
+        }
+
+        .social-media-share-button {
+          @include small {
+            order: 1;
+          }
+        }
+      }
+    }
+
+    .article-page-header-image-container {
+      @include small {
+        width: 100%;
+      }
+
+      @include large {
+        width: 587px;
+      }
+
+      .sanity-image {
+        border-radius: $borderRadiusImage;
+      }
+    }
+  }
+
+  .page-selector-container {
+    @include large {
+      margin-top: 320px;
+    }
+  }
+}

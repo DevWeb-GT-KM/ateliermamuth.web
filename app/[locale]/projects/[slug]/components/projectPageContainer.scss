@@ -1,11 +1,15 @@
-// TODO - mieux styler les images
 .project-page-container {
+  display: flex;
+  flex-direction: column;
+
   @include small {
     padding: 180px $sidePaddingMobile 240px;
+    gap: 160px;
   }
 
   @include large {
     padding: 312px $sidePaddingDesktop 320px;
+    gap: 240px;
   }
 
   .project-page-title {
@@ -26,112 +30,100 @@
   }
 
   .project-page-first-block-container {
-    .project-page-first-block-image-container {
-      position: relative;
-
-      @include small {
-        height: 180px;
-      }
-
-      @include large {
-        height: 720px;
-      }
-
-      .project-page-first-block-image {
-        border-radius: 10px;
-      }
-    }
-  }
-
-  .project-page-second-block-container {
-    .project-page-second-block-images-container {
+    .project-page-first-block-row {
       display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
       gap: 16px;
 
       @include small {
         flex-direction: column;
+        gap: 80px;
       }
 
-      .project-page-second-block-big-image {
-        position: relative;
-
+      .project-page-first-block-row-first-item {
         @include large {
-          height: 720px;
-          flex: 3;
+          width: 47%;
         }
 
-        .project-page-second-block-big-image {
-          border-radius: 10px;
+        .project-page-first-block-description {
+          font-family: $centuryOldStyleStd;
+          color: $noir-boise-700;
+          font-weight: 400;
+          font-style: normal;
+          margin-bottom: 24px;
+
+          @include small {
+            font-size: 18px;
+            line-height: 22px;
+          }
+
+          @include large {
+            font-size: 24px;
+            line-height: 30px;
+          }
+        }
+
+        .project-page-first-block-project-types {
+          display: flex;
+          gap: 8px;
+
+          .project-page-first-block-project-type {
+            font-family: $saansTrial;
+            font-weight: 400;
+            line-height: 12px;
+            background-color: $noir-boise-100;
+            color: $noir-boise-600;
+            border-radius: 5px;
+
+            @include small {
+              font-size: 10px;
+              padding: 4px 12px;
+            }
+
+            @include large {
+              font-size: 14px;
+              padding: 8px 16px;
+            }
+          }
         }
       }
 
-      .project-page-second-block-carousel-container {
-        position: relative;
+      .project-page-first-block-credit {
+        font-family: $saansTrial;
+        color: $noir-boise-600;
+        font-size: 16px;
+        line-height: 16px;
+        font-style: normal;
+        font-weight: 400;
+        border-top: 1px solid $noir-boise-200;
+        padding: 12px 0px;
+        display: flex;
+
+        &:last-child {
+          border-bottom: 1px solid $noir-boise-200;
+        }
 
         @include large {
-          height: 720px;
-          flex: 1;
-        }
+          width: 467px;
 
-        .project-page-second-block-carousel-image {
-          border-radius: 10px;
+          span {
+            flex: 1;
+          }
         }
+      }
+    }
+
+    .sanity-image-wrapper-container {
+      .sanity-image {
+        border-radius: $borderRadiusImage;
       }
     }
   }
 
-  .project-page-third-block-container {
-    .project-page-third-block-image-container {
-      position: relative;
-
-      @include small {
-        height: 180px;
-      }
-
-      @include large {
-        height: 720px;
-      }
-
-      .project-page-third-block-image {
-        border-radius: 10px;
-      }
-    }
-  }
-
-  .project-page-fourth-block-container {
-    .project-page-fourth-block-images-container {
-      display: flex;
-      gap: 16px;
-
-      @include small {
-        flex-direction: column;
-      }
-
-      .project-page-fourth-block-carousel-container {
-        position: relative;
-
-        @include large {
-          height: 720px;
-          flex: 1;
-        }
-
-        .project-page-fourth-block-carousel-image {
-          border-radius: 10px;
-        }
-      }
-
-      .project-page-fourth-block-image-container {
-        position: relative;
-
-        @include large {
-          height: 720px;
-          flex: 1;
-        }
-
-        .project-page-fourth-block-image {
-          border-radius: 10px;
-        }
-      }
+  .page-selector-container {
+    @include large {
+      margin-top: 160px;
     }
   }
 }
