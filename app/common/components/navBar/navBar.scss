@@ -1,0 +1,245 @@
+:has(.services-page-container) {
+  .nav-bar-top {
+    .nav-bar-link {
+      color: $gris-neutre-700 !important;
+    }
+
+    .nav-bar-link-services {
+      color: $gris-neutre-400 !important;
+    }
+
+    .nav-bar-contact-us {
+      color: $gris-neutre-700 !important;
+      border: 1px solid $gris-neutre-700 !important;
+
+      &:hover {
+        color: $gris-neutre-400 !important;
+        background-color: $gris-neutre-700 !important;
+      }
+    }
+  }
+}
+
+:has(.about-us-page-container) {
+  .nav-bar-top {
+    .nav-bar-link {
+      color: $jaune-de-naples-700 !important;
+    }
+
+    .nav-bar-link-about-us {
+      color: $jaune-pyrite-500 !important;
+    }
+
+    .nav-bar-contact-us {
+      color: $jaune-de-naples-700 !important;
+      border: 1px solid $jaune-de-naples-700 !important;
+
+      &:hover {
+        color: $jaune-pyrite-500 !important;
+        background-color: $jaune-de-naples-700 !important;
+      }
+    }
+  }
+}
+
+:has(.blog-page-container) {
+  .nav-bar-top {
+    .nav-bar-link {
+      color: $rouge-fauve-vineux-700 !important;
+    }
+
+    .nav-bar-link-blog {
+      color: $rouge-fauve-vineux-500 !important;
+    }
+
+    .nav-bar-contact-us {
+      color: $rouge-fauve-vineux-700 !important;
+      border: 1px solid $rouge-fauve-vineux-700 !important;
+
+      &:hover {
+        color: $rouge-fauve-vineux-400 !important;
+        background-color: $rouge-fauve-vineux-700 !important;
+      }
+    }
+  }
+}
+
+:has(.services-page-container) {
+  .nav-bar-link-services {
+    color: $gris-neutre-400 !important;
+  }
+}
+
+:has(.service-page-design-interieur-container) {
+  .nav-bar-container {
+    background-color: #f2f2ff;
+  }
+}
+
+:has(.service-page-design-interieur-container) {
+  .nav-bar-container {
+    background-color: #f2f2ff;
+  }
+}
+
+:has(.service-page-architecture-residentielle-container) {
+  .nav-bar-container {
+    background-color: #eef6f0;
+  }
+}
+
+:has(.service-page-e-design-container) {
+  .nav-bar-container {
+    background-color: #e5f1ff;
+  }
+}
+
+:has(.nav-bar-top) {
+  .nav-bar-container {
+    background-color: transparent;
+  }
+}
+
+:has(.home-page-container, .contact-form-container) {
+  .nav-bar-top {
+    .nav-bar-logo-link {
+      background-image: url("../../assets/images/navBar/logo.svg") !important;
+    }
+
+    .nav-bar-link {
+      color: $noir-boise-50 !important;
+    }
+
+    .nav-bar-mobile-menu-open-btn {
+      border-top: 2px solid $noir-boise-50 !important;
+      border-bottom: 2px solid $noir-boise-50 !important;
+    }
+
+    .nav-bar-contact-us {
+      color: $noir-boise-50 !important;
+      border: 1px solid $noir-boise-50 !important;
+
+      &:hover {
+        color: $noir-boise-700 !important;
+        background-color: $noir-boise-50 !important;
+      }
+    }
+  }
+}
+
+.nav-bar-container {
+  display: inline-flex;
+  flex: 1;
+  flex-direction: row;
+  padding: 20px 40px 20px 40px;
+  background-color: white;
+
+  @include small {
+    padding: 18px 16px;
+  }
+
+  .nav-bar-logo-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-image: url("../../assets/images/navBar/darkLogo.svg");
+    background-repeat: no-repeat;
+    height: 30px;
+    margin-top: 8px;
+  }
+
+  .nav-bar-links-desktop {
+    display: flex;
+    flex: 8;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include small {
+      display: none;
+    }
+
+    .nav-bar-link {
+      color: $noir-boise-700;
+      font-family: $saansTrial;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      margin: 0px 24px;
+    }
+
+    .nav-bar-contact-us {
+      @extend .common-btn-noir-boise-light;
+      color: $noir-boise-700;
+      border: 1px solid $noir-boise-700;
+
+      &:hover {
+        color: $jaune-pyrite-50;
+        background-color: $noir-boise-700;
+      }
+
+      padding: 14px 16px;
+      margin-left: 8rem;
+    }
+  }
+
+  .nav-bar-links-mobile {
+    display: none;
+    z-index: 1000;
+
+    @include small {
+      display: inline;
+    }
+
+    .nav-bar-mobile-menu-open-btn {
+      margin-top: 1rem;
+      border-top: 2px solid $noir-boise-700;
+      border-bottom: 2px solid $noir-boise-700;
+      width: 32px;
+      height: 10px;
+    }
+
+    .nav-bar-mobile-menu-close-btn {
+      margin-top: 0.6rem;
+    }
+  }
+
+  .nav-bar-mobile-menu {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+
+    .nav-bar-mobile-menu-link {
+      background-image: url("../../assets/images/navBar/darkLogo.svg");
+      background-repeat: no-repeat;
+      height: 30px;
+      width: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 26px;
+      margin-left: 16px;
+    }
+
+    .nav-bar-mobile-link {
+      font-family: $saansTrial;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      margin: 30px 24px;
+    }
+
+    @include small {
+      display: flex;
+    }
+  }
+}

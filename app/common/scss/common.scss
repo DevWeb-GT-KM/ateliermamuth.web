@@ -20,7 +20,7 @@
   }
 }
 
-.common-btn-noir-boise {
+.common-btn-noir-boise-light {
   cursor: pointer;
 
   color: $noir-boise-50;
@@ -40,4 +40,26 @@
     color: $noir-boise-700;
     background-color: $noir-boise-50;
   }
+}
+
+.common-btn-noir-boise-dark {
+  cursor: pointer;
+
+  color: $noir-boise-600;
+  border: 1px solid $noir-boise-300;
+  border-radius: 5px;
+  font-family: $saansTrial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+
+  display: block;
+  text-align: center;
+  width: fit-content;
+
+  // &:hover {
+  //   color: $noir-boise-700;
+  //   background-color: $noir-boise-50;
+  // }
 }

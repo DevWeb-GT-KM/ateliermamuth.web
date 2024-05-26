@@ -1,0 +1,119 @@
+.page-selector-container {
+  display: flex;
+  justify-content: space-between;
+
+  .page-selector-item {
+    display: flex;
+    flex-direction: column;
+
+    @include small {
+      width: 45%;
+    }
+
+    @include large {
+      width: 40%;
+    }
+
+    &:last-child {
+      text-align: right;
+      align-items: flex-end;
+
+      @include small {
+        .page-selector-content {
+          align-items: flex-end;
+        }
+      }
+
+      @include large {
+        .page-selector-content {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+
+    .page-selector-action-title {
+      font-family: $saansTrial;
+      color: $noir-boise-700;
+      width: min-content;
+      font-size: normal;
+      font-weight: 400;
+      text-decoration: underline;
+      cursor: pointer;
+
+      &:hover {
+        color: $noir-boise-400;
+      }
+
+      @include small {
+        font-size: 18px;
+        line-height: 20px;
+        margin-bottom: 16px;
+      }
+
+      @include large {
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .page-selector-content {
+      display: flex;
+
+      @include small {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      @include large {
+        gap: 16px;
+      }
+
+      .sanity-image-wrapper-container {
+        @include small {
+          width: 56px;
+          height: 56px;
+        }
+
+        @include large {
+          width: 80px;
+          height: 80px;
+        }
+
+        .sanity-image {
+          border-radius: 5px;
+        }
+      }
+
+      .page-selector-text-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .page-selector-title,
+        .page-selector-description {
+          width: 100%;
+          font-family: $saansTrial;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        .page-selector-title {
+          color: $noir-boise-700;
+        }
+
+        .page-selector-description {
+          color: $noir-boise-400;
+          max-width: 250px;
+
+          @include small {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

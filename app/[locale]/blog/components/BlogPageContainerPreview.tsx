@@ -4,7 +4,7 @@ import { QueryParams, SanityDocument } from "next-sanity";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 
 import { BlogPageContainer } from "./BlogPageContainer";
-import { PROJECT_QUERY } from "@/../sanity/lib/queries";
+import { PROJECT_QUERY_BY_LANG } from "@/../sanity/lib/queries";
 
 type BlogPageContainerPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;
@@ -14,9 +14,13 @@ type BlogPageContainerPreviewProps = {
 export const BlogPageContainerPreview: React.FC<
   BlogPageContainerPreviewProps
 > = ({ initial, params }) => {
-  const { data } = useQuery<SanityDocument | null>(PROJECT_QUERY, params, {
-    initial,
-  });
+  const { data } = useQuery<SanityDocument | null>(
+    PROJECT_QUERY_BY_LANG,
+    params,
+    {
+      initial,
+    }
+  );
 
   return data ? (
     <BlogPageContainer data={data[0]} />
