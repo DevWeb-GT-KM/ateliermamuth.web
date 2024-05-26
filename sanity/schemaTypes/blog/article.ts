@@ -1,6 +1,11 @@
 import { defineField, defineType } from "sanity";
 import { DotIcon } from "@sanity/icons";
-import { LANGUAGE_FIELD } from "../constants";
+
+import blockA from "../blocks/blockA";
+import blockB from "../blocks/blockB";
+import blockC from "../blocks/blockC";
+import blockD from "../blocks/blockD";
+import { IMAGE_FIELD, LANGUAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "article",
@@ -8,11 +13,6 @@ export default defineType({
   type: "document",
   icon: DotIcon,
   fields: [
-    defineField({
-      name: "title",
-      title: "Titre",
-      type: "string",
-    }),
     defineField({
       name: "slug",
       title: "URL",
@@ -24,13 +24,8 @@ export default defineType({
       },
     }),
     defineField({
-      name: "publicationDate",
-      title: "Date de publication",
-      type: "date",
-    }),
-    defineField({
-      name: "author",
-      title: "Auteur",
+      name: "title",
+      title: "Titre",
       type: "string",
     }),
     defineField({
@@ -38,31 +33,47 @@ export default defineType({
       title: "Description",
       type: "text",
     }),
+    defineField(IMAGE_FIELD("mainImage", "Photo principale")),
     defineField({
-      name: "image",
-      title: "Photo",
-      type: "image",
+      name: "subtitle",
+      title: "Sous-titre",
+      description:
+        "Est utilisé dans la composante pour changer de page (précédent, suivant)",
+      type: "string",
     }),
     defineField({
-      name: "text",
-      title: "Texte",
+      name: "author",
+      title: "Auteur",
+      type: "string",
+    }),
+    defineField({
+      name: "publicationDate",
+      title: "Date de publication",
+      type: "date",
+      options: {
+        dateFormat: "DD/MM/YYYY",
+      },
+    }),
+    defineField({
+      name: "contentBlocks",
+      title: "Blocs de contenu",
       type: "array",
-      of: [{ type: "block" }],
-    }),
-    defineField({
-      name: "shareButton",
-      title: "Boutton partager",
-      type: "string",
-    }),
-    defineField({
-      name: "previousButton",
-      title: "Boutton précédent",
-      type: "string",
-    }),
-    defineField({
-      name: "nextButton",
-      title: "Boutton suivant",
-      type: "string",
+      of: [
+        {
+          type: blockA.name,
+        },
+        {
+          type: blockB.name,
+        },
+        {
+          type: blockC.name,
+        },
+        {
+          type: blockD.name,
+        },
+      ],
+      description:
+        "Blocs qui s'afficheront après la description principale. Il est possible de changer l'ordre d'affichage en déplaçant les items dans la liste.",
     }),
     defineField(LANGUAGE_FIELD),
   ],

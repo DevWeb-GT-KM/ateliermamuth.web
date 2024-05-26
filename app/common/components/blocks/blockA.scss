@@ -1,0 +1,66 @@
+.block-a-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .block-a-portable-text-container {
+    color: $noir-boise-700;
+    font-family: $centuryOldStyleStd;
+    font-style: normal;
+    font-weight: 400;
+
+    @include small {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    @include large {
+      font-size: 24px;
+      line-height: 30px;
+      width: 50%;
+    }
+  }
+
+  .block-a-images-container {
+    display: flex;
+    gap: 16px;
+
+    @include small {
+      flex-direction: column;
+    }
+
+    .block-a-images-left {
+      height: auto;
+      flex-grow: 1;
+
+      @include small {
+        width: 100%;
+      }
+
+      @include large {
+        width: 75.95%;
+      }
+
+      .sanity-image {
+        border-radius: $borderRadiusImage;
+      }
+    }
+
+    .block-a-images-right {
+      height: auto;
+      flex-grow: 1;
+
+      @include small {
+        width: 100%;
+      }
+
+      @include large {
+        width: 24.05%;
+      }
+
+      .sanity-image {
+        border-radius: $borderRadiusImage;
+      }
+    }
+  }
+}

@@ -1,9 +1,129 @@
-.product-page-container {
+.project-page-container {
+  display: flex;
+  flex-direction: column;
+
   @include small {
     padding: 180px $sidePaddingMobile 240px;
+    gap: 160px;
   }
 
   @include large {
     padding: 312px $sidePaddingDesktop 320px;
+    gap: 240px;
+  }
+
+  .project-page-title {
+    text-align: center;
+    color: $noir-boise-700;
+    font-family: $saansTrial;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 56px;
+
+    @include small {
+      font-size: 40px;
+    }
+
+    @include large {
+      font-size: 56px;
+    }
+  }
+
+  .project-page-first-block-container {
+    .project-page-first-block-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+
+      @include small {
+        flex-direction: column;
+        gap: 80px;
+      }
+
+      .project-page-first-block-row-first-item {
+        @include large {
+          width: 47%;
+        }
+
+        .project-page-first-block-description {
+          font-family: $centuryOldStyleStd;
+          color: $noir-boise-700;
+          font-weight: 400;
+          font-style: normal;
+          margin-bottom: 24px;
+
+          @include small {
+            font-size: 18px;
+            line-height: 22px;
+          }
+
+          @include large {
+            font-size: 24px;
+            line-height: 30px;
+          }
+        }
+
+        .project-page-first-block-project-types {
+          display: flex;
+          gap: 8px;
+
+          .project-page-first-block-project-type {
+            font-family: $saansTrial;
+            font-weight: 400;
+            line-height: 12px;
+            background-color: $noir-boise-100;
+            color: $noir-boise-600;
+            border-radius: 5px;
+
+            @include small {
+              font-size: 10px;
+              padding: 4px 12px;
+            }
+
+            @include large {
+              font-size: 14px;
+              padding: 8px 16px;
+            }
+          }
+        }
+      }
+
+      .project-page-first-block-credit {
+        font-family: $saansTrial;
+        color: $noir-boise-600;
+        font-size: 16px;
+        line-height: 16px;
+        font-style: normal;
+        font-weight: 400;
+        border-top: 1px solid $noir-boise-200;
+        padding: 12px 0px;
+        display: flex;
+
+        &:last-child {
+          border-bottom: 1px solid $noir-boise-200;
+        }
+
+        @include large {
+          width: 467px;
+
+          span {
+            flex: 1;
+          }
+        }
+      }
+    }
+
+    .sanity-image-wrapper-container {
+      .sanity-image {
+        border-radius: $borderRadiusImage;
+      }
+    }
+  }
+
+  .page-selector-container {
+    @include large {
+      margin-top: 160px;
+    }
   }
 }
