@@ -13,7 +13,17 @@ export default defineType({
     defineField({
       name: "completionYear",
       title: "Année de réalisation",
-      type: "date",
+      type: "string",
+    }),
+    defineField({
+      name: "projectTypes",
+      title: "Types de projet",
+      type: "array",
+      of: [
+        {
+          type: "string",
+        },
+      ],
     }),
     defineField({
       name: "location",

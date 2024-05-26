@@ -1,0 +1,50 @@
+.projects-page-container {
+  .projects-page-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
+    @include small {
+      height: 50vh;
+      margin: 0px -$sidePaddingMobile;
+    }
+
+    @include large {
+      height: 50vh;
+    }
+    .projects-page-title {
+      color: $noir-boise-700;
+      font-family: $saansTrial;
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 56px;
+    }
+  }
+
+  .projects-page-content {
+    .projects-page-secondary-projects,
+    .projects-page-primary-projects {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .projects-page-archives {
+      margin: 240px 0px;
+
+      .projects-page-archives-title {
+        text-align: center;
+        color: $noir-mamuth;
+        font-family: $saansTrial;
+        font-size: 56px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 56px;
+
+        margin-bottom: 80px;
+      }
+    }
+  }
+}

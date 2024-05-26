@@ -70,6 +70,26 @@ export const ARTICLE_QUERY_BY_LANG = groq`*[_type == "article" && language == $l
   "nextArticle": coalesce(*[_type == "article" && defined(slug) && language == $locale && slug.current != ^.slug.current && publicationDate >= ^.publicationDate] | order(publicationDate asc)[0], *[_type == "article" && defined(slug) && language == $locale && slug.current != ^.slug.current] | order(publicationDate asc)[0]) { slug, title, subtitle, mainImage { alt, asset->, hotspot } }
 }`;
 
+export const PROJECTS_PAGE_QUERY = groq`*[_type == "projects" && language == $locale]{
+  pageTitle,
+  projects[]->{
+    mainImage{ asset-> },
+    projectTypes,
+    name,
+    shortDescription,
+    },
+  archiveSectionTitle,
+  projectsArchived[]{
+    completionYear,
+    projectTypes,
+    name,
+    location,
+    images[]{
+      asset->
+    }
+  }
+}`;
+
 export const BLOG_QUERY_BY_LANG = groq`*[_type == "blog" && language == $locale] {
   pageTitle,
   articles[]-> {

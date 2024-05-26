@@ -4,7 +4,7 @@ import Image from "next/image";
 import { client } from "@/../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Link } from "@/../navigation";
-import { FooterLogo } from "./FooterLogo";
+import logo from "../../assets/images/footer/logoVector/mamuthLogo.svg";
 
 type FooterProps = {
   data: any[];
@@ -91,7 +91,13 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
         </div>
       </div>
       <div className="footer-bottom">
-        <FooterLogo />
+        <Image
+          className="image-test"
+          src={logo}
+          width={0}
+          height={0}
+          alt="test"
+        />
         <div className="footer-copyright">
           <h1 className="footer-copyright-text">2024, Atelier mamuth</h1>
           <h1 className="footer-copyright-text">Tous droits réservés</h1>
