@@ -1,7 +1,7 @@
 import "./project.scss";
 
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "../../../sanity/lib/client";
+import { SanityImageWrapper } from "./images/SanityImageWrapper";
+import { SANITY_IMAGE_FORMAT } from "./images/sanityImageBuilderConfig";
 
 type ProjectProps = {
   data: any;
@@ -12,7 +12,6 @@ export const Project: React.FC<ProjectProps> = ({
   data,
   isSecondaryProject,
 }) => {
-  const builder = imageUrlBuilder(client);
   const MAX_CHARACTER_DISPLAYED = isSecondaryProject ? 80 : 230;
   const formatDescription = (description: string) => {
     if (description.length <= MAX_CHARACTER_DISPLAYED) {
@@ -28,12 +27,15 @@ export const Project: React.FC<ProjectProps> = ({
         isSecondaryProject ? "secondary" : "primary"
       }`}
     >
-      <div
-        className="project-image"
-        style={{
-          backgroundImage: `url(${builder
-            .image(data.mainImage.asset.url)
-            .url()})`,
+      <SanityImageWrapper
+        sanityImage={data.mainImage}
+        imageBuilderConfig={{
+          format: SANITY_IMAGE_FORMAT.Jpg,
+          quality: 90,
+          size: {
+            width: 1920,
+            height: 1080,
+          },
         }}
       />
       <div className="project-description">
