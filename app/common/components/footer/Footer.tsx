@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
     <div className="footer-container">
       <div className="footer-top">
         <div className="footer-info">
-          <h1 className="footer-info-description">
+          <h1 className="footer-info-descriptionr">
             {data[0].aboutUs.shortDescription}
           </h1>
           <a href={`mailto:${data[0].email}`} className="footer-info-email">
