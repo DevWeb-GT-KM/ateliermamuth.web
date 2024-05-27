@@ -1,8 +1,6 @@
 import "./values.scss";
 
 import { Link } from "@/../navigation";
-
-import Image from "next/image";
 import { Value } from "./Value";
 
 type ValuesProps = {
@@ -22,7 +20,7 @@ export const Values: React.FC<ValuesProps> = ({ data }) => {
           return <Value key={index} data={value} />;
         })}
       </div>
-      <Link className="home-page-values-link" href={"/"}>
+      <Link className="home-page-values-link" href={"/about-us"}>
         en savoir plus
       </Link>
     </div>

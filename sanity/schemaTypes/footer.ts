@@ -51,11 +51,6 @@ export default defineType({
       to: [{ type: faq.name }],
     }),
     defineField({
-      name: "termsAndConditions",
-      title: "Termes et conditions",
-      type: "string",
-    }),
-    defineField({
       name: "socialMedias",
       title: "Médias sociaux",
       type: "array",

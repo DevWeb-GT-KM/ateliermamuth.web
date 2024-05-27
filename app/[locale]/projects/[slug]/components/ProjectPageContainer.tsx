@@ -63,6 +63,10 @@ export const ProjectPageContainer: React.FC<
           imageBuilderConfig={{
             quality: 75,
             format: SANITY_IMAGE_FORMAT.Jpg,
+            size: {
+              width: 2560,
+              height: 1440,
+            },
           }}
         />
       </div>

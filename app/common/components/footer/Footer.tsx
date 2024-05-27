@@ -5,6 +5,8 @@ import { client } from "@/../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Link } from "@/../navigation";
 import logo from "../../assets/images/footer/logoVector/mamuthLogo.svg";
+import { SanityImageWrapper } from "../images/SanityImageWrapper";
+import { SANITY_IMAGE_FORMAT } from "../images/sanityImageBuilderConfig";
 
 type FooterProps = {
   data: any[];
@@ -20,13 +22,17 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
           <h1 className="footer-info-description">
             {data[0].aboutUs.shortDescription}
           </h1>
-          <div className="footer-info-email">{data[0].email}</div>
+          <a href={`mailto:${data[0].email}`} className="footer-info-email">
+            {data[0].email}
+          </a>
           <Image
             className="footer-info-apdiq-logo"
-            src={builder.image(data[0].apdiqLogo.asset.url).url()}
-            alt={"apdiq logo"}
+            src={builder.image(data[0].apdiqLogo.asset.url).quality(100).url()}
+            alt="Logo de l'association professionnelle des designers d'intérieur du Québec"
             width={0}
             height={0}
+            quality={100}
+            unoptimized
           />
         </div>
         <div className="footer-links">
@@ -67,9 +73,6 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
             <Link className="footer-link" href={{ pathname: "/faq" }}>
               {data[0].faq.pageTitle}
             </Link>
-            <Link className="footer-link" href={{ pathname: "/" }}>
-              {data[0].termsAndConditions}
-            </Link>
             <div
               style={{ display: "flex", flexDirection: "row", marginTop: 0 }}
               className="footer-link"
@@ -80,7 +83,8 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
                     key={index}
                     className="footer-link"
                     style={{ marginRight: 8 }}
-                    href={{ pathname: "/" }}
+                    target="_blank"
+                    href={{ pathname: socialMedia.link }}
                   >
                     {socialMedia.mediaName}
                   </Link>
@@ -91,13 +95,15 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
         </div>
       </div>
       <div className="footer-bottom">
-        <Image
-          className="image-test"
-          src={logo}
-          width={0}
-          height={0}
-          alt="test"
-        />
+        <Link href={"/"}>
+          <Image
+            className="footer-mamuth-logo"
+            src={logo}
+            width={0}
+            height={0}
+            alt="Logo de la compagnie Atelier Mamuth"
+          />
+        </Link>
         <div className="footer-copyright">
           <h1 className="footer-copyright-text">2024, Atelier mamuth</h1>
           <h1 className="footer-copyright-text">Tous droits réservés</h1>

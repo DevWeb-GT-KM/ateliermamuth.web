@@ -27,20 +27,9 @@ export const SanityImageWrapper: React.FC<SanityImageWrapperProps> = ({
   const getImageSource = () => {
     let imageSource = urlFor(sanityImage)
       .format(imageBuilderConfig.format)
-      .fit(
-        imageBuilderConfig.size?.width && imageBuilderConfig.size?.height
-          ? "crop"
-          : "clip"
-      )
-      .quality(imageBuilderConfig.quality);
-
-    if (imageBuilderConfig.size?.width) {
-      imageSource = imageSource.width(imageBuilderConfig.size.width);
-    }
-
-    if (imageBuilderConfig.size?.height) {
-      imageSource = imageSource.height(imageBuilderConfig.size.height);
-    }
+      .fit("crop")
+      .quality(imageBuilderConfig.quality)
+      .size(imageBuilderConfig.size.width, imageBuilderConfig.size.height);
 
     if (sanityImage.hotspot) {
       imageSource = imageSource
@@ -61,10 +50,13 @@ export const SanityImageWrapper: React.FC<SanityImageWrapperProps> = ({
       <Image
         className="sanity-image"
         src={imageSource}
-        fill
-        placeholder="blur"
-        blurDataURL={sanityImage.asset.metadata.lqip}
+        placeholder={sanityImage.asset.metadata?.lqip ? "blur" : "empty"}
+        blurDataURL={sanityImage.asset.metadata?.lqip}
         alt={sanityImage.alt}
+        width={imageBuilderConfig.size.width}
+        height={imageBuilderConfig.size.height}
+        quality={imageBuilderConfig.quality}
+        unoptimized
       />
       {children}
     </div>
