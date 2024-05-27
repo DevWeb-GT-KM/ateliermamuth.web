@@ -10,7 +10,7 @@ export const ContactUs: React.FC = () => {
           "Vous aimeriez avoir plus d'informations, écrivez-nous via notre formulaire"
         }
       </h1>
-      <Link className="contact-page-contact-us-link" href={{ pathname: "/" }}>
+      <Link className="contact-page-contact-us-link" href={"/contact-form"}>
         écrivez-nous
       </Link>
     </div>

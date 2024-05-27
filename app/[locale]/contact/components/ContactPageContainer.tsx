@@ -20,7 +20,12 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
           <div className="contact-page-information">
             <div className="contact-page-information-email">
               <h1 className="contact-page-email-label">{data.addressLabel}</h1>
-              <h1 className="contact-page-email-value">{data.address}</h1>
+              <a
+                href={`mailto:${data.address}`}
+                className="contact-page-email-value"
+              >
+                {data.address}
+              </a>
             </div>
             <div className="contact-page-information-telephone">
               <h1 className="contact-page-telephone-label">

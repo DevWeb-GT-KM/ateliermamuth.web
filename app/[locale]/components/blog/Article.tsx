@@ -1,4 +1,5 @@
 import "./article.scss";
+import { Link } from "@/../navigation";
 
 type ArticleProps = {
   data: any[];
@@ -19,7 +20,14 @@ export const Article: React.FC<ArticleProps> = ({ data }) => {
     <>
       {data.map((article: any, index: number) => {
         return (
-          <div key={index} className="home-page-blog-article-container">
+          <Link
+            href={{
+              pathname: "/blog/[slug]",
+              params: { slug: article.slug.current },
+            }}
+            key={index}
+            className="home-page-blog-article-container"
+          >
             <div className="home-page-blog-article-description-container">
               <h1 className="home-page-blog-title">{article.title}</h1>
               <p className="home-page-blog-article-description">
@@ -27,7 +35,7 @@ export const Article: React.FC<ArticleProps> = ({ data }) => {
               </p>
             </div>
             <div className="home-page-blog-article-image"></div>
-          </div>
+          </Link>
         );
       })}
     </>

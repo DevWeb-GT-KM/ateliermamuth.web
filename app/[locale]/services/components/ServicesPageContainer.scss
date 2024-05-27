@@ -1,6 +1,7 @@
 .services-page-container {
   // TODO - mieux styler le calque
   .services-page-header {
+    position: relative;
     background-color: #c1d8d5;
     background-image: url("../../../common/assets/images/servicesPage/calque.svg");
     background-size: cover;
@@ -9,11 +10,12 @@
     justify-content: center;
     align-items: center;
     margin: 0px -$sidePaddingDesktop;
+    margin-bottom: 40px;
 
     // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
     @include small {
+      margin: 0 -$sidePaddingMobile;
       height: 50vh;
-      margin: 0px -$sidePaddingMobile;
     }
 
     @include large {
@@ -42,13 +44,11 @@
     flex-direction: column;
 
     @include small {
-      padding-top: 56px;
       padding-bottom: 240px;
       gap: 160px;
     }
 
     @include large {
-      padding-top: 56px;
       padding-bottom: 400px;
       gap: 240px;
     }

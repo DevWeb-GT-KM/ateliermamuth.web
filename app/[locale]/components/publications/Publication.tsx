@@ -13,7 +13,11 @@ export const Publication: React.FC<PublicationProps> = ({ data }) => {
         return (
           <div key={index} className="home-page-publication-item">
             <p className="home-page-publication-text">{`${publication.mediaName}, ${publication.publicationDate}`}</p>
-            <Link className="home-page-publication-link" href={"/"}>
+            <Link
+              target="_blank"
+              className="home-page-publication-link"
+              href={publication.link}
+            >
               lien
             </Link>
           </div>

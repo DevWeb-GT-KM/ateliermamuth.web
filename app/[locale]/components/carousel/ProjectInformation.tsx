@@ -1,7 +1,7 @@
 "use client";
 
 import "./projectInformation.scss";
-import { useRouter } from "@/../navigation";
+import { Link } from "@/../navigation";
 
 type ProjectInformationProps = {
   data: any[];
@@ -22,17 +22,13 @@ export const ProjectInformation: React.FC<ProjectInformationProps> = ({
     }
   };
 
-  const router = useRouter();
-
   return (
-    <div
+    <Link
       className="home-page-carousel-project-info-container"
-      onClick={() =>
-        router.push({
-          pathname: "/projects/[slug]",
-          params: { slug: data[0].carousel[currentIndex].slug.current },
-        })
-      }
+      href={{
+        pathname: "/projects/[slug]",
+        params: { slug: data[0].carousel[currentIndex].slug.current },
+      }}
     >
       <h1 className="home-page-carousel-project-info-project-title">
         {data[0].carousel[currentIndex].name}
@@ -54,6 +50,6 @@ export const ProjectInformation: React.FC<ProjectInformationProps> = ({
           }
         )}
       </div>
-    </div>
+    </Link>
   );
 };

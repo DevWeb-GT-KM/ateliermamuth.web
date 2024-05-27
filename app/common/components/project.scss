@@ -21,10 +21,20 @@
   margin-top: 80px;
   padding-left: 8px;
   padding-right: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
 
   .sanity-image-wrapper-container {
+    transition: all 0.5s;
+    overflow: hidden;
+    border-radius: $borderRadiusImage;
+
     .sanity-image {
-      border-radius: $borderRadiusImage;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
