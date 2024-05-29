@@ -10,21 +10,24 @@
 .contact-form-container {
   display: flex;
   justify-content: center;
-  margin-top: 15rem;
+  margin-top: 10rem;
+  padding-bottom: 2rem;
 
   @include small {
-    margin-top: 4rem;
+    margin-top: 8rem;
+    flex-direction: column;
   }
 
   .contact-form-step-container {
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: 400px;
 
     @include small {
       font-size: 24px;
       line-height: 32px;
-      height: 520px;
+      height: auto;
+      margin-bottom: 2rem;
     }
 
     .contact-form-step-title {
@@ -103,6 +106,13 @@
   .contact-form-project-type-step-inputs,
   .contact-form-budget-step-inputs {
     margin: 0px auto;
+    display: flex;
+    gap: 4rem;
+
+    @include small {
+      gap: 4px;
+      flex-direction: column;
+    }
 
     .form-radio-input-container {
       margin-top: 80px;

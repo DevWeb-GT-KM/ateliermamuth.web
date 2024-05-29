@@ -50,9 +50,10 @@
     display: flex;
     flex-direction: row;
     gap: 16px;
+    overflow-x: scroll;
 
     .project-archived-image {
-      width: 346px;
+      width: 300px;
       height: 235px;
       background-size: cover;
       background-repeat: no-repeat;
