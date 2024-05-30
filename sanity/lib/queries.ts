@@ -109,7 +109,11 @@ export const SERVICES_PAGE_QUERY = groq`*[_type == "services" && language == $lo
       name, 
       description,
       projectTypes, 
-      image {asset->}
+      img {
+        alt,
+        asset->,
+        hotspot
+      }
     },
     projectSectionTitle
   }`;
@@ -236,7 +240,12 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
     articles[]->{
       title,
       description,
-      slug
+      slug,
+      mainImage {
+        alt,
+        asset->,
+        hotspot
+      }
     }
   }
 }`;

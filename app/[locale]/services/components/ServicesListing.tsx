@@ -3,6 +3,8 @@ import "./ServicesListing.scss";
 import Image from "next/image";
 
 import { Link } from "@/../navigation";
+import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
+import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 
 export type ServicesListingProps = {
   services?: any[];
@@ -47,11 +49,22 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
             </div>
 
             <div className="services-listing-item-image-container">
-              <Image
+              {/* <Image
                 className="services-listing-item-image"
                 src={service?.image?.asset?.url}
                 alt=""
                 fill
+              /> */}
+              <SanityImageWrapper
+                sanityImage={service?.img}
+                imageBuilderConfig={{
+                  size: {
+                    width: 1920,
+                    height: 1080,
+                  },
+                  format: SANITY_IMAGE_FORMAT.Jpg,
+                  quality: 85,
+                }}
               />
             </div>
           </div>
