@@ -49,12 +49,6 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
             </div>
 
             <div className="services-listing-item-image-container">
-              {/* <Image
-                className="services-listing-item-image"
-                src={service?.image?.asset?.url}
-                alt=""
-                fill
-              /> */}
               <SanityImageWrapper
                 sanityImage={service?.img}
                 imageBuilderConfig={{
