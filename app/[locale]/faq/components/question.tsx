@@ -28,6 +28,7 @@ export const Question: React.FC<QuestionProps> = ({ data }) => {
           src={height == "auto" ? minus : plus}
           alt="plus"
           width={30}
+          unoptimized
         />
       </div>
       <AnimateHeight duration={1000} height={height}>

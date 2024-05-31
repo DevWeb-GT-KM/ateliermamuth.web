@@ -1,5 +1,7 @@
 import "./article.scss";
+import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { Link } from "@/../navigation";
+import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 
 type ArticleProps = {
   data: any[];
@@ -35,6 +37,17 @@ export const Article: React.FC<ArticleProps> = ({ data }) => {
               </p>
             </div>
             <div className="home-page-blog-article-image"></div>
+            <SanityImageWrapper
+              sanityImage={article.mainImage}
+              imageBuilderConfig={{
+                size: {
+                  width: 500,
+                  height: 500,
+                },
+                format: SANITY_IMAGE_FORMAT.Jpg,
+                quality: 85,
+              }}
+            />
           </Link>
         );
       })}

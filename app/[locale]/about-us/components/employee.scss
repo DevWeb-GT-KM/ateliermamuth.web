@@ -15,23 +15,21 @@
   }
 
   .employee-picture-container {
-    flex: 1;
-    display: flex;
+    @include large {
+      flex: 0 1 20%;
+    }
 
-    .employee-picture {
-      background-color: #ececec;
-      border-radius: 10px;
-      width: 280px;
-      height: 340px;
-
-      @include small {
-        width: 100%;
+    .sanity-image-wrapper-container {
+      .sanity-image {
+        border-radius: $borderRadiusImage;
       }
     }
   }
 
   .employee-description-container {
-    flex: 2;
+    @include large {
+      flex: 0 1 70%;
+    }
 
     .employee-description-header {
       display: flex;

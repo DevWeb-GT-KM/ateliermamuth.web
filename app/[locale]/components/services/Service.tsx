@@ -28,6 +28,7 @@ export const Service: React.FC<ServiceProps> = ({ data }) => {
           src={height == "auto" ? minus : plus}
           alt="plus"
           width={30}
+          unoptimized
         />
       </div>
       <AnimateHeight

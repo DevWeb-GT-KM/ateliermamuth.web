@@ -91,7 +91,8 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
             src={closeBtn}
             width={20}
             height={20}
-            alt="test"
+            alt=""
+            unoptimized
             onClick={() => setShowMobileMenu(false)}
           />
         ) : (

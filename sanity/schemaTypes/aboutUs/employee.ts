@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { IMAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "employee",
@@ -25,10 +26,6 @@ export default defineType({
       title: "Description",
       type: "text",
     }),
-    defineField({
-      name: "image",
-      title: "Photo",
-      type: "image",
-    }),
+    defineField(IMAGE_FIELD()),
   ],
 });

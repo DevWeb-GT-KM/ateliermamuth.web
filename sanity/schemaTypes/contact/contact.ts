@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { IoIosPeople } from "react-icons/io";
-import { LANGUAGE_FIELD } from "../constants";
+import { LANGUAGE_FIELD, IMAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "contact",
@@ -43,11 +43,7 @@ export default defineType({
         },
       ],
     }),
-    defineField({
-      name: "image",
-      title: "Photo",
-      type: "image",
-    }),
+    defineField(IMAGE_FIELD()),
     defineField(LANGUAGE_FIELD),
   ],
   preview: {
