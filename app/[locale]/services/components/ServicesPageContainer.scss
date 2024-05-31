@@ -1,5 +1,4 @@
 .services-page-container {
-  // TODO - mieux styler le calque
   .services-page-header {
     position: relative;
     background-color: #c1d8d5;
@@ -9,16 +8,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px -$sidePaddingDesktop;
-    margin-bottom: 40px;
 
-    // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
     @include small {
-      margin: 0 -$sidePaddingMobile;
+      margin: 0px -$sidePaddingMobile;
+      margin-bottom: 40px;
       height: 50vh;
     }
 
     @include large {
+      margin: 0px -$sidePaddingDesktop;
+      margin-bottom: 40px;
       height: 60vh;
     }
 

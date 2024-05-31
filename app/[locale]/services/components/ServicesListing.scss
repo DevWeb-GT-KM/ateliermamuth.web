@@ -123,20 +123,13 @@
         }
       }
 
-      // TODO - mieux styler les images
       .services-listing-item-image-container {
         position: relative;
 
-        @include small {
-          height: 240px;
-        }
-
-        @include large {
-          max-height: 400px;
-        }
-
-        .services-listing-item-image {
-          border-radius: 10px;
+        .sanity-image-wrapper-container {
+          .sanity-image {
+            border-radius: $borderRadiusImage;
+          }
         }
       }
     }

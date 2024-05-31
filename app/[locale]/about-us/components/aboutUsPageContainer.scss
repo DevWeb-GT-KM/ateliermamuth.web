@@ -67,7 +67,10 @@
       }
 
       .about-us-page-description-rich-text {
-        flex: 2;
+        @include large {
+          flex: 0 1 50%;
+        }
+
         p {
           color: $noir-boise-700;
           font-family: $saansTrial;
@@ -86,19 +89,16 @@
         }
       }
 
-      .about-us-page-description-image {
-        flex: 1;
-        border-radius: 10px;
-        background: rgba(217, 217, 217, 0.5);
-        height: 400px;
-        margin-left: 5rem;
+      .sanity-image-wrapper-container {
+        @include large {
+          flex: 0 1 40%;
+        }
 
-        @include small {
-          flex: none;
-          width: 100%;
-          margin-left: 0px;
+        .sanity-image {
+          border-radius: $borderRadiusImage;
         }
       }
+
     }
   }
 

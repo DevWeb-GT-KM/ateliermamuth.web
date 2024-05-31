@@ -2,6 +2,8 @@ import "./contactPageContainer.scss";
 
 import { PortableText } from "@portabletext/react";
 import { ContactUs } from "./ContactUs";
+import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
+import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 
 type ContactPageContainerProps = {
   data: any;
@@ -37,9 +39,17 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
               <PortableText value={data.faq} />
             </div>
           </div>
-          <div className="contact-page-image">
-            <div className="image-test"></div>
-          </div>
+          <SanityImageWrapper
+            sanityImage={data.img}
+            imageBuilderConfig={{
+              quality: 75,
+              format: SANITY_IMAGE_FORMAT.Jpg,
+              size: {
+                width: 1080,
+                height: 1920,
+              },
+            }}
+          />
         </div>
       </div>
       <ContactUs />
