@@ -38,15 +38,15 @@ export const Article: React.FC<ArticleProps> = ({ data }) => {
             </div>
             <div className="home-page-blog-article-image"></div>
             <SanityImageWrapper
-            sanityImage={article.mainImage}
-            imageBuilderConfig={{
-              size: {
-                width: 500,
-                height: 500,
-              },
-              format: SANITY_IMAGE_FORMAT.Jpg,
-              quality: 85,
-            }}
+              sanityImage={article.mainImage}
+              imageBuilderConfig={{
+                size: {
+                  width: 500,
+                  height: 500,
+                },
+                format: SANITY_IMAGE_FORMAT.Jpg,
+                quality: 85,
+              }}
             />
           </Link>
         );

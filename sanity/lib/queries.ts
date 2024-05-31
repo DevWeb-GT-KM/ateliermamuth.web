@@ -97,7 +97,11 @@ export const BLOG_QUERY_BY_LANG = groq`*[_type == "blog" && language == $locale]
       title, 
       slug,
       description,
-      image {asset->}
+      mainImage {
+        alt,
+        asset->,
+        hotspot
+      }
     },
 }`;
 
@@ -124,7 +128,12 @@ export const CONTACT_PAGE_QUERY = groq`*[_type == "contact" && language == $loca
     address,
     telephoneLabel,
     telephone,
-    faq
+    faq,
+    img {
+      alt,
+      asset->,
+      hotspot
+    }
   }`;
 
 export const CONTACT_FORM_PAGE_QUERY = groq`*[_type == "contactForm" && language == "fr"]{
@@ -169,8 +178,10 @@ export const SERVICE_QUERY = groq`*[_type == "service" && slug.current == $slug]
 export const ABOUT_US_PAGE_QUERY_BY_LANG = groq`*[_type == "aboutUs" && language == $locale]{
   pageTitle,
   shortDescription,
-  image{
-    asset->
+  img {
+    alt,
+    asset->,
+    hotspot
   },
   description,
   employees[]{
@@ -178,8 +189,10 @@ export const ABOUT_US_PAGE_QUERY_BY_LANG = groq`*[_type == "aboutUs" && language
     role,
     email,
     description,
-    image{
-    asset->
+    img {
+      alt,
+      asset->,
+      hotspot
     }
   },
   publications->{

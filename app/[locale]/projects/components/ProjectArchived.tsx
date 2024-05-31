@@ -56,6 +56,7 @@ export const ProjectArchived: React.FC<ProjectArchivedProps> = ({ data }) => {
               src={close}
               alt="plus"
               width={14}
+              unoptimized
             />
           )}
         </div>
