@@ -41,10 +41,16 @@
         font-size: 18px;
         line-height: 22px;
       }
+
+      .see-more:hover {
+        color: $noir-boise-700;
+      }
     }
   }
 
   .sanity-image-wrapper-container {
+    margin-left: 60px;
+    
     @include small {
       width: 77px;
       height: 77px;

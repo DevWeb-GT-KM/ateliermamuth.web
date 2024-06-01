@@ -4,22 +4,13 @@ import { SanityDocument } from "next-sanity";
 import { Link } from "@/../navigation";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { buildSeeMoreString } from "@/common/helpers/SeeMore";
 
 type ArticleProps = {
   article: SanityDocument;
 };
 
 export const Article: React.FC<ArticleProps> = ({ article }) => {
-  const MAX_CHARACTER_DISPLAYED = 100;
-
-  const formatDescription = (description: string) => {
-    if (description.length <= MAX_CHARACTER_DISPLAYED) {
-      return description;
-    } else {
-      let subDescription = description.substring(0, MAX_CHARACTER_DISPLAYED);
-      return subDescription + "... Voir plus";
-    }
-  };
   return (
     <Link
       className="blog-page-article-container"
@@ -30,8 +21,7 @@ export const Article: React.FC<ArticleProps> = ({ article }) => {
     >
       <div className="blog-page-article-description-container">
         <h1 className="blog-page-article-title">{article.title}</h1>
-        <p className="blog-page-article-description">
-          {formatDescription(article.description)}
+        <p className="blog-page-article-description" dangerouslySetInnerHTML={{ __html: buildSeeMoreString(article.description, 230) }}>
         </p>
       </div>
       <SanityImageWrapper

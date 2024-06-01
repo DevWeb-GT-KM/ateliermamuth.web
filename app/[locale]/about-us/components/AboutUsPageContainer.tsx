@@ -26,7 +26,6 @@ export const AboutUsPageContainer: React.FC<AboutUsPageContainerProps> = ({
           <div className="about-us-page-description-rich-text">
             <PortableText value={data[0].description} />
           </div>
-          {/* <div className="about-us-page-description-image"></div> */}
           <SanityImageWrapper
             sanityImage={data[0]?.img}
             imageBuilderConfig={{

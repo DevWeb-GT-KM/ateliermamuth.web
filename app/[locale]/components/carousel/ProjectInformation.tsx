@@ -1,5 +1,6 @@
 "use client";
 
+import { SEE_MORE_VALUE, buildSeeMoreString } from "@/common/helpers/SeeMore";
 import "./projectInformation.scss";
 import { Link } from "@/../navigation";
 
@@ -12,16 +13,6 @@ export const ProjectInformation: React.FC<ProjectInformationProps> = ({
   data,
   currentIndex,
 }) => {
-  const MAX_CHARACTER_DISPLAYED = 230;
-  const formatDescription = (description: string) => {
-    if (description.length <= MAX_CHARACTER_DISPLAYED) {
-      return description;
-    } else {
-      let subDescription = description.substring(0, MAX_CHARACTER_DISPLAYED);
-      return subDescription + "... Voir plus";
-    }
-  };
-
   return (
     <Link
       className="home-page-carousel-project-info-container"
@@ -33,9 +24,7 @@ export const ProjectInformation: React.FC<ProjectInformationProps> = ({
       <h1 className="home-page-carousel-project-info-project-title">
         {data[0].carousel[currentIndex].name}
       </h1>
-      <p className="home-page-carousel-project-info-project-description">
-        {formatDescription(data[0].carousel[currentIndex].shortDescription)}
-      </p>
+      <p className="home-page-carousel-project-info-project-description" dangerouslySetInnerHTML={{ __html: buildSeeMoreString(data[0].carousel[currentIndex].shortDescription, 200) }}></p>
       <div className="home-page-carousel-project-info-project-types">
         {data[0].carousel[currentIndex].projectTypes.map(
           (projectType: any, index: number) => {
