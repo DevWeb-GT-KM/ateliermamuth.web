@@ -89,26 +89,31 @@
         }
       }
 
-      .project-page-first-block-credit {
-        font-family: $saansTrial;
-        color: $noir-boise-600;
-        font-size: 16px;
-        line-height: 16px;
-        font-style: normal;
-        font-weight: 400;
-        border-top: 1px solid $noir-boise-200;
-        padding: 12px 0px;
-        display: flex;
-
-        &:last-child {
-          border-bottom: 1px solid $noir-boise-200;
+      .project-page-first-block-credits {
+        @include large {
+          width: 40%;
         }
 
-        @include large {
-          width: 467px;
+        .project-page-first-block-credit {
+          font-family: $saansTrial;
+          color: $noir-boise-600;
+          line-height: 16px;
+          font-style: normal;
+          font-weight: 400;
+          border-top: 1px solid $noir-boise-200;
+          padding: 12px 0px;
+          display: flex;
+  
+          &:last-child {
+            border-bottom: 1px solid $noir-boise-200;
+          }
 
-          span {
-            flex: 1;
+          @include small {
+            font-size: 15px;
+          }
+
+          @include large {
+            font-size: 16px;
           }
         }
       }

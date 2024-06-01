@@ -10,7 +10,6 @@ export const Employee: React.FC<EmployeeProps> = ({ data }) => {
   return (
     <div className="employee-container">
       <div className="employee-picture-container">
-        {/* <div className="employee-picture" /> */}
         <SanityImageWrapper
           sanityImage={data?.img}
           imageBuilderConfig={{

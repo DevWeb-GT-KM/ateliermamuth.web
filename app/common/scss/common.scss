@@ -58,8 +58,8 @@
   text-align: center;
   width: fit-content;
 
-  // &:hover {
-  //   color: $noir-boise-700;
-  //   background-color: $noir-boise-50;
-  // }
+  &:hover {
+    color: $noir-boise-700;
+    border: 1px solid $noir-boise-700;
+  }
 }
