@@ -1,0 +1,23 @@
+.projects-page-project-archived-images {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow: hidden;
+
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  .sanity-image-wrapper-container {
+    min-width: 400px;
+    margin-bottom: 1rem;
+    pointer-events: none;
+    user-select: none;
+
+    .sanity-image {
+      border-radius: $borderRadiusImage;
+    }
+  }
+}

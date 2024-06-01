@@ -16,9 +16,11 @@ export const Projects: React.FC<ProjectsProps> = ({ data }) => {
         </h1>
       </div>
       <div className="home-page-projects-body">
-        {data[0].projects.projects.map((project: any, index: number) => {
-          return <Project key={index} data={project} />;
-        })}
+        {data[0].projects.projects
+          .filter((project: any) => project.type == "primary")
+          .map((project: any, index: number) => {
+            return <Project key={index} data={project} />;
+          })}
         <h1 className="home-page-projects-see-more-title">
           Voir toutes nos réalisations
         </h1>

@@ -9,8 +9,6 @@ type ProjectsPageContainerProps = {
 export const ProjectsPageContainer: React.FC<ProjectsPageContainerProps> = ({
   data,
 }) => {
-  const PRIMARY_PROJECT_MAX = 6;
-
   return (
     <div className="projects-page-container">
       <div className="projects-page-header">
@@ -19,14 +17,14 @@ export const ProjectsPageContainer: React.FC<ProjectsPageContainerProps> = ({
       <div className="projects-page-content">
         <div className="projects-page-primary-projects">
           {data.projects
-            .slice(0, PRIMARY_PROJECT_MAX)
+            .filter((project: any) => project.type == "primary")
             .map((project: any, index: number) => {
               return <Project key={index} data={project} />;
             })}
         </div>
         <div className="projects-page-secondary-projects">
           {data.projects
-            .slice(0, PRIMARY_PROJECT_MAX)
+            .filter((project: any) => project.type == "secondary")
             .map((project: any, index: number) => {
               return <Project isSecondaryProject key={index} data={project} />;
             })}

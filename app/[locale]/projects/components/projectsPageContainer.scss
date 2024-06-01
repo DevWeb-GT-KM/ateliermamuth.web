@@ -31,6 +31,18 @@
       flex-wrap: wrap;
     }
 
+    .projects-page-secondary-projects {
+      .project-container {
+        width: 25%;
+      }
+    }
+
+    .projects-page-primary-projects {
+      .project-container {
+        width: 50%;
+      }
+    }
+
     .projects-page-archives {
       margin: 240px 0px;
 

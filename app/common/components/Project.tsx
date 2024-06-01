@@ -18,9 +18,7 @@ export const Project: React.FC<ProjectProps> = ({
 
   return (
     <Link
-      className={`project-container ${
-        isSecondaryProject ? "secondary" : "primary"
-      }`}
+      className="project-container"
       href={{
         pathname: "/projects/[slug]",
         params: { slug: data.slug.current },
