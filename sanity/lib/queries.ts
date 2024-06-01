@@ -32,7 +32,6 @@ const LOAD_BLOCK_REFERENCES = `contentBlocks[] {
 }`;
 
 export const PROJECTS_QUERY_BY_LANG = groq`*[_type == "project" && defined(slug) && language == $locale]`;
-export const PROJECTS_QUERY = groq`*[_type == "project" && defined(slug)]`;
 
 export const PROJECT_QUERY_BY_LANG = groq`*[_type == "project" && language == $locale && slug.current == $slug][0] {
   _createdAt,
@@ -73,6 +72,7 @@ export const ARTICLE_QUERY_BY_LANG = groq`*[_type == "article" && language == $l
 export const PROJECTS_PAGE_QUERY = groq`*[_type == "projects" && language == $locale]{
   pageTitle,
   projects[]->{
+    type,
     mainImage{ asset-> },
     projectTypes,
     name,
@@ -241,6 +241,7 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
   projects->{
     pageTitle,
     projects[]->{
+      type,
       mainImage{ asset-> },
       projectTypes,
       name,

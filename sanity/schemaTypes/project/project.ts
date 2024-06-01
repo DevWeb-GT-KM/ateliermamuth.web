@@ -13,6 +13,19 @@ export default defineType({
   icon: DotIcon,
   fields: [
     defineField({
+      name: "type",
+      title: "Type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Primaire", value: "primary" },
+          { title: "Secondaire", value: "secondary" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+    }),
+    defineField({
       name: "name",
       title: "Nom du projet",
       type: "string",
