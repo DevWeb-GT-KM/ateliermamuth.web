@@ -1,23 +1,11 @@
-.primary {
-  width: 50%;
-  @include small {
-    width: 100%;
-    margin-top: 40px;
-    padding: 0px;
-  }
-}
-
-.secondary {
-  width: 25%;
-
-  @include small {
-    width: 50%;
-    margin-top: 40px;
-    padding: 0px;
-  }
-}
-
 .project-container {
+  width: 50%;
+
+  @include small {
+    width: 100% !important;
+    margin-top: 40px !important;
+    padding: 0px !important;
+  }
   margin-top: 80px;
   padding-left: 8px;
   padding-right: 8px;

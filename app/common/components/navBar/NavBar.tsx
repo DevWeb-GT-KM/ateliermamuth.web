@@ -10,7 +10,7 @@ type NavBarProps = {
 };
 
 export const NavBar: React.FC<NavBarProps> = ({ data }) => {
-  const NAV_BAR_BREAK_POINT = 100;
+  const NAV_BAR_BREAK_POINT = 80;
   const [showNavBar, setShowNavBar] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -44,7 +44,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
         lastScrollY > NAV_BAR_BREAK_POINT && showNavBar ? "" : "nav-bar-top"
       }`}
       style={{
-        opacity: showNavBar ? "1" : "0",
+        top: showNavBar ? 0 : -100,
       }}
     >
       <Link

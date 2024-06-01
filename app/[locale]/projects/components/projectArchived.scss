@@ -30,12 +30,22 @@
 
     .projects-page-project-archived-name,
     .projects-page-project-archived-project-types {
-      flex: 3;
+      flex: 5;
+    }
+
+    .projects-page-project-archived-project-types {
+      @include small {
+        display: none;
+      }
     }
 
     .projects-page-project-archived-completion-year,
     .projects-page-project-archived-location {
-      flex: 1;
+      flex: 4;
+
+      @include small {
+        text-align: right;
+      }
     }
 
     .projects-page-project-archived-image-container {
@@ -43,22 +53,6 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-    }
-  }
-
-  .projects-page-project-archived-images {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    overflow-x: scroll;
-
-    .project-archived-image {
-      width: 300px;
-      height: 235px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 10px;
-      margin-bottom: 12px;
     }
   }
 }

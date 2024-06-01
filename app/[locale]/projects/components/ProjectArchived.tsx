@@ -8,6 +8,7 @@ import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 import close from "../../../common/assets/images/projectsPage/closeButton.svg";
 import { client } from "../../../../sanity/lib/client";
+import HorizontalSlider from "./HorizontalSlider";
 
 type ProjectArchivedProps = {
   data: any;
@@ -61,21 +62,7 @@ export const ProjectArchived: React.FC<ProjectArchivedProps> = ({ data }) => {
         </div>
       </div>
       <AnimateHeight duration={1000} height={height}>
-        <div className="projects-page-project-archived-images">
-          {data.images.map((image: any, index: number) => {
-            return (
-              <div
-                key={index}
-                className="project-archived-image"
-                style={{
-                  backgroundImage: `url(${builder
-                    .image(image.asset.url)
-                    .url()})`,
-                }}
-              />
-            );
-          })}
-        </div>
+        <HorizontalSlider images={data.images} />
       </AnimateHeight>
     </div>
   );
