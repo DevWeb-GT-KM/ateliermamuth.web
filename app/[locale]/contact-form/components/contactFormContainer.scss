@@ -12,15 +12,19 @@
   }
 }
 
-.contact-form-container {
+main {
   display: flex;
   justify-content: center;
-  margin-top: 10rem;
+  align-items: center;
+}
+
+.contact-form-container {
   padding-bottom: 2rem;
 
   @include small {
-    margin-top: 8rem;
+    align-items: center;
     flex-direction: column;
+    width: 100%;
   }
 
   .contact-form-step-container {
@@ -64,6 +68,8 @@
 
       @include small {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 16px;
         margin-top: 40px;
       }
@@ -74,7 +80,7 @@
 
         @include small {
           margin-right: 0px;
-          width: 100%;
+          width: 90%;
         }
 
         .form-text-input-box {
@@ -193,6 +199,7 @@
 
     @include small {
       margin-top: 40px;
+      width: 100%;
     }
     .contact-form-textarea-input {
       color: $noir-boise-50;
@@ -245,10 +252,6 @@
   }
 
   .contact-form-confirmation-step-container {
-    @include small {
-      margin-top: 50%;
-    }
-
     .contact-form-step-content {
       .contact-form-step-title {
         color: $noir-boise-50;

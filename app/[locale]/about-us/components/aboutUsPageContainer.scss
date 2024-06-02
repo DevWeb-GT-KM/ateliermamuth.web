@@ -1,15 +1,3 @@
-@keyframes zoomInOut {
-  0% {
-    background-size: 150%; /* Initial scale */
-  }
-  50% {
-    background-size: 200%; /* Zoom in */
-  }
-  100% {
-    background-size: 150%; /* Zoom out */
-  }
-}
-
 .about-us-page-container {
   .about-us-page-header {
     background-color: $jaune-de-naples-300;
@@ -18,12 +6,9 @@
     align-items: center;
     height: 80vh;
 
-    background-image: url("../../../common/assets/images/abousUsPage/shape.svg");
-    background-position-x: -300px;
-    background-position-y: -1300px;
-    background-size: 150%;
+    background-image: url("../../../common/assets/images/abousUsPage/desktopShapes.svg");
+    background-size: cover;
     background-repeat: no-repeat;
-    animation: zoomInOut 50s infinite;
 
     margin-left: -$sidePaddingDesktop;
     margin-right: -$sidePaddingDesktop;
