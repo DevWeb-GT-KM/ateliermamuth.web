@@ -1,6 +1,7 @@
 import { Article } from "./Article";
 import "./blogPageContainer.scss";
 import { SanityDocument } from "next-sanity";
+import Image from "next/image";
 
 type BlogPageContainerProps = {
   data: SanityDocument;
@@ -11,6 +12,7 @@ export const BlogPageContainer: React.FC<BlogPageContainerProps> = ({
 }) => {
   return (
     <div className="blog-page-container">
+      {/* <Image /> */}
       <div className="blog-page-header">
         <h1 className="blog-page-title">{data[0].pageTitle}</h1>
       </div>

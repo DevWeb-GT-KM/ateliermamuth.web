@@ -1,3 +1,15 @@
+@keyframes zoomInOut {
+  0% {
+    background-size: 100%; /* Initial scale */
+  }
+  50% {
+    background-size: 120%; /* Zoom in */
+  }
+  100% {
+    background-size: 100%; /* Zoom out */
+  }
+}
+
 .services-page-container {
   .services-page-header {
     position: relative;
@@ -10,6 +22,7 @@
 
     background-image: url("../../../common/assets/images/servicesPage/desktopShapes.svg");
     background-repeat: no-repeat;
+    animation: zoomInOut 45s infinite;
 
     @include small {
       // background-image: url("../../../common/assets/images/servicesPage/mobileShapes.svg");
