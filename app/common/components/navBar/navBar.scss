@@ -100,6 +100,13 @@
   }
 }
 
+:has(.contact-form-container) {
+  .nav-bar-container {
+    position: relative;
+    background-color: transparent !important;
+  }
+}
+
 :has(.home-page-container, .contact-form-container) {
   .nav-bar-top {
     .nav-bar-logo-link {
