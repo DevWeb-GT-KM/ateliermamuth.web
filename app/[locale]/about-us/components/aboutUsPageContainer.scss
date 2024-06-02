@@ -1,23 +1,21 @@
 .about-us-page-container {
   .about-us-page-header {
     background-color: $jaune-de-naples-300;
-    background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80vh;
+
+    background-image: url("../../../common/assets/images/abousUsPage/desktopShapes.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
     margin-left: -$sidePaddingDesktop;
     margin-right: -$sidePaddingDesktop;
 
-    // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
     @include small {
       margin-left: -$sidePaddingMobile;
       margin-right: -$sidePaddingMobile;
-      height: 50vh;
-    }
-
-    @include large {
-      height: 60vh;
     }
 
     .about-us-page-title {

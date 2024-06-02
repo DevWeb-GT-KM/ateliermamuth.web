@@ -1,4 +1,7 @@
 .contact-page-contact-us-container {
+  background-color: $noir-boise-600;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -7,7 +10,7 @@
   height: 560px;
   margin: 240px 0px;
   border-radius: 20px;
-  background-color: $noir-boise-300;
+  background-image: url("../../../common/assets/images/ContactPage/DesktopShapes.svg");
 
   @include small {
     padding-left: 21px;
