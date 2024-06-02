@@ -4,7 +4,9 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div className="not-found-page-container">
-      <h1>Oups, cette page n&apos;existe pas!</h1>
+      <p className="not-found-page-message">
+        Oups, cette page n&apos;existe pas!
+      </p>
       <div>
         <Link className="back-home-link" href="/">
           Retourner à l&apos;accueil
