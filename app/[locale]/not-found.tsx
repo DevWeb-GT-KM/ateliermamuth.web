@@ -4,10 +4,10 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div className="not-found-page-container">
-      <h1>Oups, cette page n'existe pas!</h1>
+      <h1>Oups, cette page n&apos;existe pas!</h1>
       <div>
         <Link className="back-home-link" href="/">
-          Retourner à l'accueil
+          Retourner à l&apos;accueil
         </Link>
       </div>
     </div>
