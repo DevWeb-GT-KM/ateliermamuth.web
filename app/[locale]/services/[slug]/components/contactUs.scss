@@ -1,16 +1,21 @@
 .service-page-contact-us-e-design {
   background-color: $bleu-helvetia-400;
+  background-image: url("../../../../common/assets/images/servicesPage/service/eDesignCtaShapes.svg");
 }
 
 .service-page-contact-us-design-interieur {
   background-color: $lavande-100;
+  background-image: url("../../../../common/assets/images/servicesPage/service/interiorDesignCtaShapes.svg");
 }
 
 .service-page-contact-us-architecture-residentielle {
   background-color: $vert-pistache-500;
+  background-image: url("../../../../common/assets/images/servicesPage/service/residentialArchitectCtaShapes.svg");
 }
 
 .service-page-contact-us-container {
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   text-align: center;
   justify-content: center;
