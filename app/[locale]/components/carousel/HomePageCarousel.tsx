@@ -56,9 +56,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   }, [currentIndex]);
 
   useEffect(() => {
-    if (width) {
-      setIsMobile(width <= 1000);
-    }
+    setIsMobile(width <= 1024);
   }, [width]);
 
   return (

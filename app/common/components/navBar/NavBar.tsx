@@ -91,7 +91,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
             src={closeBtn}
             width={20}
             height={20}
-            alt=""
+            alt="Logo de la compagnie Mamuth"
             unoptimized
             onClick={() => setShowMobileMenu(false)}
           />
