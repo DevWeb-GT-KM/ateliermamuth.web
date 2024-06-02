@@ -102,6 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
             width={0}
             height={0}
             alt="Logo de la compagnie Atelier Mamuth"
+            unoptimized
           />
         </Link>
         <div className="footer-copyright">

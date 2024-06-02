@@ -54,19 +54,28 @@
         font-size: 18px;
         line-height: 22px;
       }
+
+      .see-more:hover {
+        color: $noir-boise-700;
+      }
     }
   }
 
-  .blog-page-article-image {
-    width: 128px;
-    height: 128px;
-    border-radius: 5px;
-    background-color: #ebebeb;
+  .sanity-image-wrapper-container {
     margin-left: 60px;
 
     @include small {
       width: 77px;
       height: 77px;
+    }
+
+    @include large {
+      width: 128px;
+      height: 128px;
+    }
+
+    .sanity-image {
+      border-radius: 5px;
     }
   }
 }

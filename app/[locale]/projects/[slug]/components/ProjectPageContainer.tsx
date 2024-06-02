@@ -43,7 +43,7 @@ export const ProjectPageContainer: React.FC<
             </div>
           </div>
 
-          <div>
+          <div className="project-page-first-block-credits">
             {project.credits.map(
               (credit: { _key: string; label: string; value: string }) => (
                 <div

@@ -1,4 +1,6 @@
+import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import "./employee.scss";
+import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 
 export type EmployeeProps = {
   data: any;
@@ -8,7 +10,16 @@ export const Employee: React.FC<EmployeeProps> = ({ data }) => {
   return (
     <div className="employee-container">
       <div className="employee-picture-container">
-        <div className="employee-picture" />
+        <SanityImageWrapper
+          sanityImage={data?.img}
+          imageBuilderConfig={{
+            size: {
+              width: 840,
+              height: 1020,
+            },
+            format: SANITY_IMAGE_FORMAT.Jpg,
+            quality: 85,
+          }} />
       </div>
       <div className="employee-description-container">
         <div className="employee-description-header">

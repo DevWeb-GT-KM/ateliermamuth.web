@@ -3,6 +3,8 @@ import "./aboutUsPageContainer.scss";
 
 import { PortableText } from "@portabletext/react";
 import { Publications } from "./publications/Publications";
+import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
+import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 
 export type AboutUsPageContainerProps = {
   data: any[];
@@ -24,7 +26,17 @@ export const AboutUsPageContainer: React.FC<AboutUsPageContainerProps> = ({
           <div className="about-us-page-description-rich-text">
             <PortableText value={data[0].description} />
           </div>
-          <div className="about-us-page-description-image"></div>
+          <SanityImageWrapper
+            sanityImage={data[0]?.img}
+            imageBuilderConfig={{
+              size: {
+                width: 1920,
+                height: 1080,
+              },
+              format: SANITY_IMAGE_FORMAT.Jpg,
+              quality: 85,
+            }}
+          />
         </div>
       </div>
       <div className="about-us-page-employee-section">

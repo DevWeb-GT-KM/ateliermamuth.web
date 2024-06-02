@@ -10,15 +10,13 @@
   padding-left: 8px;
   padding-right: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
 
   .sanity-image-wrapper-container {
-    transition: all 0.5s;
     overflow: hidden;
     border-radius: $borderRadiusImage;
 
     .sanity-image {
-      transition: all 0.3s;
+      transition: all 0.2s;
 
       &:hover {
         transform: scale(1.1);
@@ -40,6 +38,10 @@
       @include small {
         font-size: 18px;
         line-height: 22px;
+      }
+
+      .see-more:hover {
+        color: $noir-boise-700;
       }
     }
 

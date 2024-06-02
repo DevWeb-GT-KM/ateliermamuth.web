@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 import { FaShop } from "react-icons/fa6";
 import publications from "./publications";
-import { LANGUAGE_FIELD } from "../constants";
+import { LANGUAGE_FIELD, IMAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "aboutUs",
@@ -25,14 +25,7 @@ export default defineType({
       type: "array",
       of: [{ type: "block" }],
     }),
-    defineField({
-      name: "image",
-      title: "Photo",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
+    defineField(IMAGE_FIELD()),
     defineField({
       name: "employees",
       title: "Employés",
