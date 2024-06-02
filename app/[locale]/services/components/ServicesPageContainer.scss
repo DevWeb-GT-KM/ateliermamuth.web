@@ -1,25 +1,20 @@
 .services-page-container {
-  // TODO - mieux styler le calque
   .services-page-header {
     position: relative;
     background-color: #c1d8d5;
-    background-image: url("../../../common/assets/images/servicesPage/calque.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
+    height: 80vh;
     justify-content: center;
     align-items: center;
     margin: 0px -$sidePaddingDesktop;
     margin-bottom: 40px;
 
-    // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
-    @include small {
-      margin: 0 -$sidePaddingMobile;
-      height: 50vh;
-    }
+    background-image: url("../../../common/assets/images/servicesPage/desktopShapes.svg");
+    background-repeat: no-repeat;
 
-    @include large {
-      height: 60vh;
+    @include small {
+      // background-image: url("../../../common/assets/images/servicesPage/mobileShapes.svg");
+      margin: 0 -$sidePaddingMobile;
     }
 
     .services-page-header-title {

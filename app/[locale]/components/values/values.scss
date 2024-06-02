@@ -2,10 +2,15 @@
   margin-top: 320px;
   margin-left: -$sidePaddingDesktop;
   margin-right: -$sidePaddingDesktop;
-  background-color: $vert-pistache-700;
+  background-color: #448854;
   overflow: hidden;
 
+  background-image: url("../../../common/assets/images/homePage/values/desktopShapes.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
   @include small {
+    background-image: url("../../../common/assets/images/homePage/values/mobileShapes.svg");
     margin-top: 160px;
     margin-left: -$sidePaddingMobile;
     margin-right: -$sidePaddingMobile;
@@ -38,7 +43,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 215px;
+    margin-top: 10rem;
     padding-left: 20px;
 
     @include small {
