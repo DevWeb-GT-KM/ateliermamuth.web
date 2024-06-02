@@ -11,7 +11,7 @@ export const Blog: React.FC<BlogProps> = ({ data }) => {
   return (
     <div className="home-page-blog-container">
       <div className="home-page-blog-header">
-        <h1 className="home-page-blog-title">{data[0].blog.pageTitle}</h1>
+        <h2 className="home-page-blog-title">{data[0].blog.pageTitle}</h2>
       </div>
       <div className="home-page-blog-body">
         <Article data={data[0].blog.articles} />

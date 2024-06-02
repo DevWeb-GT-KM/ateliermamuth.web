@@ -9,7 +9,7 @@ export const Publications: React.FC<PublicationsProps> = ({ data }) => {
   return (
     <div className={`publications-container`}>
       <div className="publications-header">
-        <h1 className="publications-title">{data.sectionTitle}</h1>
+        <h2 className="publications-title">{data.sectionTitle}</h2>
       </div>
       <div className="publications-body">
         <Publication data={data.publications} />
