@@ -19,7 +19,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [maxIndex] = useState<number>(data[0].carousel.length - 1);
-  const [width, height] = useWindowSize({
+  const [width] = useWindowSize({
     wait: 0,
   });
   const [isMobile, setIsMobile] = useState<boolean>();
