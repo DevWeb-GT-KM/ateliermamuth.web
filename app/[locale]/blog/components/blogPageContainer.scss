@@ -1,15 +1,3 @@
-@keyframes zoomInOut {
-  0% {
-    background-size: 150%; /* Initial scale */
-  }
-  50% {
-    background-size: 20%; /* Zoom in */
-  }
-  100% {
-    background-size: 150%; /* Zoom out */
-  }
-}
-
 .blog-page-container {
   .blog-page-header {
     background-color: $rouge-fauve-vineux-400;
@@ -20,10 +8,8 @@
     margin-left: -$sidePaddingDesktop;
     margin-right: -$sidePaddingDesktop;
 
-    background-image: url("../../../common/assets/images/blogPage/shape.svg");
-    background-size: 150%;
-    background-position-x: 0px;
-    background-position-y: 160px;
+    background-image: url("../../../common/assets/images/blogPage/desktopShapes.svg");
+    background-size: cover;
     background-repeat: no-repeat;
     animation: zoomInOut 40s infinite;
 
