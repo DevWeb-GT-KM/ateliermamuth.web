@@ -1,0 +1,23 @@
+.not-found-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: center;
+  flex-direction: column;
+  height: 90vh;
+
+  .back-home-link {
+    @extend .common-btn-noir-boise-light;
+    color: $noir-boise-700;
+    border: 1px solid $noir-boise-700;
+
+    &:hover {
+      color: $jaune-pyrite-50;
+      background-color: $noir-boise-700;
+    }
+
+    padding: 14px 16px;
+    width: 200px;
+    margin-top: 2rem;
+  }
+}
