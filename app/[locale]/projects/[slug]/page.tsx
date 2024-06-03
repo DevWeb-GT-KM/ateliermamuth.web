@@ -7,16 +7,35 @@ import { ProjectPageContainer } from "./components/ProjectPageContainer";
 import { ProjectPageContainerPreview } from "./components/ProjectPageContainerPreview";
 import { loadQuery } from "@/../sanity/lib/store";
 import {
+  PROJECTS_PAGE_METADATA_QUERY_BY_LANG,
   PROJECTS_QUERY_BY_LANG,
+  PROJECT_PAGE_METADATA_QUERY_BY_LANG,
   PROJECT_QUERY_BY_LANG,
 } from "@/../sanity/lib/queries";
 import { client } from "@/../sanity/lib/client";
 
-// TODO -> Get from CMS fr/en
-export const metadata: Metadata = {
-  title: "Nom du projet | Atelier Mamuth",
-  description: "Description du projet.",
-};
+export async function generateMetadata({ params }: any) {
+  const projectsPageMetadata = await loadQuery<SanityDocument>(
+    PROJECTS_PAGE_METADATA_QUERY_BY_LANG,
+    params,
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
+
+  const currentProjectMetadata = await loadQuery<SanityDocument>(
+    PROJECT_PAGE_METADATA_QUERY_BY_LANG,
+    params,
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
+
+  return {
+    title: `${currentProjectMetadata.data.name} | ${projectsPageMetadata.data[0].metadata.metaTitle}`,
+    description: currentProjectMetadata.data.metadata.metaDescription,
+  };
+}
 
 export async function generateStaticParams({
   params: { locale },

@@ -6,6 +6,11 @@
   flex-direction: column;
   height: 90vh;
 
+  .not-found-page-message {
+    font-family: $saansTrial;
+    font-size: 24px;
+  }
+
   .back-home-link {
     @extend .common-btn-noir-boise-light;
     color: $noir-boise-700;

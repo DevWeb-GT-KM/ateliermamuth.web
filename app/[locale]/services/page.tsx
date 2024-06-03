@@ -1,22 +1,32 @@
-import { Metadata } from "next";
-import { QueryParams } from "next-sanity";
+import { QueryParams, SanityDocument } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { draftMode } from "next/headers";
 
 import { loadQuery } from "@/../sanity/lib/store";
-import { SERVICES_PAGE_QUERY } from "@/../sanity/lib/queries";
+import {
+  SERVICES_PAGE_METADATA_QUERY_BY_LANG,
+  SERVICES_PAGE_QUERY,
+} from "@/../sanity/lib/queries";
 import { LiveQueryWrapper } from "@/common/components/LiveQueryWrapper";
 import {
   ServicesPageContainer,
   ServicesPageContainerProps,
 } from "./components/ServicesPageContainer";
 
-// TODO -> Get from CMS fr/en
-export const metadata: Metadata = {
-  title: "Nos services | Atelier Mamuth",
-  description:
-    "Chez Atelier Mamuth nous offrons 3 types de services afin de bien vous guider selon vos besoins.",
-};
+export async function generateMetadata({ params }: any) {
+  const initial = await loadQuery<SanityDocument>(
+    SERVICES_PAGE_METADATA_QUERY_BY_LANG,
+    params,
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
+
+  return {
+    title: initial.data[0].metadata.metaTitle,
+    description: initial.data[0].metadata.metaDescription,
+  };
+}
 
 type ServicesPageProps = {
   params: QueryParams;

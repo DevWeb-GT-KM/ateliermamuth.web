@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 import service from "./service";
 import { MdOutlineFormatListNumberedRtl } from "react-icons/md";
-import { LANGUAGE_FIELD } from "../constants";
+import { LANGUAGE_FIELD, PAGE_METADATA_FIELD } from "../constants";
 
 export default defineType({
   name: "services",
@@ -9,6 +9,7 @@ export default defineType({
   type: "document",
   icon: MdOutlineFormatListNumberedRtl,
   fields: [
+    defineField(PAGE_METADATA_FIELD()),
     defineField({
       name: "pageTitle",
       title: "Titre de la page",
