@@ -31,6 +31,39 @@ const LOAD_BLOCK_REFERENCES = `contentBlocks[] {
   }
 }`;
 
+const LOAD_PAGE_METADATA = `
+  metadata {
+    metaTitle,
+    metaDescription
+  }
+`;
+
+export const PROJECTS_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "projects" && language == $locale] { ${LOAD_PAGE_METADATA} }`;
+export const PROJECT_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "project" && language == $locale && slug.current == $slug][0] {
+  name,
+  metadata {
+    metaDescription
+  }
+ }`;
+export const ABOUT_US_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "aboutUs" && language == $locale] { ${LOAD_PAGE_METADATA} }`;
+export const BLOG_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "blog" && language == $locale] { ${LOAD_PAGE_METADATA} }`;
+export const ARTICLE_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "article" && language == $locale && slug.current == $slug][0] {
+  title,
+  metadata {
+    metaDescription
+  }
+ }`;
+export const CONTACT_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "contact" && language == $locale] { ${LOAD_PAGE_METADATA} }`;
+export const CONTACT_FORM_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "contactForm" && language == $locale] { ${LOAD_PAGE_METADATA} }`;
+export const FAQ_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "faq" && language == $locale] { ${LOAD_PAGE_METADATA} }`;
+export const SERVICES_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "services" && language == $locale] { ${LOAD_PAGE_METADATA} }`;
+export const SERVICE_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "service" && language == $locale && slug.current == $slug][0] {
+  name,
+  metadata {
+    metaDescription
+  }
+ }`;
+
 export const PROJECTS_QUERY_BY_LANG = groq`*[_type == "project" && defined(slug) && language == $locale]`;
 
 export const PROJECT_QUERY_BY_LANG = groq`*[_type == "project" && language == $locale && slug.current == $slug][0] {
@@ -136,7 +169,7 @@ export const CONTACT_PAGE_QUERY = groq`*[_type == "contact" && language == $loca
     }
   }`;
 
-export const CONTACT_FORM_PAGE_QUERY = groq`*[_type == "contactForm" && language == "fr"]{
+export const CONTACT_FORM_PAGE_QUERY = groq`*[_type == "contactForm" && language == $locale] {
   submitButton,
   backHomeButton,
   previousButton,
@@ -173,7 +206,7 @@ export const FAQ_PAGE_QUERY = groq`*[_type == "faq" && language == $locale]{
 }`;
 
 export const SERVICES_LIST_QUERY = groq`*[_type == "service" && defined(slug) && language == $locale]`;
-export const SERVICE_QUERY = groq`*[_type == "service" && slug.current == $slug][0]`;
+export const SERVICE_QUERY = groq`*[_type == "service" && language == $locale && slug.current == $slug][0]`;
 
 export const ABOUT_US_PAGE_QUERY_BY_LANG = groq`*[_type == "aboutUs" && language == $locale]{
   pageTitle,

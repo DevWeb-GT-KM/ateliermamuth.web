@@ -1,7 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { MdOutlineEmail } from "react-icons/md";
-import service from "../service/service";
-import { LANGUAGE_FIELD } from "../constants";
+import { LANGUAGE_FIELD, PAGE_METADATA_FIELD } from "../constants";
 
 export default defineType({
   name: "contactForm",
@@ -9,6 +8,7 @@ export default defineType({
   type: "document",
   icon: MdOutlineEmail,
   fields: [
+    defineField(PAGE_METADATA_FIELD()),
     defineField({
       name: "personalInformationTitle",
       title: "Informations personnelles titre",

@@ -1,6 +1,10 @@
 import { defineField, defineType } from "sanity";
 import { DotIcon } from "@sanity/icons";
-import { IMAGE_FIELD, LANGUAGE_FIELD } from "../constants";
+import {
+  IMAGE_FIELD,
+  LANGUAGE_FIELD,
+  PAGE_PARTIAL_METADATA_FIELD,
+} from "../constants";
 import blockA from "../blocks/blockA";
 import blockB from "../blocks/blockB";
 import blockC from "../blocks/blockC";
@@ -12,6 +16,7 @@ export default defineType({
   type: "document",
   icon: DotIcon,
   fields: [
+    defineField(PAGE_PARTIAL_METADATA_FIELD()),
     defineField({
       name: "type",
       title: "Type",

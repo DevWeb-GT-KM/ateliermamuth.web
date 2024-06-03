@@ -1,5 +1,5 @@
 import { ContactFormContext } from "@/common/contexts/ContactFormContext";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 type StepWrapperProps = {
@@ -16,6 +16,25 @@ export const StepWrapper: React.FC<StepWrapperProps> = ({
   isLoading,
 }) => {
   const contactFormContext = useContext(ContactFormContext);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        event.preventDefault(); // Prevent default form submission
+        if (nextButtonRef.current) {
+          nextButtonRef.current.click(); // Trigger the next button click
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <div>
       <div className="contact-form-step-container">
@@ -32,6 +51,7 @@ export const StepWrapper: React.FC<StepWrapperProps> = ({
           </button>
         )}
         <button
+          ref={nextButtonRef}
           type="submit"
           className="contact-form-navigation-btn"
           disabled={isLoading}

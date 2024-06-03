@@ -11,7 +11,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ data }) => {
     <div className="home-page-about-us-container">
       <div className="home-page-about-us-header">
         {/* TODO voir quoi faire pour le titre  */}
-        <h1 className="about-us-title">à propos</h1>
+        <h2 className="about-us-title">À propos</h2>
       </div>
       <div className="home-page-about-us-body">
         <p className="home-page-about-us-description">

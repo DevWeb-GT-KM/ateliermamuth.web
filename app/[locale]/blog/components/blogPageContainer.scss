@@ -1,23 +1,21 @@
 .blog-page-container {
   .blog-page-header {
     background-color: $rouge-fauve-vineux-400;
-    background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
+    height: 80vh;
     justify-content: center;
     align-items: center;
     margin-left: -$sidePaddingDesktop;
     margin-right: -$sidePaddingDesktop;
 
-    // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
+    background-image: url("../../../common/assets/images/blogPage/desktopShapes.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: zoomInOut 40s infinite;
+
     @include small {
       margin-left: -$sidePaddingMobile;
       margin-right: -$sidePaddingMobile;
-      height: 50vh;
-    }
-
-    @include large {
-      height: 60vh;
     }
   }
 

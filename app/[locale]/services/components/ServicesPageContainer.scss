@@ -2,23 +2,19 @@
   .services-page-header {
     position: relative;
     background-color: #c1d8d5;
-    background-image: url("../../../common/assets/images/servicesPage/calque.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
+    height: 80vh;
+    margin: -40px;
     justify-content: center;
     align-items: center;
 
-    @include small {
-      margin: 0px -$sidePaddingMobile;
-      margin-bottom: 40px;
-      height: 50vh;
-    }
+    background-image: url("../../../common/assets/images/servicesPage/desktopShapes.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    @include large {
-      margin: 0px -$sidePaddingDesktop;
-      margin-bottom: 40px;
-      height: 60vh;
+    @include small {
+      // background-image: url("../../../common/assets/images/servicesPage/mobileShapes.svg");
+      margin: 0 -$sidePaddingMobile;
     }
 
     .services-page-header-title {
@@ -48,6 +44,7 @@
     }
 
     @include large {
+      padding-top: 40px;
       padding-bottom: 400px;
       gap: 240px;
     }

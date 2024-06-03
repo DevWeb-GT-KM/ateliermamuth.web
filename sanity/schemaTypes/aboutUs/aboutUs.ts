@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 import { FaShop } from "react-icons/fa6";
 import publications from "./publications";
-import { LANGUAGE_FIELD, IMAGE_FIELD } from "../constants";
+import { LANGUAGE_FIELD, IMAGE_FIELD, PAGE_METADATA_FIELD } from "../constants";
 
 export default defineType({
   name: "aboutUs",
@@ -9,6 +9,7 @@ export default defineType({
   type: "document",
   icon: FaShop,
   fields: [
+    defineField(PAGE_METADATA_FIELD()),
     defineField({
       name: "pageTitle",
       title: "Titre de la page",

@@ -2,13 +2,11 @@
 
 import "./homePageCarousel.scss";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useSwipeable } from "react-swipeable";
 import { useWindowSize } from "@react-hook/window-size";
 
 import { CarouselIndex } from "@/common/components/images/carousel/CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
-import shapes from "../../../common/assets/images/homePage/carousel/shapes.svg";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 
@@ -21,7 +19,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [maxIndex] = useState<number>(data[0].carousel.length - 1);
-  const [width, height] = useWindowSize({
+  const [width] = useWindowSize({
     wait: 0,
   });
   const [isMobile, setIsMobile] = useState<boolean>();
@@ -58,45 +56,24 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   }, [currentIndex]);
 
   useEffect(() => {
-    if (width) {
-      setIsMobile(width <= 768);
-    }
+    setIsMobile(width <= 1024);
   }, [width]);
 
   return (
     <div {...swipeHandlers} className="home-page-carousel-container">
-      {/* {isMobile != undefined ? (
-        <SanityImageWrapper
-          sanityImage={data[0].carousel[currentIndex].mainImage}
-          imageBuilderConfig={{
-            format: SANITY_IMAGE_FORMAT.Jpg,
-            quality: 90,
-            size: isMobile
-              ? {
-                  width: width * 2,
-                  height: height * 2,
-                }
-              : {
-                  width: width * 2,
-                  height: height * 2,
-                },
-            // size: {
-            //   width: 390,
-            //   height: 844,
-            // },
-          }}
-        />
-      ) : (
-        <></>
-      )} */}
-
-      <Image
-        className="home-page-carousel-shapes"
-        src={shapes}
-        alt="carousel-shapes"
+      <div className="home-page-caroussel-shapes"></div>
+      <SanityImageWrapper
+        sanityImage={data[0].carousel[currentIndex].mainImage}
+        imageBuilderConfig={{
+          format: SANITY_IMAGE_FORMAT.Jpg,
+          quality: 100,
+          size: {
+            width: isMobile ? 1080 : 1920,
+            height: isMobile ? 1920 : 1080,
+          },
+        }}
       />
       <ProjectInformation data={data} currentIndex={currentIndex} />
-
       <CarouselIndex
         carouselLength={data[0].carousel.length}
         activeIndex={currentIndex}

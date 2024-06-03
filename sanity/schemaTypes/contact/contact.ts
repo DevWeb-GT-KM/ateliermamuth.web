@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { IoIosPeople } from "react-icons/io";
-import { LANGUAGE_FIELD, IMAGE_FIELD } from "../constants";
+import { LANGUAGE_FIELD, IMAGE_FIELD, PAGE_METADATA_FIELD } from "../constants";
 
 export default defineType({
   name: "contact",
@@ -8,6 +8,7 @@ export default defineType({
   type: "document",
   icon: IoIosPeople,
   fields: [
+    defineField(PAGE_METADATA_FIELD()),
     defineField({
       name: "pageTitle",
       title: "Titre de la page",

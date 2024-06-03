@@ -42,3 +42,42 @@ export const CAROUSEL_FIELD = () => {
     ],
   };
 };
+
+export const PAGE_METADATA_FIELD = () => {
+  return {
+    name: "metadata",
+    title: "Métadonnées",
+    description: "Pour les résultats de recherches (SEO)",
+    type: "object",
+    fields: [
+      {
+        name: "metaTitle",
+        title: "Méta titre",
+        type: "string",
+      },
+      {
+        name: "metaDescription",
+        title: "Méta description",
+        type: "string",
+      },
+    ],
+    validation: (Rule: any) => Rule.required(),
+  };
+};
+
+export const PAGE_PARTIAL_METADATA_FIELD = () => {
+  return {
+    name: "metadata",
+    title: "Métadonnées",
+    description: "Pour les résultats de recherches (SEO)",
+    type: "object",
+    fields: [
+      {
+        name: "metaDescription",
+        title: "Méta description",
+        type: "string",
+      },
+    ],
+    validation: (Rule: any) => Rule.required(),
+  };
+};

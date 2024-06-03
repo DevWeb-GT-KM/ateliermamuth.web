@@ -32,8 +32,10 @@ const centuryOldStyleStd = localFont({
 export const dynamicParams = false;
 
 export const metadata: Metadata = {
-  title: "Generic CMS title",
-  description: "Generic CMS description",
+  title: {
+    template: "%s | Atelier Mamuth",
+    default: "Atelier Mamuth",
+  },
   icons: [
     {
       rel: "icon",
