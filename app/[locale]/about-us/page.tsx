@@ -1,18 +1,31 @@
-import { Metadata } from "next";
-import { QueryParams } from "next-sanity";
+import { QueryParams, SanityDocument } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { draftMode } from "next/headers";
+
 import { loadQuery } from "@/../sanity/lib/store";
 import {
   AboutUsPageContainer,
   AboutUsPageContainerProps,
 } from "./components/AboutUsPageContainer";
-import { ABOUT_US_PAGE_QUERY_BY_LANG } from "../../../sanity/lib/queries";
-import { draftMode } from "next/headers";
+import {
+  ABOUT_US_PAGE_METADATA_QUERY_BY_LANG,
+  ABOUT_US_PAGE_QUERY_BY_LANG,
+} from "@/../sanity/lib/queries";
 
-export const metadata: Metadata = {
-  title: "About us | Atelier Mamuth",
-  description: "About us description.",
-};
+export async function generateMetadata({ params }: any) {
+  const initial = await loadQuery<SanityDocument>(
+    ABOUT_US_PAGE_METADATA_QUERY_BY_LANG,
+    params,
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
+
+  return {
+    title: initial.data[0].metadata.metaTitle,
+    description: initial.data[0].metadata.metaDescription,
+  };
+}
 
 type AboutUsPageProps = {
   params: QueryParams;

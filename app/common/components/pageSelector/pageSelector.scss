@@ -16,7 +16,12 @@
 
     &:last-child {
       text-align: right;
-      align-items: flex-end;
+
+      .page-selector-action-title,
+      .page-selector-title,
+      .page-selector-description {
+        align-self: flex-end;
+      }
 
       @include small {
         .page-selector-content {
