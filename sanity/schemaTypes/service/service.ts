@@ -1,6 +1,10 @@
 import { defineField, defineType } from "sanity";
 import { DotIcon } from "@sanity/icons";
-import { LANGUAGE_FIELD, IMAGE_FIELD } from "../constants";
+import {
+  LANGUAGE_FIELD,
+  IMAGE_FIELD,
+  PAGE_PARTIAL_METADATA_FIELD,
+} from "../constants";
 
 export default defineType({
   name: "service",
@@ -8,6 +12,7 @@ export default defineType({
   type: "document",
   icon: DotIcon,
   fields: [
+    defineField(PAGE_PARTIAL_METADATA_FIELD()),
     defineField({
       name: "name",
       title: "Nom du service",

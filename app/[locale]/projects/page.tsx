@@ -1,17 +1,29 @@
-import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import { loadQuery } from "@/../sanity/lib/store";
-import { PROJECTS_PAGE_QUERY } from "../../../sanity/lib/queries";
+import {
+  PROJECTS_PAGE_QUERY,
+  PROJECTS_PAGE_METADATA_QUERY_BY_LANG,
+} from "@/../sanity/lib/queries";
 import { ProjectsPageContainerPreview } from "./components/ProjectsPageContainerPreview";
 import { ProjectsPageContainer } from "./components/ProjectsPageContainer";
 
-export const metadata: Metadata = {
-  title: "Projects",
-  description: "Listing of all the projects made by Atelier Mamuth.",
-};
+export async function generateMetadata({ params }: any) {
+  const initial = await loadQuery<SanityDocument>(
+    PROJECTS_PAGE_METADATA_QUERY_BY_LANG,
+    params,
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
+
+  return {
+    title: initial.data[0].metadata.metaTitle,
+    description: initial.data[0].metadata.metaDescription,
+  };
+}
 
 type ProjectsPageProps = {
   params: QueryParams;

@@ -5,7 +5,11 @@ import blockA from "../blocks/blockA";
 import blockB from "../blocks/blockB";
 import blockC from "../blocks/blockC";
 import blockD from "../blocks/blockD";
-import { IMAGE_FIELD, LANGUAGE_FIELD } from "../constants";
+import {
+  IMAGE_FIELD,
+  LANGUAGE_FIELD,
+  PAGE_PARTIAL_METADATA_FIELD,
+} from "../constants";
 
 export default defineType({
   name: "article",
@@ -13,6 +17,7 @@ export default defineType({
   type: "document",
   icon: DotIcon,
   fields: [
+    defineField(PAGE_PARTIAL_METADATA_FIELD()),
     defineField({
       name: "slug",
       title: "URL",
