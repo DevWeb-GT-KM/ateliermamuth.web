@@ -7,11 +7,8 @@ import {
   SERVICES_PAGE_METADATA_QUERY_BY_LANG,
   SERVICES_PAGE_QUERY,
 } from "@/../sanity/lib/queries";
-import { LiveQueryWrapper } from "@/common/components/LiveQueryWrapper";
-import {
-  ServicesPageContainer,
-  ServicesPageContainerProps,
-} from "./components/ServicesPageContainer";
+import { ServicesPageContainer } from "./components/ServicesPageContainer";
+import { ServicesPageContainerPreview } from "./components/ServicesPageContainerPreview";
 
 export async function generateMetadata({ params }: any) {
   const initial = await loadQuery<SanityDocument>(
@@ -36,23 +33,14 @@ const ServicesPage: React.FC<ServicesPageProps> = async ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
   const { isEnabled } = draftMode();
-  const initial = await loadQuery<ServicesPageContainerProps["data"]>(
-    SERVICES_PAGE_QUERY,
-    params,
-    {
-      perspective: isEnabled ? "previewDrafts" : "published",
-    }
-  );
+  const initial = await loadQuery<SanityDocument>(SERVICES_PAGE_QUERY, params, {
+    perspective: isEnabled ? "previewDrafts" : "published",
+  });
 
-  return (
-    <LiveQueryWrapper
-      isEnabled={isEnabled}
-      query={isEnabled ? SERVICES_PAGE_QUERY : ""}
-      params={isEnabled ? params : {}}
-      initial={initial}
-    >
-      <ServicesPageContainer />
-    </LiveQueryWrapper>
+  return draftMode().isEnabled ? (
+    <ServicesPageContainerPreview initial={initial} params={params} />
+  ) : (
+    <ServicesPageContainer data={initial.data} />
   );
 };
 

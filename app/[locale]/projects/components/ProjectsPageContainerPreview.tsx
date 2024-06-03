@@ -22,9 +22,5 @@ export const ProjectsPageContainerPreview: React.FC<
     }
   );
 
-  return data ? (
-    <ProjectsPageContainer data={data[0]} />
-  ) : (
-    <p className="service-single-none">Service not found</p>
-  );
+  return data ? <ProjectsPageContainer data={data[0]} /> : <></>;
 };

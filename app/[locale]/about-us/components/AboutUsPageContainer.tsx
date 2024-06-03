@@ -7,7 +7,7 @@ import { SanityImageWrapper } from "@/common/components/images/SanityImageWrappe
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 
 export type AboutUsPageContainerProps = {
-  data: any[];
+  data: any;
 };
 
 export const AboutUsPageContainer: React.FC<AboutUsPageContainerProps> = ({

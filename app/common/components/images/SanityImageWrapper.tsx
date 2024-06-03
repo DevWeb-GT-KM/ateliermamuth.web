@@ -1,6 +1,5 @@
 import "./sanityImageWrapper.scss";
 
-import { useMemo } from "react";
 import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -40,16 +39,11 @@ export const SanityImageWrapper: React.FC<SanityImageWrapperProps> = ({
     return imageSource.url();
   };
 
-  const imageSource = useMemo<string>(
-    () => getImageSource(),
-    [sanityImage, imageBuilderConfig]
-  );
-
   return (
     <div className="sanity-image-wrapper-container">
       <Image
         className="sanity-image"
-        src={imageSource}
+        src={getImageSource()}
         placeholder={sanityImage.asset.metadata?.lqip ? "blur" : "empty"}
         blurDataURL={sanityImage.asset.metadata?.lqip}
         alt={sanityImage.alt}

@@ -3,15 +3,15 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { loadQuery } from "@/../sanity/lib/store";
 import { draftMode } from "next/headers";
 import {
+  CONTACT_FORM_PAGE_METADATA_QUERY_BY_LANG,
   CONTACT_FORM_PAGE_QUERY,
-  CONTACT_PAGE_METADATA_QUERY_BY_LANG,
-} from "../../../sanity/lib/queries";
+} from "@/../sanity/lib/queries";
 import { ContactFormContainerPreview } from "./components/ContactFormContainerPreview";
 import { ContactFormContainer } from "./components/ContactFormContainer";
 
 export async function generateMetadata({ params }: any) {
   const initial = await loadQuery<SanityDocument>(
-    CONTACT_PAGE_METADATA_QUERY_BY_LANG,
+    CONTACT_FORM_PAGE_METADATA_QUERY_BY_LANG,
     params,
     {
       perspective: draftMode().isEnabled ? "previewDrafts" : "published",

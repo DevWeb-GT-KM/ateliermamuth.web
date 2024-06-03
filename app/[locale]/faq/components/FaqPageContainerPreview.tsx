@@ -18,9 +18,5 @@ export const FaqPageContainerPreview: React.FC<
     initial,
   });
 
-  return data ? (
-    <FaqPageContainer data={data[0]} />
-  ) : (
-    <p className="service-single-none">Service not found</p>
-  );
+  return data ? <FaqPageContainer data={data[0]} /> : <></>;
 };
