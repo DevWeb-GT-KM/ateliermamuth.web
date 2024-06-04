@@ -79,7 +79,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
         </Link>
         <Link
           className="nav-bar-link nav-bar-contact-us"
-          href={{ pathname: "/contact-form" }}
+          href={{ pathname: "/contact" }}
         >
           {data[0].contactUs}
         </Link>
@@ -139,7 +139,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
           </Link>
           <Link
             className="nav-bar-mobile-link"
-            href={{ pathname: "/contact-form" }}
+            href={{ pathname: "/contact" }}
             onClick={() => setShowMobileMenu(false)}
           >
             {data[0].contactUs}
