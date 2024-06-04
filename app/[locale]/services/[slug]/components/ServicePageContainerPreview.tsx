@@ -3,7 +3,7 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 
-import { PROJECT_QUERY_BY_LANG } from "@/../sanity/lib/queries";
+import { SERVICE_QUERY } from "@/../sanity/lib/queries";
 import { ServicePageContainer } from "./ServicePageContainer";
 
 type ServicePageContainerPreviewProps = {
@@ -14,17 +14,9 @@ type ServicePageContainerPreviewProps = {
 export const ServicePageContainerPreview: React.FC<
   ServicePageContainerPreviewProps
 > = ({ initial, params }) => {
-  const { data } = useQuery<SanityDocument | null>(
-    PROJECT_QUERY_BY_LANG,
-    params,
-    {
-      initial,
-    }
-  );
+  const { data } = useQuery<SanityDocument | null>(SERVICE_QUERY, params, {
+    initial,
+  });
 
-  return data ? (
-    <ServicePageContainer service={data} />
-  ) : (
-    <p className="service-single-none">Service not found</p>
-  );
+  return data ? <ServicePageContainer service={data} /> : <></>;
 };

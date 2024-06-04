@@ -3,24 +3,24 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 
-import { CONTACT_FORM_PAGE_QUERY } from "@/../sanity/lib/queries";
-import { ContactFormContainer } from "./ContactFormContainer";
+import { HOME_PAGE_QUERY_BY_LANG } from "@/../sanity/lib/queries";
+import { HomePageContainer } from "./HomePageContainer";
 
-type ContactFormContainerPreviewProps = {
+type HomePageContainerPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;
   params: QueryParams;
 };
 
-export const ContactFormContainerPreview: React.FC<
-  ContactFormContainerPreviewProps
+export const HomePageContainerPreview: React.FC<
+  HomePageContainerPreviewProps
 > = ({ initial, params }) => {
   const { data } = useQuery<SanityDocument | null>(
-    CONTACT_FORM_PAGE_QUERY,
+    HOME_PAGE_QUERY_BY_LANG,
     params,
     {
       initial,
     }
   );
 
-  return data ? <ContactFormContainer data={data[0]} /> : <></>;
+  return data ? <HomePageContainer data={data} /> : <></>;
 };

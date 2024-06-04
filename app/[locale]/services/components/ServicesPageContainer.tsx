@@ -4,12 +4,7 @@ import { ServicesListing } from "./ServicesListing";
 import { Link } from "@/../navigation";
 
 export type ServicesPageContainerProps = {
-  data?: {
-    pageTitle?: string;
-    description?: any[];
-    services?: any[];
-    projectSectionTitle: string;
-  }[];
+  data: any;
 };
 
 export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
@@ -22,7 +17,7 @@ export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
       </div>
       <div className="services-page-content">
         <div className="services-page-content-description-container">
-          {data?.[0]?.description?.map((descriptionParagraph) => (
+          {data?.[0]?.description?.map((descriptionParagraph: any) => (
             <p
               key={descriptionParagraph._key}
               className="services-page-content-description-block"
