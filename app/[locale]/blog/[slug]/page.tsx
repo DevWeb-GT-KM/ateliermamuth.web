@@ -63,8 +63,6 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
     ARTICLE_QUERY_BY_LANG,
     params,
     {
-      // Because of Next.js, RSC and Dynamic Routes this currently
-      // cannot be set on the loadQuery function at the "top level"
       perspective: draftMode().isEnabled ? "previewDrafts" : "published",
     }
   );

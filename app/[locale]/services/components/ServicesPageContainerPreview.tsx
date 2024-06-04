@@ -3,24 +3,24 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 
-import { CONTACT_FORM_PAGE_QUERY } from "@/../sanity/lib/queries";
-import { ContactFormContainer } from "./ContactFormContainer";
+import { SERVICES_PAGE_QUERY } from "@/../sanity/lib/queries";
+import { ServicesPageContainer } from "./ServicesPageContainer";
 
-type ContactFormContainerPreviewProps = {
+type ServicesPageContainerPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;
   params: QueryParams;
 };
 
-export const ContactFormContainerPreview: React.FC<
-  ContactFormContainerPreviewProps
+export const ServicesPageContainerPreview: React.FC<
+  ServicesPageContainerPreviewProps
 > = ({ initial, params }) => {
   const { data } = useQuery<SanityDocument | null>(
-    CONTACT_FORM_PAGE_QUERY,
+    SERVICES_PAGE_QUERY,
     params,
     {
       initial,
     }
   );
 
-  return data ? <ContactFormContainer data={data[0]} /> : <></>;
+  return data ? <ServicesPageContainer data={data} /> : <></>;
 };

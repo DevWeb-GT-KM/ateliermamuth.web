@@ -38,6 +38,11 @@ const LOAD_PAGE_METADATA = `
   }
 `;
 
+export const HOME_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "home" && language == $locale] {
+  metadata {
+    metaDescription
+  }
+ }`;
 export const PROJECTS_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "projects" && language == $locale] { ${LOAD_PAGE_METADATA} }`;
 export const PROJECT_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "project" && language == $locale && slug.current == $slug][0] {
   name,

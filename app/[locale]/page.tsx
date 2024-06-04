@@ -1,23 +1,28 @@
-import { Metadata } from "next";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
-
-import { HomePageCarousel } from "./components/carousel/HomePageCarousel";
-import { loadQuery } from "@/../sanity/lib/store";
-import { HOME_PAGE_QUERY_BY_LANG } from "../../sanity/lib/queries";
 import { draftMode } from "next/headers";
-import { AboutUs } from "./components/aboutUs/AboutUs";
-import { Services } from "./components/services/Services";
-import { Values } from "./components/values/Values";
-import { Projects } from "./components/projects/Projects";
-import { Blog } from "./components/blog/Blog";
-import { Publications } from "./components/publications/Publications";
 
-export const metadata: Metadata = {
-  title: "Atelier Mamuth",
-  description:
-    "Atelier Mamuth offers a planning service for your design, interior and exterior architecture projects.",
-};
+import { loadQuery } from "@/../sanity/lib/store";
+import {
+  HOME_PAGE_METADATA_QUERY_BY_LANG,
+  HOME_PAGE_QUERY_BY_LANG,
+} from "../../sanity/lib/queries";
+import { HomePageContainer } from "./components/HomePageContainer";
+import { HomePageContainerPreview } from "./components/HomePageContainerPreview";
+
+export async function generateMetadata({ params }: any) {
+  const initial = await loadQuery<SanityDocument>(
+    HOME_PAGE_METADATA_QUERY_BY_LANG,
+    params,
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
+
+  return {
+    description: initial.data[0].metadata.metaDescription,
+  };
+}
 
 type HomePageProps = {
   params: QueryParams;
@@ -26,7 +31,7 @@ type HomePageProps = {
 const HomePage: React.FC<HomePageProps> = async ({ params }) => {
   unstable_setRequestLocale(params.locale);
 
-  const initial = await loadQuery<SanityDocument[]>(
+  const initial = await loadQuery<SanityDocument>(
     HOME_PAGE_QUERY_BY_LANG,
     params,
     {
@@ -34,16 +39,10 @@ const HomePage: React.FC<HomePageProps> = async ({ params }) => {
     }
   );
 
-  return (
-    <div className="home-page-container">
-      <HomePageCarousel data={initial.data} />
-      <AboutUs data={initial.data} />
-      <Services data={initial.data} />
-      <Values data={initial.data} />
-      <Projects data={initial.data} />
-      <Blog data={initial.data} />
-      <Publications data={initial.data} />
-    </div>
+  return draftMode().isEnabled ? (
+    <HomePageContainerPreview initial={initial} params={params} />
+  ) : (
+    <HomePageContainer data={initial.data} />
   );
 };
 

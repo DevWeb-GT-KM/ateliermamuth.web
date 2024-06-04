@@ -1,3 +1,27 @@
+@keyframes zoomInOutDesktop {
+  0% {
+    background-size: 1450px;
+  }
+  50% {
+    background-size: 1900px;
+  }
+  100% {
+    background-size: 1450px;
+  }
+}
+
+@keyframes zoomInOutMobile {
+  0% {
+    background-size: 1230px;
+  }
+  50% {
+    background-size: 1450px;
+  }
+  100% {
+    background-size: 1230px;
+  }
+}
+
 .services-page-container {
   .services-page-header {
     position: relative;
@@ -8,13 +32,17 @@
     justify-content: center;
     align-items: center;
 
-    background-image: url("../../../common/assets/images/servicesPage/desktopShapes.svg");
-    background-size: cover;
+    background-image: url("../../../common/assets/images/servicesPage/shapes.svg");
+    background-size: 1450px;
+    background-position-x: -250px;
     background-repeat: no-repeat;
+    animation: zoomInOutDesktop 40s infinite alternate;
 
     @include small {
-      // background-image: url("../../../common/assets/images/servicesPage/mobileShapes.svg");
       margin: 0 -$sidePaddingMobile;
+      background-size: 1230px;
+      background-position-x: -400px;
+      animation: zoomInOutMobile 60s infinite alternate;
     }
 
     .services-page-header-title {

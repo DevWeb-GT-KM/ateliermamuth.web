@@ -22,9 +22,5 @@ export const ProjectPageContainerPreview: React.FC<
     }
   );
 
-  return data ? (
-    <ProjectPageContainer project={data} />
-  ) : (
-    <p>Project not found</p>
-  );
+  return data ? <ProjectPageContainer project={data} /> : <></>;
 };

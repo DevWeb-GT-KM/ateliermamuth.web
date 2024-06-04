@@ -18,9 +18,5 @@ export const ContactPageContainerPreview: React.FC<
     initial,
   });
 
-  return data ? (
-    <ContactPageContainer data={data[0]} />
-  ) : (
-    <p className="service-single-none">Service not found</p>
-  );
+  return data ? <ContactPageContainer data={data[0]} /> : <></>;
 };

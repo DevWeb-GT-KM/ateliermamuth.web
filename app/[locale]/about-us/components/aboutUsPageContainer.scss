@@ -1,3 +1,27 @@
+@keyframes zoomInOutDesktop {
+  0% {
+    background-size: 2000px;
+  }
+  50% {
+    background-size: 2700px;
+  }
+  100% {
+    background-size: 2000px;
+  }
+}
+
+@keyframes zoomInOutMobile {
+  0% {
+    background-size: 1200px;
+  }
+  50% {
+    background-size: 1800px;
+  }
+  100% {
+    background-size: 1200px;
+  }
+}
+
 .about-us-page-container {
   .about-us-page-header {
     background-color: $jaune-de-naples-300;
@@ -6,14 +30,22 @@
     align-items: center;
     height: 80vh;
 
-    background-image: url("../../../common/assets/images/abousUsPage/desktopShapes.svg");
-    background-size: cover;
+    background-image: url("../../../common/assets/images/abousUsPage/test.svg");
+    background-size: 2000px;
+    background-position-y: -1000px;
+    background-position-x: -100px;
     background-repeat: no-repeat;
+    animation: zoomInOutDesktop 60s infinite alternate;
 
     margin-left: -$sidePaddingDesktop;
     margin-right: -$sidePaddingDesktop;
 
     @include small {
+      background-position-y: -650px;
+      background-position-x: -100px;
+      background-size: 1500px;
+      animation: zoomInOutMobile 60s infinite alternate;
+
       margin-left: -$sidePaddingMobile;
       margin-right: -$sidePaddingMobile;
     }

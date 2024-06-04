@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { draftMode } from "next/headers";
 import { unstable_setRequestLocale } from "next-intl/server";
-import { LiveVisualEditing } from "../common/components/LiveVisualEditing";
 import { FRENCH_LOCALE } from "@/../navigation";
 import favIcon from "../common/assets/favicon.ico";
 import { Footer } from "@/common/components/footer/Footer";
@@ -16,6 +15,7 @@ import {
 import { NavBar } from "@/common/components/navBar/NavBar";
 import { PageOverlay } from "./components/pageOverlay/PageOverlay";
 import { PageOverlayProvider } from "./components/pageOverlay/PageOverlayContext";
+import { LiveVisualEditing } from "@/common/components/LiveVisualEditing";
 
 const saansTrial = localFont({
   src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
