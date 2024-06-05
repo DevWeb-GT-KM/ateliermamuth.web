@@ -4,14 +4,14 @@ import "./socialMediaShareButton.scss";
 import {
   FaXmark,
   FaFacebook,
-  FaSquareTwitter,
   FaSquarePinterest,
+  FaLinkedin,
 } from "react-icons/fa6";
 import imageUrlBuilder from "@sanity/image-url";
 import {
   FacebookShareButton,
   PinterestShareButton,
-  TwitterShareButton,
+  LinkedinShareButton,
 } from "react-share";
 
 import { client } from "@/../sanity/lib/client";
@@ -81,9 +81,12 @@ export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({
             <FaFacebook className="social-media-share-modal-icon" />
           </FacebookShareButton>
 
-          <TwitterShareButton url={currentUrl} title={title}>
-            <FaSquareTwitter className="social-media-share-modal-icon" />
-          </TwitterShareButton>
+          <LinkedinShareButton url={currentUrl}>
+            <FaLinkedin
+              className="social-media-share-modal-icon"
+              media={imageForSharingUrl}
+            />
+          </LinkedinShareButton>
 
           <PinterestShareButton
             url={currentUrl}
