@@ -19,10 +19,13 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [maxIndex] = useState<number>(data[0].carousel.length - 1);
-  const [width] = useWindowSize({
-    wait: 0,
+  const [width, height] = useWindowSize({
+    wait: 1000,
+    leading: true,
+    initialWidth: 0,
+    initialHeight: 0,
   });
-  const [isMobile, setIsMobile] = useState<boolean>();
+  const [isReadyToRender, setIsReadyToRender] = useState<boolean>();
 
   const handleIndexChange = (nextIndex: number): number => {
     if (nextIndex < 0) {
@@ -56,23 +59,29 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   }, [currentIndex]);
 
   useEffect(() => {
-    setIsMobile(width <= 1024);
-  }, [width]);
+    setIsReadyToRender(width != 0 && height != 0);
+  }, []);
 
   return (
     <div {...swipeHandlers} className="home-page-carousel-container">
-      <div className="home-page-caroussel-shapes"></div>
-      <SanityImageWrapper
-        sanityImage={data[0].carousel[currentIndex].mainImage}
-        imageBuilderConfig={{
-          format: SANITY_IMAGE_FORMAT.Jpg,
-          quality: 100,
-          size: {
-            width: isMobile ? 1080 : 1920,
-            height: isMobile ? 1920 : 1080,
-          },
-        }}
-      />
+      {isReadyToRender ? (
+        <>
+          <div className="home-page-caroussel-shapes"></div>
+          <SanityImageWrapper
+            sanityImage={data[0].carousel[currentIndex].mainImage}
+            imageBuilderConfig={{
+              format: SANITY_IMAGE_FORMAT.Jpg,
+              quality: 100,
+              size: {
+                width: width,
+                height: height,
+              },
+            }}
+          />
+        </>
+      ) : (
+        <div className="home-page-carousel-image-placeholder"></div>
+      )}
       <ProjectInformation data={data} currentIndex={currentIndex} />
       <CarouselIndex
         carouselLength={data[0].carousel.length}
