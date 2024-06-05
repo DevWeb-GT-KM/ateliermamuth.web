@@ -6,7 +6,7 @@ Node version: 20.11.1
 
 Npm version: 10.5.0
 
-Run the development server :
+Run the development server:
 
 ```bash
 npm run dev
@@ -18,7 +18,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about Next.js, take a look at the following resources :
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
