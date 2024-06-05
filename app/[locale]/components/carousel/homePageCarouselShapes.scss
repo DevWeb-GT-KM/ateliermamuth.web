@@ -20,7 +20,7 @@
     z-index: 2; /* Ensure it is above the image but below other content */
     pointer-events: none; /* Allow interactions with underlying elements */
     background-image: url("../../../common/assets/images/homePage/carousel/desktopShapes.svg");
-    animation: zoomInOutDesktop 20s infinite alternate;
+    animation: zoomInOutDesktop 30s infinite alternate;
     background-repeat: no-repeat;
     background-size: 2100px;
     mix-blend-mode: overlay;
