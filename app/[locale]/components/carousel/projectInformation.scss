@@ -10,6 +10,11 @@
   cursor: pointer;
   font-family: $saansTrial;
 
+  @include medium {
+    flex: none;
+    margin: 64px 16px;
+  }
+
   @include small {
     flex: none;
     margin: 48px 16px;
