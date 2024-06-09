@@ -40,9 +40,8 @@
       line-height: 1vw;
       font-size: 1vw;
 
-      border-radius: 5px;
+      border-radius: $borderRadiusButtonDesktop;
       border: 0.0625vw solid $noir-boise-600;
-
       padding: 0.5vw 1.5vw;
 
       @include small {
@@ -50,6 +49,7 @@
         font-size: 16px;
         padding: 8px 24px;
         border: 1px solid $noir-boise-600;
+        border-radius: $borderRadiusButtonMobile;
       }
 
       &:hover {

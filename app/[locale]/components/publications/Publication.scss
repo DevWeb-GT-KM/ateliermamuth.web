@@ -39,15 +39,15 @@
       font-style: normal;
       font-weight: 400;
 
-      border-radius: 0.25vw;
-      border: 1px solid $noir-boise-600;
+      border-radius: $borderRadiusButtonDesktop;
+      border: 1px solid $noir-boise-300;
       padding: 0.5vw 1.5vw;
 
       @include small {
         font-size: 16px;
         line-height: 16px;
         padding: 8px 24px;
-        border-radius: 5px;
+        border-radius: $borderRadiusButtonMobile;
       }
 
       &:hover {

@@ -12,9 +12,14 @@
 
   .sanity-image-wrapper-container {
     overflow: hidden;
-    border-radius: $borderRadiusImage;
 
     .sanity-image {
+      border-radius: $borderRadiusImageDesktop;
+
+      @include small {
+        border-radius: $borderRadiusImageMobile;
+      }
+
       &:hover {
         transition: opacity 0.4s ease;
       }
@@ -70,13 +75,14 @@
         font-family: $saansTrial;
         padding: 0.5vw 1vw;
         margin-right: 0.5vw;
-        border-radius: 5px;
+        border-radius: 0.4vw;
         font-weight: 400;
         font-size: 0.875vw;
         line-height: 0.75vw;
         color: $noir-boise-600;
 
         @include small {
+          border-radius: 5px;
           margin-top: 8px;
           font-size: 10px;
           padding: 8px 12px;

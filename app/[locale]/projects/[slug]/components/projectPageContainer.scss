@@ -120,7 +120,11 @@
 
     .sanity-image-wrapper-container {
       .sanity-image {
-        border-radius: $borderRadiusImage;
+        border-radius: $borderRadiusImageDesktop;
+
+        @include small {
+          border-radius: $borderRadiusImageMobile;
+        }
       }
     }
   }

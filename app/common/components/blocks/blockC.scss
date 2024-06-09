@@ -40,7 +40,6 @@
     .block-c-images-left {
       box-sizing: border-box;
       background-color: $noir-boise-50;
-      border-radius: $borderRadiusImage;
       width: 50%;
 
       @include small {
@@ -49,7 +48,11 @@
 
       .sanity-image {
         mix-blend-mode: multiply;
-        border-radius: $borderRadiusImage;
+        border-radius: $borderRadiusImageDesktop;
+
+        @include small {
+          border-radius: $borderRadiusImageMobile;
+        }
       }
 
       .carousel-index-container {
@@ -79,7 +82,7 @@
       }
 
       .sanity-image {
-        border-radius: $borderRadiusImage;
+        border-radius: $borderRadiusImageDesktop;
       }
     }
   }

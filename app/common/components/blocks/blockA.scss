@@ -43,7 +43,11 @@
       }
 
       .sanity-image {
-        border-radius: $borderRadiusImage;
+        border-radius: $borderRadiusImageDesktop;
+
+        @include small {
+          border-radius: $borderRadiusImageMobile;
+        }
       }
     }
 
@@ -57,7 +61,11 @@
       }
 
       .sanity-image {
-        border-radius: $borderRadiusImage;
+        border-radius: $borderRadiusImageDesktop;
+
+        @include small {
+          border-radius: $borderRadiusImageMobile;
+        }
       }
     }
   }
