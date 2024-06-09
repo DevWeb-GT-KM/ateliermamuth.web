@@ -1,62 +1,65 @@
 .block-c-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5vw;
+
+  @include small {
+    gap: 24px;
+  }
 
   .block-c-portable-text-container {
     display: flex;
     flex-direction: column;
-    gap: 24px;
     color: $noir-boise-700;
     font-family: $centuryOldStyleStd;
     font-style: normal;
     font-weight: 400;
 
+    width: 50%;
+    font-size: 1.5vw;
+    line-height: 1.875vw;
+    gap: 1.5vw;
+
     @include small {
+      width: 100%;
       font-size: 18px;
       line-height: 22px;
-    }
-
-    @include large {
-      width: 50%;
-      font-size: 24px;
-      line-height: 30px;
+      gap: 24px;
     }
   }
 
   .block-c-images-container {
     display: flex;
-    gap: 16px;
+    gap: 1vw;
 
     @include small {
+      gap: 16px;
       flex-direction: column;
     }
 
     .block-c-images-left {
       box-sizing: border-box;
       background-color: $noir-boise-50;
-      border-radius: $borderRadiusImage;
+      width: 50%;
 
       @include small {
         width: 100%;
       }
 
-      @include large {
-        width: 50%;
-      }
-
       .sanity-image {
         mix-blend-mode: multiply;
-        border-radius: $borderRadiusImage;
+        border-radius: $borderRadiusImageDesktop;
+
+        @include small {
+          border-radius: $borderRadiusImageMobile;
+        }
       }
 
       .carousel-index-container {
+        margin-bottom: 1.5vw;
+
         @include small {
           margin-bottom: 16px;
-        }
-
-        @include large {
-          margin-bottom: 23px;
         }
 
         mix-blend-mode: unset;
@@ -72,16 +75,14 @@
     }
 
     .block-c-images-right {
+      width: 50%;
+
       @include small {
         width: 100%;
       }
 
-      @include large {
-        width: 50%;
-      }
-
       .sanity-image {
-        border-radius: $borderRadiusImage;
+        border-radius: $borderRadiusImageDesktop;
       }
     }
   }

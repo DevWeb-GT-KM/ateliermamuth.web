@@ -1,40 +1,27 @@
 .services-listing-container {
   display: flex;
   flex-direction: column;
+  margin-top: 14vw;
 
   @include small {
     gap: 56px;
-  }
-
-  @include large {
-    gap: 80px;
   }
 
   .services-listing-item {
     display: flex;
     flex-direction: column;
     border-top: 1px solid $noir-boise-200;
+    padding-top: 2.5vw;
+    margin-bottom: 5vw;
 
     @include small {
-      gap: 56px;
       padding-top: 16px;
-    }
-
-    @include large {
-      gap: 80px;
-      padding-top: 40px;
+      margin-bottom: 16px;
     }
 
     &:last-child {
       border-bottom: 1px solid $noir-boise-200;
-
-      @include small {
-        padding-bottom: 56px;
-      }
-
-      @include large {
-        padding-bottom: 80px;
-      }
+      padding-bottom: 5vw;
     }
 
     .services-listing-item-title {
@@ -42,44 +29,38 @@
       font-family: $saansTrial;
       font-style: normal;
       font-weight: 400;
+      font-size: 2.5vw;
+      line-height: 2.5vw;
 
       @include small {
         font-size: 24px;
         line-height: 32px;
-      }
-
-      @include large {
-        font-size: 40px;
-        line-height: 40px;
       }
     }
 
     .services-listing-item-info-container {
       display: flex;
       justify-content: space-between;
+      margin-top: 6vw;
 
       @include small {
         gap: 56px;
+        margin-top: 60px;
         flex-direction: column;
       }
 
       .services-listing-item-description-container,
       .services-listing-item-image-container {
-        @include large {
-          flex: 0 1 40%;
-        }
+        flex: 0 1 42%;
       }
 
       .services-listing-item-description-container {
         display: flex;
         flex-direction: column;
+        gap: 5vw;
 
         @include small {
           gap: 56px;
-        }
-
-        @include large {
-          gap: 80px;
         }
 
         .services-listing-item-description {
@@ -87,35 +68,43 @@
           font-family: $centuryOldStyleStd;
           font-style: normal;
           font-weight: 400;
+          font-size: 1.5vw;
+          line-height: 1.875vw;
+          margin-bottom: 2.5vw;
 
           @include small {
             font-size: 18px;
             line-height: 22px;
             margin-bottom: 24px;
           }
-
-          @include large {
-            font-size: 24px;
-            line-height: 30px;
-            margin-bottom: 40px;
-          }
         }
 
         .services-listing-item-link {
           @extend .common-btn-jaune-pyrite;
 
-          padding: 14px 16px;
+          padding: 0.875vw 1vw;
+
+          @include small {
+            padding: 14px 16px;
+          }
         }
 
         .services-listing-item-project-type {
           color: $noir-boise-600;
           font-family: $saansTrial;
-          font-size: 16px;
           font-style: normal;
           font-weight: 400;
-          line-height: 20px;
           border-top: 1px solid $noir-boise-200;
           padding: 12px 0px;
+          font-size: 1vw;
+          line-height: 1.25vw;
+          padding: 0.75vw 0px;
+
+          @include small {
+            font-size: 16px;
+            line-height: 20px;
+            padding: 12px 0px;
+          }
 
           &:last-child {
             border-bottom: 1px solid $noir-boise-200;
@@ -128,7 +117,11 @@
 
         .sanity-image-wrapper-container {
           .sanity-image {
-            border-radius: $borderRadiusImage;
+            border-radius: $borderRadiusImageDesktop;
+
+            @include small {
+              border-radius: $borderRadiusImageMobile;
+            }
           }
         }
       }

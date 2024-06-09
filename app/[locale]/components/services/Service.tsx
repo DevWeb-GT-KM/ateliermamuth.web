@@ -27,7 +27,7 @@ export const Service: React.FC<ServiceProps> = ({ data }) => {
           className="home-page-service-plus-img"
           src={height == "auto" ? minus : plus}
           alt="plus"
-          width={30}
+          width={0}
           unoptimized
         />
       </div>

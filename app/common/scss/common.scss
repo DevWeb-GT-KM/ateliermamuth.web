@@ -2,13 +2,20 @@
   cursor: pointer;
 
   color: $jaune-pyrite-600;
-  border: 1px solid $jaune-pyrite-600;
-  border-radius: 5px;
+  border: 0.0625vw solid $jaune-pyrite-600;
+  border-radius: $borderRadiusButtonDesktop;
+  font-size: 1.125vw;
+  line-height: 0.75vw;
   font-family: $saansTrial;
-  font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 12px;
+
+  @include small {
+    font-size: 18px;
+    line-height: 12px;
+    border-radius: $borderRadiusButtonMobile;
+    border: 1px solid $jaune-pyrite-600;
+  }
 
   display: block;
   text-align: center;
@@ -24,13 +31,21 @@
   cursor: pointer;
 
   color: $noir-boise-50;
-  border: 1px solid $noir-boise-50;
-  border-radius: 5px;
+  border: 0.0625vw solid $noir-boise-50;
+  border-radius: $borderRadiusButtonDesktop;
+  font-size: 1.125vw;
+  line-height: 0.75vw;
+
   font-family: $saansTrial;
-  font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 12px;
+
+  @include small {
+    font-size: 18px;
+    line-height: 12px;
+    border-radius: $borderRadiusButtonMobile;
+    border: 1px solid $noir-boise-50;
+  }
 
   display: block;
   text-align: center;
@@ -47,16 +62,22 @@
 
   color: $noir-boise-600;
   border: 1px solid $noir-boise-300;
-  border-radius: 5px;
+  border-radius: 0.25vw;
   font-family: $saansTrial;
-  font-size: 14px;
+  font-size: 1vw;
   font-style: normal;
   font-weight: 400;
-  line-height: 12px;
+  line-height: 0.75vw;
 
   display: block;
   text-align: center;
   width: fit-content;
+
+  @include small {
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 12px;
+  }
 
   &:hover {
     color: $noir-boise-700;

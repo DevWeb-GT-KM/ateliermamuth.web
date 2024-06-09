@@ -1,42 +1,59 @@
 .project-container {
   width: 50%;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  margin-top: 5vw;
+  cursor: pointer;
 
   @include small {
-    width: 100% !important;
-    margin-top: 40px !important;
-    padding: 0px !important;
+    width: 100%;
+    margin-top: 40px;
   }
-  margin-top: 80px;
-  padding-left: 8px;
-  padding-right: 8px;
-  cursor: pointer;
 
   .sanity-image-wrapper-container {
     overflow: hidden;
-    border-radius: $borderRadiusImage;
 
     .sanity-image {
-      // transition: all 0.2s;
+      border-radius: $borderRadiusImageDesktop;
+
+      @include small {
+        border-radius: $borderRadiusImageMobile;
+      }
 
       &:hover {
-        // webkit-filter: blur(1px); /* Chrome, Safari, Opera */
-        // filter: blur(1px);
-
         transition: opacity 0.4s ease;
       }
     }
   }
 
   .project-description {
-    margin-top: 16px;
+    margin-top: 1vw;
 
-    .project-description-title,
-    .project-description-description {
+    @include small {
+      margin-top: 10px;
+    }
+
+    .project-description-title {
+      color: $noir-boise-700;
       font-family: $saansTrial;
-      font-size: 24px;
       font-style: normal;
       font-weight: 400;
-      line-height: 30px;
+      font-size: 1.5vw;
+      line-height: 1.875vw;
+
+      @include small {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+
+    .project-description-description {
+      color: $noir-boise-400;
+      font-family: $saansTrial;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.5vw;
+      line-height: 1.875vw;
 
       @include small {
         font-size: 18px;
@@ -48,33 +65,28 @@
       }
     }
 
-    .project-description-title {
-      color: $noir-boise-700;
-    }
-
-    .project-description-description {
-      color: $noir-boise-400;
-    }
-
     .project-description-project-types {
       display: flex;
       flex-direction: row;
-      margin-top: 16px;
+      margin-top: 1vw;
 
       .project-description-project-type {
         background-color: $noir-boise-100;
         font-family: $saansTrial;
-        padding: 8px 16px 8px 16px;
-        margin-right: 8px;
-        border-radius: 5px;
+        padding: 0.5vw 1vw;
+        margin-right: 0.5vw;
+        border-radius: 0.4vw;
         font-weight: 400;
-        font-size: 14px;
-        line-height: 12px;
+        font-size: 0.875vw;
+        line-height: 0.75vw;
         color: $noir-boise-600;
 
         @include small {
+          border-radius: 5px;
+          margin-top: 8px;
           font-size: 10px;
-          padding: 4px 12px;
+          padding: 8px 12px;
+          margin-right: 8px;
         }
       }
     }

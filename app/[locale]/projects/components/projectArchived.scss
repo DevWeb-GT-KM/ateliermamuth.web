@@ -20,13 +20,18 @@
     flex-direction: row;
     border-top: 1px solid $noir-boise-200;
 
-    padding: 16px 0px;
+    padding: 1vw 0px;
     color: $noir-boise-200;
     font-family: $saansTrial;
-    font-size: 16px;
+    font-size: 1vw;
+    line-height: 1.25vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
+
+    @include small {
+      font-size: 18px;
+      line-height: 22px;
+    }
 
     .projects-page-project-archived-name,
     .projects-page-project-archived-project-types {
