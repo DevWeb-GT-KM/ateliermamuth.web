@@ -11,7 +11,7 @@ export const ContactUs: React.FC = () => {
         }
       </h1>
       <Link className="contact-page-contact-us-link" href={"/contact-form"}>
-        écrivez-nous
+        Écrivez-nous
       </Link>
     </div>
   );
