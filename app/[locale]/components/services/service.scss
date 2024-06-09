@@ -29,6 +29,11 @@
     .home-page-service-plus-img {
       width: 1.875vw;
       height: 1.875vw;
+
+      @include small {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 
