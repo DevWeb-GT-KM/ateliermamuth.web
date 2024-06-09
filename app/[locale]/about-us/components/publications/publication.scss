@@ -3,12 +3,16 @@
 .publication-container {
   .publication-item {
     border-top: 1px solid $noir-boise-200;
-    padding: 16px 0px;
+    padding: 1vw 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+
+    @include small {
+      padding: 16px 0px;
+    }
 
     &:last-child {
       border-bottom: 1px solid $noir-boise-200;
@@ -17,10 +21,10 @@
     .publication-text {
       color: $noir-boise-700;
       font-family: $saansTrial;
-      font-size: 24px;
+      font-size: 1.5vw;
+      line-height: 1.875vw;
       font-style: normal;
       font-weight: 400;
-      line-height: 30px;
 
       @include small {
         font-size: 18px;
@@ -31,15 +35,22 @@
       color: $noir-boise-600;
       text-align: center;
       font-family: $saansTrial;
-      font-size: 16px;
       font-style: normal;
       font-weight: 400;
-      line-height: 16px;
+      line-height: 1vw;
+      font-size: 1vw;
 
-      border-radius: 5px;
-      border: 1px solid $noir-boise-600;
+      border-radius: $borderRadiusButtonDesktop;
+      border: 0.0625vw solid $noir-boise-600;
+      padding: 0.5vw 1.5vw;
 
-      padding: 8px 24px;
+      @include small {
+        line-height: 16px;
+        font-size: 16px;
+        padding: 8px 24px;
+        border: 1px solid $noir-boise-600;
+        border-radius: $borderRadiusButtonMobile;
+      }
 
       &:hover {
         color: $jaune-pyrite-50;

@@ -1,34 +1,32 @@
 .contact-page-container {
   .contact-page-header {
-    display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    height: 50vw;
 
     @include small {
       height: 50vh;
-    }
-
-    @include large {
-      height: 60vh;
+      margin: 0px -$sidePaddingMobile;
     }
 
     .contact-page-title {
       color: $noir-boise-700;
       font-family: $saansTrial;
-      font-size: 56px;
       font-style: normal;
       font-weight: 400;
-      line-height: 56px;
+      font-size: 3.5vw;
+      line-height: 3.5vw;
 
       @include small {
         font-size: 40px;
+        line-height: 56px;
       }
     }
   }
 
   .contact-page-content {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 
     @include small {
@@ -36,9 +34,7 @@
     }
 
     .contact-page-information {
-      @include large {
-        flex: 0 1 60%;
-      }
+      flex: 0 1 50%;
 
       @include small {
         margin-bottom: 80px;
@@ -66,22 +62,23 @@
       .contact-page-email-value {
         color: $noir-boise-700;
         font-family: $saansTrial;
-        font-size: 24px;
         font-style: normal;
         font-weight: 400;
-        line-height: 30px;
+        font-size: 1.5vw;
+        line-height: 1.975vw;
 
-        margin: 16px 0px;
+        margin: 1vw 0px;
         flex: 1;
 
         @include small {
+          margin: 16px 0px;
           font-size: 18px;
           line-height: 22px;
         }
       }
 
       .contact-page-faq-rich-text {
-        width: 40%;
+        width: 60%;
 
         @include small {
           width: 100%;
@@ -90,10 +87,10 @@
         p,
         a {
           font-family: $saansTrial;
-          font-size: 24px;
           font-style: normal;
           font-weight: 400;
-          line-height: 30px;
+          font-size: 1.5vw;
+          line-height: 1.975vw;
 
           @include small {
             width: 100%;
@@ -104,7 +101,11 @@
 
         p {
           color: $noir-boise-700;
-          margin-top: 80px;
+          margin-top: 5vw;
+
+          @include small {
+            margin-top: 80px;
+          }
         }
 
         a {
@@ -115,12 +116,14 @@
     }
 
     .sanity-image-wrapper-container {
-      @include large {
-        flex: 0 1 25%;
-      }
+      flex: 0 1 40%;
 
       .sanity-image {
-        border-radius: $borderRadiusImage;
+        border-radius: $borderRadiusImageDesktop;
+
+        @include small {
+          border-radius: $borderRadiusImageMobile;
+        }
       }
     }
   }

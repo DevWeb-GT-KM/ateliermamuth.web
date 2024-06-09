@@ -12,7 +12,6 @@ export const BlogPageContainer: React.FC<BlogPageContainerProps> = ({
 }) => {
   return (
     <div className="blog-page-container">
-      {/* <Image /> */}
       <div className="blog-page-header">
         <h1 className="blog-page-title">{data[0].pageTitle}</h1>
       </div>

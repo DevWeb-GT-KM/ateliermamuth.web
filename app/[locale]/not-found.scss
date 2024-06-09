@@ -4,11 +4,19 @@
   align-items: center;
   flex-direction: center;
   flex-direction: column;
-  height: 90vh;
+  height: 50vw;
+
+  @include small {
+    height: 75vh;
+  }
 
   .not-found-page-message {
     font-family: $saansTrial;
-    font-size: 24px;
+    font-size: 1.5vw;
+
+    @include small {
+      font-size: 24px;
+    }
   }
 
   .back-home-link {
@@ -21,8 +29,14 @@
       background-color: $noir-boise-700;
     }
 
-    padding: 14px 16px;
-    width: 200px;
-    margin-top: 2rem;
+    padding: 0.875vw 1vw;
+    width: 16vw;
+    margin-top: 1vw;
+
+    @include small {
+      padding: 14px 16px;
+      width: 200px;
+      margin-top: 2rem;
+    }
   }
 }

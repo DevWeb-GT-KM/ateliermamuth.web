@@ -5,8 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 32px 0px;
-
+    padding: 2vw 0px;
     border-top: 1px solid $noir-boise-200;
 
     @include small {
@@ -16,15 +15,20 @@
     .home-page-service-title {
       font-family: $saansTrial;
       color: $noir-boise-700;
-      font-size: 40px;
+      font-size: 2.5vw;
+      line-height: 2.5vw;
       font-style: normal;
       font-weight: 400;
-      line-height: 40px;
 
       @include small {
         font-size: 24px;
         line-height: 32px;
       }
+    }
+
+    .home-page-service-plus-img {
+      width: 1.875vw;
+      height: 1.875vw;
     }
   }
 
@@ -35,8 +39,8 @@
     display: flex;
     flex-direction: row;
 
-    margin-top: 48px;
-    margin-bottom: 80px;
+    margin-top: 3vw;
+    margin-bottom: 5vw;
 
     @include small {
       flex-direction: column;
@@ -50,10 +54,10 @@
       .home-page-service-description {
         color: $noir-boise-200;
         font-family: $centuryOldStyleStd;
-        font-size: 24px;
+        font-size: 1.5vw;
+        line-height: 1.875vw;
         font-style: normal;
         font-weight: 400;
-        line-height: 30px;
 
         @include small {
           font-size: 18px;
@@ -63,10 +67,11 @@
 
       .home-page-service-link {
         @extend .common-btn-jaune-pyrite;
-        padding: 14px 16px;
-        margin-top: 40px;
+        padding: 0.875vw 1vw;
+        margin-top: 2.5vw;
 
         @include small {
+          padding: 14px 16px;
           margin-top: 24px;
         }
       }
@@ -84,22 +89,26 @@
 
       .home-page-service-project-type {
         border-top: 1px solid $noir-boise-200;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: 0.75vw;
+        padding-bottom: 0.75vw;
         width: 75%;
 
         color: $noir-boise-600;
         font-family: $saansTrial;
-        font-size: 16px;
+        font-size: 1vw;
+        line-height: 1.25vw;
         font-style: normal;
         font-weight: 400;
-        line-height: 20px;
 
         &:last-child {
           border-bottom: 1px solid $noir-boise-200;
         }
 
         @include small {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          font-size: 16px;
+          line-height: 20px;
           width: 100%;
         }
       }

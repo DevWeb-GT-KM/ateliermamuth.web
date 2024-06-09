@@ -45,8 +45,8 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
               quality: 75,
               format: SANITY_IMAGE_FORMAT.Jpg,
               size: {
-                width: 1080,
-                height: 1920,
+                width: 466,
+                height: 600,
               },
             }}
           />
