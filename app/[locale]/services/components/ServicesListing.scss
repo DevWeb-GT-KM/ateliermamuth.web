@@ -22,6 +22,10 @@
     &:last-child {
       border-bottom: 1px solid $noir-boise-200;
       padding-bottom: 5vw;
+
+      @include small {
+        padding-bottom: 75px;
+      }
     }
 
     .services-listing-item-title {
