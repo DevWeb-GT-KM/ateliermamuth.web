@@ -1,6 +1,10 @@
 .social-media-share-button {
   @extend .common-btn-noir-boise-dark;
-  padding: 5px 14px;
+  padding: 0.5vw 1vw;
+
+  @include small {
+    padding: 5px 14px;
+  }
 }
 
 .social-media-share-modal {

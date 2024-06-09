@@ -1,7 +1,11 @@
 .block-a-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5vw;
+
+  @include small {
+    gap: 24px;
+  }
 
   .block-a-portable-text-container {
     color: $noir-boise-700;
@@ -9,36 +13,33 @@
     font-style: normal;
     font-weight: 400;
 
+    font-size: 1.5vw;
+    line-height: 1.875vw;
+    width: 50%;
+
     @include small {
       font-size: 18px;
       line-height: 22px;
-    }
-
-    @include large {
-      font-size: 24px;
-      line-height: 30px;
-      width: 50%;
+      width: 100%;
     }
   }
 
   .block-a-images-container {
     display: flex;
-    gap: 16px;
+    gap: 1vw;
 
     @include small {
+      gap: 16px;
       flex-direction: column;
     }
 
     .block-a-images-left {
       height: auto;
       flex-grow: 1;
+      width: 75.95%;
 
       @include small {
         width: 100%;
-      }
-
-      @include large {
-        width: 75.95%;
       }
 
       .sanity-image {
@@ -49,13 +50,10 @@
     .block-a-images-right {
       height: auto;
       flex-grow: 1;
+      width: 24.05%;
 
       @include small {
         width: 100%;
-      }
-
-      @include large {
-        width: 24.05%;
       }
 
       .sanity-image {

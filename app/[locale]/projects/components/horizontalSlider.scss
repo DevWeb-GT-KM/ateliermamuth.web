@@ -1,7 +1,7 @@
 .projects-page-project-archived-images {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 1vw;
   overflow: hidden;
 
   cursor: grab;
@@ -11,10 +11,14 @@
   }
 
   .sanity-image-wrapper-container {
-    min-width: 400px;
+    min-width: 25vw;
     margin-bottom: 1rem;
     pointer-events: none;
     user-select: none;
+
+    @include small {
+      min-width: 60vw;
+    }
 
     .sanity-image {
       border-radius: $borderRadiusImage;

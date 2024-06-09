@@ -146,24 +146,32 @@
   width: 100%;
   flex: 1;
   flex-direction: row;
-  padding: 20px 40px 20px 40px;
+  padding: 1.5vw 2.5vw;
   background-color: white;
   transition:
     top 0.3s,
     background-color 0.1s;
 
-  @include medium {
+  @include small {
     padding: 18px 16px;
   }
 
   .nav-bar-logo-link {
-    flex: 1;
     display: flex;
     align-items: center;
     background-image: url("../../assets/images/navBar/darkLogo.svg");
     background-repeat: no-repeat;
-    height: 30px;
-    margin-top: 8px;
+    background-size: cover;
+    height: 2vw;
+    width: 11vw;
+    margin-top: 0.5vw;
+
+    @include small {
+      flex: 1;
+      height: 30px;
+      margin-top: 8px;
+      background-size: auto;
+    }
   }
 
   .nav-bar-links-desktop {
@@ -173,18 +181,18 @@
     justify-content: flex-end;
     align-items: center;
 
-    @include medium {
+    @include small {
       display: none;
     }
 
     .nav-bar-link {
       color: $noir-boise-700;
       font-family: $saansTrial;
-      font-size: 16px;
+      font-size: 1vw;
+      line-height: 1vw;
       font-style: normal;
       font-weight: 400;
-      line-height: 16px;
-      margin-right: 1.8rem;
+      margin-right: 2vw;
     }
 
     .nav-bar-contact-us {
@@ -197,8 +205,8 @@
         background-color: $noir-boise-700;
       }
 
-      padding: 14px 16px;
-      width: 180px;
+      padding: 0.875vw 1vw;
+      width: 11.25vw;
       margin: 0px;
       margin-left: 5rem;
     }
@@ -208,7 +216,7 @@
     display: none;
     z-index: 1000;
 
-    @include medium {
+    @include small {
       display: inline;
     }
 
@@ -259,7 +267,7 @@
       margin: 30px 24px;
     }
 
-    @include medium {
+    @include small {
       display: flex;
     }
   }

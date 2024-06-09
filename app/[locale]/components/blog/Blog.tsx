@@ -14,7 +14,9 @@ export const Blog: React.FC<BlogProps> = ({ data }) => {
         <h2 className="home-page-blog-title">{data[0].blog.pageTitle}</h2>
       </div>
       <div className="home-page-blog-body">
-        <Article data={data[0].blog.articles} />
+        {data[0].blog.articles.map((article: any, index: number) => {
+          return <Article key={index} data={article} />;
+        })}
         <Link className="home-page-blog-link" href={"/blog"}>
           Tous les articles
         </Link>

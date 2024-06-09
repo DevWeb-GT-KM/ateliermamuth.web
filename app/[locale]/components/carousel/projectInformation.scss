@@ -1,41 +1,33 @@
 .home-page-carousel-project-info-container {
+  flex: 1;
   position: absolute;
   z-index: 2;
   background-color: $fondu-carroussel-description;
   backdrop-filter: blur(8px);
   border-radius: 10px;
-  flex: 1;
-  padding: 16px;
-  margin: 32px;
+  width: 50vw;
+  padding: 1vw;
+  margin: 2vw;
   cursor: pointer;
   font-family: $saansTrial;
-
-  @include medium {
-    flex: none;
-    margin: 64px 16px;
-  }
+  bottom: 0;
+  left: 0;
 
   @include small {
-    flex: none;
+    padding: 16px;
     margin: 48px 16px;
-  }
-
-  @include large {
-    bottom: 0;
-    left: 0;
-    width: 44%;
+    width: 91.5%;
   }
 
   .home-page-carousel-project-info-project-title {
     color: $noir-boise-50;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 25px;
+    font-size: 1.5vw;
+    line-height: 1.75vw;
+    font-style: normal;
 
     @include small {
       font-size: 18px;
-      font-style: normal;
-      font-weight: 400;
       line-height: 20px;
     }
   }
@@ -43,14 +35,14 @@
   .home-page-carousel-project-info-project-description {
     color: $noir-boise-50;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    margin-top: 24px;
+    font-size: 1.25vw;
+    line-height: 1.5vw;
+    margin-top: 1.5vw;
+    font-style: normal;
 
     @include small {
       font-size: 14px;
       font-style: normal;
-      font-weight: 400;
       line-height: 16px;
     }
 
@@ -62,7 +54,7 @@
   .home-page-carousel-project-info-project-types {
     display: flex;
     flex-direction: row;
-    margin-top: 16px;
+    margin-top: 1vw;
 
     @include small {
       margin-top: 8px;
@@ -70,16 +62,18 @@
 
     .home-page-carousel-project-info-project-type {
       background-color: $noir-boise-300;
-      padding: 8px 16px 8px 16px;
-      margin-right: 8px;
-      border-radius: 5px;
+      padding: 0.5vw 1vw;
+      margin-right: 0.5vw;
+      border-radius: 0.25vw;
       font-weight: 400;
-      font-size: 14px;
-      line-height: 12px;
+      font-size: 0.875vw;
+      line-height: 0.75vw;
       color: $noir-boise-50;
 
       @include small {
+        border-radius: 5px;
         font-size: 10px;
+        margin-right: 8px;
         padding: 4px 12px 4px 12px;
       }
     }

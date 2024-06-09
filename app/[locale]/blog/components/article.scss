@@ -5,20 +5,18 @@
   border-top: 1px solid $noir-boise-200;
   box-sizing: border-box;
 
-  padding: 24px 0px;
-  margin: 0px 8px;
+  padding: 1.5vw 0px;
+  margin: 0px 0.5vw;
+
+  &:nth-last-child(2),
+  &:nth-last-child(1) {
+    border-bottom: 1px solid $noir-boise-200;
+  }
 
   @include small {
     padding: 16px 0px;
     margin: 0px 4px;
     width: 100%;
-  }
-
-  @include large {
-    &:nth-last-child(2),
-    &:nth-last-child(1) {
-      border-bottom: 1px solid $noir-boise-200;
-    }
   }
 
   &:nth-last-child(1) {
@@ -31,10 +29,10 @@
     .blog-page-article-title {
       color: $noir-boise-700;
       font-family: $saansTrial;
-      font-size: 24px;
+      font-size: 1.5vw;
+      line-height: 1.875vw;
       font-style: normal;
       font-weight: 400;
-      line-height: 30px;
 
       @include small {
         font-size: 18px;
@@ -45,10 +43,10 @@
     .blog-page-article-description {
       color: $noir-boise-400;
       font-family: $saansTrial;
-      font-size: 24px;
+      font-size: 1.5vw;
+      line-height: 1.875vw;
       font-style: normal;
       font-weight: 400;
-      line-height: 30px;
 
       @include small {
         font-size: 18px;
@@ -62,16 +60,13 @@
   }
 
   .sanity-image-wrapper-container {
-    margin-left: 60px;
+    margin-left: 3.75vw;
+    width: 8vw;
+    height: 8vw;
 
     @include small {
       width: 77px;
       height: 77px;
-    }
-
-    @include large {
-      width: 128px;
-      height: 128px;
     }
 
     .sanity-image {
