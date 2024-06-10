@@ -40,9 +40,9 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () =>
-      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex - 1)),
-    onSwipedRight: () =>
       setCurrentIndex((prevIndex) => handleIndexChange(prevIndex + 1)),
+    onSwipedRight: () =>
+      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex - 1)),
     preventScrollOnSwipe: true,
   });
 

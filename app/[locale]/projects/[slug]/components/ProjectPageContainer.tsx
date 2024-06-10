@@ -32,7 +32,7 @@ export const ProjectPageContainer: React.FC<
             </p>
 
             <div className="project-page-first-block-project-types">
-              {project.projectTypes.map((projectType: string) => (
+              {project.projectTypes?.map((projectType: string) => (
                 <div
                   className="project-page-first-block-project-type"
                   key={projectType}
@@ -44,7 +44,7 @@ export const ProjectPageContainer: React.FC<
           </div>
 
           <div className="project-page-first-block-credits">
-            {project.credits.map(
+            {project.credits?.map(
               (credit: { _key: string; label: string; value: string }) => (
                 <div
                   className="project-page-first-block-credit"
