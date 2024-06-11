@@ -1,13 +1,11 @@
 import React, { useRef } from "react";
 import "./horizontalSlider.scss";
 
-import { client } from "../../../../sanity/lib/client";
-import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 
 interface SliderProps {
-  images: string[];
+  images: any[];
 }
 
 const HorizontalSlider: React.FC<SliderProps> = ({ images }) => {
@@ -45,7 +43,6 @@ const HorizontalSlider: React.FC<SliderProps> = ({ images }) => {
     window.addEventListener("touchend", handleDragEnd);
   };
 
-  const builder = imageUrlBuilder(client);
   return (
     <div
       className="projects-page-project-archived-images"
@@ -53,11 +50,11 @@ const HorizontalSlider: React.FC<SliderProps> = ({ images }) => {
       onMouseDown={handleDragStart}
       onTouchStart={handleDragStart}
     >
-      {images.map((image: any, index: number) => {
+      {images.map((item: any, index: number) => {
         return (
           <SanityImageWrapper
             key={index}
-            sanityImage={image}
+            sanityImage={item.img}
             imageBuilderConfig={{
               format: SANITY_IMAGE_FORMAT.Jpg,
               quality: 90,

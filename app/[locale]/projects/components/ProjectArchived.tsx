@@ -16,7 +16,6 @@ type ProjectArchivedProps = {
 
 export const ProjectArchived: React.FC<ProjectArchivedProps> = ({ data }) => {
   const [height, setHeight] = useState<number | "auto">(0);
-  const builder = imageUrlBuilder(client);
 
   const getProjectTypes = (projectTypes: string[]) => {
     let projectTypesResult: string = "";

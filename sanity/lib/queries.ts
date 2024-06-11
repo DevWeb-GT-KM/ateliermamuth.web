@@ -129,8 +129,12 @@ export const PROJECTS_PAGE_QUERY = groq`*[_type == "projects" && language == $lo
     projectTypes,
     name,
     location,
-    images[]{
-      asset->
+    images[] {
+      img {
+        asset->,
+        alt,
+        hotspot
+      }
     }
   }
 }`;
