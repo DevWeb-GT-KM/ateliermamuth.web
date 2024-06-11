@@ -13,6 +13,7 @@ export default defineType({
       name: "pageTitle",
       title: "Titre de la page",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "questions",
@@ -23,6 +24,7 @@ export default defineType({
           type: "question",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField(LANGUAGE_FIELD),
   ],

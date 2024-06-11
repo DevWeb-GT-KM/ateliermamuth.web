@@ -23,6 +23,7 @@ export default defineType({
           type: "block",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField(LANGUAGE_FIELD),
   ],

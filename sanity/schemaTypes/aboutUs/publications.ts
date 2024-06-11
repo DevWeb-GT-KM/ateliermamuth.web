@@ -12,6 +12,7 @@ export default defineType({
       name: "sectionTitle",
       title: "Titre de la section",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "publications",
@@ -22,6 +23,7 @@ export default defineType({
           type: "publication",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField(LANGUAGE_FIELD),
   ],
