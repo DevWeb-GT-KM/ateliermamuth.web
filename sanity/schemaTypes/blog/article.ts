@@ -32,11 +32,13 @@ export default defineType({
       name: "title",
       title: "Titre",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "description",
       title: "Description",
       type: "text",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField(IMAGE_FIELD("mainImage", "Photo principale")),
     defineField({
@@ -45,11 +47,13 @@ export default defineType({
       description:
         "Est utilisé dans la composante pour changer de page (précédent, suivant)",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "author",
       title: "Auteur",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "publicationDate",
@@ -58,6 +62,7 @@ export default defineType({
       options: {
         dateFormat: "DD/MM/YYYY",
       },
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "contentBlocks",
