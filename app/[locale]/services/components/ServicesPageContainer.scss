@@ -1,3 +1,15 @@
+@keyframes zoom {
+  0% {
+    background-size: 110%;
+  }
+  50% {
+    background-size: 128%;
+  }
+  100% {
+    background-size: 110%;
+  }
+}
+
 .services-page-container {
   .services-page-header {
     background-color: #c1d8d5;
@@ -8,12 +20,15 @@
     margin-left: -$sidePaddingDesktop;
     margin-right: -$sidePaddingDesktop;
 
-    background-image: url("../../../common/assets/images/servicesPage/shapes.svg");
+    background-image: url("../../../common/assets/images/servicesPage/shapesDesktop.svg");
     background-size: cover;
+    background-repeat: no-repeat;
+    // animation: zoom 40s infinite;
 
     @include small {
-      height: 50vh;
+      height: 170vw;
       margin: 0px -$sidePaddingMobile;
+      background-image: url("../../../common/assets/images/servicesPage/shapesMobile.svg");
     }
 
     .services-page-header-title {
@@ -57,8 +72,8 @@
         font-family: $saansTrial;
         font-style: normal;
         font-weight: 400;
-        font-size: 2.5vw;
-        line-height: 3.25vw;
+        font-size: 2vw;
+        line-height: 2.5vw;
 
         @include small {
           font-size: 24px;

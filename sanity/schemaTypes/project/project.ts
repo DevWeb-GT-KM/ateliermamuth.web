@@ -29,11 +29,13 @@ export default defineType({
         layout: "radio",
         direction: "horizontal",
       },
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "name",
       title: "Nom du projet",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "subtitle",
@@ -41,6 +43,7 @@ export default defineType({
       description:
         "Est utilisé dans la composante pour changer de page (précédent, suivant)",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "slug",
@@ -60,6 +63,7 @@ export default defineType({
       name: "shortDescription",
       title: "Description courte",
       type: "text",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "projectTypes",
@@ -70,6 +74,7 @@ export default defineType({
           type: "string",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "credits",
@@ -80,6 +85,7 @@ export default defineType({
           type: "credit",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "contentBlocks",

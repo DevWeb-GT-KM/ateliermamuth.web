@@ -14,6 +14,7 @@ export default defineType({
       name: "pageTitle",
       title: "Titre de la page",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "projects",
@@ -25,11 +26,13 @@ export default defineType({
           to: [{ type: project.name }],
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "archiveSectionTitle",
       title: "Titre de la section archives",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "projectsArchived",
@@ -40,6 +43,7 @@ export default defineType({
           type: "projectArchived",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField(LANGUAGE_FIELD),
   ],

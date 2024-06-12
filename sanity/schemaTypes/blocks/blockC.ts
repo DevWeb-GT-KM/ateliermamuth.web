@@ -23,6 +23,7 @@ export default defineType({
           type: "block",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "leftBlock",
@@ -33,6 +34,7 @@ export default defineType({
           ...CAROUSEL_FIELD(),
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "rightBlock",
@@ -43,6 +45,7 @@ export default defineType({
           ...CAROUSEL_FIELD(),
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField(LANGUAGE_FIELD),
   ],

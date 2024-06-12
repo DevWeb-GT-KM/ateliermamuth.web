@@ -12,11 +12,13 @@ export default defineType({
       name: "sectionTitle",
       title: "Titre de la section",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "valuesText",
       title: "Nos valeurs en texte",
       type: "text",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "valuesWords",
@@ -27,6 +29,7 @@ export default defineType({
           type: "string",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField(LANGUAGE_FIELD),
   ],

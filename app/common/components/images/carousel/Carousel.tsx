@@ -34,9 +34,9 @@ export const Carousel: React.FC<CarouselProps> = ({
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () =>
-      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex - 1)),
-    onSwipedRight: () =>
       setCurrentIndex((prevIndex) => handleIndexChange(prevIndex + 1)),
+    onSwipedRight: () =>
+      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex - 1)),
     preventScrollOnSwipe: true,
   });
 

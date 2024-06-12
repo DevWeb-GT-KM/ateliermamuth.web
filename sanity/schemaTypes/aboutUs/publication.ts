@@ -9,16 +9,19 @@ export default defineType({
       name: "mediaName",
       title: "Nom du média",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "publicationDate",
       title: "Date de parution",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "link",
       title: "Lien vers la parution",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
 });

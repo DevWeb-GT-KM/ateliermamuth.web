@@ -38,6 +38,12 @@ const LOAD_PAGE_METADATA = `
   }
 `;
 
+export const SITEMAP_SLUGS_FR_QUERY = groq`*[defined(slug) && language == "fr"] {
+  _type,
+  slug,
+  _updatedAt
+}`;
+
 export const HOME_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "home" && language == $locale] {
   metadata {
     metaDescription
@@ -69,7 +75,7 @@ export const SERVICE_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "service" && 
   }
  }`;
 
-export const PROJECTS_QUERY_BY_LANG = groq`*[_type == "project" && defined(slug) && language == $locale]`;
+export const PROJECTS_QUERY_BY_LANG = groq`*[_type == "project" && language == $locale && defined(slug)]`;
 
 export const PROJECT_QUERY_BY_LANG = groq`*[_type == "project" && language == $locale && slug.current == $slug][0] {
   _createdAt,
