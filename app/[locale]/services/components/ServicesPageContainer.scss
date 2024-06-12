@@ -20,7 +20,7 @@
     margin-left: -$sidePaddingDesktop;
     margin-right: -$sidePaddingDesktop;
 
-    background-image: url("../../../common/assets/images/servicesPage/ShapesDesktop.svg");
+    background-image: url("../../../common/assets/images/servicesPage/shapesDesktop.svg");
     background-size: cover;
     background-repeat: no-repeat;
     // animation: zoom 40s infinite;
@@ -28,7 +28,7 @@
     @include small {
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
-      background-image: url("../../../common/assets/images/servicesPage/ShapesMobile.svg");
+      background-image: url("../../../common/assets/images/servicesPage/shapesMobile.svg");
     }
 
     .services-page-header-title {
