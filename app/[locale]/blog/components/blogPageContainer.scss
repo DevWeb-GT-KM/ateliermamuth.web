@@ -1,3 +1,15 @@
+// @keyframes zoom {
+//   0% {
+//     background-size: 110%;
+//   }
+//   50% {
+//     background-size: 150%;
+//   }
+//   100% {
+//     background-size: 110%;
+//   }
+// }
+
 .blog-page-container {
   .blog-page-header {
     background-color: $rouge-fauve-vineux-400;
@@ -10,9 +22,13 @@
 
     background-image: url("../../../common/assets/images/blogPage/desktopShapes.svg");
     background-size: cover;
+    background-repeat: no-repeat;
+    // animation: zoom 45s infinite;
 
     @include small {
-      height: 50vh;
+      background-size: cover;
+      background-position-x: -200px;
+      height: 170vw;
       margin: 0px -$sidePaddingMobile;
     }
 

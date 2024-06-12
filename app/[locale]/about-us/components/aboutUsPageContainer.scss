@@ -1,3 +1,15 @@
+@keyframes zoom {
+  0% {
+    background-size: 110%;
+  }
+  50% {
+    background-size: 150%;
+  }
+  100% {
+    background-size: 110%;
+  }
+}
+
 .about-us-page-container {
   .about-us-page-header {
     background-color: $jaune-de-naples-300;
@@ -10,14 +22,17 @@
 
     background-image: url("../../../common/assets/images/abousUsPage/desktopShapes.svg");
     background-size: cover;
+    background-repeat: no-repeat;
+    // animation: zoom 45s infinite;
 
     @include small {
-      height: 50vh;
+      background-position-x: -200px;
+      height: 170vw;
       margin: 0px -$sidePaddingMobile;
     }
 
     .about-us-page-title {
-      color: $gris-neutre-700;
+      color: $jaune-de-naples-700;
       font-family: $saansTrial;
       font-style: normal;
       font-weight: 400;
@@ -41,15 +56,15 @@
     .about-us-page-small-description {
       color: $noir-boise-700;
       font-family: $saansTrial;
-      font-size: 2.5vw;
-      line-height: 3.25vw;
+      font-size: 2vw;
+      line-height: 2.5vw;
       font-style: normal;
 
       padding-right: 22vw;
 
       @include small {
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 28px;
+        line-height: 36px;
       }
     }
 
