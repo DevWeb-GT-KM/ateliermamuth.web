@@ -25,6 +25,7 @@ export const Project: React.FC<ProjectProps> = ({
       }}
     >
       <SanityImageWrapper
+        effectOnHover={true}
         sanityImage={data.mainImage}
         imageBuilderConfig={{
           format: SANITY_IMAGE_FORMAT.Jpg,
