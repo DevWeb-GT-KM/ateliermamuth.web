@@ -100,7 +100,7 @@ export const PROJECT_QUERY_BY_LANG = groq`*[_type == "project" && language == $l
   "nextProject": coalesce(*[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current && _createdAt >= ^._createdAt] | order(_createdAt asc)[0], *[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current] | order(_createdAt asc)[0]) { slug, name, subtitle, mainImage { alt, asset->, hotspot } }
 }`;
 
-export const ARTICLES_QUERY_BY_LANG = groq`*[_type == "article" && defined(slug) && language == $locale]`;
+export const ARTICLES_QUERY_BY_LANG = groq`*[_type == "article" && language == $locale && defined(slug)]`;
 export const ARTICLE_QUERY_BY_LANG = groq`*[_type == "article" && language == $locale && slug.current == $slug][0] {
   ...,
   mainImage {
@@ -220,7 +220,7 @@ export const FAQ_PAGE_QUERY = groq`*[_type == "faq" && language == $locale]{
     },
 }`;
 
-export const SERVICES_LIST_QUERY = groq`*[_type == "service" && defined(slug) && language == $locale]`;
+export const SERVICES_LIST_QUERY = groq`*[_type == "service" && language == $locale && defined(slug)]`;
 export const SERVICE_QUERY = groq`*[_type == "service" && language == $locale && slug.current == $slug][0]`;
 
 export const ABOUT_US_PAGE_QUERY_BY_LANG = groq`*[_type == "aboutUs" && language == $locale]{
@@ -312,7 +312,7 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
   }
 }`;
 
-export const NAV_BAR_BY_LANG = groq`*[_type == "navBar" && language == "fr"]{
+export const NAV_BAR_BY_LANG = groq`*[_type == "navBar" && language == $locale]{
   projectsLink,
   servicesLink,
   blogLink,
