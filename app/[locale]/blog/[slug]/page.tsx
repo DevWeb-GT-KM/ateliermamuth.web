@@ -1,6 +1,7 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { draftMode } from "next/headers";
+import { notFound } from "next/navigation";
 
 import { client } from "@/../sanity/lib/client";
 import {
@@ -66,6 +67,10 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
       perspective: draftMode().isEnabled ? "previewDrafts" : "published",
     }
   );
+
+  if (!initial) {
+    return notFound();
+  }
 
   return draftMode().isEnabled ? (
     <ArticlePageContainerPreview initial={initial} params={params} />
