@@ -117,7 +117,7 @@ export const PROJECTS_PAGE_QUERY = groq`*[_type == "projects" && language == $lo
   pageTitle,
   projects[]->{
     type,
-    mainImage{ asset-> },
+    mainImage{ asset->, alt, hotspot },
     projectTypes,
     name,
     shortDescription,
