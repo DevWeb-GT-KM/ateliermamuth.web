@@ -5,9 +5,7 @@ import { useState } from "react";
 import AnimateHeight from "react-animate-height";
 
 import Image from "next/image";
-import imageUrlBuilder from "@sanity/image-url";
 import close from "../../../common/assets/images/projectsPage/closeButton.svg";
-import { client } from "../../../../sanity/lib/client";
 import HorizontalSlider from "./HorizontalSlider";
 
 type ProjectArchivedProps = {
@@ -16,7 +14,6 @@ type ProjectArchivedProps = {
 
 export const ProjectArchived: React.FC<ProjectArchivedProps> = ({ data }) => {
   const [height, setHeight] = useState<number | "auto">(0);
-  const builder = imageUrlBuilder(client);
 
   const getProjectTypes = (projectTypes: string[]) => {
     let projectTypesResult: string = "";
