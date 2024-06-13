@@ -22,6 +22,10 @@
     .article-page-header-text-container {
       width: 50%;
 
+      @include small {
+        width: 100%;
+      }
+
       .article-page-title {
         font-family: $saansTrial;
         line-height: 3.5vw;
@@ -50,30 +54,26 @@
         @include small {
           font-size: 18px;
           line-height: 22px;
-          margin-bottom: 24px;
+          margin-bottom: 12px;
         }
       }
 
       .article-page-header-flex-row {
         display: flex;
-        align-items: center;
         gap: 2.125vw;
+        margin-bottom: 20px;
 
         @include small {
           flex-direction: column;
-          gap: 16px;
+          gap: 12px;
         }
-
-        align-items: center;
-        gap: 2.125vw;
 
         .article-page-author-publication-date-container {
           display: flex;
           gap: 2.125vw;
 
           @include small {
-            gap: 34px;
-            order: 2;
+            gap: 20px;
           }
 
           .article-page-author,
@@ -94,7 +94,7 @@
 
         .social-media-share-button {
           @include small {
-            order: 1;
+            justify-content: flex-end;
           }
         }
       }

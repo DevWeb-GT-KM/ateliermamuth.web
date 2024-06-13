@@ -16,12 +16,14 @@ type SanityImageWrapperProps = {
   sanityImage: any;
   imageBuilderConfig: SanityImageBuilderConfig;
   children?: React.ReactNode;
+  effectOnHover?: boolean;
 };
 
 export const SanityImageWrapper: React.FC<SanityImageWrapperProps> = ({
   sanityImage,
   imageBuilderConfig,
   children,
+  effectOnHover,
 }) => {
   const getImageSource = () => {
     let imageSource = urlFor(sanityImage)
@@ -42,7 +44,7 @@ export const SanityImageWrapper: React.FC<SanityImageWrapperProps> = ({
   return (
     <div className="sanity-image-wrapper-container">
       <Image
-        className="sanity-image"
+        className={`sanity-image ${effectOnHover ? "sanity-image-hover-effect" : ""}`}
         src={getImageSource()}
         placeholder={sanityImage.asset.metadata?.lqip ? "blur" : "empty"}
         blurDataURL={sanityImage.asset.metadata?.lqip}
