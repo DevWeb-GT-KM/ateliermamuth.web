@@ -1,6 +1,7 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { draftMode } from "next/headers";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 import { ProjectPageContainer } from "./components/ProjectPageContainer";
 import { ProjectPageContainerPreview } from "./components/ProjectPageContainerPreview";
@@ -66,6 +67,10 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
       perspective: draftMode().isEnabled ? "previewDrafts" : "published",
     }
   );
+
+  if (!projectQuery) {
+    return notFound();
+  }
 
   return draftMode().isEnabled ? (
     <ProjectPageContainerPreview initial={projectQuery} params={params} />

@@ -9,11 +9,13 @@ export default defineType({
       name: "label",
       title: "Étiquette",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "value",
       title: "Valeur",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
 });

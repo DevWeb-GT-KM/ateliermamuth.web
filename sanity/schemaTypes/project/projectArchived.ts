@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { IMAGE_FIELD } from "../constants";
 
 export default defineType({
   name: "projectArchived",
@@ -9,11 +10,13 @@ export default defineType({
       name: "name",
       title: "Nom",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "completionYear",
       title: "Année de réalisation",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "projectTypes",
@@ -24,17 +27,29 @@ export default defineType({
           type: "string",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "location",
       title: "Endroit de réalisation",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "images",
       title: "Photos",
       type: "array",
-      of: [{ type: "image" }],
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              ...IMAGE_FIELD(),
+            },
+          ],
+        },
+      ],
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
 });

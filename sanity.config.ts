@@ -3,6 +3,7 @@
  */
 
 import { visionTool } from "@sanity/vision";
+import { vercelDeployTool } from "sanity-plugin-vercel-deploy";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { presentationTool } from "sanity/presentation";
@@ -20,6 +21,7 @@ export default defineConfig({
   dataset,
   schema,
   plugins: [
+    vercelDeployTool(),
     structureTool(),
     media(),
     visionTool({ defaultApiVersion: apiVersion }),

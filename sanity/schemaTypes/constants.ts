@@ -20,6 +20,7 @@ export const IMAGE_FIELD = (name?: string, title?: string) => {
         title: "Texte alternatif",
       },
     ],
+    validation: (Rule: any) => Rule.required(),
   };
 };
 
