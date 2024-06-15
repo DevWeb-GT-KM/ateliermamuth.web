@@ -1,9 +1,26 @@
 @keyframes zoom {
   0% {
     background-size: 110%;
+    background-position-x: 0px;
   }
   50% {
-    background-size: 128%;
+    background-size: 160%;
+    background-position-x: -600px;
+    background-position-y: -150px;
+  }
+  100% {
+    background-size: 110%;
+    background-position-x: 0px;
+  }
+}
+
+@keyframes zoomMobile {
+  0% {
+    background-size: 110%;
+  }
+  50% {
+    background-size: 160%;
+    background-position-y: -200px;
   }
   100% {
     background-size: 110%;
@@ -23,12 +40,13 @@
     background-image: url("../../../common/assets/images/servicesPage/shapesDesktop.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    // animation: zoom 40s infinite;
+    animation: zoom 70s infinite;
 
     @include small {
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
       background-image: url("../../../common/assets/images/servicesPage/shapesMobile.svg");
+      animation: zoomMobile 60s infinite;
     }
 
     .services-page-header-title {
