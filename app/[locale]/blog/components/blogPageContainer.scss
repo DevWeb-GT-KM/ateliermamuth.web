@@ -1,14 +1,33 @@
-// @keyframes zoom {
-//   0% {
-//     background-size: 110%;
-//   }
-//   50% {
-//     background-size: 150%;
-//   }
-//   100% {
-//     background-size: 110%;
-//   }
-// }
+@keyframes zoom {
+  0% {
+    background-size: 110%;
+    background-position-x: 0px;
+  }
+  50% {
+    background-size: 138%;
+    background-position-x: -500px;
+    background-position-y: -200px;
+  }
+  100% {
+    background-size: 110%;
+    background-position-x: 0px;
+  }
+}
+
+@keyframes zoomMobile {
+  0% {
+    background-size: 370%;
+    background-position-x: -200px;
+  }
+  50% {
+    background-size: 420%;
+    background-position-x: -450px;
+  }
+  100% {
+    background-size: 370%;
+    background-position-x: -200px;
+  }
+}
 
 .blog-page-container {
   .blog-page-header {
@@ -23,13 +42,14 @@
     background-image: url("../../../common/assets/images/blogPage/desktopShapes.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    // animation: zoom 45s infinite;
+    animation: zoom 90s infinite;
 
     @include small {
-      background-size: cover;
+      background-size: 370%;
       background-position-x: -200px;
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
+      animation: zoomMobile 80s infinite;
     }
 
     .blog-page-title {

@@ -1,17 +1,35 @@
+@keyframes zoom {
+  0% {
+    background-size: 100%;
+    background-position-y: -200px;
+  }
+  50% {
+    background-size: 150%;
+    background-position-y: -200px;
+    background-position-x: -200px;
+  }
+  100% {
+    background-size: 100%;
+    background-position-y: -200px;
+  }
+}
+
 .home-page-carousel-container {
   .home-page-caroussel-shapes {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100%;
-    z-index: 2; /* Ensure it is above the image but below other content */
+    height: 60vw;
+    z-index: 2;
 
-    pointer-events: none; /* Allow interactions with underlying elements */
+    pointer-events: none;
     background-image: url("../../../common/assets/images/homePage/carousel/desktopShapes.svg");
     background-repeat: no-repeat;
     mix-blend-mode: overlay;
     background-size: cover;
+    background-position-y: -200px;
+    // animation: zoom 150s infinite;
 
     @include small {
       background-image: url("../../../common/assets/images/homePage/carousel/mobileShapes.svg");

@@ -1,8 +1,15 @@
 .home-page-carousel-container {
+  width: 100vw;
+  height: 50vw;
+
+  @include small {
+    height: 100vw;
+  }
+
   .home-page-carousel-image-placeholder {
     background-color: $noir-boise-400;
     width: 100vw;
-    height: 100vh;
+    height: 30vw;
   }
 
   position: relative;

@@ -74,8 +74,8 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
               format: SANITY_IMAGE_FORMAT.Jpg,
               quality: 100,
               size: {
-                width: width,
-                height: height,
+                width: 1280,
+                height: 720,
               },
             }}
           />
