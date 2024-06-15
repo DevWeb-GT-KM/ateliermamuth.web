@@ -2,7 +2,7 @@
 
 .footer-container {
   background-color: $noir-boise-300;
-  padding: 38px 40px 13px 40px;
+  padding: 2.375vw 2.5vw 0.8125vw 2.5vw;
 
   @include small {
     padding: 24px 16px 13px 16px;
@@ -17,17 +17,20 @@
     }
 
     .footer-info {
-      flex: 1;
-      padding-right: 16px;
+      flex: 3;
+
+      @include small {
+        padding-right: 16px;
+      }
 
       .footer-info-email,
       .footer-info-description {
         color: $noir-boise-50;
         font-family: $saansTrial;
-        font-size: 16px;
+        font-size: 1vw;
+        line-height: 1vw;
         font-style: normal;
         font-weight: 400;
-        line-height: 20px;
 
         @include small {
           font-size: 16px;
@@ -36,37 +39,38 @@
       }
 
       .footer-info-email {
-        line-height: 16px;
-        margin-right: 60px;
+        line-height: 1vw;
+        margin-right: 3.75vw;
         display: inline-block;
 
         @include small {
+          line-height: 16px;
+          margin-right: 60px;
           margin-top: 24px;
         }
       }
 
-      .footer-info-description {
-        max-width: 558px;
-      }
-
       .footer-info-apdiq-logo {
-        margin-top: 24px;
-        width: 180px;
+        margin-top: 1.5vw;
+        width: 11.25vw;
         height: auto;
         mix-blend-mode: screen;
 
         @include small {
           margin-top: 24px;
+          width: 180px;
         }
       }
     }
 
     .footer-links {
-      flex: 1;
+      flex: 4;
       display: flex;
       flex-direction: row;
+      padding-left: 12vw;
 
       @include small {
+        padding-left: 0px;
         flex-wrap: wrap;
       }
 
@@ -74,30 +78,36 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        padding: 0px 8px;
 
         @include small {
           margin-top: 80px;
           flex: 0 1 50%;
         }
+
         .footer-link {
           color: $noir-boise-50;
           font-family: $saansTrial;
-          font-size: 16px;
           font-style: normal;
           font-weight: 400;
-          line-height: 16px;
-          margin-bottom: 16px;
+          font-size: 1vw;
+          line-height: 1vw;
+          margin-bottom: 1vw;
+
+          @include small {
+            font-size: 16px;
+            line-height: 16px;
+            margin-bottom: 16px;
+          }
         }
       }
     }
   }
 
   .footer-bottom {
-    margin-top: 320px;
+    margin-top: 20vw;
 
     @include small {
-      margin-top: 160px;
+      margin-top: 320px;
     }
 
     .footer-mamuth-logo {
@@ -108,18 +118,25 @@
     .footer-copyright {
       display: flex;
       flex-direction: row;
-      margin: 8px;
+      margin: 0.5vw;
+      margin-left: 0px;
+
+      @include small {
+        margin: 8px;
+        margin-left: 0px;
+      }
 
       .footer-copyright-text {
-        margin-right: 48px;
         font-family: $saansTrial;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 16px;
+        font-size: 1.1vw;
+        line-height: 1.1vw;
+        margin-right: 6vw;
         color: $noir-boise-50;
 
         @include small {
-          margin-right: 16px;
+          font-size: 16px;
+          line-height: 16px;
         }
       }
     }

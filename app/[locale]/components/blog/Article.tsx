@@ -5,41 +5,38 @@ import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuild
 import { buildSeeMoreString } from "@/common/helpers/SeeMore";
 
 type ArticleProps = {
-  data: any[];
+  data: any;
 };
 
 export const Article: React.FC<ArticleProps> = ({ data }) => {
   return (
-    <>
-      {data.map((article: any, index: number) => {
-        return (
-          <Link
-            href={{
-              pathname: "/blog/[slug]",
-              params: { slug: article.slug.current },
-            }}
-            key={index}
-            className="home-page-blog-article-container"
-          >
-            <div className="home-page-blog-article-description-container">
-              <h1 className="home-page-blog-title">{article.title}</h1>
-              <p className="home-page-blog-article-description" dangerouslySetInnerHTML={{ __html: buildSeeMoreString(article.description, 130) }}>
-              </p>
-            </div>
-            <SanityImageWrapper
-              sanityImage={article.mainImage}
-              imageBuilderConfig={{
-                size: {
-                  width: 500,
-                  height: 500,
-                },
-                format: SANITY_IMAGE_FORMAT.Jpg,
-                quality: 85,
-              }}
-            />
-          </Link>
-        );
-      })}
-    </>
+    <Link
+      href={{
+        pathname: "/blog/[slug]",
+        params: { slug: data.slug.current },
+      }}
+      className="home-page-blog-article-container"
+    >
+      <div className="home-page-blog-article-description-container">
+        <h1 className="home-page-blog-title">{data.title}</h1>
+        <p
+          className="home-page-blog-article-description"
+          dangerouslySetInnerHTML={{
+            __html: buildSeeMoreString(data.description, 130),
+          }}
+        ></p>
+      </div>
+      <SanityImageWrapper
+        sanityImage={data.mainImage}
+        imageBuilderConfig={{
+          size: {
+            width: 500,
+            height: 500,
+          },
+          format: SANITY_IMAGE_FORMAT.Jpg,
+          quality: 85,
+        }}
+      />
+    </Link>
   );
 };

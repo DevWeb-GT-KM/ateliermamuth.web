@@ -1,42 +1,58 @@
 .service-page-contact-us-e-design {
   background-color: $bleu-helvetia-400;
   background-image: url("../../../../common/assets/images/servicesPage/service/eDesignCtaShapes.svg");
+
+  @include small {
+    background-image: url("../../../../common/assets/images/servicesPage/service/eDesignCtaShapesMobile.svg");
+  }
 }
 
 .service-page-contact-us-design-interieur {
   background-color: $lavande-100;
   background-image: url("../../../../common/assets/images/servicesPage/service/interiorDesignCtaShapes.svg");
+
+  @include small {
+    background-image: url("../../../../common/assets/images/servicesPage/service/interiorDesignCtaShapesMobile.svg");
+  }
 }
 
 .service-page-contact-us-architecture-residentielle {
   background-color: $vert-pistache-500;
   background-image: url("../../../../common/assets/images/servicesPage/service/residentialArchitectCtaShapes.svg");
+
+  @include small {
+    background-image: url("../../../../common/assets/images/servicesPage/service/residentialArchitectCtaShapesMobile.svg");
+  }
 }
 
 .service-page-contact-us-container {
-  background-repeat: no-repeat;
   background-size: cover;
+
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
+
   flex-direction: column;
-  height: 560px;
-  margin: 240px 0px;
-  border-radius: 20px;
+  height: 40vw;
+  margin: 15vw 0px;
+  border-radius: 1.25vw;
 
   @include small {
+    width: 100%;
+    height: 560px;
     padding-left: 21px;
     padding-right: 21px;
+    border-radius: 10px;
   }
 
   .service-page-contact-us-message {
     color: $noir-boise-50;
     font-family: $saansTrial;
-    font-size: 32px;
+    font-size: 2vw;
+    line-height: 2.5vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 40px;
 
     @include small {
       font-size: 18px;
@@ -47,7 +63,12 @@
   .service-page-contact-us-link {
     @extend .common-btn-noir-boise-light;
 
-    margin-top: 16px;
-    padding: 14px 18px;
+    margin-top: 1vw;
+    padding: 0.975vw 1.125vw;
+
+    @include small {
+      margin-top: 16px;
+      padding: 14px 18px;
+    }
   }
 }

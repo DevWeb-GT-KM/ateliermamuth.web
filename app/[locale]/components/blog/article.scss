@@ -1,68 +1,71 @@
-.home-page-blog-article-container {
-  display: flex;
-  flex-direction: row;
-  border-top: 1px solid $noir-boise-200;
-  padding: 24px 0px;
+.home-page-blog-container {
+  .home-page-blog-article-container {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid $noir-boise-200;
+    padding: 1.5vw 0px;
 
-  @include small {
-    padding: 16px 0px;
-  }
-
-  &:last-child {
-    border-bottom: 1px solid $noir-boise-200;
-  }
-
-  .home-page-blog-article-description-container {
-    flex: 1;
-
-    .home-page-blog-title {
-      color: $noir-boise-700;
-      font-family: $saansTrial;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 30px;
-
-      @include small {
-        font-size: 18px;
-        line-height: 22px;
-      }
+    &:last-child {
+      border-bottom: 1px solid $noir-boise-200;
     }
 
-    .home-page-blog-article-description {
-      color: $noir-boise-400;
-      font-family: $saansTrial;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 30px;
-
-      @include small {
-        font-size: 18px;
-        line-height: 22px;
-      }
-
-      .see-more:hover {
-        color: $noir-boise-700;
-      }
-    }
-  }
-
-  .sanity-image-wrapper-container {
-    margin-left: 60px;
-    
     @include small {
-      width: 77px;
-      height: 77px;
+      padding: 16px 0px;
     }
 
-    @include large {
-      width: 128px;
-      height: 128px;
+    .home-page-blog-article-description-container {
+      flex: 1;
+
+      .home-page-blog-title {
+        color: $noir-boise-700;
+        font-family: $saansTrial;
+        font-size: 1.5vw;
+        line-height: 1.875vw;
+        font-style: normal;
+        font-weight: 400;
+
+        @include small {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+
+      .home-page-blog-article-description {
+        color: $noir-boise-400;
+        font-family: $saansTrial;
+        font-size: 1.5vw;
+        line-height: 1.875vw;
+        font-style: normal;
+        font-weight: 400;
+
+        @include small {
+          font-size: 18px;
+          line-height: 22px;
+        }
+
+        .see-more:hover {
+          color: $noir-boise-700;
+        }
+      }
     }
 
-    .sanity-image {
-      border-radius: 5px;
+    .sanity-image-wrapper-container {
+      margin-left: 60px;
+      width: 8vw;
+      height: 8vw;
+
+      @include small {
+        width: 77px;
+        height: 77px;
+      }
+
+      .sanity-image {
+        border-radius: $borderRadiusImageDesktop;
+
+        @include small {
+          border-radius: $borderRadiusImageMobile;
+        }
+      }
     }
   }
 }

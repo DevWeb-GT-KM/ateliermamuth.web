@@ -1,24 +1,12 @@
-@keyframes zoomInOutDesktop {
+@keyframes zoom {
   0% {
-    background-size: 2000px;
+    background-size: 110%;
   }
   50% {
-    background-size: 2700px;
+    background-size: 150%;
   }
   100% {
-    background-size: 2000px;
-  }
-}
-
-@keyframes zoomInOutMobile {
-  0% {
-    background-size: 1200px;
-  }
-  50% {
-    background-size: 1800px;
-  }
-  100% {
-    background-size: 1200px;
+    background-size: 110%;
   }
 }
 
@@ -26,62 +14,57 @@
   .about-us-page-header {
     background-color: $jaune-de-naples-300;
     display: flex;
+    height: 50vw;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-
-    background-image: url("../../../common/assets/images/abousUsPage/test.svg");
-    background-size: 2000px;
-    background-position-y: -1000px;
-    background-position-x: -100px;
-    background-repeat: no-repeat;
-    animation: zoomInOutDesktop 60s infinite alternate;
-
     margin-left: -$sidePaddingDesktop;
     margin-right: -$sidePaddingDesktop;
 
-    @include small {
-      background-position-y: -650px;
-      background-position-x: -100px;
-      background-size: 1500px;
-      animation: zoomInOutMobile 60s infinite alternate;
+    background-image: url("../../../common/assets/images/abousUsPage/desktopShapes.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    // animation: zoom 45s infinite;
 
-      margin-left: -$sidePaddingMobile;
-      margin-right: -$sidePaddingMobile;
+    @include small {
+      background-position-x: -200px;
+      height: 170vw;
+      margin: 0px -$sidePaddingMobile;
     }
 
     .about-us-page-title {
-      color: $gris-neutre-700;
+      color: $jaune-de-naples-700;
       font-family: $saansTrial;
       font-style: normal;
       font-weight: 400;
-      line-height: 56px;
+      font-size: 3.5vw;
+      line-height: 3.5vw;
 
       @include small {
         font-size: 40px;
-      }
-
-      @include large {
-        font-size: 56px;
+        line-height: 56px;
       }
     }
   }
 
   .about-us-page-description-section {
-    margin-top: 40px;
+    margin-top: 2.5vw;
+
+    @include small {
+      margin-top: 60px;
+    }
 
     .about-us-page-small-description {
       color: $noir-boise-700;
       font-family: $saansTrial;
-      font-size: 40px;
+      font-size: 2vw;
+      line-height: 2.5vw;
       font-style: normal;
-      font-weight: 400;
-      line-height: 52px;
-      padding-right: 15%;
+
+      padding-right: 22vw;
 
       @include small {
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 28px;
+        line-height: 36px;
       }
     }
 
@@ -89,7 +72,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-top: 240px;
+      margin-top: 10vw;
 
       @include small {
         margin-top: 160px;
@@ -97,18 +80,15 @@
       }
 
       .about-us-page-description-rich-text {
-        @include large {
-          flex: 0 1 50%;
-        }
+        flex: 0 1 50%;
 
         p {
           color: $noir-boise-700;
           font-family: $saansTrial;
-          font-size: 24px;
+          font-size: 1.5vw;
+          line-height: 1.87vw;
           font-style: normal;
           font-weight: 400;
-          line-height: 30px;
-          letter-spacing: -0.24px;
           margin-bottom: 40px;
 
           @include small {
@@ -120,18 +100,20 @@
       }
 
       .sanity-image-wrapper-container {
-        @include large {
-          flex: 0 1 40%;
-        }
+        flex: 0 1 40%;
 
         .sanity-image {
-          border-radius: $borderRadiusImage;
+          border-radius: $borderRadiusImageDesktop;
+
+          @include small {
+            border-radius: $borderRadiusImageMobile;
+          }
         }
       }
     }
   }
 
   .about-us-page-employee-section {
-    margin-top: 240px;
+    margin-top: 10vw;
   }
 }

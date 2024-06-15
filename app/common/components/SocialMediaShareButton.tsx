@@ -4,12 +4,14 @@ import "./socialMediaShareButton.scss";
 import {
   FaXmark,
   FaFacebook,
+  FaFacebookMessenger,
   FaSquarePinterest,
   FaLinkedin,
 } from "react-icons/fa6";
 import imageUrlBuilder from "@sanity/image-url";
 import {
   FacebookShareButton,
+  FacebookMessengerShareButton,
   PinterestShareButton,
   LinkedinShareButton,
 } from "react-share";
@@ -77,6 +79,13 @@ export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({
         </div>
 
         <div className="social-media-share-modal-icon-container">
+          <FacebookMessengerShareButton
+            url={currentUrl}
+            appId="478599831508654"
+          >
+            <FaFacebookMessenger className="social-media-share-modal-icon" />
+          </FacebookMessengerShareButton>
+
           <FacebookShareButton url={currentUrl}>
             <FaFacebook className="social-media-share-modal-icon" />
           </FacebookShareButton>

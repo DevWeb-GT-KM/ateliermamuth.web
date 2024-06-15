@@ -27,7 +27,7 @@ export const Question: React.FC<QuestionProps> = ({ data }) => {
           className="faq-page-question-plus-img"
           src={height == "auto" ? minus : plus}
           alt="plus"
-          width={30}
+          width={0}
           unoptimized
         />
       </div>

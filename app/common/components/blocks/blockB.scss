@@ -1,7 +1,11 @@
 .block-b-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5vw;
+
+  @include small {
+    gap: 24px;
+  }
 
   .block-b-portable-text-container {
     display: flex;
@@ -11,16 +15,16 @@
     font-family: $centuryOldStyleStd;
     font-style: normal;
     font-weight: 400;
+    width: 50%;
+    gap: 1.5vw;
+    font-size: 1.5vw;
+    line-height: 1.875vw;
 
     @include small {
+      width: 100%;
       font-size: 18px;
       line-height: 22px;
-    }
-
-    @include large {
-      width: 50%;
-      font-size: 24px;
-      line-height: 30px;
+      gap: 24px;
     }
   }
 
@@ -28,8 +32,13 @@
     width: 100%;
 
     .sanity-image {
-      height: 720px;
-      border-radius: $borderRadiusImage;
+      height: 45vw;
+      border-radius: $borderRadiusImageDesktop;
+
+      @include small {
+        border-radius: $borderRadiusImageMobile;
+        height: 720px;
+      }
     }
   }
 }

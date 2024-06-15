@@ -5,13 +5,10 @@
   .page-selector-item {
     display: flex;
     flex-direction: column;
+    width: 40%;
 
     @include small {
       width: 45%;
-    }
-
-    @include large {
-      width: 40%;
     }
 
     &:last-child {
@@ -23,15 +20,14 @@
         align-self: flex-end;
       }
 
-      @include small {
-        .page-selector-content {
-          align-items: flex-end;
-        }
+      .page-selector-content {
+        flex-direction: row-reverse;
       }
 
-      @include large {
+      @include small {
         .page-selector-content {
-          flex-direction: row-reverse;
+          flex-direction: column;
+          align-items: flex-end;
         }
       }
     }
@@ -39,6 +35,9 @@
     .page-selector-action-title {
       font-family: $saansTrial;
       color: $noir-boise-700;
+      font-size: 2.5vw;
+      line-height: 2.5vw;
+      margin-bottom: 2.5vw;
       width: min-content;
       font-size: normal;
       font-weight: 400;
@@ -54,39 +53,32 @@
         line-height: 20px;
         margin-bottom: 16px;
       }
-
-      @include large {
-        font-size: 40px;
-        line-height: 40px;
-        margin-bottom: 40px;
-      }
     }
 
     .page-selector-content {
       display: flex;
+      gap: 1vw;
 
       @include small {
         flex-direction: column;
         gap: 8px;
       }
 
-      @include large {
-        gap: 16px;
-      }
-
       .sanity-image-wrapper-container {
+        width: 6vw;
+        height: 6vw;
+
         @include small {
           width: 56px;
           height: 56px;
         }
 
-        @include large {
-          width: 80px;
-          height: 80px;
-        }
-
         .sanity-image {
-          border-radius: 5px;
+          border-radius: $borderRadiusImageDesktop;
+
+          @include small {
+            border-radius: $borderRadiusImageMobile;
+          }
         }
       }
 
@@ -102,8 +94,13 @@
           font-family: $saansTrial;
           font-style: normal;
           font-weight: 400;
-          font-size: 16px;
-          line-height: 20px;
+          font-size: 1.25vw;
+          line-height: 1.25vw;
+
+          @include small {
+            font-size: 16px;
+            line-height: 20px;
+          }
         }
 
         .page-selector-title {
@@ -112,7 +109,7 @@
 
         .page-selector-description {
           color: $noir-boise-400;
-          max-width: 250px;
+          max-width: 15.5vw;
 
           @include small {
             display: none;

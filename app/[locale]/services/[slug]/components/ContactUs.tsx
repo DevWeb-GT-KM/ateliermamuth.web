@@ -20,7 +20,7 @@ export const ContactUs: React.FC<ContactUsProps> = ({ serviceType }) => {
         className="service-page-contact-us-link"
         href={{ pathname: "/contact-form" }}
       >
-        écrivez-nous
+        Écrivez-nous
       </Link>
     </div>
   );

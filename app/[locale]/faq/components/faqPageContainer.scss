@@ -1,35 +1,34 @@
 .faq-page-container {
-  display: flex;
-  flex-direction: column;
-
   .faq-page-header {
     display: flex;
+    height: 50vw;
     justify-content: center;
     align-items: center;
 
-    // TODO - Déterminer quelle est la hauteur idéale en mobile et desktop
     @include small {
       height: 50vh;
       margin: 0px -$sidePaddingMobile;
     }
 
-    @include large {
-      height: 50vh;
-    }
     .faq-page-title {
       color: $noir-boise-700;
       font-family: $saansTrial;
-      font-size: 56px;
+      line-height: 3.5vw;
+      font-size: 3.5vw;
       font-style: normal;
       font-weight: 400;
-      line-height: 56px; /* 100% */
+
+      @include small {
+        font-size: 40px;
+        line-height: 56px;
+      }
     }
   }
 
   .faq-page-content {
     width: 75%;
     margin: auto;
-    margin-bottom: 240px;
+    margin-bottom: 15vw;
 
     @include small {
       width: 100%;

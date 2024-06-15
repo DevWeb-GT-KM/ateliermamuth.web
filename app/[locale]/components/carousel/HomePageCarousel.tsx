@@ -1,6 +1,7 @@
 "use client";
 
 import "./homePageCarousel.scss";
+import "./homePageCarouselShapes.scss";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { useWindowSize } from "@react-hook/window-size";
@@ -39,9 +40,9 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () =>
-      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex - 1)),
-    onSwipedRight: () =>
       setCurrentIndex((prevIndex) => handleIndexChange(prevIndex + 1)),
+    onSwipedRight: () =>
+      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex - 1)),
     preventScrollOnSwipe: true,
   });
 

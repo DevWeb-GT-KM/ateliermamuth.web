@@ -9,6 +9,7 @@ export default defineType({
       name: "question",
       title: "Question",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "answer",
@@ -19,6 +20,7 @@ export default defineType({
           type: "block",
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
 });

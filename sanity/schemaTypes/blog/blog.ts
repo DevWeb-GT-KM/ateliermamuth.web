@@ -14,6 +14,7 @@ export default defineType({
       name: "pageTitle",
       title: "Titre de la page",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: "articles",
@@ -25,6 +26,7 @@ export default defineType({
           to: [{ type: blog.name }],
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField(LANGUAGE_FIELD),
   ],
