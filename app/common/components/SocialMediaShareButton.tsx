@@ -83,7 +83,7 @@ export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({
         <div className="social-media-share-modal-icon-container">
           {isMobile ? (
             <Link
-              href="fb-messenger://share/?link= https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fsharing%2Freference%2Fsend-dialog&app_id=478599831508654"
+              href={`fb-messenger://share/?link=${currentUrl}&app_id=478599831508654`}
               target="_blank"
             >
               <FaFacebookMessenger className="social-media-share-modal-icon" />
