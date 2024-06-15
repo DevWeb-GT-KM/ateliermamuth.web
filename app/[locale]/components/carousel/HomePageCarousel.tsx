@@ -20,8 +20,10 @@ type CarouselProps = {
 export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   const MILLISECONDS_IMAGE_CHANGE = 8000;
 
-  const [currentIndex, setCurrentIndex] = useState<number>(1);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [maxIndex] = useState<number>(data[0].carousel.length - 1);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [images, setImages] = useState<any[]>([]);
 
   const handleIndexChange = (nextIndex: number): number => {
     if (nextIndex < 0) {
@@ -71,9 +73,6 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
     return imageSource.url();
   };
 
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [images, setImages] = useState<any[]>([]);
-
   useEffect(() => {
     let promises = [];
 
@@ -86,7 +85,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
     Promise.all(promises)
       .then((responses) => {
-        return Promise.all(responses.map((res) => res.blob()));
+        return Promise.all(responses.map((response) => response.blob()));
       })
       .then((blobs) => {
         const imageUrls = blobs.map((blob) => URL.createObjectURL(blob));
@@ -99,7 +98,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
   return (
     <>
-      {isLoaded ? (
+      {isLoaded && (
         <div
           {...swipeHandlers}
           className="home-page-carousel-container"
@@ -114,8 +113,6 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
             setActiveIndex={setCurrentIndex}
           />
         </div>
-      ) : (
-        <></>
       )}
     </>
   );
