@@ -1,5 +1,6 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { client } from "@/../sanity/lib/client";
 import {
   SERVICES_LIST_QUERY,
@@ -61,6 +62,10 @@ const ServicePage: React.FC<ServicePageProps> = async ({ params }) => {
   const initial = await loadQuery<SanityDocument>(SERVICE_QUERY, params, {
     perspective: draftMode().isEnabled ? "previewDrafts" : "published",
   });
+
+  if (!initial) {
+    return notFound();
+  }
 
   return draftMode().isEnabled ? (
     <ServicePageContainerPreview initial={initial} params={params} />
