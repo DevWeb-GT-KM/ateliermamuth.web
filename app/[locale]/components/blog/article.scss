@@ -1,13 +1,14 @@
 .home-page-blog-container {
+  :nth-last-child(1 of .home-page-blog-article-container) {
+    border-bottom: 1px solid $noir-boise-200;
+    margin-bottom: 1.5vw;
+  }
+
   .home-page-blog-article-container {
     display: flex;
     flex-direction: row;
     border-top: 1px solid $noir-boise-200;
     padding: 1.5vw 0px;
-
-    &:last-child {
-      border-bottom: 1px solid $noir-boise-200;
-    }
 
     @include small {
       padding: 16px 0px;
