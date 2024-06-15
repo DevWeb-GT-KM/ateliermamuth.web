@@ -53,7 +53,7 @@ const HorizontalSlider: React.FC<SliderProps> = ({ images }) => {
       onMouseDown={handleDragStart}
       onTouchStart={handleDragStart}
     >
-      {/* {images.map((image: any, index: number) => {
+      {images.map((image: any, index: number) => {
         return (
           <SanityImageWrapper
             key={index}
@@ -68,7 +68,7 @@ const HorizontalSlider: React.FC<SliderProps> = ({ images }) => {
             }}
           />
         );
-      })} */}
+      })}
     </div>
   );
 };

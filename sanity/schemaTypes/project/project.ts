@@ -54,7 +54,8 @@ export default defineType({
       description:
         'Vous devez simplement cliquer sur le bouton "Generate" lorsque le nom du projet sera renseigné',
     }),
-    defineField(IMAGE_FIELD("mainImage", "Image principale")),
+    defineField(IMAGE_FIELD("mainImage", "Image principale desktop")),
+    defineField(IMAGE_FIELD("mainImageMobile", "Image principale mobile")),
     defineField(IMAGE_FIELD("secondaryImage", "Image secondaire")),
     defineField({
       name: "shortDescription",

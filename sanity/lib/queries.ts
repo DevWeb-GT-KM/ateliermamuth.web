@@ -246,6 +246,7 @@ export const ABOUT_US_PAGE_QUERY_BY_LANG = groq`*[_type == "aboutUs" && language
 export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $locale] {
   carousel[]->{
       mainImage { asset->, hotspot, alt },
+      mainImageMobile { asset->, hotspot, alt },
       projectTypes,
       name,
       shortDescription,

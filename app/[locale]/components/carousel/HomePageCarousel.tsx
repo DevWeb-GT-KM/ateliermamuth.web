@@ -1,15 +1,17 @@
 "use client";
 
 import "./homePageCarousel.scss";
-import "./homePageCarouselShapes.scss";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import { useWindowSize } from "@react-hook/window-size";
+import { isMobile } from "react-device-detect";
 
 import { CarouselIndex } from "@/common/components/images/carousel/CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
-import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "../../../../sanity/lib/client";
+
+const builder = imageUrlBuilder(client);
 
 type CarouselProps = {
   data: any[];
@@ -18,15 +20,8 @@ type CarouselProps = {
 export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   const MILLISECONDS_IMAGE_CHANGE = 8000;
 
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(1);
   const [maxIndex] = useState<number>(data[0].carousel.length - 1);
-  const [width, height] = useWindowSize({
-    wait: 1000,
-    leading: true,
-    initialWidth: 0,
-    initialHeight: 0,
-  });
-  const [isReadyToRender, setIsReadyToRender] = useState<boolean>();
 
   const handleIndexChange = (nextIndex: number): number => {
     if (nextIndex < 0) {
@@ -59,36 +54,69 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
     }
   }, [currentIndex]);
 
+  const getImageSource = (image: any) => {
+    let imageSource = builder
+      .image(image)
+      .format(SANITY_IMAGE_FORMAT.Jpg)
+      .fit("crop")
+      .quality(90)
+      .size(isMobile ? 720 : 1280, isMobile ? 1280 : 720);
+
+    if (image.hotspot) {
+      imageSource = imageSource
+        .focalPoint(image.hotspot.x, image.hotspot.y)
+        .crop("focalpoint");
+    }
+
+    return imageSource.url();
+  };
+
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [images, setImages] = useState<any[]>([]);
+
   useEffect(() => {
-    setIsReadyToRender(width != 0 && height != 0);
+    let promises = [];
+
+    promises = data[0].carousel.map((image: any) => {
+      return fetch(
+        getImageSource(isMobile ? image.mainImageMobile : image.mainImage),
+        { cache: "force-cache" }
+      );
+    });
+
+    Promise.all(promises)
+      .then((responses) => {
+        return Promise.all(responses.map((res) => res.blob()));
+      })
+      .then((blobs) => {
+        const imageUrls = blobs.map((blob) => URL.createObjectURL(blob));
+        setImages(imageUrls);
+
+        setIsLoaded(true);
+      })
+      .catch((error) => console.error("Error fetching image:", error));
   }, []);
 
   return (
-    <div {...swipeHandlers} className="home-page-carousel-container">
-      {isReadyToRender ? (
-        <>
-          <div className="home-page-caroussel-shapes"></div>
-          <SanityImageWrapper
-            sanityImage={data[0].carousel[currentIndex].mainImage}
-            imageBuilderConfig={{
-              format: SANITY_IMAGE_FORMAT.Jpg,
-              quality: 100,
-              size: {
-                width: 1280,
-                height: 720,
-              },
-            }}
+    <>
+      {isLoaded ? (
+        <div
+          {...swipeHandlers}
+          className="home-page-carousel-container"
+          style={{
+            backgroundImage: `url("${images[currentIndex]}")`,
+          }}
+        >
+          <ProjectInformation data={data} currentIndex={currentIndex} />
+          <CarouselIndex
+            carouselLength={data[0].carousel.length}
+            activeIndex={currentIndex}
+            setActiveIndex={setCurrentIndex}
           />
-        </>
+        </div>
       ) : (
-        <div className="home-page-carousel-image-placeholder"></div>
+        <></>
       )}
-      <ProjectInformation data={data} currentIndex={currentIndex} />
-      <CarouselIndex
-        carouselLength={data[0].carousel.length}
-        activeIndex={currentIndex}
-        setActiveIndex={setCurrentIndex}
-      />
-    </div>
+    </>
   );
 };

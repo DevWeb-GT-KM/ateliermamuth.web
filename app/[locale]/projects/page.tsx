@@ -36,8 +36,6 @@ const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params }) => {
     perspective: draftMode().isEnabled ? "previewDrafts" : "published",
   });
 
-  console.log(initial.data[0].projectsarchived[0]);
-
   return (
     <div>
       {draftMode().isEnabled ? (
