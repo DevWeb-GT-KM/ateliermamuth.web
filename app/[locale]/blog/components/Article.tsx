@@ -4,7 +4,7 @@ import { SanityDocument } from "next-sanity";
 import { Link } from "@/../navigation";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
-import { buildSeeMoreString } from "@/common/helpers/SeeMore";
+import { buildSeeMoreString } from "@/common/helpers/SeeMoreHelper";
 
 type ArticleProps = {
   article: SanityDocument;
@@ -21,8 +21,12 @@ export const Article: React.FC<ArticleProps> = ({ article }) => {
     >
       <div className="blog-page-article-description-container">
         <h1 className="blog-page-article-title">{article.title}</h1>
-        <p className="blog-page-article-description" dangerouslySetInnerHTML={{ __html: buildSeeMoreString(article.description, 230) }}>
-        </p>
+        <p
+          className="blog-page-article-description"
+          dangerouslySetInnerHTML={{
+            __html: buildSeeMoreString(article.description, 230),
+          }}
+        ></p>
       </div>
       <SanityImageWrapper
         sanityImage={article.mainImage}
