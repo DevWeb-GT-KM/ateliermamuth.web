@@ -10,6 +10,7 @@ import { ProjectInformation } from "./ProjectInformation";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../../../sanity/lib/client";
+import { getImageSource } from "@/common/helpers/ImageHelper";
 
 const builder = imageUrlBuilder(client);
 
@@ -56,29 +57,23 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
     }
   }, [currentIndex]);
 
-  const getImageSource = (image: any) => {
-    let imageSource = builder
-      .image(image)
-      .format(SANITY_IMAGE_FORMAT.Jpg)
-      .fit("crop")
-      .quality(90)
-      .size(isMobile ? 720 : 1280, isMobile ? 1280 : 720);
-
-    if (image.hotspot) {
-      imageSource = imageSource
-        .focalPoint(image.hotspot.x, image.hotspot.y)
-        .crop("focalpoint");
-    }
-
-    return imageSource.url();
-  };
-
   useEffect(() => {
     let promises = [];
 
     promises = data[0].carousel.map((image: any) => {
       return fetch(
-        getImageSource(isMobile ? image.mainImageMobile : image.mainImage),
+        getImageSource(
+          isMobile ? image.mainImageMobile : image.mainImage,
+          builder,
+          {
+            size: {
+              width: isMobile ? 720 : 1280,
+              height: isMobile ? 1280 : 720,
+            },
+            quality: 90,
+            format: SANITY_IMAGE_FORMAT.Jpg,
+          }
+        ),
         { cache: "force-cache" }
       );
     });
