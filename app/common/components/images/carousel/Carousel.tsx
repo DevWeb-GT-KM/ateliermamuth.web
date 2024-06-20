@@ -1,12 +1,17 @@
 "use client";
 
 import "./carousel.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import imageUrlBuilder from "@sanity/image-url";
 
 import { CarouselIndex } from "./CarouselIndex";
 import { SanityImageWrapper } from "../SanityImageWrapper";
 import { SanityImageBuilderConfig } from "../sanityImageBuilderConfig";
+import { client } from "@/../sanity/lib/client";
+import { getImageSource } from "@/common/helpers/ImageHelper";
+
+const builder = imageUrlBuilder(client);
 
 type CarouselProps = {
   images: any[];
@@ -20,7 +25,12 @@ export const Carousel: React.FC<CarouselProps> = ({
   const MILLISECONDS_IMAGE_CHANGE = 8000;
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [maxIndex] = useState<number>(images.length - 1);
+  const [loadedImages, setLoadedImages] = useState<any[]>([]);
+  const [areImagesLoaded, setAreImagesLoaded] = useState(false);
+  const maxIndex = useMemo<number>(
+    () => loadedImages.length - 1,
+    [loadedImages.length]
+  );
 
   const handleIndexChange = (nextIndex: number): number => {
     if (nextIndex < 0) {
@@ -51,28 +61,58 @@ export const Carousel: React.FC<CarouselProps> = ({
         clearInterval(interval);
       };
     }
-  }, [currentIndex]);
+  }, [currentIndex, maxIndex]);
+
+  useEffect(() => {
+    let promises = [];
+
+    promises = images.map((image: any) => {
+      return fetch(getImageSource(image.img, builder, imageBuilderConfig), {
+        cache: "force-cache",
+      });
+    });
+
+    Promise.all(promises)
+      .then((responses) => {
+        return Promise.all(responses.map((response) => response.blob()));
+      })
+      .then((blobs) => {
+        const imagesWithBlob = blobs.map((blob, index) => ({
+          img: {
+            ...images[index].img,
+            blob: URL.createObjectURL(blob),
+          },
+        }));
+        setLoadedImages(imagesWithBlob);
+        setAreImagesLoaded(true);
+      })
+      .catch((error) => console.error("Error fetching image:", error));
+  }, []);
 
   return (
     <>
-      {maxIndex > 0 ? (
-        <div {...swipeHandlers} style={{ width: "100%" }}>
+      {areImagesLoaded ? (
+        maxIndex > 0 ? (
+          <div {...swipeHandlers} style={{ width: "100%" }}>
+            <SanityImageWrapper
+              sanityImage={loadedImages[currentIndex].img}
+              imageBuilderConfig={imageBuilderConfig}
+            >
+              <CarouselIndex
+                carouselLength={images.length}
+                activeIndex={currentIndex}
+                setActiveIndex={setCurrentIndex}
+              />
+            </SanityImageWrapper>
+          </div>
+        ) : (
           <SanityImageWrapper
-            sanityImage={images[currentIndex].img}
+            sanityImage={loadedImages[0].img}
             imageBuilderConfig={imageBuilderConfig}
-          >
-            <CarouselIndex
-              carouselLength={images.length}
-              activeIndex={currentIndex}
-              setActiveIndex={setCurrentIndex}
-            />
-          </SanityImageWrapper>
-        </div>
+          />
+        )
       ) : (
-        <SanityImageWrapper
-          sanityImage={images[0].img}
-          imageBuilderConfig={imageBuilderConfig}
-        />
+        <></>
       )}
     </>
   );

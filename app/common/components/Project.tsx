@@ -3,7 +3,7 @@ import "./project.scss";
 import { SanityImageWrapper } from "./images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "./images/sanityImageBuilderConfig";
 import { Link } from "@/../navigation";
-import { buildSeeMoreString } from "../helpers/SeeMore";
+import { buildSeeMoreString } from "../helpers/SeeMoreHelper";
 
 type ProjectProps = {
   data: any;
