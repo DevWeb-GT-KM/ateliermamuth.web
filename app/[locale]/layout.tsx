@@ -16,8 +16,8 @@ import { NavBar } from "@/common/components/navBar/NavBar";
 import { PageOverlay } from "./components/pageOverlay/PageOverlay";
 import { PageOverlayProvider } from "./components/pageOverlay/PageOverlayContext";
 import { LiveVisualEditing } from "@/common/components/LiveVisualEditing";
-import { CookiesBanner } from "@/common/components/cookies/CookiesBanner";
 import { CookiesConsent } from "@/common/components/cookies/CookiesConsent";
+import { CookiesConsentProvider } from "@/common/contexts/CookiesConsentProvider";
 
 const saansTrial = localFont({
   src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
@@ -78,26 +78,32 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
   );
 
   return (
-    <PageOverlayProvider>
-      <html lang={params.locale}>
-        <body
-          className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
-        >
-          <PageOverlay />
-          <header>
-            <NavBar data={navBarData.data} />
-          </header>
-          <main>
-            {children}
-            <CookiesConsent />
-          </main>
-          <footer>
-            <Footer data={footerData.data} />
-          </footer>
-          {draftMode().isEnabled && <LiveVisualEditing />}
-        </body>
-      </html>
-    </PageOverlayProvider>
+    <CookiesConsentProvider
+      config={{
+        containerId: "xyz",
+      }}
+    >
+      <PageOverlayProvider>
+        <html lang={params.locale}>
+          <body
+            className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
+          >
+            <PageOverlay />
+            <header>
+              <NavBar data={navBarData.data} />
+            </header>
+            <main>
+              {children}
+              <CookiesConsent />
+            </main>
+            <footer>
+              <Footer data={footerData.data} />
+            </footer>
+            {draftMode().isEnabled && <LiveVisualEditing />}
+          </body>
+        </html>
+      </PageOverlayProvider>
+    </CookiesConsentProvider>
   );
 };
 
