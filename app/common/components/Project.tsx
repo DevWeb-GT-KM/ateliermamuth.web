@@ -1,9 +1,11 @@
+"use client";
 import "./project.scss";
 
 import { SanityImageWrapper } from "./images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "./images/sanityImageBuilderConfig";
 import { Link } from "@/../navigation";
 import { buildSeeMoreString } from "../helpers/SeeMore";
+import { motion } from "framer-motion";
 
 type ProjectProps = {
   data: any;
@@ -17,48 +19,58 @@ export const Project: React.FC<ProjectProps> = ({
   const MAX_CHARACTER_DISPLAYED = isSecondaryProject ? 80 : 300;
 
   return (
-    <Link
-      className="project-container"
-      href={{
-        pathname: "/projects/[slug]",
-        params: { slug: data.slug.current },
+    <motion.div
+      initial={{ opacity: 0, paddingTop: 50 }}
+      whileInView={{ opacity: 1, paddingTop: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.5,
+        delay: 0.3,
       }}
+      className="project-container"
     >
-      <SanityImageWrapper
-        effectOnHover={true}
-        sanityImage={data.mainImage}
-        imageBuilderConfig={{
-          format: SANITY_IMAGE_FORMAT.Jpg,
-          quality: 90,
-          size: {
-            width: 1920,
-            height: 1080,
-          },
+      <Link
+        href={{
+          pathname: "/projects/[slug]",
+          params: { slug: data.slug.current },
         }}
-      />
-      <div className="project-description">
-        <h1 className="project-description-title">{data.name}</h1>
-        <h1
-          className="project-description-description"
-          dangerouslySetInnerHTML={{
-            __html: buildSeeMoreString(
-              data.shortDescription,
-              MAX_CHARACTER_DISPLAYED
-            ),
+      >
+        <SanityImageWrapper
+          effectOnHover={true}
+          sanityImage={data.mainImage}
+          imageBuilderConfig={{
+            format: SANITY_IMAGE_FORMAT.Jpg,
+            quality: 90,
+            size: {
+              width: 1920,
+              height: 1080,
+            },
           }}
-        ></h1>
-        {!isSecondaryProject && (
-          <div className="project-description-project-types">
-            {data.projectTypes.map((projectType: any, index: number) => {
-              return (
-                <div key={index} className="project-description-project-type">
-                  {projectType}
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </Link>
+        />
+        <div className="project-description">
+          <h1 className="project-description-title">{data.name}</h1>
+          <h1
+            className="project-description-description"
+            dangerouslySetInnerHTML={{
+              __html: buildSeeMoreString(
+                data.shortDescription,
+                MAX_CHARACTER_DISPLAYED
+              ),
+            }}
+          ></h1>
+          {!isSecondaryProject && (
+            <div className="project-description-project-types">
+              {data.projectTypes.map((projectType: any, index: number) => {
+                return (
+                  <div key={index} className="project-description-project-type">
+                    {projectType}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </Link>
+    </motion.div>
   );
 };

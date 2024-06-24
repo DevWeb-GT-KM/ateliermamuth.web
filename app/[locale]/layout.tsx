@@ -16,6 +16,8 @@ import { NavBar } from "@/common/components/navBar/NavBar";
 import { PageOverlay } from "./components/pageOverlay/PageOverlay";
 import { PageOverlayProvider } from "./components/pageOverlay/PageOverlayContext";
 import { LiveVisualEditing } from "@/common/components/LiveVisualEditing";
+import { CookiesBanner } from "@/common/components/cookies/CookiesBanner";
+import { CookiesConsent } from "@/common/components/cookies/CookiesConsent";
 
 const saansTrial = localFont({
   src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
@@ -85,7 +87,10 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
           <header>
             <NavBar data={navBarData.data} />
           </header>
-          <main>{children}</main>
+          <main>
+            {children}
+            <CookiesConsent />
+          </main>
           <footer>
             <Footer data={footerData.data} />
           </footer>

@@ -15,9 +15,12 @@
     margin-bottom: 1rem;
     pointer-events: none;
     user-select: none;
+    width: 25vw;
 
     @include small {
-      min-width: 60vw;
+      width: 50vw;
+      margin-bottom: 5vw;
+      margin-top: 3vw;
     }
 
     .sanity-image {

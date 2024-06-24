@@ -2,6 +2,10 @@
   :nth-last-child(1 of .home-page-blog-article-container) {
     border-bottom: 1px solid $noir-boise-200;
     margin-bottom: 1.5vw;
+
+    @include small {
+      margin-bottom: 6vw;
+    }
   }
 
   .home-page-blog-article-container {

@@ -1,0 +1,75 @@
+.cookies-banner-container {
+  position: fixed;
+  display: none;
+  flex-direction: row;
+  bottom: 0;
+  left: 0;
+
+  height: 5vw;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+
+  box-shadow: 0 -10px 20px -15px rgba(0, 0, 0, 0.3);
+
+  @include small {
+    height: 45vw;
+    padding: 2.5vw;
+    flex-direction: column;
+  }
+
+  .cookies-banner-text {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    padding-left: 1vw;
+
+    font-family: $saansTrial;
+    color: $noir-boise-700;
+    font-size: 1.25vw;
+
+    @include small {
+      align-items: start;
+      font-size: 4.5vw;
+    }
+  }
+
+  .cookies-banner-buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+
+    @include small {
+      justify-content: start;
+      gap: 3vw;
+      padding-bottom: 2vw;
+    }
+
+    .cookies-btn {
+      @extend .common-btn-jaune-pyrite;
+      padding: 0.875vw 1.75vw;
+
+      @include small {
+        padding: 2.75vw 2.75vw;
+      }
+    }
+    .cookies-accept-btn {
+      background-color: $jaune-pyrite-600;
+      color: white;
+    }
+
+    .cookies-parameter-btn {
+      &:hover {
+        background-color: white;
+        color: $jaune-pyrite-600;
+      }
+    }
+  }
+}
+
+.cookies-banner-show {
+  display: flex;
+}

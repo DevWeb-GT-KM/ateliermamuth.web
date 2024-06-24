@@ -5,8 +5,6 @@ import { client } from "@/../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Link } from "@/../navigation";
 import logo from "../../assets/images/footer/logoVector/mamuthLogo.svg";
-import { SanityImageWrapper } from "../images/SanityImageWrapper";
-import { SANITY_IMAGE_FORMAT } from "../images/sanityImageBuilderConfig";
 
 type FooterProps = {
   data: any[];

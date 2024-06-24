@@ -1,9 +1,11 @@
 "use client";
 
 import "./homePageCarousel.scss";
+import "./homePageLoader.scss";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { isMobile } from "react-device-detect";
+import { motion } from "framer-motion";
 
 import { CarouselIndex } from "@/common/components/images/carousel/CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
@@ -98,7 +100,22 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
 
   return (
     <>
-      {isLoaded && (
+      {!isLoaded ? (
+        <div className={`home-page-loader`}>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ amount: "all", once: true }}
+            transition={{
+              duration: 2.5,
+              delay: 0.5,
+            }}
+            className="home-page-loader-text"
+          >
+            Des formes adaptées aux dimensions humaines
+          </motion.p>
+        </div>
+      ) : (
         <div
           {...swipeHandlers}
           className="home-page-carousel-container"
