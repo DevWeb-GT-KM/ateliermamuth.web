@@ -11,6 +11,8 @@
     font-size: 1.5vw;
     line-height: 1.875vw;
 
+    border-radius: 100px;
+
     @include small {
       width: 100%;
       font-size: 18px;

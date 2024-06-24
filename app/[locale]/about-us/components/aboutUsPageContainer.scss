@@ -86,14 +86,16 @@
       @include small {
         font-size: 28px;
         line-height: 36px;
+        padding-right: 0px;
       }
     }
 
     .about-us-page-description {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
       margin-top: 10vw;
+      margin-right: -1vw;
+      gap: 10vw;
 
       @include small {
         margin-top: 160px;
@@ -120,7 +122,7 @@
         }
       }
 
-      .sanity-image-wrapper-container {
+      .test {
         flex: 0 1 40%;
 
         .sanity-image {
@@ -135,6 +137,6 @@
   }
 
   .about-us-page-employee-section {
-    margin-top: 10vw;
+    margin-top: 14vw;
   }
 }

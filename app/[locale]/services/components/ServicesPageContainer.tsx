@@ -1,6 +1,8 @@
+"use client";
 import "./ServicesPageContainer.scss";
 
 import { ServicesListing } from "./ServicesListing";
+import { motion } from "framer-motion";
 import { Link } from "@/../navigation";
 
 export type ServicesPageContainerProps = {
@@ -16,7 +18,16 @@ export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
         <h1 className="services-page-header-title">{data?.[0]?.pageTitle}</h1>
       </div>
       <div className="services-page-content">
-        <div className="services-page-content-description-container">
+        <motion.div
+          initial={{ opacity: 0, paddingTop: 30 }}
+          whileInView={{ paddingTop: 0.5, opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.5,
+          }}
+          className="services-page-content-description-container"
+        >
           {data?.[0]?.description?.map((descriptionParagraph: any) => (
             <p
               key={descriptionParagraph._key}
@@ -25,7 +36,7 @@ export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
               {descriptionParagraph?.children?.[0]?.text}
             </p>
           ))}
-        </div>
+        </motion.div>
         <ServicesListing services={data?.[0]?.services} />
         <div className="services-page-projects-container">
           <h2 className="services-page-projects-title">

@@ -7,6 +7,8 @@ type BlogPageContainerProps = {
   data: SanityDocument;
 };
 
+const test = [{ title: "test", description: "fjldsfjdlskjfsdkl" }];
+
 export const BlogPageContainer: React.FC<BlogPageContainerProps> = ({
   data,
 }) => {
