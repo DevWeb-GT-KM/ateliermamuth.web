@@ -115,9 +115,11 @@
       }
     }
 
-    .sanity-image-wrapper-container {
+    .image {
       flex: 0 1 40%;
+    }
 
+    .sanity-image-wrapper-container {
       .sanity-image {
         border-radius: $borderRadiusImageDesktop;
 

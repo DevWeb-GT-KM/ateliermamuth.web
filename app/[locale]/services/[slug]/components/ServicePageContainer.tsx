@@ -1,3 +1,4 @@
+import { BottomToTopSlider } from "@/common/components/animations/BottomToTopSlider";
 import { ContactUs } from "./ContactUs";
 import { ServiceStep } from "./ServiceStep";
 import "./servicePageContainer.scss";
@@ -18,7 +19,9 @@ export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
       <div className="service-page-header">
         <h1 className="service-page-title">{service.name}</h1>
       </div>
-      <p className="service-page-description">{service.description}</p>
+      <BottomToTopSlider>
+        <p className="service-page-description">{service.description}</p>
+      </BottomToTopSlider>
       <div className="service-page-steps-section">
         <div className="service-page-steps-section-header">
           <h2 className="service-page-steps-section-title">

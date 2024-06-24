@@ -1,16 +1,28 @@
 .blog-page-article-container {
-  display: flex;
-  flex-direction: row;
-  width: calc(50% - 2vw);
-  border-top: 1px solid $noir-boise-200;
+  width: calc(50% - 2.5vw);
+  border-bottom: 1px solid $noir-boise-200;
   box-sizing: border-box;
 
   padding: 1.5vw 0px;
   margin: 0px 1vw;
 
-  &:nth-last-child(2),
-  &:nth-last-child(1) {
-    border-bottom: 1px solid $noir-boise-200;
+  @include large {
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-top: 1px solid $noir-boise-200;
+    }
+  }
+
+  @include medium {
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-top: 1px solid $noir-boise-200;
+    }
+  }
+
+  .blog-page-article-link {
+    display: flex;
+    flex-direction: row;
   }
 
   @include small {

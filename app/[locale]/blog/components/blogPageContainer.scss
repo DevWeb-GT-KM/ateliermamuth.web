@@ -81,6 +81,7 @@
   }
 
   .blog-page-content {
+    overflow: auto;
     margin: 2.5vw 0px;
     display: flex;
     flex-direction: row;
@@ -89,7 +90,7 @@
 
     @include small {
       padding-bottom: 100px;
-      margin: 16px 0px;
+      margin: 40px 0px;
     }
   }
 }

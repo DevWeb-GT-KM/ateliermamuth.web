@@ -20,13 +20,17 @@
     flex-direction: row;
     border-top: 1px solid $noir-boise-200;
 
-    padding: 1vw 0px;
+    padding: 1.25vw 0px;
     color: $noir-boise-200;
     font-family: $saansTrial;
-    font-size: 1vw;
+    font-size: 1.25vw;
     line-height: 1.25vw;
     font-style: normal;
     font-weight: 400;
+
+    &:hover {
+      color: $noir-boise-600;
+    }
 
     @include small {
       font-size: 18px;

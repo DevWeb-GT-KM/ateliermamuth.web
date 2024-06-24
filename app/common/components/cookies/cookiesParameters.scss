@@ -1,0 +1,87 @@
+.cookies-parameters {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  transform: translateX(120%);
+  opacity: 0;
+  background-color: white;
+  z-index: 1000;
+
+  width: 60vw;
+  height: 38vw;
+  padding: 2.5vw;
+
+  @include small {
+    height: 174vw;
+    width: 90vw;
+    padding: 6vw;
+  }
+
+  &.show {
+    transform: translateX(0);
+    opacity: 1;
+    border-radius: 0.5vw;
+    border: 2px solid $noir-boise-300;
+  }
+
+  .cookies-parameters-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .cookies-parameters-title {
+      font-family: $saansTrial;
+      color: $noir-boise-700;
+      font-weight: bold;
+      font-size: 1.5vw;
+
+      @include small {
+        font-size: 5.5vw;
+      }
+    }
+
+    .cookies-parameters-close-btn {
+      cursor: pointer;
+      width: 1.25vw;
+      height: auto;
+
+      @include small {
+        width: 4vw;
+        margin-top: -4.5vw;
+      }
+    }
+  }
+
+  .cookies-options {
+    margin-top: 2vw;
+  }
+
+  .save-cookies-setting-container {
+    margin-top: 3vw;
+    display: flex;
+    justify-content: flex-end;
+
+    @include small {
+      margin-top: 6vw;
+    }
+
+    .save-cookies-setting-btn {
+      @extend .common-btn-jaune-pyrite;
+
+      background-color: $jaune-pyrite-600;
+      color: white;
+      padding: 0.875vw 1.75vw;
+
+      @include small {
+        padding: 2.75vw 2.75vw;
+      }
+    }
+  }
+}

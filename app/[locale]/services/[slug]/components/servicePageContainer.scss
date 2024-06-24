@@ -32,7 +32,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 50vw;
+    height: 40vw;
 
     @include small {
       height: 50vh;
@@ -45,6 +45,8 @@
       line-height: 3.5vw;
       font-style: normal;
       font-weight: 400;
+
+      margin-top: 10vw;
 
       @include small {
         font-size: 40px;

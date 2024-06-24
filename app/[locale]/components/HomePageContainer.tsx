@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AboutUs } from "./aboutUs/AboutUs";
 import { Blog } from "./blog/Blog";
 import { HomePageCarousel } from "./carousel/HomePageCarousel";

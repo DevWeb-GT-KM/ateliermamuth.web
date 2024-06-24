@@ -42,17 +42,18 @@
       background-color: $noir-boise-50;
       width: 50%;
 
+      border-radius: $borderRadiusImageDesktop;
+
+      @include small {
+        border-radius: $borderRadiusImageMobile;
+      }
+
       @include small {
         width: 100%;
       }
 
       .sanity-image {
         mix-blend-mode: multiply;
-        border-radius: $borderRadiusImageDesktop;
-
-        @include small {
-          border-radius: $borderRadiusImageMobile;
-        }
       }
 
       .carousel-index-container {
@@ -83,6 +84,10 @@
 
       .sanity-image {
         border-radius: $borderRadiusImageDesktop;
+
+        @include small {
+          border-radius: $borderRadiusImageMobile;
+        }
       }
     }
   }
