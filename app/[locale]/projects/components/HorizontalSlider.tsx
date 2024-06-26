@@ -58,10 +58,10 @@ const HorizontalSlider: React.FC<SliderProps> = ({ images }) => {
             sanityImage={item.img}
             imageBuilderConfig={{
               format: SANITY_IMAGE_FORMAT.Jpg,
-              quality: 90,
+              quality: 70,
               size: {
-                width: 1920,
-                height: 1080,
+                width: 960,
+                height: 540,
               },
             }}
           />

@@ -48,7 +48,7 @@ export const Article: React.FC<ArticleProps> = ({ article }) => {
               height: 500,
             },
             format: SANITY_IMAGE_FORMAT.Jpg,
-            quality: 85,
+            quality: 70,
           }}
         />
       </Link>
