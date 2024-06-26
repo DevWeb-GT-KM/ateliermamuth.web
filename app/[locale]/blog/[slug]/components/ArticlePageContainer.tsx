@@ -48,7 +48,7 @@ export const ArticlePageContainer: React.FC<
           <SanityImageWrapper
             sanityImage={article.mainImage}
             imageBuilderConfig={{
-              quality: 90,
+              quality: 70,
               format: SANITY_IMAGE_FORMAT.Jpg,
               size: {
                 width: 1920,

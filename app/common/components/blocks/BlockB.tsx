@@ -23,8 +23,8 @@ export const BlockB: React.FC<BlockBProps> = ({ data }) => {
             format: SANITY_IMAGE_FORMAT.Jpg,
             quality: 80,
             size: {
-              width: 2560,
-              height: 1440,
+              width: 1920,
+              height: 1080,
             },
           }}
         />

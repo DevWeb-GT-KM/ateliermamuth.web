@@ -57,7 +57,7 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
                     height: 1080,
                   },
                   format: SANITY_IMAGE_FORMAT.Jpg,
-                  quality: 85,
+                  quality: 70,
                 }}
               />
             </div>

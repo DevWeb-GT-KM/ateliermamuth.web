@@ -22,10 +22,10 @@ export const BlockA: React.FC<BlockAProps> = ({ data }) => {
             images={data.leftBlock.images}
             imageBuilderConfig={{
               format: SANITY_IMAGE_FORMAT.Jpg,
-              quality: 95,
+              quality: 80,
               size: {
-                width: 2560,
-                height: 1440,
+                width: 1920,
+                height: 1080,
               },
             }}
           />
@@ -36,7 +36,7 @@ export const BlockA: React.FC<BlockAProps> = ({ data }) => {
             images={data.rightBlock.images}
             imageBuilderConfig={{
               format: SANITY_IMAGE_FORMAT.Jpg,
-              quality: 95,
+              quality: 80,
               size: {
                 width: 810,
                 height: 1440,
