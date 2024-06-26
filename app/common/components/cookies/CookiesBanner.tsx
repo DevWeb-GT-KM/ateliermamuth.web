@@ -35,7 +35,7 @@ export const CookiesBanner: React.FC<CookiesBannerProps> = ({
           onClick={onCookiesAccept}
           className="cookies-btn cookies-accept-btn"
         >
-          Accepter tout
+          accepter
         </button>
       </div>
     </div>

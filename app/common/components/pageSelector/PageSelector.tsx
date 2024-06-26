@@ -34,7 +34,7 @@ export const PageSelector: React.FC<PageSelectorProps> = ({
       height: 500,
     },
     format: SANITY_IMAGE_FORMAT.Jpg,
-    quality: 80,
+    quality: 70,
   };
 
   return (
