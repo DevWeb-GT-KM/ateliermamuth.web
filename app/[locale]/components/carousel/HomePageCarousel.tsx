@@ -69,8 +69,8 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
           builder,
           {
             size: {
-              width: isMobile ? 720 : 1280,
-              height: isMobile ? 1280 : 720,
+              width: isMobile ? 1080 : 1920,
+              height: isMobile ? 1920 : 1080,
             },
             quality: 90,
             format: SANITY_IMAGE_FORMAT.Jpg,
