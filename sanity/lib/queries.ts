@@ -289,9 +289,9 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
   },
   projects->{
     pageTitle,
-    projects[]->{
+    projects[0...4]->{
       type,
-      mainImage{ asset-> },
+      mainImage{ asset->, alt, hotspot },
       projectTypes,
       name,
       shortDescription,
@@ -300,7 +300,7 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
   },
   blog->{
     pageTitle,
-    articles[]->{
+    articles[0...6]->{
       title,
       description,
       slug,
