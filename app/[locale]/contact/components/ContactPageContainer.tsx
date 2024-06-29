@@ -62,11 +62,11 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
             <SanityImageWrapper
               sanityImage={data.img}
               imageBuilderConfig={{
-                quality: 70,
+                quality: 80,
                 format: SANITY_IMAGE_FORMAT.Jpg,
                 size: {
-                  width: 699,
-                  height: 900,
+                  width: 1050,
+                  height: 1350,
                 },
               }}
             />
