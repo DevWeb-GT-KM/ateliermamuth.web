@@ -3,7 +3,6 @@
  */
 
 import { visionTool } from "@sanity/vision";
-import { vercelDeployTool } from "sanity-plugin-vercel-deploy";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { presentationTool } from "sanity/presentation";
@@ -21,10 +20,7 @@ export default defineConfig({
   dataset,
   schema,
   plugins: [
-    vercelDeployTool(),
     structureTool(),
-    media(),
-    visionTool({ defaultApiVersion: apiVersion }),
     presentationTool({
       previewUrl: {
         draftMode: {
@@ -32,6 +28,8 @@ export default defineConfig({
         },
       },
     }),
+    media(),
+    visionTool({ defaultApiVersion: apiVersion }),
     documentInternationalization({
       supportedLanguages: [
         { id: FRENCH_LOCALE, title: "Français" },
