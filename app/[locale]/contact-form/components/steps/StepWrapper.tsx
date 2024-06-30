@@ -38,7 +38,7 @@ export const StepWrapper: React.FC<StepWrapperProps> = ({
   return (
     <div>
       <div className="contact-form-step-container">
-        <h1 className="contact-form-step-title">{title}</h1>
+        <p className="contact-form-step-title">{title}</p>
         {children}
       </div>
       <div className="contact-form-btn-container">

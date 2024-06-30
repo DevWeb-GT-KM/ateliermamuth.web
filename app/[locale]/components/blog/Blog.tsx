@@ -9,7 +9,7 @@ type BlogProps = {
 
 export const Blog: React.FC<BlogProps> = ({ data }) => {
   return (
-    <div className="home-page-blog-container">
+    <section className="home-page-blog-container">
       <div className="home-page-blog-header">
         <h2 className="home-page-blog-title">{data[0].blog.pageTitle}</h2>
       </div>
@@ -22,6 +22,6 @@ export const Blog: React.FC<BlogProps> = ({ data }) => {
         </Link>
         <span className="home-page-blog-link-plus">+</span>
       </div>
-    </div>
+    </section>
   );
 };

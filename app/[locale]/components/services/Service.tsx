@@ -22,7 +22,7 @@ export const Service: React.FC<ServiceProps> = ({ data }) => {
         className="home-page-service-header"
         onClick={() => setHeight(height == "auto" ? 0 : "auto")}
       >
-        <h1 className="home-page-service-title">{data.name}</h1>
+        <h3 className="home-page-service-title">{data.name}</h3>
         <Image
           className="home-page-service-plus-img"
           src={height == "auto" ? minus : plus}
@@ -53,9 +53,9 @@ export const Service: React.FC<ServiceProps> = ({ data }) => {
           <div className="home-page-service-project-types-container">
             {data.projectTypes.map((projectType: any, index: number) => {
               return (
-                <h1 className={"home-page-service-project-type"} key={index}>
+                <h4 className={"home-page-service-project-type"} key={index}>
                   {projectType}
-                </h1>
+                </h4>
               );
             })}
           </div>

@@ -29,7 +29,7 @@ export const ArticlePageContainer: React.FC<ArticlePageContainerProps> = ({
   }
 
   return (
-    <div className="article-page-container">
+    <article className="article-page-container">
       <div className="article-page-header">
         <div className="article-page-header-text-container">
           <h1 className="article-page-title">{article.title}</h1>
@@ -100,6 +100,6 @@ export const ArticlePageContainer: React.FC<ArticlePageContainerProps> = ({
           slug: article.nextArticle.slug.current,
         }}
       />
-    </div>
+    </article>
   );
 };

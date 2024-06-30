@@ -25,8 +25,8 @@ export const Employee: React.FC<EmployeeProps> = ({ data }) => {
       <div className="employee-description-container">
         <div className="employee-description-header">
           <div className="employee-description-header-left">
-            <h2 className="employee-name">{data.name}</h2>
-            <h2 className="employee-role">{data.role}</h2>
+            <p className="employee-name">{data.name}</p>
+            <p className="employee-role">{data.role}</p>
           </div>
           <div className="employee-description-header-right">
             <a href={`mailto:${data.email}`} className="employee-email">

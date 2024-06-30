@@ -111,7 +111,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
           </motion.p>
         </div>
       ) : (
-        <div
+        <section
           {...swipeHandlers}
           className="home-page-carousel-container"
           style={{
@@ -124,7 +124,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
             activeIndex={currentIndex}
             setActiveIndex={setCurrentIndex}
           />
-        </div>
+        </section>
       )}
     </>
   );
