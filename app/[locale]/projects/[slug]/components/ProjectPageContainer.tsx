@@ -17,9 +17,9 @@ type ProjectPageContainerProps = {
   project: SanityDocument;
 };
 
-export const ProjectPageContainer: React.FC<
-  ProjectPageContainerProps
-> = async ({ project }) => {
+export const ProjectPageContainer: React.FC<ProjectPageContainerProps> = ({
+  project,
+}) => {
   return (
     <div className="project-page-container">
       <h1 className="project-page-title">{project.name}</h1>

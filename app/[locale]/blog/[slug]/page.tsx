@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: any) {
   );
 
   return {
-    title: `${currentArticleMetadata.data.title} | ${blogPageMetadata.data[0].metadata.metaTitle}`,
-    description: currentArticleMetadata.data.metadata.metaDescription,
+    title: `${currentArticleMetadata?.data?.title} | ${blogPageMetadata.data[0].metadata.metaTitle}`,
+    description: currentArticleMetadata?.data?.metadata.metaDescription,
   };
 }
 
@@ -67,10 +67,6 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
       perspective: draftMode().isEnabled ? "previewDrafts" : "published",
     }
   );
-
-  if (!initial) {
-    return notFound();
-  }
 
   return draftMode().isEnabled ? (
     <ArticlePageContainerPreview initial={initial} params={params} />

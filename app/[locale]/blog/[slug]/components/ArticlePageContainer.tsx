@@ -20,9 +20,9 @@ type ArticlePageContainerProps = {
   article: SanityDocument;
 };
 
-export const ArticlePageContainer: React.FC<
-  ArticlePageContainerProps
-> = async ({ article }) => {
+export const ArticlePageContainer: React.FC<ArticlePageContainerProps> = ({
+  article,
+}) => {
   return (
     <div className="article-page-container">
       <div className="article-page-header">
