@@ -9,6 +9,7 @@ import {
 } from "../../sanity/lib/queries";
 import { HomePageContainer } from "./components/HomePageContainer";
 import { HomePageContainerPreview } from "./components/HomePageContainerPreview";
+import { META_TITLE_SUFFIX } from "./layout";
 
 export async function generateMetadata({ params }: any) {
   const initial = await loadQuery<SanityDocument>(
@@ -20,6 +21,7 @@ export async function generateMetadata({ params }: any) {
   );
 
   return {
+    title: `${initial.data[0].metadata.metaTitle}${META_TITLE_SUFFIX}`,
     description: initial.data[0].metadata.metaDescription,
   };
 }

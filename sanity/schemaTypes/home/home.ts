@@ -6,7 +6,7 @@ import values from "./values";
 import { CiHome } from "react-icons/ci";
 import blog from "../blog/blog";
 import projects from "../project/projects";
-import { LANGUAGE_FIELD, PAGE_PARTIAL_METADATA_FIELD } from "../constants";
+import { LANGUAGE_FIELD, PAGE_METADATA_FIELD } from "../constants";
 
 export default defineType({
   name: "home",
@@ -14,7 +14,7 @@ export default defineType({
   type: "document",
   icon: CiHome,
   fields: [
-    defineField(PAGE_PARTIAL_METADATA_FIELD()),
+    defineField(PAGE_METADATA_FIELD()),
     defineField({
       name: "carousel",
       title: "Carrousel",

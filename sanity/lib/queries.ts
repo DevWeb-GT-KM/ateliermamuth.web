@@ -46,6 +46,7 @@ export const SITEMAP_SLUGS_FR_QUERY = groq`*[defined(slug) && language == "fr"] 
 
 export const HOME_PAGE_METADATA_QUERY_BY_LANG = groq`*[_type == "home" && language == $locale] {
   metadata {
+    metaTitle,
     metaDescription
   }
  }`;
