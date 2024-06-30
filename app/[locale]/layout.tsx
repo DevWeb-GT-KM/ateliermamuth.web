@@ -33,9 +33,11 @@ const centuryOldStyleStd = localFont({
 
 export const dynamicParams = false;
 
+export const META_TITLE_SUFFIX = " | Atelier Mamuth";
+
 export const metadata: Metadata = {
   title: {
-    template: "%s | Atelier Mamuth",
+    template: `%s${META_TITLE_SUFFIX}`,
     default: "Atelier Mamuth",
   },
   icons: [
