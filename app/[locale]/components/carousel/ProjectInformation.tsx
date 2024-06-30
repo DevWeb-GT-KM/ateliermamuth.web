@@ -24,9 +24,9 @@ export const ProjectInformation: React.FC<ProjectInformationProps> = ({
         params: { slug: data[0].carousel[currentIndex].slug.current },
       }}
     >
-      <h1 className="home-page-carousel-project-info-project-title">
+      <h2 className="home-page-carousel-project-info-project-title">
         {data[0].carousel[currentIndex].name}
-      </h1>
+      </h2>
       <p
         className="home-page-carousel-project-info-project-description"
         dangerouslySetInnerHTML={{
@@ -40,12 +40,12 @@ export const ProjectInformation: React.FC<ProjectInformationProps> = ({
         {data[0].carousel[currentIndex].projectTypes.map(
           (projectType: any, index: number) => {
             return (
-              <h2
+              <p
                 key={index}
                 className="home-page-carousel-project-info-project-type"
               >
                 {projectType}
-              </h2>
+              </p>
             );
           }
         )}

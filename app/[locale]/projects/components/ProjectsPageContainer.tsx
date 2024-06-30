@@ -30,9 +30,9 @@ export const ProjectsPageContainer: React.FC<ProjectsPageContainerProps> = ({
             })}
         </div>
         <div className="projects-page-archives">
-          <h1 className="projects-page-archives-title">
+          <h2 className="projects-page-archives-title">
             {data.archiveSectionTitle}
-          </h1>
+          </h2>
           {data.projectsArchived.map((projectArchived: any, index: number) => {
             return <ProjectArchived key={index} data={projectArchived} />;
           })}

@@ -7,15 +7,15 @@ type PublicationsProps = {
 
 export const Publications: React.FC<PublicationsProps> = ({ data }) => {
   return (
-    <div className="home-page-publications-container">
+    <section className="home-page-publications-container">
       <div className="home-page-publications-header">
-        <h1 className="home-page-publications-title">
+        <h2 className="home-page-publications-title">
           {data[0].aboutUs.publications.sectionTitle}
-        </h1>
+        </h2>
       </div>
       <div className="home-page-publications-body">
         <Publication data={data[0].aboutUs.publications.publications} />
       </div>
-    </div>
+    </section>
   );
 };

@@ -9,11 +9,11 @@ type ProjectsProps = {
 
 export const Projects: React.FC<ProjectsProps> = ({ data }) => {
   return (
-    <div className="home-page-projects-container">
+    <section className="home-page-projects-container">
       <div className="home-page-projects-header">
-        <h1 className="home-page-projects-title">
+        <h2 className="home-page-projects-title">
           {data[0].projects.pageTitle}
-        </h1>
+        </h2>
       </div>
       <div className="home-page-projects-body">
         {data[0].projects.projects
@@ -21,13 +21,13 @@ export const Projects: React.FC<ProjectsProps> = ({ data }) => {
           .map((project: any, index: number) => {
             return <Project key={index} data={project} />;
           })}
-        <h1 className="home-page-projects-see-more-title">
+        <p className="home-page-projects-see-more-title">
           Voir toutes nos réalisations
-        </h1>
+        </p>
         <Link className="home-page-projects-link" href={"/projects"}>
           projets
         </Link>
       </div>
-    </div>
+    </section>
   );
 };

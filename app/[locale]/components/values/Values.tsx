@@ -10,11 +10,11 @@ type ValuesProps = {
 export const Values: React.FC<ValuesProps> = ({ data }) => {
   const test = [0.3, 0.5, 0.7];
   return (
-    <div className="home-page-values-container">
+    <section className="home-page-values-container">
       <div className="home-page-values-header">
-        <h1 className="home-page-values-title">
+        <h2 className="home-page-values-title">
           {data[0].values.sectionTitle}
-        </h1>
+        </h2>
       </div>
       <div className="home-page-values-body">
         {data[0].values.valuesWords.map((value: any, index: number) => {
@@ -24,6 +24,6 @@ export const Values: React.FC<ValuesProps> = ({ data }) => {
       <Link className="home-page-values-link" href={"/about-us"}>
         en savoir plus
       </Link>
-    </div>
+    </section>
   );
 };

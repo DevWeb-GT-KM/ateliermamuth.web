@@ -32,7 +32,7 @@ export const Article: React.FC<ArticleProps> = ({ article }) => {
         }}
       >
         <div className="blog-page-article-description-container">
-          <h1 className="blog-page-article-title">{article.title}</h1>
+          <h2 className="blog-page-article-title">{article.title}</h2>
           <p
             className="blog-page-article-description"
             dangerouslySetInnerHTML={{

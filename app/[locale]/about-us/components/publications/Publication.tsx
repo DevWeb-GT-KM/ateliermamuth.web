@@ -12,8 +12,12 @@ export const Publication: React.FC<PublicationProps> = ({ data }) => {
       {data.map((publication: any, index: number) => {
         return (
           <div key={index} className="publication-item">
-            <p className="publication-text">{`${publication.mediaName}, ${publication.publicationDate}`}</p>
-            <Link className="publication-link" href={publication.link} target="_blank">
+            <h3 className="publication-text">{`${publication.mediaName}, ${publication.publicationDate}`}</h3>
+            <Link
+              className="publication-link"
+              href={publication.link}
+              target="_blank"
+            >
               lien
             </Link>
           </div>

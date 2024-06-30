@@ -10,7 +10,7 @@ type AboutUsProps = {
 
 export const AboutUs: React.FC<AboutUsProps> = ({ data }) => {
   return (
-    <div className="home-page-about-us-container">
+    <section className="home-page-about-us-container">
       <div className="home-page-about-us-header">
         <h2 className="about-us-title">À propos</h2>
       </div>
@@ -30,6 +30,6 @@ export const AboutUs: React.FC<AboutUsProps> = ({ data }) => {
           en savoir plus
         </Link>
       </motion.div>
-    </div>
+    </section>
   );
 };

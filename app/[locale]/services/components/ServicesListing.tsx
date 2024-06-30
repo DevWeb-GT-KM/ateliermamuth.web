@@ -38,12 +38,12 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
 
               <div>
                 {service?.projectTypes?.map((type: string, index: number) => (
-                  <p
+                  <h3
                     key={`project-type-${index}`}
                     className="services-listing-item-project-type"
                   >
                     {type}
-                  </p>
+                  </h3>
                 ))}
               </div>
             </div>

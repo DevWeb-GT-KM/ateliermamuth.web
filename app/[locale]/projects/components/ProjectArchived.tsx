@@ -37,16 +37,16 @@ export const ProjectArchived: React.FC<ProjectArchivedProps> = ({ data }) => {
         }`}
         onClick={() => setHeight(height == "auto" ? 0 : "auto")}
       >
-        <h1 className="projects-page-project-archived-name">{data.name}</h1>
-        <h1 className="projects-page-project-archived-project-types">
+        <p className="projects-page-project-archived-name">{data.name}</p>
+        <p className="projects-page-project-archived-project-types">
           {getProjectTypes(data.projectTypes)}
-        </h1>
-        <h1 className="projects-page-project-archived-completion-year">
+        </p>
+        <p className="projects-page-project-archived-completion-year">
           {data.completionYear}
-        </h1>
-        <h1 className="projects-page-project-archived-location">
+        </p>
+        <p className="projects-page-project-archived-location">
           {data.location}
-        </h1>
+        </p>
         <div className="projects-page-project-archived-image-container">
           {height == "auto" && (
             <Image

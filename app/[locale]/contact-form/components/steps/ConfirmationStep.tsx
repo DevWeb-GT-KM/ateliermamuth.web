@@ -13,7 +13,7 @@ export const ConfirmationStep: React.FC<ConfirmationStepProps> = ({
   return (
     <div className="contact-form-confirmation-step-container">
       <div className="contact-form-step-content">
-        <h1 className="contact-form-step-title">{confirmationMessage}</h1>
+        <p className="contact-form-step-title">{confirmationMessage}</p>
       </div>
 
       <div className="contact-form-btn-container">
