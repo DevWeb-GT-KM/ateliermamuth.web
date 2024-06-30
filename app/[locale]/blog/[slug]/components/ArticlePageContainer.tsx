@@ -15,6 +15,7 @@ import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuild
 import { FormattedDate } from "@/common/components/FormattedDate";
 
 import { SocialMediaShareButton } from "@/common/components/SocialMediaShareButton";
+import { notFound } from "next/navigation";
 
 type ArticlePageContainerProps = {
   article: SanityDocument;
@@ -23,6 +24,10 @@ type ArticlePageContainerProps = {
 export const ArticlePageContainer: React.FC<ArticlePageContainerProps> = ({
   article,
 }) => {
+  if (!article) {
+    notFound();
+  }
+
   return (
     <div className="article-page-container">
       <div className="article-page-header">

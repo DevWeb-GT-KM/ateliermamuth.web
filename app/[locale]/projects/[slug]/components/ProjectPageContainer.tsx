@@ -12,6 +12,7 @@ import { BlockD } from "@/common/components/blocks/BlockD";
 import { PageSelector } from "@/common/components/pageSelector/PageSelector";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { notFound } from "next/navigation";
 
 type ProjectPageContainerProps = {
   project: SanityDocument;
@@ -20,6 +21,10 @@ type ProjectPageContainerProps = {
 export const ProjectPageContainer: React.FC<ProjectPageContainerProps> = ({
   project,
 }) => {
+  if (!project) {
+    notFound();
+  }
+
   return (
     <div className="project-page-container">
       <h1 className="project-page-title">{project.name}</h1>
