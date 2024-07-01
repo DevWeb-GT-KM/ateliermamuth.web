@@ -1,23 +1,23 @@
 import "./globals.scss";
+
 import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { draftMode } from "next/headers";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { unstable_setRequestLocale } from "next-intl/server";
+
 import { FRENCH_LOCALE } from "@/../navigation";
 import favIcon from "../common/assets/favicon.ico";
 import { Footer } from "@/common/components/footer/Footer";
 import { loadQuery } from "@/../sanity/lib/store";
-import {
-  FOOTER_QUERY_BY_LANG,
-  NAV_BAR_BY_LANG,
-} from "../../sanity/lib/queries";
+import { FOOTER_QUERY_BY_LANG, NAV_BAR_BY_LANG } from "@/../sanity/lib/queries";
 import { NavBar } from "@/common/components/navBar/NavBar";
 import { PageOverlay } from "./components/pageOverlay/PageOverlay";
 import { PageOverlayProvider } from "./components/pageOverlay/PageOverlayContext";
 import { LiveVisualEditing } from "@/common/components/LiveVisualEditing";
 import { CookiesConsent } from "@/common/components/cookies/CookiesConsent";
-import { CookiesConsentProvider } from "@/common/contexts/CookiesConsentProvider";
+import { CookiesConsentContextProvider } from "@/common/contexts/CookiesConsentContextProvider";
 
 const saansTrial = localFont({
   src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
@@ -56,7 +56,6 @@ type RootLayoutProps = {
 };
 
 export async function generateStaticParams() {
-  // return [{ locale: FRENCH_LOCALE }, { locale: ENGLISH_LOCALE }];
   return [{ locale: FRENCH_LOCALE }];
 }
 
@@ -80,13 +79,14 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
   );
 
   return (
-    <CookiesConsentProvider
+    <CookiesConsentContextProvider
       config={{
         containerId: "xyz",
       }}
     >
       <PageOverlayProvider>
         <html lang={params.locale}>
+          <GoogleTagManager gtmId="GTM-WKFFMBVJ" />
           <body
             className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
           >
@@ -105,7 +105,7 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
           </body>
         </html>
       </PageOverlayProvider>
-    </CookiesConsentProvider>
+    </CookiesConsentContextProvider>
   );
 };
 
