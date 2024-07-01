@@ -86,6 +86,13 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
     >
       <PageOverlayProvider>
         <html lang={params.locale}>
+          <head>
+            <meta
+              name="google-site-verification"
+              content="YM-m5Xn91Suf6XzbrBYTR_gU98NqtHzHLUxVLf-x95c"
+            />
+          </head>
+
           <GoogleTagManager gtmId="GTM-WKFFMBVJ" />
           <body
             className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
