@@ -15,19 +15,18 @@ import {
   CookieConsentShowModalType,
 } from "../models/cookieConsentConfig";
 
-// import CookieConsentModal from "../components/modal/CookieConsentModal";
-// import { useService } from "../hooks/useService";
-// import { CookieService } from "../services/cookieService";
-// import { GtmCookieConsentService } from "../services/gtmCookieConsentService";
+import { useService } from "../hooks/useService";
+import { CookieService } from "../services/cookieService";
+import { GtmCookieConsentService } from "../services/gtmCookieConsentService";
 
-export interface ICookiesConsentProvider {
+export interface ICookiesConsentContextProvider {
   config: CookieConsentConfig;
   children: React.ReactNode;
 }
 
-export const CookiesConsentProvider: React.FC<ICookiesConsentProvider> = (
-  props
-) => {
+export const CookiesConsentContextProvider: React.FC<
+  ICookiesConsentContextProvider
+> = (props) => {
   const { children, config } = props;
 
   const [cookieConsentPreferences, setCookieConsentPreferences] =
@@ -38,27 +37,27 @@ export const CookiesConsentProvider: React.FC<ICookiesConsentProvider> = (
   const [defaultConsentIsSet, setDefaultConsentIsSet] =
     useState<boolean>(false);
 
-  //   const cookieService: CookieService = useService("CookieService");
-  //   const gtmCookieConsentService: GtmCookieConsentService = useService(
-  //     "GtmCookieConsentService"
-  //   );
+  const cookieService: CookieService = useService("CookieService");
+  const gtmCookieConsentService: GtmCookieConsentService = useService(
+    "GtmCookieConsentService"
+  );
 
-  //   useEffect(() => {
-  //     const defaultCookie = cookieService.getCookieConsentPreferences();
+  useEffect(() => {
+    const defaultCookie = cookieService.getCookieConsentPreferences();
 
-  //     if (defaultCookie == null) {
-  //       setCookieConsentShowModal(CookieConsentShowModalType.SMALL);
-  //     } else {
-  //       setCookieConsentShowModal(
-  //         isAllAccepted(defaultCookie)
-  //           ? CookieConsentShowModalType.HIDE_ALL
-  //           : CookieConsentShowModalType.HIDE_MODAL
-  //       );
-  //       setCookieConsentPreferences(defaultCookie);
-  //     }
+    if (defaultCookie == null) {
+      setCookieConsentShowModal(CookieConsentShowModalType.SMALL);
+    } else {
+      setCookieConsentShowModal(
+        isAllAccepted(defaultCookie)
+          ? CookieConsentShowModalType.HIDE_MODAL
+          : CookieConsentShowModalType.SMALL
+      );
+      setCookieConsentPreferences(defaultCookie);
+    }
 
-  //     addCookieConsentUpdateHandlers();
-  //   }, []);
+    addCookieConsentUpdateHandlers();
+  }, []);
 
   const isAllAccepted = (
     cookieConsentPreferences: CookieConsentPreferences
@@ -75,13 +74,13 @@ export const CookiesConsentProvider: React.FC<ICookiesConsentProvider> = (
     return isAllAccepted;
   };
 
-  //   const addCookieConsentUpdateHandlers = () => {
-  //     cookieService.addCookieConsentUpdateHandlers(
-  //       "gtmCookieConsentService",
-  //       (consent: CookieConsentPreferences) =>
-  //         gtmCookieConsentService.setConsent(consent, false)
-  //     );
-  //   };
+  const addCookieConsentUpdateHandlers = () => {
+    cookieService.addCookieConsentUpdateHandlers(
+      "gtmCookieConsentService",
+      (consent: CookieConsentPreferences) =>
+        gtmCookieConsentService.setConsent(consent, false)
+    );
+  };
 
   const cookiesConsentContext: ICookiesConsentContext = {
     config: config,
@@ -96,7 +95,6 @@ export const CookiesConsentProvider: React.FC<ICookiesConsentProvider> = (
   return (
     <CookiesConsentContext.Provider value={cookiesConsentContext}>
       {children}
-      {/* <CookieConsentModal /> */}
     </CookiesConsentContext.Provider>
   );
 };

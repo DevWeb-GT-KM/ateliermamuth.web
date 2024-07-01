@@ -6,10 +6,13 @@ import {
 } from "../contexts/CookiesConsentContext";
 
 const useCookiesConsent = (): ICookiesConsentContext => {
-  const context = useContext(CookiesConsentContext);
-  if (typeof context === "undefined")
+  const cookiesConsentContext = useContext(CookiesConsentContext);
+
+  if (typeof cookiesConsentContext === "undefined") {
     throw Error("CookiesConsentContext is required");
-  return context;
+  }
+
+  return cookiesConsentContext;
 };
 
 export { useCookiesConsent };
