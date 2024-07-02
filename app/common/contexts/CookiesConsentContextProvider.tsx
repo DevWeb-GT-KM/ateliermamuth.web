@@ -2,22 +2,24 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import {
   CookiesConsentContext,
   ICookiesConsentContext,
 } from "./CookiesConsentContext";
-
 import {
   CookieConsentConfig,
   CookieConsentPreferences,
   DEFAULT_COOKIE_CONSENT_PREFERENCES,
   CookieConsentShowModalType,
 } from "../models/cookieConsentConfig";
-
 import { useService } from "../hooks/useService";
 import { CookieService } from "../services/cookieService";
 import { GtmCookieConsentService } from "../services/gtmCookieConsentService";
+import { usePageOverlay } from "@/[locale]/components/pageOverlay/PageOverlayContext";
+
+const GTM_CONTAINER_ID = "GTM-WKFFMBVJ";
 
 export interface ICookiesConsentContextProvider {
   config: CookieConsentConfig;
@@ -33,7 +35,7 @@ export const CookiesConsentContextProvider: React.FC<
     useState<CookieConsentPreferences>(DEFAULT_COOKIE_CONSENT_PREFERENCES);
 
   const [cookieConsentShowModal, setCookieConsentShowModal] =
-    useState<CookieConsentShowModalType>(CookieConsentShowModalType.HIDE_MODAL);
+    useState<CookieConsentShowModalType>(CookieConsentShowModalType.HIDE);
   const [defaultConsentIsSet, setDefaultConsentIsSet] =
     useState<boolean>(false);
 
@@ -42,37 +44,43 @@ export const CookiesConsentContextProvider: React.FC<
     "GtmCookieConsentService"
   );
 
+  const { isPageOverlayHidden, setIsPageOverlayHidden } = usePageOverlay();
+
   useEffect(() => {
     const defaultCookie = cookieService.getCookieConsentPreferences();
 
     if (defaultCookie == null) {
       setCookieConsentShowModal(CookieConsentShowModalType.SMALL);
     } else {
-      setCookieConsentShowModal(
-        isAllAccepted(defaultCookie)
-          ? CookieConsentShowModalType.HIDE_MODAL
-          : CookieConsentShowModalType.SMALL
-      );
+      setCookieConsentShowModal(CookieConsentShowModalType.HIDE);
       setCookieConsentPreferences(defaultCookie);
     }
 
     addCookieConsentUpdateHandlers();
+
+    if (!defaultConsentIsSet) {
+      gtmCookieConsentService.setContainerId(GTM_CONTAINER_ID);
+
+      const savedCookieConsent = cookieService.getCookieConsentPreferences();
+
+      if (savedCookieConsent) {
+        gtmCookieConsentService.setConsent(savedCookieConsent, true);
+      } else {
+        gtmCookieConsentService.setConsent(
+          DEFAULT_COOKIE_CONSENT_PREFERENCES,
+          true
+        );
+      }
+
+      setDefaultConsentIsSet(true);
+    }
   }, []);
 
-  const isAllAccepted = (
-    cookieConsentPreferences: CookieConsentPreferences
-  ): boolean => {
-    let isAllAccepted = true;
-    for (const preference in cookieConsentPreferences) {
-      if (
-        !cookieConsentPreferences[preference as keyof CookieConsentPreferences]
-      ) {
-        isAllAccepted = false;
-        break;
-      }
-    }
-    return isAllAccepted;
-  };
+  useEffect(() => {
+    setIsPageOverlayHidden(
+      cookieConsentShowModal !== CookieConsentShowModalType.FULL
+    );
+  }, [cookieConsentShowModal]);
 
   const addCookieConsentUpdateHandlers = () => {
     cookieService.addCookieConsentUpdateHandlers(
@@ -94,6 +102,7 @@ export const CookiesConsentContextProvider: React.FC<
 
   return (
     <CookiesConsentContext.Provider value={cookiesConsentContext}>
+      <GoogleTagManager gtmId={GTM_CONTAINER_ID} />
       {children}
     </CookiesConsentContext.Provider>
   );

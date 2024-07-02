@@ -5,6 +5,7 @@ import { client } from "@/../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Link } from "@/../navigation";
 import logo from "../../assets/images/footer/logoVector/mamuthLogo.svg";
+import { CookiePreferencesText } from "./CookiePreferenceText";
 
 type FooterProps = {
   data: any[];
@@ -68,6 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
             })}
           </div>
           <div className="footer-links-column">
+            <CookiePreferencesText label={data[0].cookies} />
             <Link className="footer-link" href={{ pathname: "/faq" }}>
               {data[0].faq.pageTitle}
             </Link>

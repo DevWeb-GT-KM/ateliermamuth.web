@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { createContext } from "react";
 
 import { CookieServiceImpl } from "../services/cookieServiceImpl";
 import { GtmCookieConsentServiceImpl } from "../services/gtmCookieConsentServiceImpl";
@@ -16,4 +18,4 @@ const initialize = () => {
   return services;
 };
 
-export const ServicesContext = React.createContext<Services>(initialize());
+export const ServicesContext = createContext<Services>(initialize());
