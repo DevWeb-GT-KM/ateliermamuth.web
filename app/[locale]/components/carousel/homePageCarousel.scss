@@ -101,3 +101,11 @@
     }
   }
 }
+
+.home-page-loader {
+  height: 100vh;
+
+  background-color: $noir-boise-50;
+  margin-left: -$sidePaddingDesktop;
+  margin-right: -$sidePaddingDesktop;
+}

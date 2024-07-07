@@ -39,7 +39,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
   }, [lastScrollY]);
 
   return (
-    <div
+    <nav
       className={`nav-bar-container ${
         lastScrollY > NAV_BAR_BREAK_POINT && showNavBar ? "" : "nav-bar-top"
       }`}
@@ -146,6 +146,6 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
           </Link>
         </div>
       )}
-    </div>
+    </nav>
   );
 };

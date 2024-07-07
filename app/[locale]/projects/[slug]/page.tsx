@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: any) {
   );
 
   return {
-    title: `${currentProjectMetadata.data.name} | ${projectsPageMetadata.data[0].metadata.metaTitle}`,
-    description: currentProjectMetadata.data.metadata.metaDescription,
+    title: `${currentProjectMetadata?.data?.name} | ${projectsPageMetadata.data[0].metadata.metaTitle}`,
+    description: currentProjectMetadata?.data?.metadata.metaDescription,
   };
 }
 
@@ -67,10 +67,6 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
       perspective: draftMode().isEnabled ? "previewDrafts" : "published",
     }
   );
-
-  if (!projectQuery) {
-    return notFound();
-  }
 
   return draftMode().isEnabled ? (
     <ProjectPageContainerPreview initial={projectQuery} params={params} />

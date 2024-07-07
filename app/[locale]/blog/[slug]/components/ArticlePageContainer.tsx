@@ -15,16 +15,21 @@ import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuild
 import { FormattedDate } from "@/common/components/FormattedDate";
 
 import { SocialMediaShareButton } from "@/common/components/SocialMediaShareButton";
+import { notFound } from "next/navigation";
 
 type ArticlePageContainerProps = {
   article: SanityDocument;
 };
 
-export const ArticlePageContainer: React.FC<
-  ArticlePageContainerProps
-> = async ({ article }) => {
+export const ArticlePageContainer: React.FC<ArticlePageContainerProps> = ({
+  article,
+}) => {
+  if (!article) {
+    notFound();
+  }
+
   return (
-    <div className="article-page-container">
+    <article className="article-page-container">
       <div className="article-page-header">
         <div className="article-page-header-text-container">
           <h1 className="article-page-title">{article.title}</h1>
@@ -48,7 +53,7 @@ export const ArticlePageContainer: React.FC<
           <SanityImageWrapper
             sanityImage={article.mainImage}
             imageBuilderConfig={{
-              quality: 90,
+              quality: 70,
               format: SANITY_IMAGE_FORMAT.Jpg,
               size: {
                 width: 1920,
@@ -95,6 +100,6 @@ export const ArticlePageContainer: React.FC<
           slug: article.nextArticle.slug.current,
         }}
       />
-    </div>
+    </article>
   );
 };

@@ -13,6 +13,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
     "@hookform/error-message": "^2.0.1",
+    "@next/third-parties": "^14.2.4",
     "@portabletext/react": "^3.0.18",
     "@radix-ui/react-slot": "^1.0.2",
     "@react-hook/window-size": "^3.1.1",
@@ -24,7 +25,7 @@
     "@sanity/vision": "^3.36.2",
     "framer-motion": "^11.2.10",
     "lodash": "^4.17.21",
-    "next": "14.1.4",
+    "next": "^14.2.4",
     "next-intl": "^3.10.0",
     "next-sanity": "^7.1.4",
     "next-sanity-image": "^6.1.1",
@@ -43,7 +44,8 @@
     "sanity-plugin-vercel-deploy": "^3.3.4",
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "universal-cookie": "^7.1.4"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",

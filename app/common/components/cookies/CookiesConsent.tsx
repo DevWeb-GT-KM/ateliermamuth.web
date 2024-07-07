@@ -6,66 +6,71 @@ import { useEffect, useState } from "react";
 import { usePageOverlay } from "@/[locale]/components/pageOverlay/PageOverlayContext";
 import { CookiesBanner } from "./CookiesBanner";
 import { CookiesParameters } from "./CookiesParameters";
+import { useCookiesConsent } from "@/common/hooks/useCookiesConsent";
+import {
+  CookieConsentPreferences,
+  CookieConsentShowModalType,
+} from "@/common/models/cookieConsentConfig";
+import { useService } from "@/common/hooks/useService";
+import { CookieService } from "@/common/services/cookieService";
 
-type CookiesConsentProps = {};
-
-export type Cookies = {
-  essentialCookies: boolean;
-  marketingCookies: boolean;
-  fonctionalCookies: boolean;
-  analyticCookies: boolean;
-};
-
-export const CookiesConsent: React.FC<CookiesConsentProps> = ({}) => {
-  const [showCookiesBanner, setShowCookiesBanner] = useState<boolean>(true);
+export const CookiesConsent: React.FC = () => {
+  const { cookieConsentShowModal, setCookieConsentShowModal } =
+    useCookiesConsent();
   const [showCookiesParameters, setShowCookiesParameters] =
     useState<boolean>(false);
 
-  const { isPageOverlayHidden, setIsPageOverlayHidden } = usePageOverlay();
+  const { isPageOverlayHidden } = usePageOverlay();
 
-  const [cookies, setCookies] = useState<Cookies>({
-    essentialCookies: true,
-    marketingCookies: true,
-    fonctionalCookies: true,
-    analyticCookies: true,
-  });
-
-  const onAcceptCookies = () => {
-    setShowCookiesBanner(false);
-    setIsPageOverlayHidden(true);
-    setShowCookiesParameters(false);
-  };
+  const cookiesConsentContext = useCookiesConsent();
+  const cookieService: CookieService = useService("CookieService");
 
   useEffect(() => {
-    if (isPageOverlayHidden && showCookiesParameters) {
-      onCloseCookiesParameters();
+    if (
+      isPageOverlayHidden &&
+      cookieConsentShowModal === CookieConsentShowModalType.FULL
+    ) {
+      hideCookieConsentUI();
     }
   }, [isPageOverlayHidden]);
 
-  const onShowCookiesParameters = () => {
-    setShowCookiesBanner(false);
-    setShowCookiesParameters(true);
-    setIsPageOverlayHidden(false);
+  const onAcceptCookies = () => {
+    const allTrueCookieConsentPreferences: CookieConsentPreferences = {
+      necessary: true,
+      analytics: true,
+      advertising: true,
+    };
+
+    cookieService.setCookieConsentPreferences(allTrueCookieConsentPreferences);
+    cookiesConsentContext.setCookieConsentPreferences(
+      allTrueCookieConsentPreferences
+    );
+    hideCookieConsentUI();
   };
 
-  const onCloseCookiesParameters = () => {
-    setShowCookiesParameters(false);
-    setShowCookiesBanner(true);
-    setIsPageOverlayHidden(true);
+  const onShowCookiesParameters = () => {
+    setCookieConsentShowModal(CookieConsentShowModalType.FULL);
+  };
+
+  const hideCookieConsentUI = () => {
+    setCookieConsentShowModal(CookieConsentShowModalType.HIDE);
   };
 
   return (
     <>
       <CookiesBanner
-        showCookiesBanner={showCookiesBanner}
+        showCookiesBanner={
+          cookieConsentShowModal === CookieConsentShowModalType.SMALL
+        }
         onCookiesAccept={onAcceptCookies}
         onCookiesShowParameters={onShowCookiesParameters}
       />
       <CookiesParameters
-        cookies={cookies}
         onAcceptCookies={onAcceptCookies}
-        showCookiesParameters={showCookiesParameters}
-        onCloseCookiesParameters={onCloseCookiesParameters}
+        showCookiesParameters={
+          cookieConsentShowModal === CookieConsentShowModalType.FULL
+        }
+        onCloseCookiesParameters={hideCookieConsentUI}
       />
     </>
   );

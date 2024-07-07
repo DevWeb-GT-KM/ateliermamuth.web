@@ -18,7 +18,7 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
 }) => {
   return (
     <>
-      <div className="contact-page-container">
+      <section className="contact-page-container">
         <div className="contact-page-header">
           <h1 className="contact-page-title">{data.pageTitle}</h1>
         </div>
@@ -26,9 +26,7 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
           <BottomToTopSlider trigger={"some"}>
             <div className="contact-page-information">
               <div className="contact-page-information-email">
-                <h1 className="contact-page-email-label">
-                  {data.addressLabel}
-                </h1>
+                <p className="contact-page-email-label">{data.addressLabel}</p>
                 <a
                   href={`mailto:${data.address}`}
                   className="contact-page-email-value"
@@ -37,12 +35,10 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
                 </a>
               </div>
               <div className="contact-page-information-telephone">
-                <h1 className="contact-page-telephone-label">
+                <p className="contact-page-telephone-label">
                   {data.telephoneLabel}
-                </h1>
-                <h1 className="contact-page-telephone-value">
-                  {data.telephone}
-                </h1>
+                </p>
+                <p className="contact-page-telephone-value">{data.telephone}</p>
               </div>
               <div className="contact-page-faq-rich-text">
                 <PortableText value={data.faq} />
@@ -62,17 +58,17 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
             <SanityImageWrapper
               sanityImage={data.img}
               imageBuilderConfig={{
-                quality: 75,
+                quality: 80,
                 format: SANITY_IMAGE_FORMAT.Jpg,
                 size: {
-                  width: 466,
-                  height: 600,
+                  width: 1050,
+                  height: 1350,
                 },
               }}
             />
           </motion.div>
         </div>
-      </div>
+      </section>
       <ContactUs />
     </>
   );

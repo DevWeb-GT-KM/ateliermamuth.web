@@ -40,7 +40,7 @@ export const Project: React.FC<ProjectProps> = ({
           sanityImage={data.mainImage}
           imageBuilderConfig={{
             format: SANITY_IMAGE_FORMAT.Jpg,
-            quality: 90,
+            quality: 70,
             size: {
               width: 1920,
               height: 1080,
@@ -48,8 +48,8 @@ export const Project: React.FC<ProjectProps> = ({
           }}
         />
         <div className="project-description">
-          <h1 className="project-description-title">{data.name}</h1>
-          <h1
+          <p className="project-description-title">{data.name}</p>
+          <p
             className="project-description-description"
             dangerouslySetInnerHTML={{
               __html: buildSeeMoreString(
@@ -57,7 +57,7 @@ export const Project: React.FC<ProjectProps> = ({
                 MAX_CHARACTER_DISPLAYED
               ),
             }}
-          ></h1>
+          ></p>
           {!isSecondaryProject && (
             <div className="project-description-project-types">
               {data.projectTypes.map((projectType: any, index: number) => {

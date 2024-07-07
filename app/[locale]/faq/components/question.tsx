@@ -22,7 +22,7 @@ export const Question: React.FC<QuestionProps> = ({ data }) => {
         className="faq-page-question-header"
         onClick={() => setHeight(height == "auto" ? 0 : "auto")}
       >
-        <h1 className="faq-page-question-question">{data.question}</h1>
+        <h2 className="faq-page-question-question">{data.question}</h2>
         <Image
           className="faq-page-question-plus-img"
           src={height == "auto" ? minus : plus}

@@ -22,7 +22,7 @@ export const FormRadioInput: React.FC<FormRadioInputProps> = ({
   return (
     <div className="form-radio-input-container">
       {radioGroupTitle && (
-        <h1 className="form-radio-input-group-title">{radioGroupTitle}</h1>
+        <p className="form-radio-input-group-title">{radioGroupTitle}</p>
       )}
       {options.map((option, index: number) => {
         return (

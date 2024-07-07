@@ -38,14 +38,14 @@ export const ServicesPageContainer: React.FC<ServicesPageContainerProps> = ({
           ))}
         </motion.div>
         <ServicesListing services={data?.[0]?.services} />
-        <div className="services-page-projects-container">
+        <section className="services-page-projects-container">
           <h2 className="services-page-projects-title">
             {data?.[0]?.projectSectionTitle}
           </h2>
           <Link className="services-page-projects-link" href={"/projects"}>
             en savoir plus
           </Link>
-        </div>
+        </section>
       </div>
     </div>
   );

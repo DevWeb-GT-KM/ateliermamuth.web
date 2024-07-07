@@ -6,12 +6,12 @@ import {
   TextErrors,
 } from "./ContactFormContext";
 
-type ContactFormProviderProps = {
+type ContactFormContextProviderProps = {
   children: React.ReactNode;
 };
 
-export const ContactFormProvider: FunctionComponent<
-  ContactFormProviderProps
+export const ContactFormContextProvider: FunctionComponent<
+  ContactFormContextProviderProps
 > = ({ children }) => {
   const initialStateValues = {
     pronoun: "",

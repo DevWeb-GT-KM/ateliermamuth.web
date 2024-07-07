@@ -13,14 +13,19 @@ import { PageSelector } from "@/common/components/pageSelector/PageSelector";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 import { BottomToTopSlider } from "@/common/components/animations/BottomToTopSlider";
+import { notFound } from "next/navigation";
 
 type ProjectPageContainerProps = {
   project: SanityDocument;
 };
 
-export const ProjectPageContainer: React.FC<
-  ProjectPageContainerProps
-> = async ({ project }) => {
+export const ProjectPageContainer: React.FC<ProjectPageContainerProps> = ({
+  project,
+}) => {
+  if (!project) {
+    notFound();
+  }
+
   return (
     <div className="project-page-container">
       <h1 className="project-page-title">{project.name}</h1>
@@ -60,22 +65,20 @@ export const ProjectPageContainer: React.FC<
             </div>
           </div>
         </BottomToTopSlider>
-
         <BottomToTopSlider>
           <SanityImageWrapper
             sanityImage={project.secondaryImage}
             imageBuilderConfig={{
-              quality: 75,
+              quality: 80,
               format: SANITY_IMAGE_FORMAT.Jpg,
               size: {
-                width: 2560,
-                height: 1440,
+                width: 1920,
+                height: 1080,
               },
             }}
           />
         </BottomToTopSlider>
       </div>
-
       {project.contentBlocks?.map((block: any) => {
         const key = block._key;
 

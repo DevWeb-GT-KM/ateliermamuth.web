@@ -4,19 +4,16 @@ import "./cookiesParameters.scss";
 
 import { CookiesOption } from "./CookiesOption";
 import { FaXmark } from "react-icons/fa6";
-import { Cookies } from "./CookiesConsent";
 
 type CookiesParametersProps = {
   showCookiesParameters: boolean;
   onCloseCookiesParameters: () => void;
   onAcceptCookies: () => void;
-  cookies: Cookies;
 };
 
 export const CookiesParameters: React.FC<CookiesParametersProps> = ({
   showCookiesParameters,
   onCloseCookiesParameters,
-  cookies,
   onAcceptCookies,
 }) => {
   return (
@@ -35,18 +32,17 @@ export const CookiesParameters: React.FC<CookiesParametersProps> = ({
 
       <div className="cookies-options">
         <CookiesOption
+          type="necessary"
           title="Cookies essentiels"
           description="Ces cookies permettent l'activation de fonctionnalités essentielles telles que la sécurité, la vérification d'identité et la gestion de réseau. Ces cookies ne peuvent pas être désactivés."
         />
         <CookiesOption
-          isCheckable
-          isChecked={cookies.marketingCookies}
+          type="advertising"
           title="Activer les cookies de publicité"
           description="Ces cookies sont utilisés pour suivre l'efficacité de la publicité afin de fournir un service plus adapté et de diffuser de meilleures annonces en fonction des intérêts des visiteurs."
         />
         <CookiesOption
-          isCheckable
-          isChecked={cookies.analyticCookies}
+          type="analytics"
           title="Activer les cookies analytiques"
           description="Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site, à découvrir les erreurs et à fournir une meilleure analyse globale."
         />

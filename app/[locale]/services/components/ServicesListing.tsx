@@ -60,12 +60,12 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
 
               <div>
                 {service?.projectTypes?.map((type: string, index: number) => (
-                  <p
+                  <h3
                     key={`project-type-${index}`}
                     className="services-listing-item-project-type"
                   >
                     {type}
-                  </p>
+                  </h3>
                 ))}
               </div>
             </motion.div>
@@ -88,7 +88,7 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
                     height: 1080,
                   },
                   format: SANITY_IMAGE_FORMAT.Jpg,
-                  quality: 85,
+                  quality: 70,
                 }}
               />
             </motion.div>

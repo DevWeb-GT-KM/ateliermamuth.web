@@ -19,7 +19,7 @@ export const Value: React.FC<ValueProps> = ({ data, delay }) => {
       }}
       className="home-page-value-container"
     >
-      <h1 className="home-page-value-text">{data}</h1>
+      <p className="home-page-value-text">{data}</p>
     </motion.div>
   );
 };

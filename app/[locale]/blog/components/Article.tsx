@@ -32,7 +32,7 @@ export const Article: React.FC<ArticleProps> = ({ article }) => {
         }}
       >
         <div className="blog-page-article-description-container">
-          <h1 className="blog-page-article-title">{article.title}</h1>
+          <h2 className="blog-page-article-title">{article.title}</h2>
           <p
             className="blog-page-article-description"
             dangerouslySetInnerHTML={{
@@ -48,7 +48,7 @@ export const Article: React.FC<ArticleProps> = ({ article }) => {
               height: 500,
             },
             format: SANITY_IMAGE_FORMAT.Jpg,
-            quality: 85,
+            quality: 70,
           }}
         />
       </Link>

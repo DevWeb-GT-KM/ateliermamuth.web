@@ -6,8 +6,8 @@ export type CookieConsentPreferences = {
 
 export const DEFAULT_COOKIE_CONSENT_PREFERENCES: CookieConsentPreferences = {
   necessary: true,
-  analytics: false,
-  advertising: false,
+  analytics: true,
+  advertising: true,
 };
 
 export type CookieConsentPreferenceItem = {
@@ -23,5 +23,5 @@ export type CookieConsentConfig = {
 export enum CookieConsentShowModalType {
   SMALL,
   FULL,
-  HIDE_MODAL,
+  HIDE,
 }

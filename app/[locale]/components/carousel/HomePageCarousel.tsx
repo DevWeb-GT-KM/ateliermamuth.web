@@ -68,8 +68,8 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
           builder,
           {
             size: {
-              width: isMobile ? 720 : 1280,
-              height: isMobile ? 1280 : 720,
+              width: isMobile ? 1080 : 1920,
+              height: isMobile ? 1920 : 1080,
             },
             quality: 90,
             format: SANITY_IMAGE_FORMAT.Jpg,
@@ -95,22 +95,9 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   return (
     <>
       {!isLoaded ? (
-        <div className={`home-page-loader`}>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ amount: "all", once: true }}
-            transition={{
-              duration: 2.5,
-              delay: 0.5,
-            }}
-            className="home-page-loader-text"
-          >
-            Des formes adaptées aux dimensions humaines
-          </motion.p>
-        </div>
+        <div className={`home-page-loader`}></div>
       ) : (
-        <div
+        <section
           {...swipeHandlers}
           className="home-page-carousel-container"
           style={{
@@ -123,7 +110,7 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
             activeIndex={currentIndex}
             setActiveIndex={setCurrentIndex}
           />
-        </div>
+        </section>
       )}
     </>
   );

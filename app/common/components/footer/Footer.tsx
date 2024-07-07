@@ -5,6 +5,7 @@ import { client } from "@/../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Link } from "@/../navigation";
 import logo from "../../assets/images/footer/logoVector/mamuthLogo.svg";
+import { CookiePreferencesText } from "./CookiePreferenceText";
 
 type FooterProps = {
   data: any[];
@@ -17,9 +18,9 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
     <div className="footer-container">
       <div className="footer-top">
         <div className="footer-info">
-          <h1 className="footer-info-description">
+          <p className="footer-info-description">
             {data[0].aboutUs.shortDescription}
-          </h1>
+          </p>
           <a href={`mailto:${data[0].email}`} className="footer-info-email">
             {data[0].email}
           </a>
@@ -68,6 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
             })}
           </div>
           <div className="footer-links-column">
+            <CookiePreferencesText label={data[0].cookies} />
             <Link className="footer-link" href={{ pathname: "/faq" }}>
               {data[0].faq.pageTitle}
             </Link>
@@ -104,8 +106,8 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
           />
         </Link>
         <div className="footer-copyright">
-          <h1 className="footer-copyright-text">2024, Atelier mamuth</h1>
-          <h1 className="footer-copyright-text">Tous droits réservés</h1>
+          <p className="footer-copyright-text">2024, Atelier mamuth</p>
+          <p className="footer-copyright-text">Tous droits réservés</p>
         </div>
       </div>
     </div>
