@@ -1,4 +1,4 @@
-@keyframes zoom {
+@keyframes zoomHomePageCarousel {
   0% {
     background-size: 100%;
   }
@@ -10,7 +10,7 @@
   }
 }
 
-@keyframes zoomMobile {
+@keyframes zoomMobileHomePageCarousel {
   0% {
     background-position-x: -12vh;
     background-size: 71vh;
@@ -43,6 +43,7 @@
   @include small {
     height: 100vh;
     display: flex;
+    width: 100vw;
 
     flex-direction: column;
     justify-content: flex-end;
@@ -57,15 +58,15 @@
     background-image: url("../../../common/assets/images/homePage/carousel/desktopShapes.svg");
     mix-blend-mode: overlay;
     background-size: 100%;
-    background-position-y: -15vw;
+    background-position-y: -8vw;
     background-repeat: no-repeat;
-    animation: zoom 100s infinite;
+    animation: zoomHomePageCarousel 100s infinite;
 
     @include small {
       background-image: url("../../../common/assets/images/homePage/carousel/mobileShapes.svg");
       background-position-x: -12vh;
       background-size: 71vh;
-      animation: zoomMobile 40s infinite;
+      animation: zoomMobileHomePageCarousel 40s infinite;
     }
   }
 
@@ -99,4 +100,12 @@
       background-color: $noir-boise-50;
     }
   }
+}
+
+.home-page-loader {
+  height: 100vh;
+
+  background-color: $noir-boise-50;
+  margin-left: -$sidePaddingDesktop;
+  margin-right: -$sidePaddingDesktop;
 }

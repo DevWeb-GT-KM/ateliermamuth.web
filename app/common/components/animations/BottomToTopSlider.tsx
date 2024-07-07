@@ -13,8 +13,8 @@ export const BottomToTopSlider: React.FC<BottomToTopSliderProps> = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, paddingTop: 30 }}
-      whileInView={{ paddingTop: 0.5, opacity: 1 }}
+      initial={{ opacity: 0, paddingTop: 40 }}
+      whileInView={{ paddingTop: 0, opacity: 1 }}
       viewport={{ once: true, amount: trigger ? trigger : 0.5 }}
       transition={{
         duration: 0.5,

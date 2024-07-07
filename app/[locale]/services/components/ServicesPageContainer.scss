@@ -1,12 +1,12 @@
-@keyframes zoom {
+@keyframes zoomServices {
   0% {
     background-size: 110%;
     background-position-x: 0px;
   }
   50% {
     background-size: 160%;
-    background-position-x: -600px;
-    background-position-y: -150px;
+    background-position-x: -40vw;
+    background-position-y: -10vw;
   }
   100% {
     background-size: 110%;
@@ -14,7 +14,7 @@
   }
 }
 
-@keyframes zoomMobile {
+@keyframes zoomMobileServices {
   0% {
     background-size: 110%;
   }
@@ -40,13 +40,13 @@
     background-image: url("../../../common/assets/images/servicesPage/shapesDesktop.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    animation: zoom 70s infinite;
+    animation: zoomServices 70s infinite;
 
     @include small {
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
       background-image: url("../../../common/assets/images/servicesPage/shapesMobile.svg");
-      animation: zoomMobile 60s infinite;
+      animation: zoomMobileServices 60s infinite;
     }
 
     .services-page-header-title {
