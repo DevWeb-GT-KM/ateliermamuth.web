@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { draftMode } from "next/headers";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import { FRENCH_LOCALE } from "@/../navigation";
@@ -18,6 +17,7 @@ import { PageOverlayProvider } from "./components/pageOverlay/PageOverlayContext
 import { LiveVisualEditing } from "@/common/components/LiveVisualEditing";
 import { CookiesConsent } from "@/common/components/cookies/CookiesConsent";
 import { CookiesConsentContextProvider } from "@/common/contexts/CookiesConsentContextProvider";
+import { ServicesContextProvider } from "@/common/contexts/ServicesContextProvider";
 
 const saansTrial = localFont({
   src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
@@ -79,40 +79,40 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
   );
 
   return (
-    <CookiesConsentContextProvider
-      config={{
-        containerId: "xyz",
-      }}
-    >
-      <PageOverlayProvider>
-        <html lang={params.locale}>
-          <head>
-            <meta
-              name="google-site-verification"
-              content="YM-m5Xn91Suf6XzbrBYTR_gU98NqtHzHLUxVLf-x95c"
-            />
-          </head>
-
-          <GoogleTagManager gtmId="GTM-WKFFMBVJ" />
-          <body
-            className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
-          >
-            <PageOverlay />
-            <header>
-              <NavBar data={navBarData.data} />
-            </header>
-            <main>
-              {children}
-              <CookiesConsent />
-            </main>
-            <footer>
-              <Footer data={footerData.data} />
-            </footer>
-            {draftMode().isEnabled && <LiveVisualEditing />}
-          </body>
-        </html>
-      </PageOverlayProvider>
-    </CookiesConsentContextProvider>
+    <PageOverlayProvider>
+      <ServicesContextProvider>
+        <CookiesConsentContextProvider
+          config={{
+            containerId: "GTM-WKFFMBVJ",
+          }}
+        >
+          <html lang={params.locale}>
+            <head>
+              <meta
+                name="google-site-verification"
+                content="YM-m5Xn91Suf6XzbrBYTR_gU98NqtHzHLUxVLf-x95c"
+              />
+            </head>
+            <body
+              className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
+            >
+              <PageOverlay />
+              <header>
+                <NavBar data={navBarData.data} />
+              </header>
+              <main>
+                {children}
+                <CookiesConsent />
+              </main>
+              <footer>
+                <Footer data={footerData.data} />
+              </footer>
+              {draftMode().isEnabled && <LiveVisualEditing />}
+            </body>
+          </html>
+        </CookiesConsentContextProvider>
+      </ServicesContextProvider>
+    </PageOverlayProvider>
   );
 };
 

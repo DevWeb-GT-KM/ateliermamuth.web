@@ -1,20 +1,20 @@
-@keyframes zoom {
+@keyframes zoomBlog {
   0% {
     background-size: 110%;
-    background-position-x: 0px;
+    background-position-x: 0vw;
   }
   50% {
     background-size: 138%;
-    background-position-x: -450px;
-    background-position-y: -200px;
+    background-position-x: -30vw;
+    background-position-y: -15vw;
   }
   100% {
     background-size: 110%;
-    background-position-x: 0px;
+    background-position-x: 0vw;
   }
 }
 
-@keyframes zoomMobile {
+@keyframes zoomMobileBlog {
   0% {
     background-size: 370%;
     background-position-x: -200px;
@@ -42,14 +42,14 @@
     background-image: url("../../../common/assets/images/blogPage/desktopShapes.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    animation: zoom 90s infinite;
+    animation: zoomBlog 90s infinite;
 
     @include small {
       background-size: 370%;
       background-position-x: -200px;
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
-      animation: zoomMobile 80s infinite;
+      animation: zoomMobileBlog 80s infinite;
     }
 
     .blog-page-title {

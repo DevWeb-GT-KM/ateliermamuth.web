@@ -350,6 +350,7 @@ export const FOOTER_QUERY_BY_LANG = groq`*[_type == "footer" && language == $loc
     contact->{
       pageTitle
     },
+    cookies,
     email,
     apdiqLogo{
       asset->{

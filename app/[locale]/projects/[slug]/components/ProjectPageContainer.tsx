@@ -12,6 +12,7 @@ import { BlockD } from "@/common/components/blocks/BlockD";
 import { PageSelector } from "@/common/components/pageSelector/PageSelector";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { BottomToTopSlider } from "@/common/components/animations/BottomToTopSlider";
 import { notFound } from "next/navigation";
 
 type ProjectPageContainerProps = {
@@ -30,52 +31,54 @@ export const ProjectPageContainer: React.FC<ProjectPageContainerProps> = ({
       <h1 className="project-page-title">{project.name}</h1>
 
       <div className="project-page-first-block-container">
-        <div className="project-page-first-block-row">
-          <div className="project-page-first-block-row-first-item">
-            <p className="project-page-first-block-description">
-              {project.shortDescription}
-            </p>
+        <BottomToTopSlider>
+          <div className="project-page-first-block-row">
+            <div className="project-page-first-block-row-first-item">
+              <p className="project-page-first-block-description">
+                {project.shortDescription}
+              </p>
 
-            <div className="project-page-first-block-project-types">
-              {project.projectTypes?.map((projectType: string) => (
-                <div
-                  className="project-page-first-block-project-type"
-                  key={projectType}
-                >
-                  {projectType}
-                </div>
-              ))}
+              <div className="project-page-first-block-project-types">
+                {project.projectTypes?.map((projectType: string) => (
+                  <div
+                    className="project-page-first-block-project-type"
+                    key={projectType}
+                  >
+                    {projectType}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="project-page-first-block-credits">
+              {project.credits?.map(
+                (credit: { _key: string; label: string; value: string }) => (
+                  <div
+                    className="project-page-first-block-credit"
+                    key={credit._key}
+                  >
+                    <span>{credit.label} : &nbsp;</span>
+                    <span>{credit.value}</span>
+                  </div>
+                )
+              )}
             </div>
           </div>
-
-          <div className="project-page-first-block-credits">
-            {project.credits?.map(
-              (credit: { _key: string; label: string; value: string }) => (
-                <div
-                  className="project-page-first-block-credit"
-                  key={credit._key}
-                >
-                  <span>{credit.label} : &nbsp;</span>
-                  <span>{credit.value}</span>
-                </div>
-              )
-            )}
-          </div>
-        </div>
-
-        <SanityImageWrapper
-          sanityImage={project.secondaryImage}
-          imageBuilderConfig={{
-            quality: 80,
-            format: SANITY_IMAGE_FORMAT.Jpg,
-            size: {
-              width: 1920,
-              height: 1080,
-            },
-          }}
-        />
+        </BottomToTopSlider>
+        <BottomToTopSlider>
+          <SanityImageWrapper
+            sanityImage={project.secondaryImage}
+            imageBuilderConfig={{
+              quality: 80,
+              format: SANITY_IMAGE_FORMAT.Jpg,
+              size: {
+                width: 1920,
+                height: 1080,
+              },
+            }}
+          />
+        </BottomToTopSlider>
       </div>
-
       {project.contentBlocks?.map((block: any) => {
         const key = block._key;
 

@@ -50,6 +50,12 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
+      name: "cookies",
+      title: "Cookies",
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
       name: "faq",
       title: "Faq",
       type: "reference",
