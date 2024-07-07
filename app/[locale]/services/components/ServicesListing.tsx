@@ -1,3 +1,4 @@
+"use client";
 import "./ServicesListing.scss";
 
 import Image from "next/image";
@@ -5,6 +6,7 @@ import Image from "next/image";
 import { Link } from "@/../navigation";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { motion } from "framer-motion";
 
 export type ServicesListingProps = {
   services?: any[];
@@ -17,9 +19,29 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
     <div className="services-listing-container">
       {services?.map((service) => (
         <div key={`${service?.name}-service`} className="services-listing-item">
-          <h2 className="services-listing-item-title">{service?.name}</h2>
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 0.3,
+            }}
+            className="services-listing-item-title"
+          >
+            {service?.name}
+          </motion.h2>
           <div className="services-listing-item-info-container">
-            <div className="services-listing-item-description-container">
+            <motion.div
+              initial={{ opacity: 0, paddingTop: 40 }}
+              whileInView={{ paddingTop: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: 0.8,
+              }}
+              className="services-listing-item-description-container"
+            >
               <div>
                 <p className="services-listing-item-description">
                   {service?.description}
@@ -46,9 +68,18 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
                   </p>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="services-listing-item-image-container">
+            <motion.div
+              initial={{ opacity: 0, marginRight: "-1vw" }}
+              whileInView={{ opacity: 1, marginRight: "0vw" }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: 0.5,
+              }}
+              className="services-listing-item-image-container"
+            >
               <SanityImageWrapper
                 sanityImage={service?.img}
                 imageBuilderConfig={{
@@ -60,7 +91,7 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
                   quality: 85,
                 }}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       ))}

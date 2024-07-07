@@ -1,11 +1,11 @@
-@keyframes zoom {
+@keyframes zoomAboutUs {
   0% {
     background-size: 110%;
     background-position-x: 0px;
   }
   50% {
     background-size: 140%;
-    background-position-x: -400px;
+    background-position-x: -30vw;
   }
   100% {
     background-size: 110%;
@@ -13,7 +13,7 @@
   }
 }
 
-@keyframes zoomMobile {
+@keyframes zoomMobileAboutUs {
   0% {
     background-size: 370%;
     background-position-x: -300px;
@@ -42,14 +42,14 @@
     background-size: 120%;
     background-position-x: 0px;
     background-repeat: no-repeat;
-    animation: zoom 90s infinite;
+    animation: zoomAboutUs 90s infinite;
 
     @include small {
       background-size: 370%;
       background-position-x: -300px;
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
-      animation: zoomMobile 80s infinite;
+      animation: zoomMobileAboutUs 80s infinite;
     }
 
     .about-us-page-title {

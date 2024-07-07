@@ -20,6 +20,12 @@
     }
   }
 
+  @include small {
+    &:nth-child(2) {
+      border-top: none;
+    }
+  }
+
   .blog-page-article-link {
     display: flex;
     flex-direction: row;

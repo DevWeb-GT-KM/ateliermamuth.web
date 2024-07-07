@@ -12,6 +12,7 @@ import { BlockD } from "@/common/components/blocks/BlockD";
 import { PageSelector } from "@/common/components/pageSelector/PageSelector";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { BottomToTopSlider } from "@/common/components/animations/BottomToTopSlider";
 
 type ProjectPageContainerProps = {
   project: SanityDocument;
@@ -25,50 +26,54 @@ export const ProjectPageContainer: React.FC<
       <h1 className="project-page-title">{project.name}</h1>
 
       <div className="project-page-first-block-container">
-        <div className="project-page-first-block-row">
-          <div className="project-page-first-block-row-first-item">
-            <p className="project-page-first-block-description">
-              {project.shortDescription}
-            </p>
+        <BottomToTopSlider>
+          <div className="project-page-first-block-row">
+            <div className="project-page-first-block-row-first-item">
+              <p className="project-page-first-block-description">
+                {project.shortDescription}
+              </p>
 
-            <div className="project-page-first-block-project-types">
-              {project.projectTypes?.map((projectType: string) => (
-                <div
-                  className="project-page-first-block-project-type"
-                  key={projectType}
-                >
-                  {projectType}
-                </div>
-              ))}
+              <div className="project-page-first-block-project-types">
+                {project.projectTypes?.map((projectType: string) => (
+                  <div
+                    className="project-page-first-block-project-type"
+                    key={projectType}
+                  >
+                    {projectType}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="project-page-first-block-credits">
+              {project.credits?.map(
+                (credit: { _key: string; label: string; value: string }) => (
+                  <div
+                    className="project-page-first-block-credit"
+                    key={credit._key}
+                  >
+                    <span>{credit.label} : &nbsp;</span>
+                    <span>{credit.value}</span>
+                  </div>
+                )
+              )}
             </div>
           </div>
+        </BottomToTopSlider>
 
-          <div className="project-page-first-block-credits">
-            {project.credits?.map(
-              (credit: { _key: string; label: string; value: string }) => (
-                <div
-                  className="project-page-first-block-credit"
-                  key={credit._key}
-                >
-                  <span>{credit.label} : &nbsp;</span>
-                  <span>{credit.value}</span>
-                </div>
-              )
-            )}
-          </div>
-        </div>
-
-        <SanityImageWrapper
-          sanityImage={project.secondaryImage}
-          imageBuilderConfig={{
-            quality: 75,
-            format: SANITY_IMAGE_FORMAT.Jpg,
-            size: {
-              width: 2560,
-              height: 1440,
-            },
-          }}
-        />
+        <BottomToTopSlider>
+          <SanityImageWrapper
+            sanityImage={project.secondaryImage}
+            imageBuilderConfig={{
+              quality: 75,
+              format: SANITY_IMAGE_FORMAT.Jpg,
+              size: {
+                width: 2560,
+                height: 1440,
+              },
+            }}
+          />
+        </BottomToTopSlider>
       </div>
 
       {project.contentBlocks?.map((block: any) => {

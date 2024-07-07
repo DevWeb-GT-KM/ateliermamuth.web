@@ -1,7 +1,6 @@
 "use client";
 
 import "./homePageCarousel.scss";
-import "./homePageLoader.scss";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { isMobile } from "react-device-detect";
