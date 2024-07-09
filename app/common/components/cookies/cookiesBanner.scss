@@ -47,26 +47,6 @@
       gap: 3vw;
       padding-bottom: 2vw;
     }
-
-    .cookies-btn {
-      @extend .common-btn-jaune-pyrite;
-      padding: 0.875vw 1.75vw;
-
-      @include small {
-        padding: 2.75vw 2.75vw;
-      }
-    }
-    .cookies-accept-btn {
-      background-color: $jaune-pyrite-600;
-      color: white;
-    }
-
-    .cookies-parameter-btn {
-      &:hover {
-        background-color: white;
-        color: $jaune-pyrite-600;
-      }
-    }
   }
 }
 

@@ -4,7 +4,19 @@ export type CookieConsentPreferences = {
   advertising: boolean;
 };
 
-export const DEFAULT_COOKIE_CONSENT_PREFERENCES: CookieConsentPreferences = {
+export const REJECT_ALL_COOKIE_CONSENT_PREFERENCES: CookieConsentPreferences = {
+  necessary: true,
+  analytics: false,
+  advertising: false,
+};
+
+export const ACCEPT_ALL_COOKIE_CONSENT_PREFERENCES: CookieConsentPreferences = {
+  necessary: true,
+  analytics: true,
+  advertising: true,
+};
+
+export const DEFAULT_UI_COOKIE_CONSENT_PREFERENCES: CookieConsentPreferences = {
   necessary: true,
   analytics: true,
   advertising: true,
@@ -15,13 +27,8 @@ export type CookieConsentPreferenceItem = {
   cookieConsentPreferencesName: keyof CookieConsentPreferences;
 };
 
-export type CookieConsentConfig = {
-  containerId: string;
-  cookieConsentPreferences?: CookieConsentPreferenceItem[];
-};
-
 export enum CookieConsentShowModalType {
-  SMALL,
-  FULL,
+  BANNER,
+  MODAL,
   HIDE,
 }

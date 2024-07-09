@@ -16,7 +16,9 @@ export const CookiePreferencesText: React.FC<CookiePreferencesTextProps> = ({
     <p
       className="footer-link"
       style={{ cursor: "pointer" }}
-      onClick={() => setCookieConsentShowModal(CookieConsentShowModalType.FULL)}
+      onClick={() =>
+        setCookieConsentShowModal(CookieConsentShowModalType.MODAL)
+      }
     >
       {label}
     </p>

@@ -67,21 +67,11 @@
     margin-top: 3vw;
     display: flex;
     justify-content: flex-end;
+    gap: 1vw;
 
     @include small {
+      justify-content: space-around;
       margin-top: 6vw;
-    }
-
-    .save-cookies-setting-btn {
-      @extend .common-btn-jaune-pyrite;
-
-      background-color: $jaune-pyrite-600;
-      color: white;
-      padding: 0.875vw 1.75vw;
-
-      @include small {
-        padding: 2.75vw 2.75vw;
-      }
     }
   }
 }
