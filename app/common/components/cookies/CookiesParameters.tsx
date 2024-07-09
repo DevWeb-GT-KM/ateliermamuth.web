@@ -2,19 +2,21 @@
 
 import "./cookiesParameters.scss";
 
-import { CookiesOption } from "./CookiesOption";
 import { FaXmark } from "react-icons/fa6";
+import { CookiesOption } from "./CookiesOption";
 
 type CookiesParametersProps = {
   showCookiesParameters: boolean;
   onCloseCookiesParameters: () => void;
-  onAcceptCookies: () => void;
+  onSave: () => void;
+  onRejectAll: () => void;
 };
 
 export const CookiesParameters: React.FC<CookiesParametersProps> = ({
   showCookiesParameters,
   onCloseCookiesParameters,
-  onAcceptCookies,
+  onSave,
+  onRejectAll,
 }) => {
   return (
     <div
@@ -47,9 +49,16 @@ export const CookiesParameters: React.FC<CookiesParametersProps> = ({
           description="Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site, à découvrir les erreurs et à fournir une meilleure analyse globale."
         />
       </div>
+
       <div className="save-cookies-setting-container">
-        <button onClick={onAcceptCookies} className="save-cookies-setting-btn">
-          Enregistrer
+        <button
+          onClick={onRejectAll}
+          className="cookies-btn cookies-parameter-btn"
+        >
+          refuser tout
+        </button>
+        <button onClick={onSave} className="cookies-btn cookies-save-btn">
+          enregistrer
         </button>
       </div>
     </div>

@@ -10,6 +10,12 @@ const IS_BROWSER = typeof window !== "undefined";
 export class GtmCookieConsentServiceImpl implements GtmCookieConsentService {
   private gtmContainerId?: string;
 
+  constructor() {
+    if (IS_BROWSER) {
+        this.initDataLayer();
+    }
+  }
+
   public setConsent(
     consent: CookieConsentPreferences,
     isDefaultConfig?: boolean | undefined
@@ -51,6 +57,10 @@ export class GtmCookieConsentServiceImpl implements GtmCookieConsentService {
 
   private getGtmConsentValue(isActivated: boolean): GtmCookieConsentStatus {
     return isActivated ? "granted" : "denied";
+  }
+
+  private initDataLayer(): void {
+    window.dataLayer = window.dataLayer || [];
   }
 
   private gtag(): void {

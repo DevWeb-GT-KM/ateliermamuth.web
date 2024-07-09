@@ -81,11 +81,7 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
   return (
     <PageOverlayProvider>
       <ServicesContextProvider>
-        <CookiesConsentContextProvider
-          config={{
-            containerId: "GTM-WKFFMBVJ",
-          }}
-        >
+        <CookiesConsentContextProvider>
           <html lang={params.locale}>
             <head>
               <meta

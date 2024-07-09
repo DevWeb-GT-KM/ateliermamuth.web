@@ -9,10 +9,10 @@ import {
   ICookiesConsentContext,
 } from "./CookiesConsentContext";
 import {
-  CookieConsentConfig,
   CookieConsentPreferences,
-  DEFAULT_COOKIE_CONSENT_PREFERENCES,
+  REJECT_ALL_COOKIE_CONSENT_PREFERENCES,
   CookieConsentShowModalType,
+  DEFAULT_UI_COOKIE_CONSENT_PREFERENCES,
 } from "../models/cookieConsentConfig";
 import { useService } from "../hooks/useService";
 import { CookieService } from "../services/cookieService";
@@ -22,17 +22,16 @@ import { usePageOverlay } from "@/[locale]/components/pageOverlay/PageOverlayCon
 const GTM_CONTAINER_ID = "GTM-WKFFMBVJ";
 
 export interface ICookiesConsentContextProvider {
-  config: CookieConsentConfig;
   children: React.ReactNode;
 }
 
 export const CookiesConsentContextProvider: React.FC<
   ICookiesConsentContextProvider
 > = (props) => {
-  const { children, config } = props;
+  const { children } = props;
 
   const [cookieConsentPreferences, setCookieConsentPreferences] =
-    useState<CookieConsentPreferences>(DEFAULT_COOKIE_CONSENT_PREFERENCES);
+    useState<CookieConsentPreferences>(DEFAULT_UI_COOKIE_CONSENT_PREFERENCES);
 
   const [cookieConsentShowModal, setCookieConsentShowModal] =
     useState<CookieConsentShowModalType>(CookieConsentShowModalType.HIDE);
@@ -44,43 +43,44 @@ export const CookiesConsentContextProvider: React.FC<
     "GtmCookieConsentService"
   );
 
-  const { isPageOverlayHidden, setIsPageOverlayHidden } = usePageOverlay();
+  const { setIsPageOverlayHidden } = usePageOverlay();
 
   useEffect(() => {
-    const defaultCookie = cookieService.getCookieConsentPreferences();
+    const savedCookiesConsent = cookieService.getCookieConsentPreferences();
 
-    if (defaultCookie == null) {
-      setCookieConsentShowModal(CookieConsentShowModalType.SMALL);
+    if (savedCookiesConsent == null) {
+      setCookieConsentShowModal(CookieConsentShowModalType.BANNER);
     } else {
       setCookieConsentShowModal(CookieConsentShowModalType.HIDE);
-      setCookieConsentPreferences(defaultCookie);
+      setCookieConsentPreferences(savedCookiesConsent);
     }
 
+    initGoogleTagManager(savedCookiesConsent);
     addCookieConsentUpdateHandlers();
-
-    if (!defaultConsentIsSet) {
-      gtmCookieConsentService.setContainerId(GTM_CONTAINER_ID);
-
-      const savedCookieConsent = cookieService.getCookieConsentPreferences();
-
-      if (savedCookieConsent) {
-        gtmCookieConsentService.setConsent(savedCookieConsent, true);
-      } else {
-        gtmCookieConsentService.setConsent(
-          DEFAULT_COOKIE_CONSENT_PREFERENCES,
-          true
-        );
-      }
-
-      setDefaultConsentIsSet(true);
-    }
   }, []);
 
   useEffect(() => {
     setIsPageOverlayHidden(
-      cookieConsentShowModal !== CookieConsentShowModalType.FULL
+      cookieConsentShowModal !== CookieConsentShowModalType.MODAL
     );
   }, [cookieConsentShowModal]);
+
+  const initGoogleTagManager = (
+    savedCookiesConsent: CookieConsentPreferences | null
+  ) => {
+    gtmCookieConsentService.setContainerId(GTM_CONTAINER_ID);
+
+    if (savedCookiesConsent) {
+      gtmCookieConsentService.setConsent(savedCookiesConsent, true);
+    } else {
+      gtmCookieConsentService.setConsent(
+        REJECT_ALL_COOKIE_CONSENT_PREFERENCES,
+        true
+      );
+    }
+
+    setDefaultConsentIsSet(true);
+  };
 
   const addCookieConsentUpdateHandlers = () => {
     cookieService.addCookieConsentUpdateHandlers(
@@ -91,18 +91,22 @@ export const CookiesConsentContextProvider: React.FC<
   };
 
   const cookiesConsentContext: ICookiesConsentContext = {
-    config: config,
     cookieConsentPreferences: cookieConsentPreferences,
     setCookieConsentPreferences: setCookieConsentPreferences,
     cookieConsentShowModal: cookieConsentShowModal,
     setCookieConsentShowModal: setCookieConsentShowModal,
-    defaultConsentIsSet: defaultConsentIsSet,
-    setDefaultConsentIsSet: setDefaultConsentIsSet,
   };
 
   return (
     <CookiesConsentContext.Provider value={cookiesConsentContext}>
-      <GoogleTagManager gtmId={GTM_CONTAINER_ID} />
+      {defaultConsentIsSet ? (
+        <GoogleTagManager
+          gtmId={GTM_CONTAINER_ID}
+          dataLayer={window.dataLayer as any}
+        />
+      ) : (
+        <></>
+      )}
       {children}
     </CookiesConsentContext.Provider>
   );

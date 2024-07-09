@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 import { CookieService } from "./cookieService";
 import {
   CookieConsentPreferences,
-  DEFAULT_COOKIE_CONSENT_PREFERENCES,
+  REJECT_ALL_COOKIE_CONSENT_PREFERENCES,
 } from "../models/cookieConsentConfig";
 
 export class CookieServiceImpl implements CookieService {
@@ -37,8 +37,8 @@ export class CookieServiceImpl implements CookieService {
     const cookieConsentPreferences = this.cookies.get(
       this.cookieConsentPreferenceName
     );
-    if (cookieConsentPreferences) return cookieConsentPreferences;
-    else return null;
+
+    return cookieConsentPreferences ?? null;
   };
 
   setCookieConsentPreferences = (consent: CookieConsentPreferences): void => {
@@ -60,7 +60,9 @@ export class CookieServiceImpl implements CookieService {
       this.cookies.remove(key, { path: "/" });
     }
 
-    this.triggerCookieConsentUpdateHandlers(DEFAULT_COOKIE_CONSENT_PREFERENCES);
+    this.triggerCookieConsentUpdateHandlers(
+      REJECT_ALL_COOKIE_CONSENT_PREFERENCES
+    );
   };
 
   private triggerCookieConsentUpdateHandlers(

@@ -1,13 +1,11 @@
 import { Dispatch, SetStateAction, createContext } from "react";
 
 import {
-  CookieConsentConfig,
   CookieConsentPreferences,
   CookieConsentShowModalType,
 } from "../models/cookieConsentConfig";
 
 export interface ICookiesConsentContext {
-  config: CookieConsentConfig;
   cookieConsentPreferences: CookieConsentPreferences;
   setCookieConsentPreferences: Dispatch<
     SetStateAction<CookieConsentPreferences>
@@ -16,8 +14,6 @@ export interface ICookiesConsentContext {
   setCookieConsentShowModal: Dispatch<
     SetStateAction<CookieConsentShowModalType>
   >;
-  defaultConsentIsSet: boolean;
-  setDefaultConsentIsSet: Dispatch<SetStateAction<boolean>>;
 }
 
 export const CookiesConsentContext = createContext<ICookiesConsentContext>(
