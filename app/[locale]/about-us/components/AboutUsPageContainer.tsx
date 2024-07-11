@@ -55,6 +55,7 @@ export const AboutUsPageContainer: React.FC<AboutUsPageContainerProps> = ({
           >
             <PortableText value={data[0].description} />
           </motion.div>
+
           <div className="test">
             <SanityImageWrapper
               sanityImage={data[0]?.img}

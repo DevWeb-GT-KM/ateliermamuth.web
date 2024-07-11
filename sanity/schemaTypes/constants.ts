@@ -18,10 +18,8 @@ export const IMAGE_FIELD = (name?: string, title?: string) => {
         type: "text",
         name: "alt",
         title: "Texte alternatif",
-        validation: (Rule: any) => Rule.required(),
       },
     ],
-    validation: (Rule: any) => Rule.required(),
   };
 };
 
