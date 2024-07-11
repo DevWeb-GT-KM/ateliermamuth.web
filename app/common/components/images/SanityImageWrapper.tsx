@@ -24,21 +24,25 @@ export const SanityImageWrapper: React.FC<SanityImageWrapperProps> = ({
 }) => {
   return (
     <div className="sanity-image-wrapper-container">
-      <Image
-        className={`sanity-image ${effectOnHover ? "sanity-image-hover-effect" : ""}`}
-        src={
-          sanityImage?.blob ??
-          getImageSource(sanityImage, builder, imageBuilderConfig)
-        }
-        placeholder={sanityImage?.asset?.metadata?.lqip ? "blur" : "empty"}
-        blurDataURL={sanityImage?.asset?.metadata?.lqip}
-        alt={sanityImage?.alt}
-        width={imageBuilderConfig.size.width}
-        height={imageBuilderConfig.size.height}
-        quality={imageBuilderConfig.quality}
-        unoptimized
-      />
-      {children}
+      {sanityImage && (
+        <>
+          <Image
+            className={`sanity-image ${effectOnHover ? "sanity-image-hover-effect" : ""}`}
+            src={
+              sanityImage?.blob ??
+              getImageSource(sanityImage, builder, imageBuilderConfig)
+            }
+            placeholder={sanityImage?.asset?.metadata?.lqip ? "blur" : "empty"}
+            blurDataURL={sanityImage?.asset?.metadata?.lqip}
+            alt={sanityImage?.alt}
+            width={imageBuilderConfig.size.width}
+            height={imageBuilderConfig.size.height}
+            quality={imageBuilderConfig.quality}
+            unoptimized
+          />
+          {children}
+        </>
+      )}
     </div>
   );
 };
