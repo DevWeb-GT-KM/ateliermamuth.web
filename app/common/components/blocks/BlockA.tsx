@@ -8,18 +8,22 @@ import { BottomToTopSlider } from "../animations/BottomToTopSlider";
 
 type BlockAProps = {
   data: any;
+  isAnimationDesactivated?: boolean;
 };
 
-export const BlockA: React.FC<BlockAProps> = ({ data }) => {
+export const BlockA: React.FC<BlockAProps> = ({
+  data,
+  isAnimationDesactivated,
+}) => {
   return (
     <div className="block-a-container">
-      <BottomToTopSlider>
+      <BottomToTopSlider isDesactivated={isAnimationDesactivated}>
         <div className="block-a-portable-text-container">
           <PortableText value={data.text} />
         </div>
       </BottomToTopSlider>
 
-      <BottomToTopSlider>
+      <BottomToTopSlider isDesactivated={isAnimationDesactivated}>
         <div className="block-a-images-container">
           <div className="block-a-images-left">
             <Carousel
