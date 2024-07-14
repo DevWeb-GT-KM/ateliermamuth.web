@@ -5,13 +5,15 @@ import { motion } from "framer-motion";
 export type BottomToTopSliderProps = {
   children: React.ReactNode;
   trigger?: number | "all" | "some";
+  isDesactivated?: boolean;
 };
 
 export const BottomToTopSlider: React.FC<BottomToTopSliderProps> = ({
   children,
   trigger,
+  isDesactivated,
 }) => {
-  return (
+  return !isDesactivated ? (
     <motion.div
       initial={{ opacity: 0, paddingTop: 40 }}
       whileInView={{ paddingTop: 0, opacity: 1 }}
@@ -22,5 +24,7 @@ export const BottomToTopSlider: React.FC<BottomToTopSliderProps> = ({
     >
       {children}
     </motion.div>
+  ) : (
+    <div> {children}</div>
   );
 };

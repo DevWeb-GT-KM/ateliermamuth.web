@@ -69,16 +69,24 @@ export const ArticlePageContainer: React.FC<ArticlePageContainerProps> = ({
 
         switch (block._type) {
           case blockASchemaType.name:
-            return <BlockA key={key} data={block} />;
+            return (
+              <BlockA key={key} data={block} isAnimationDesactivated={true} />
+            );
 
           case blockBSchemaType.name:
-            return <BlockB key={key} data={block} />;
+            return (
+              <BlockB key={key} data={block} isAnimationDesactivated={true} />
+            );
 
           case blockCSchemaType.name:
-            return <BlockC key={key} data={block} />;
+            return (
+              <BlockC key={key} data={block} isAnimationDesactivated={true} />
+            );
 
           case blockDSchemaType.name:
-            return <BlockD key={key} data={block} />;
+            return (
+              <BlockD key={key} data={block} isAnimationDesactivated={true} />
+            );
 
           default:
             return <></>;

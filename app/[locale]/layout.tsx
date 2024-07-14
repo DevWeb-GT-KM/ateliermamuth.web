@@ -20,7 +20,7 @@ import { CookiesConsentContextProvider } from "@/common/contexts/CookiesConsentC
 import { ServicesContextProvider } from "@/common/contexts/ServicesContextProvider";
 
 const saansTrial = localFont({
-  src: "../common/assets/fonts/SaansTRIAL-Regular.ttf",
+  src: "../common/assets/fonts/SaansTRIAL-Light.ttf",
   display: "swap",
   variable: "--font-saans-trial",
 });

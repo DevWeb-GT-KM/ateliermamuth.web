@@ -36,7 +36,7 @@ export const AboutUsPageContainer: React.FC<AboutUsPageContainerProps> = ({
         <motion.div
           initial={{ opacity: 0, gap: "10vw" }}
           whileInView={{ opacity: 1, gap: "9vw" }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true }}
           transition={{
             duration: 0.5,
             delay: 0.3,
