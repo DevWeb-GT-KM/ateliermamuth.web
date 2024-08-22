@@ -2,7 +2,7 @@ import "./article.scss";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { Link } from "@/../navigation";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
-import { buildSeeMoreString } from "@/common/helpers/SeeMoreHelper";
+import { buildSeeMoreString } from "@/common/helpers/TextHelper";
 
 type ArticleProps = {
   data: any;

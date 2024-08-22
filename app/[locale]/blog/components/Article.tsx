@@ -6,7 +6,7 @@ import { Link } from "@/../navigation";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
 import { motion } from "framer-motion";
-import { buildSeeMoreString } from "@/common/helpers/SeeMoreHelper";
+import { buildSeeMoreString } from "@/common/helpers/TextHelper";
 
 type ArticleProps = {
   article: SanityDocument;

@@ -5,7 +5,7 @@ import { SanityImageWrapper } from "./images/SanityImageWrapper";
 import { SANITY_IMAGE_FORMAT } from "./images/sanityImageBuilderConfig";
 import { Link } from "@/../navigation";
 import { motion } from "framer-motion";
-import { buildSeeMoreString } from "../helpers/SeeMoreHelper";
+import { extractFirstSentence } from "../helpers/TextHelper";
 
 type ProjectProps = {
   data: any;
@@ -16,8 +16,6 @@ export const Project: React.FC<ProjectProps> = ({
   data,
   isSecondaryProject,
 }) => {
-  const MAX_CHARACTER_DISPLAYED = isSecondaryProject ? 80 : 300;
-
   return (
     <motion.div
       initial={{ opacity: 0, paddingTop: 50 }}
@@ -52,10 +50,7 @@ export const Project: React.FC<ProjectProps> = ({
           <p
             className="project-description-description"
             dangerouslySetInnerHTML={{
-              __html: buildSeeMoreString(
-                data.shortDescription,
-                MAX_CHARACTER_DISPLAYED
-              ),
+              __html: extractFirstSentence(data.shortDescription),
             }}
           ></p>
           {!isSecondaryProject && (

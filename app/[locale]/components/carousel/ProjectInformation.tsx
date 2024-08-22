@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  SEE_MORE_VALUE,
-  buildSeeMoreString,
-} from "@/common/helpers/SeeMoreHelper";
+import { buildSeeMoreString } from "@/common/helpers/TextHelper";
 import "./projectInformation.scss";
 import { Link } from "@/../navigation";
 
