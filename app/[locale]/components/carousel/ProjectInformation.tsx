@@ -1,9 +1,9 @@
 "use client";
 
 import {
-  SEE_MORE_VALUE,
   buildSeeMoreString,
-} from "@/common/helpers/SeeMoreHelper";
+  extractFirstSentence,
+} from "@/common/helpers/TextHelper";
 import "./projectInformation.scss";
 import { Link } from "@/../navigation";
 
@@ -30,9 +30,8 @@ export const ProjectInformation: React.FC<ProjectInformationProps> = ({
       <p
         className="home-page-carousel-project-info-project-description"
         dangerouslySetInnerHTML={{
-          __html: buildSeeMoreString(
-            data[0].carousel[currentIndex].shortDescription,
-            200
+          __html: extractFirstSentence(
+            data[0].carousel[currentIndex].shortDescription
           ),
         }}
       ></p>
