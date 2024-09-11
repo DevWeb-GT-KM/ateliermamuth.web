@@ -59,7 +59,7 @@ export const PAGE_METADATA_FIELD = () => {
       {
         name: "metaDescription",
         title: "Méta description",
-        type: "string",
+        type: "text",
         validation: (Rule: any) => Rule.required(),
       },
     ],
@@ -77,7 +77,7 @@ export const PAGE_PARTIAL_METADATA_FIELD = () => {
       {
         name: "metaDescription",
         title: "Méta description",
-        type: "string",
+        type: "text",
         validation: (Rule: any) => Rule.required(),
       },
     ],
