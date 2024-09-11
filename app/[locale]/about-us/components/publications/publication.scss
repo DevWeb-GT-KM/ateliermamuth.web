@@ -8,7 +8,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 
     @include small {
       padding: 16px 0px;
@@ -27,7 +26,8 @@
       font-weight: 400;
 
       @include small {
-        font-size: 18px;
+        font-size: 4vw;
+        line-height: 6vw;
       }
     }
 
