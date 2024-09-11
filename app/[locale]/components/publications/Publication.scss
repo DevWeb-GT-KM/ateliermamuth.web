@@ -1,12 +1,11 @@
 .home-page-publication-container {
   .home-page-publication-item {
     border-top: 1px solid $noir-boise-200;
+    padding: 1vw 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    padding: 1vw 0px;
 
     &:last-child {
       border-bottom: 1px solid $noir-boise-200;
@@ -25,8 +24,8 @@
       font-weight: 400;
 
       @include small {
-        font-size: 18px;
-        line-height: 18px;
+        font-size: 4vw;
+        line-height: 6vw;
       }
     }
 
