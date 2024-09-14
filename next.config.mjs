@@ -20,6 +20,15 @@ const nextConfig = {
       @import "./app/common/scss/common";
     `,
   },
+  async redirects() {
+    return [
+      {
+        source: "/nos-services",
+        destination: "/fr/services",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
