@@ -5,7 +5,7 @@
   .page-selector-item {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 35%;
 
     @include small {
       width: 45%;
@@ -85,6 +85,7 @@
       .page-selector-text-container {
         position: relative;
         display: flex;
+        width: 100%;
         flex-direction: column;
         justify-content: center;
 
