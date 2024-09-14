@@ -58,7 +58,6 @@ export const PageSelector: React.FC<PageSelectorProps> = ({
 
           <div className="page-selector-text-container">
             <p className="page-selector-title">{previous.title}</p>
-            {/* TODO - Balise ici ? */}
             <p className="page-selector-description">
               {previous.shortDescription}
             </p>
@@ -84,8 +83,6 @@ export const PageSelector: React.FC<PageSelectorProps> = ({
 
           <div className="page-selector-text-container">
             <p className="page-selector-title">{next.title}</p>
-
-            {/* TODO - Balise ici ? */}
             <p className="page-selector-description">{next.shortDescription}</p>
           </div>
         </div>
