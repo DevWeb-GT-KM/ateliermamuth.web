@@ -20,6 +20,28 @@
   }
 }
 
+:has(.projects-page-container) {
+  .nav-bar-top {
+    .nav-bar-link {
+      color: $gris-neutre-700 !important;
+    }
+
+    .nav-bar-link-projects {
+      color: $noir-boise-200 !important;
+    }
+
+    .nav-bar-contact-us {
+      color: $gris-neutre-700 !important;
+      border: 1px solid $gris-neutre-700 !important;
+
+      &:hover {
+        color: $gris-neutre-400 !important;
+        background-color: $gris-neutre-700 !important;
+      }
+    }
+  }
+}
+
 :has(.about-us-page-container) {
   .nav-bar-top {
     .nav-bar-link {

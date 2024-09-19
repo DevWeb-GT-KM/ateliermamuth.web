@@ -4,7 +4,6 @@ import "./homePageCarousel.scss";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { isMobile } from "react-device-detect";
-import { motion } from "framer-motion";
 
 import { CarouselIndex } from "@/common/components/images/carousel/CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
@@ -26,11 +25,13 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   const [maxIndex] = useState<number>(data[0].carousel.length - 1);
   const [isLoaded, setIsLoaded] = useState(false);
   const [images, setImages] = useState<any[]>([]);
+  const [currentIteration, setCurrentIteration] = useState<number>(0);
 
   const handleIndexChange = (nextIndex: number): number => {
     if (nextIndex < 0) {
       return maxIndex;
     } else if (nextIndex > maxIndex) {
+      setCurrentIteration(currentIteration + maxIndex + 1);
       return 0;
     } else {
       return nextIndex;
@@ -85,7 +86,18 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
       })
       .then((blobs) => {
         const imageUrls = blobs.map((blob) => URL.createObjectURL(blob));
-        setImages(imageUrls);
+        setImages([
+          ...imageUrls,
+          ...imageUrls,
+          ...imageUrls,
+          ...imageUrls,
+          ...imageUrls,
+          ...imageUrls,
+          ...imageUrls,
+          ...imageUrls,
+          ...imageUrls,
+          ...imageUrls,
+        ]);
 
         setIsLoaded(true);
       })
@@ -95,15 +107,23 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   return (
     <>
       {!isLoaded ? (
-        <div className={`home-page-loader`}></div>
+        <div className="home-page-loader"></div>
       ) : (
-        <section
-          {...swipeHandlers}
-          className="home-page-carousel-container"
-          style={{
-            backgroundImage: `url("${images[currentIndex]}")`,
-          }}
-        >
+        <section className="home-page-carousel-container">
+          <div
+            className="background-slider"
+            style={{
+              transform: `translateX(-${(currentIndex + currentIteration) * 100}%)`,
+            }}
+          >
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="background-slide"
+                style={{ backgroundImage: `url(${image})` }}
+              ></div>
+            ))}
+          </div>
           <ProjectInformation data={data} currentIndex={currentIndex} />
           <CarouselIndex
             carouselLength={data[0].carousel.length}
