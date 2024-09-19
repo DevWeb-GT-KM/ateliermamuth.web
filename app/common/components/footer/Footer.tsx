@@ -26,14 +26,10 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
           </a>
           <Image
             className="footer-info-apdiq-logo"
-            src={builder
-              .image(data[0].apdiqLogo.asset.url)
-              .quality(100)
-              .size(180, 25)
-              .url()}
+            src={builder.image(data[0].apdiqLogo.asset.url).quality(100).url()}
             alt="Logo de l'association professionnelle des designers d'intérieur du Québec."
-            width={180}
-            height={25}
+            width={0}
+            height={0}
             quality={100}
             unoptimized
           />
