@@ -23,6 +23,13 @@
         padding-right: 16px;
       }
 
+      .email-and-logo-container {
+        @include large {
+          display: flex;
+          align-items: end;
+        }
+      }
+
       .footer-info-email,
       .footer-info-description {
         color: $noir-boise-50;
