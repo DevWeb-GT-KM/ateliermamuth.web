@@ -5,7 +5,7 @@
   .page-selector-item {
     display: flex;
     flex-direction: column;
-    width: 35%;
+    width: 50%;
 
     @include small {
       width: 45%;
@@ -85,9 +85,13 @@
       .page-selector-text-container {
         position: relative;
         display: flex;
-        width: 100%;
+        width: 45%;
         flex-direction: column;
         justify-content: center;
+
+        @include small {
+          width: 100%;
+        }
 
         .page-selector-title,
         .page-selector-description {
@@ -111,7 +115,7 @@
 
         .page-selector-description {
           color: $noir-boise-400;
-          max-width: 15.5vw;
+          max-width: 80%;
 
           @include small {
             display: none;
