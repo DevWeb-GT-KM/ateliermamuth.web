@@ -72,10 +72,10 @@
 
     .sanity-image {
       height: 45vw;
-      border-radius: $borderRadiusImageDesktop;
+      // border-radius: $borderRadiusImageDesktop;
 
       @include small {
-        border-radius: $borderRadiusImageMobile;
+        // border-radius: $borderRadiusImageMobile;
         height: 720px;
       }
     }

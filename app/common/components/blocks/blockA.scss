@@ -85,10 +85,10 @@
       }
 
       .sanity-image {
-        border-radius: $borderRadiusImageDesktop;
+        // border-radius: $borderRadiusImageDesktop;
 
         @include small {
-          border-radius: $borderRadiusImageMobile;
+          // border-radius: $borderRadiusImageMobile;
         }
       }
     }
@@ -103,10 +103,10 @@
       }
 
       .sanity-image {
-        border-radius: $borderRadiusImageDesktop;
+        // border-radius: $borderRadiusImageDesktop;
 
         @include small {
-          border-radius: $borderRadiusImageMobile;
+          // border-radius: $borderRadiusImageMobile;
         }
       }
     }

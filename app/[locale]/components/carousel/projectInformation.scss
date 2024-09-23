@@ -1,7 +1,7 @@
 .home-page-carousel-project-info-container {
   flex: 1;
   position: absolute;
-  z-index: 2;
+  z-index: 999;
   background-color: $fondu-carroussel-description;
   backdrop-filter: blur(8px);
   border-radius: 1vw;
