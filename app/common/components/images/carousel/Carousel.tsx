@@ -128,7 +128,7 @@ export const Carousel: React.FC<CarouselProps> = ({
               </div>
 
               {loadedImages.map((image, index) => (
-                <div className="background-slide">
+                <div key={index} className="background-slide">
                   <SanityImageWrapper
                     sanityImage={image.img}
                     imageBuilderConfig={imageBuilderConfig}
