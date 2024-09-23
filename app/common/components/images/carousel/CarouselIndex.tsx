@@ -1,12 +1,11 @@
 "use client";
 
-import { SetStateAction } from "react";
 import _ from "lodash";
 
 type CarouselIndexProps = {
   carouselLength: number;
   activeIndex: number;
-  setActiveIndex: React.Dispatch<SetStateAction<number>>;
+  setActiveIndex: (index: number) => void;
 };
 
 export const CarouselIndex: React.FC<CarouselIndexProps> = ({
