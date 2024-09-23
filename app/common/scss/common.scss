@@ -21,6 +21,10 @@
   text-align: center;
   width: fit-content;
 
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+
   &:hover {
     color: $jaune-pyrite-50;
     background-color: $jaune-pyrite-700;
@@ -51,6 +55,10 @@
   text-align: center;
   width: fit-content;
 
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+
   &:hover {
     color: $noir-boise-700;
     background-color: $noir-boise-50;
@@ -78,6 +86,10 @@
     font-size: 14px;
     line-height: 12px;
   }
+
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 
   &:hover {
     color: $noir-boise-700;

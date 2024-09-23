@@ -34,16 +34,18 @@
     }
 
     .contact-page-information {
-      flex: 0 1 50%;
+      width: 55vw;
 
       @include small {
         margin-bottom: 80px;
+        width: 100%;
       }
 
       .contact-page-information-email,
       .contact-page-information-telephone {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         border-top: 1px solid $noir-boise-200;
         width: 80%;
 
@@ -116,7 +118,7 @@
     }
 
     .image {
-      flex: 0 1 40%;
+      flex: 0 1 30%;
     }
 
     .sanity-image-wrapper-container {

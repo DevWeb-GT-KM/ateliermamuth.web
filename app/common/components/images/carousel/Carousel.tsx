@@ -24,29 +24,40 @@ export const Carousel: React.FC<CarouselProps> = ({
 }) => {
   const MILLISECONDS_IMAGE_CHANGE = 8000;
 
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(1);
   const [loadedImages, setLoadedImages] = useState<any[]>([]);
   const [areImagesLoaded, setAreImagesLoaded] = useState(false);
-  const maxIndex = useMemo<number>(
-    () => loadedImages.length - 1,
-    [loadedImages.length]
-  );
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
 
-  const handleIndexChange = (nextIndex: number): number => {
-    if (nextIndex < 0) {
-      return maxIndex;
-    } else if (nextIndex > maxIndex) {
+  const [maxIndex, setMaxIndex] = useState<number>(0);
+
+  const handleIndexChange = (nextIndex: number) => {
+    if (nextIndex > maxIndex) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(1);
+      }, 1000);
+      return maxIndex + 1;
+    } else if (nextIndex < 1) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(maxIndex);
+      }, 1000);
       return 0;
-    } else {
-      return nextIndex;
     }
+    setIsTransitioning(true);
+    return nextIndex;
   };
 
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () =>
-      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex + 1)),
-    onSwipedRight: () =>
-      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex - 1)),
+    onSwipedLeft: () => {
+      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex + 1));
+      setIsTransitioning(true);
+    },
+    onSwipedRight: () => {
+      setCurrentIndex((prevIndex) => handleIndexChange(prevIndex - 1));
+      setIsTransitioning(true);
+    },
     preventScrollOnSwipe: true,
   });
 
@@ -84,32 +95,73 @@ export const Carousel: React.FC<CarouselProps> = ({
           },
         }));
         setLoadedImages(imagesWithBlob);
+        setMaxIndex(imagesWithBlob.length);
         setAreImagesLoaded(true);
       })
       .catch((error) => console.error("Error fetching image:", error));
   }, []);
 
+  const test2 = (index: number) => {
+    setIsTransitioning(true);
+    setCurrentIndex(index + 1);
+  };
   return (
     <>
       {areImagesLoaded ? (
-        maxIndex > 0 ? (
-          <div {...swipeHandlers} style={{ width: "100%" }}>
-            <SanityImageWrapper
-              sanityImage={loadedImages[currentIndex].img}
-              imageBuilderConfig={imageBuilderConfig}
+        loadedImages.length > 1 ? (
+          <div className="carousel-container">
+            <div
+              {...swipeHandlers}
+              className="background-slider"
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+                transition: isTransitioning
+                  ? "transform 1s ease-in-out"
+                  : "none",
+              }}
             >
-              <CarouselIndex
-                carouselLength={images.length}
-                activeIndex={currentIndex}
-                setActiveIndex={setCurrentIndex}
-              />
-            </SanityImageWrapper>
+              <div className="background-slide">
+                <SanityImageWrapper
+                  sanityImage={loadedImages[maxIndex - 1].img}
+                  imageBuilderConfig={imageBuilderConfig}
+                />
+              </div>
+
+              {loadedImages.map((image, index) => (
+                <div key={index} className="background-slide">
+                  <SanityImageWrapper
+                    sanityImage={image.img}
+                    imageBuilderConfig={imageBuilderConfig}
+                  />
+                </div>
+              ))}
+
+              <div className="background-slide">
+                <SanityImageWrapper
+                  sanityImage={loadedImages[0].img}
+                  imageBuilderConfig={imageBuilderConfig}
+                />
+              </div>
+            </div>
+            <CarouselIndex
+              carouselLength={images.length}
+              activeIndex={
+                currentIndex === 0
+                  ? images.length - 1
+                  : currentIndex === images.length + 1
+                    ? 0
+                    : currentIndex - 1
+              }
+              setActiveIndex={(newIndex) => test2(newIndex)}
+            />
           </div>
         ) : (
-          <SanityImageWrapper
-            sanityImage={loadedImages[0].img}
-            imageBuilderConfig={imageBuilderConfig}
-          />
+          <div className="static-image">
+            <SanityImageWrapper
+              sanityImage={loadedImages[0].img}
+              imageBuilderConfig={imageBuilderConfig}
+            />
+          </div>
         )
       ) : (
         <></>
