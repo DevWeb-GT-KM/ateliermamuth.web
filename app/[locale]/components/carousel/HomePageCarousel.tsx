@@ -3,7 +3,7 @@
 import "./homePageCarousel.scss";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import { isMobile } from "react-device-detect";
+import { isMobileOnly } from "react-device-detect";
 
 import { CarouselIndex } from "@/common/components/images/carousel/CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
@@ -72,12 +72,12 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
     const promises = data[0].carousel.map((image: any) => {
       return fetch(
         getImageSource(
-          isMobile ? image.mainImageMobile : image.mainImage,
+          isMobileOnly ? image.mainImageMobile : image.mainImage,
           builder,
           {
             size: {
-              width: isMobile ? 1080 : 2560,
-              height: isMobile ? 1920 : 1440,
+              width: isMobileOnly ? 1080 : 2560,
+              height: isMobileOnly ? 1920 : 1440,
             },
             quality: 90,
             format: SANITY_IMAGE_FORMAT.Jpg,

@@ -21,18 +21,23 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
           <p className="footer-info-description">
             {data[0].aboutUs.shortDescription}
           </p>
-          <a href={`mailto:${data[0].email}`} className="footer-info-email">
-            {data[0].email}
-          </a>
-          <Image
-            className="footer-info-apdiq-logo"
-            src={builder.image(data[0].apdiqLogo.asset.url).quality(100).url()}
-            alt="Logo de l'association professionnelle des designers d'intérieur du Québec"
-            width={0}
-            height={0}
-            quality={100}
-            unoptimized
-          />
+          <div className="email-and-logo-container">
+            <a href={`mailto:${data[0].email}`} className="footer-info-email">
+              {data[0].email}
+            </a>
+            <Image
+              className="footer-info-apdiq-logo"
+              src={builder
+                .image(data[0].apdiqLogo.asset.url)
+                .quality(100)
+                .url()}
+              alt="Logo de l'association professionnelle des designers d'intérieur du Québec."
+              width={0}
+              height={0}
+              quality={100}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="footer-links">
           <div className="footer-links-column">
