@@ -11,6 +11,11 @@
     display: flex;
     width: 100%;
     height: 100%;
+    border-radius: $borderRadiusImageDesktop;
+
+    @include small {
+      border-radius: $borderRadiusImageMobile;
+    }
   }
 
   .background-slide {
@@ -59,10 +64,10 @@
 .static-image {
   .sanity-image-wrapper-container {
     .sanity-image {
-      border-radius: $borderRadiusImageDesktop !important;
+      border-radius: $borderRadiusImageDesktop;
 
       @include small {
-        border-radius: $borderRadiusImageMobile !important;
+        border-radius: $borderRadiusImageMobile;
       }
     }
   }

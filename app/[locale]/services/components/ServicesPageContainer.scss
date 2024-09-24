@@ -40,13 +40,11 @@
     background-image: url("../../../common/assets/images/servicesPage/shapesDesktop.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    animation: zoomServices 70s infinite;
 
     @include small {
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
       background-image: url("../../../common/assets/images/servicesPage/shapesMobile.svg");
-      animation: zoomMobileServices 60s infinite;
     }
 
     .services-page-header-title {
