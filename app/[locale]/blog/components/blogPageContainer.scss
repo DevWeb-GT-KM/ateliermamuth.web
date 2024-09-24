@@ -42,14 +42,14 @@
     background-image: url("../../../common/assets/images/blogPage/desktopShapes.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    animation: zoomBlog 90s infinite;
+    // animation: zoomBlog 90s infinite;
 
     @include small {
       background-size: 370%;
       background-position-x: -200px;
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
-      animation: zoomMobileBlog 80s infinite;
+      // animation: zoomMobileBlog 80s infinite;
     }
 
     .blog-page-title {

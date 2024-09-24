@@ -42,14 +42,12 @@
     background-size: 120%;
     background-position-x: 0px;
     background-repeat: no-repeat;
-    animation: zoomAboutUs 90s infinite;
 
     @include small {
       background-size: 370%;
       background-position-x: -300px;
       height: 170vw;
       margin: 0px -$sidePaddingMobile;
-      animation: zoomMobileAboutUs 80s infinite;
     }
 
     .about-us-page-title {
