@@ -66,13 +66,11 @@
     background-size: 100%;
     background-position-y: -8vw;
     background-repeat: no-repeat;
-    animation: zoomHomePageCarousel 100s infinite;
 
     @include small {
       background-image: url("../../../common/assets/images/homePage/carousel/mobileShapes.svg");
       background-position-x: -12vh;
-      background-size: 71vh;
-      animation: zoomMobileHomePageCarousel 40s infinite;
+      background-size: 70vh;
     }
   }
 
