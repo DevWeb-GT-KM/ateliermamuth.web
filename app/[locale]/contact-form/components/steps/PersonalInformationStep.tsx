@@ -32,13 +32,15 @@ export const PersonalInformationStep: React.FC<
       <form onSubmit={useFormMethods.handleSubmit(onSubmit)}>
         <StepWrapper title={title}>
           <div className="contact-form-personal-information-step-inputs">
-            <FormTextInput property="pronoun" placeholder={pronounLabel} />
-            <FormTextInput
-              property="name"
-              placeholder={nameLabel}
-              required
-              requiredMessage={contactFormContext.textErrors.required}
-            />
+            <div className="row">
+              <FormTextInput property="pronoun" placeholder={pronounLabel} />
+              <FormTextInput
+                property="name"
+                placeholder={nameLabel}
+                required
+                requiredMessage={contactFormContext.textErrors.required}
+              />
+            </div>
           </div>
         </StepWrapper>
       </form>

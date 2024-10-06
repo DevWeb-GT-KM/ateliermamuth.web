@@ -4,6 +4,7 @@ export type ContactForm = {
   pronoun: string;
   name: string;
   email: string;
+  projectAddress: string;
   phoneNumber: string;
   projectType: string;
   projectNature: string;
