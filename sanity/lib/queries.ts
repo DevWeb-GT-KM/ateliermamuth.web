@@ -200,6 +200,7 @@ export const CONTACT_FORM_PAGE_QUERY = groq`*[_type == "contactForm" && language
   nameLabel,
   contactInformationTitle,
   emailLabel,
+  projectAddressLabel,
   phoneNumberLabel,
   projectTypeTitle,
   projectTypeSubtitle,

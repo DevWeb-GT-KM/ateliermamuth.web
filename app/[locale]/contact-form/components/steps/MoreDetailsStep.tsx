@@ -35,6 +35,7 @@ export const MoreDetailsStep: React.FC<MoreDetailsStepProps> = ({
         pronoun: contactFormContext.state.pronoun,
         name: contactFormContext.state.name,
         email: contactFormContext.state.email,
+        projectAddress: contactFormContext.state.projectAddress,
         phoneNumber: contactFormContext.state.phoneNumber,
         projectType: contactFormContext.state.projectType,
         projectNature: contactFormContext.state.projectNature,

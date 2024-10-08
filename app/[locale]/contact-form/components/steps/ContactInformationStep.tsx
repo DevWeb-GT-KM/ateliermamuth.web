@@ -11,6 +11,7 @@ import {
 type ContactInformationStepProps = {
   title: string;
   emailLabel: string;
+  projectAddressLabel: string;
   phoneNumberLabel: string;
 };
 
@@ -18,6 +19,7 @@ export const ContactInformationStep: React.FC<ContactInformationStepProps> = ({
   title,
   emailLabel,
   phoneNumberLabel,
+  projectAddressLabel,
 }) => {
   const contactFormContext = useContext(ContactFormContext);
 
@@ -28,7 +30,11 @@ export const ContactInformationStep: React.FC<ContactInformationStepProps> = ({
     },
   });
 
-  const onSubmit = (data: { email: string; phoneNumber: string }) => {
+  const onSubmit = (data: {
+    email: string;
+    phoneNumber: string;
+    projectAddress: string;
+  }) => {
     contactFormContext.updateState(data);
     contactFormContext.updateCurrentStep(1);
   };
@@ -37,29 +43,40 @@ export const ContactInformationStep: React.FC<ContactInformationStepProps> = ({
     contactFormContext.updateState(useFormMethods.getValues());
     contactFormContext.updateCurrentStep(-1);
   };
+
   return (
     <FormProvider {...useFormMethods}>
       <form onSubmit={useFormMethods.handleSubmit(onSubmit)}>
         <StepWrapper title={title} previousStep={onPreviousStep}>
           <div className="contact-form-contact-information-step-inputs">
-            <FormTextInput
-              property="email"
-              placeholder={emailLabel}
-              validations={newEmailValidation(
-                contactFormContext.textErrors.emailInvalid
-              )}
-              required
-              requiredMessage={contactFormContext.textErrors.required}
-            />
-            <FormTextInput
-              property="phoneNumber"
-              placeholder={phoneNumberLabel}
-              validations={newPhoneNumberValidation(
-                contactFormContext.textErrors.phoneNumberInvalid
-              )}
-              required
-              requiredMessage={contactFormContext.textErrors.required}
-            />
+            <div className="row">
+              <FormTextInput
+                property="email"
+                placeholder={emailLabel}
+                validations={newEmailValidation(
+                  contactFormContext.textErrors.emailInvalid
+                )}
+                required
+                requiredMessage={contactFormContext.textErrors.required}
+              />
+              <FormTextInput
+                property="phoneNumber"
+                placeholder={phoneNumberLabel}
+                validations={newPhoneNumberValidation(
+                  contactFormContext.textErrors.phoneNumberInvalid
+                )}
+                required
+                requiredMessage={contactFormContext.textErrors.required}
+              />
+            </div>
+            <div className="project-address-row">
+              <FormTextInput
+                property="projectAddress"
+                placeholder={projectAddressLabel}
+                required
+                requiredMessage={contactFormContext.textErrors.required}
+              />
+            </div>
           </div>
         </StepWrapper>
       </form>

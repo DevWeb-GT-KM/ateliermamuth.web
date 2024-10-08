@@ -44,6 +44,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ data }) => {
         key={2}
         title={data.contactInformationTitle}
         emailLabel={data.emailLabel}
+        projectAddressLabel={data.projectAddressLabel}
         phoneNumberLabel={data.phoneNumberLabel}
       />,
       <ProjectTypeStep
