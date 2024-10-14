@@ -40,6 +40,12 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
+      name: "projectAddressLabel",
+      title: "Adresse du projet étiquette",
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
       name: "phoneNumberLabel",
       title: "Numéro de téléphone étiquette",
       type: "string",

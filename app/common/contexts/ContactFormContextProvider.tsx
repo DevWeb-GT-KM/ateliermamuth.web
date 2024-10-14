@@ -17,6 +17,7 @@ export const ContactFormContextProvider: FunctionComponent<
     pronoun: "",
     name: "",
     email: "",
+    projectAddress: "",
     phoneNumber: "",
     projectType: "",
     projectNature: "",
