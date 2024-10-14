@@ -23,7 +23,11 @@ export const ContactInformationStep: React.FC<ContactInformationStepProps> = ({
 }) => {
   const contactFormContext = useContext(ContactFormContext);
 
-  const useFormMethods = useForm<{ email: string; phoneNumber: string }>({
+  const useFormMethods = useForm<{
+    email: string;
+    phoneNumber: string;
+    projectAddress: string;
+  }>({
     defaultValues: {
       email: contactFormContext.state.email,
       phoneNumber: contactFormContext.state.phoneNumber,
