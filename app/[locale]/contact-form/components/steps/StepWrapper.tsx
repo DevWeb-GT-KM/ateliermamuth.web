@@ -20,7 +20,9 @@ export const StepWrapper: React.FC<StepWrapperProps> = ({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
+      const target = event.target as HTMLElement;
+
+      if (event.key === "Enter" && target.tagName !== "TEXTAREA") {
         event.preventDefault(); // Prevent default form submission
         if (nextButtonRef.current) {
           nextButtonRef.current.click(); // Trigger the next button click

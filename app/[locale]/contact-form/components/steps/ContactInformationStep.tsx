@@ -31,6 +31,7 @@ export const ContactInformationStep: React.FC<ContactInformationStepProps> = ({
     defaultValues: {
       email: contactFormContext.state.email,
       phoneNumber: contactFormContext.state.phoneNumber,
+      projectAddress: contactFormContext.state.projectAddress,
     },
   });
 
