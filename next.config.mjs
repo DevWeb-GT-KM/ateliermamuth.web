@@ -22,8 +22,8 @@ const nextConfig = {
   },
   sassOptions: {
     additionalData: `
-      @import "${join(__dirname, "app/common/scss/variables").replace(/\\/g, "/")}";
-      @import "${join(__dirname, "app/common/scss/common").replace(/\\/g, "/")}";
+      @use "${join(__dirname, "app/common/scss/variables").replace(/\\/g, "/")}" as *;
+      @use "${join(__dirname, "app/common/scss/common").replace(/\\/g, "/")}" as *;
     `,
   },
   // async redirects() {
