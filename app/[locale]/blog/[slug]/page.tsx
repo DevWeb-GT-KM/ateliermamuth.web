@@ -1,5 +1,5 @@
 import { QueryParams, SanityDocument } from "next-sanity";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 
@@ -14,20 +14,23 @@ import { loadQuery } from "@/../sanity/lib/store";
 import { ArticlePageContainerPreview } from "./components/ArticlePageContainerPreview";
 import { ArticlePageContainer } from "./components/ArticlePageContainer";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<QueryParams> }) {
+  const resolvedParams = await params;
+  const { isEnabled } = await draftMode();
+
   const blogPageMetadata = await loadQuery<SanityDocument>(
     BLOG_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
   const currentArticleMetadata = await loadQuery<SanityDocument>(
     ARTICLE_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
@@ -44,32 +47,34 @@ export async function generateStaticParams({
 }) {
   const localizedArticles = await client.fetch<SanityDocument[]>(
     ARTICLES_QUERY_BY_LANG,
-    { locale: locale }
+    { locale }
   );
 
   return localizedArticles.map((article: any) => ({
-    locale: locale,
+    locale,
     slug: article.slug.current,
   }));
 }
 
 type ArticlePageProps = {
-  params: QueryParams;
+  params: Promise<QueryParams>;
 };
 
 const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
-  unstable_setRequestLocale(params.locale);
+  const resolvedParams = await params;
+  setRequestLocale(resolvedParams.locale);
 
+  const { isEnabled } = await draftMode();
   const initial = await loadQuery<SanityDocument>(
     ARTICLE_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
-  return draftMode().isEnabled ? (
-    <ArticlePageContainerPreview initial={initial} params={params} />
+  return isEnabled ? (
+    <ArticlePageContainerPreview initial={initial} params={resolvedParams} />
   ) : (
     <ArticlePageContainer article={initial.data} />
   );

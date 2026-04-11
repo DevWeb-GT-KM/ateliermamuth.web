@@ -3,7 +3,7 @@
 import "./carousel.scss";
 import { useEffect, useMemo, useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 
 import { CarouselIndex } from "./CarouselIndex";
 import { SanityImageWrapper } from "../SanityImageWrapper";
@@ -11,17 +11,14 @@ import { SanityImageBuilderConfig } from "../sanityImageBuilderConfig";
 import { client } from "@/../sanity/lib/client";
 import { getImageSource } from "@/common/helpers/ImageHelper";
 
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 
 type CarouselProps = {
   images: any[];
   imageBuilderConfig: SanityImageBuilderConfig;
 };
 
-export const Carousel: React.FC<CarouselProps> = ({
-  images,
-  imageBuilderConfig,
-}) => {
+export const Carousel: React.FC<CarouselProps> = ({ images, imageBuilderConfig }) => {
   const MILLISECONDS_IMAGE_CHANGE = 8000;
 
   const [currentIndex, setCurrentIndex] = useState<number>(1);
@@ -115,9 +112,7 @@ export const Carousel: React.FC<CarouselProps> = ({
               className="background-slider"
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
-                transition: isTransitioning
-                  ? "transform 1s ease-in-out"
-                  : "none",
+                transition: isTransitioning ? "transform 1s ease-in-out" : "none",
               }}
             >
               <div className="background-slide">
@@ -129,38 +124,25 @@ export const Carousel: React.FC<CarouselProps> = ({
 
               {loadedImages.map((image, index) => (
                 <div key={index} className="background-slide">
-                  <SanityImageWrapper
-                    sanityImage={image.img}
-                    imageBuilderConfig={imageBuilderConfig}
-                  />
+                  <SanityImageWrapper sanityImage={image.img} imageBuilderConfig={imageBuilderConfig} />
                 </div>
               ))}
 
               <div className="background-slide">
-                <SanityImageWrapper
-                  sanityImage={loadedImages[0].img}
-                  imageBuilderConfig={imageBuilderConfig}
-                />
+                <SanityImageWrapper sanityImage={loadedImages[0].img} imageBuilderConfig={imageBuilderConfig} />
               </div>
             </div>
             <CarouselIndex
               carouselLength={images.length}
               activeIndex={
-                currentIndex === 0
-                  ? images.length - 1
-                  : currentIndex === images.length + 1
-                    ? 0
-                    : currentIndex - 1
+                currentIndex === 0 ? images.length - 1 : currentIndex === images.length + 1 ? 0 : currentIndex - 1
               }
               setActiveIndex={(newIndex) => test2(newIndex)}
             />
           </div>
         ) : (
           <div className="static-image">
-            <SanityImageWrapper
-              sanityImage={loadedImages[0].img}
-              imageBuilderConfig={imageBuilderConfig}
-            />
+            <SanityImageWrapper sanityImage={loadedImages[0].img} imageBuilderConfig={imageBuilderConfig} />
           </div>
         )
       ) : (

@@ -8,11 +8,11 @@ import { isMobileOnly } from "react-device-detect";
 import { CarouselIndex } from "@/common/components/images/carousel/CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
 import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 import { client } from "../../../../sanity/lib/client";
 import { getImageSource } from "@/common/helpers/ImageHelper";
 
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 
 type CarouselProps = {
   data: any[];
@@ -71,26 +71,20 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
   useEffect(() => {
     const promises = data[0].carousel.map((image: any) => {
       return fetch(
-        getImageSource(
-          isMobileOnly ? image.mainImageMobile : image.mainImage,
-          builder,
-          {
-            size: {
-              width: isMobileOnly ? 1080 : 2560,
-              height: isMobileOnly ? 1920 : 1440,
-            },
-            quality: 90,
-            format: SANITY_IMAGE_FORMAT.Jpg,
-          }
-        ),
+        getImageSource(isMobileOnly ? image.mainImageMobile : image.mainImage, builder, {
+          size: {
+            width: isMobileOnly ? 1080 : 2560,
+            height: isMobileOnly ? 1920 : 1440,
+          },
+          quality: 90,
+          format: SANITY_IMAGE_FORMAT.Jpg,
+        }),
         { cache: "force-cache" }
       );
     });
 
     Promise.all(promises)
-      .then((responses) =>
-        Promise.all(responses.map((response) => response.blob()))
-      )
+      .then((responses) => Promise.all(responses.map((response) => response.blob())))
       .then((blobs) => {
         const imageUrls = blobs.map((blob) => URL.createObjectURL(blob));
         setImages(imageUrls);
@@ -138,32 +132,16 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
             ></div>
 
             {images.map((image, index) => (
-              <div
-                key={index}
-                className="background-slide"
-                style={{ backgroundImage: `url(${image})` }}
-              ></div>
+              <div key={index} className="background-slide" style={{ backgroundImage: `url(${image})` }}></div>
             ))}
 
-            <div
-              className="background-slide"
-              style={{ backgroundImage: `url(${images[0]})` }}
-            ></div>
+            <div className="background-slide" style={{ backgroundImage: `url(${images[0]})` }}></div>
           </div>
 
-          <ProjectInformation
-            data={data}
-            currentIndex={getInformationIndex()}
-          />
+          <ProjectInformation data={data} currentIndex={getInformationIndex()} />
           <CarouselIndex
             carouselLength={maxIndex}
-            activeIndex={
-              currentIndex === 0
-                ? maxIndex - 1
-                : currentIndex === maxIndex + 1
-                  ? 0
-                  : currentIndex - 1
-            }
+            activeIndex={currentIndex === 0 ? maxIndex - 1 : currentIndex === maxIndex + 1 ? 0 : currentIndex - 1}
             setActiveIndex={(newIndex) => changeIndexWithDot(newIndex)}
           />
         </section>
