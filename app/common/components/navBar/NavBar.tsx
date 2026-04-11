@@ -40,47 +40,26 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
 
   return (
     <nav
-      className={`nav-bar-container ${
-        lastScrollY > NAV_BAR_BREAK_POINT && showNavBar ? "" : "nav-bar-top"
-      }`}
+      className={`nav-bar-container ${lastScrollY > NAV_BAR_BREAK_POINT && showNavBar ? "" : "nav-bar-top"}`}
       style={{
         top: showNavBar ? 0 : -100,
       }}
     >
-      <Link
-        className="nav-bar-logo-link"
-        href={{ pathname: "/" }}
-        onClick={() => setShowMobileMenu(false)}
-      />
+      <Link className="nav-bar-logo-link" href={{ pathname: "/" }} onClick={() => setShowMobileMenu(false)} />
       <div className="nav-bar-links-desktop">
-        <Link
-          className="nav-bar-link nav-bar-link-services"
-          href={{ pathname: "/services" }}
-        >
+        <Link className="nav-bar-link nav-bar-link-services" href={{ pathname: "/services" }}>
           {data[0].servicesLink}
         </Link>
-        <Link
-          className="nav-bar-link nav-bar-link-projects"
-          href={{ pathname: "/projects" }}
-        >
+        <Link className="nav-bar-link nav-bar-link-projects" href={{ pathname: "/projects" }}>
           {data[0].projectsLink}
         </Link>
-        <Link
-          className="nav-bar-link nav-bar-link-about-us"
-          href={{ pathname: "/about-us" }}
-        >
+        <Link className="nav-bar-link nav-bar-link-about-us" href={{ pathname: "/about-us" }}>
           {data[0].aboutUsLink}
         </Link>
-        <Link
-          className="nav-bar-link nav-bar-link-blog"
-          href={{ pathname: "/blog" }}
-        >
+        <Link className="nav-bar-link nav-bar-link-blog" href={{ pathname: "/blog" }}>
           {data[0].blogLink}
         </Link>
-        <Link
-          className="nav-bar-link nav-bar-contact-us"
-          href={{ pathname: "/contact" }}
-        >
+        <Link className="nav-bar-link nav-bar-contact-us" href={{ pathname: "/contact" }}>
           {data[0].contactUs}
         </Link>
       </div>
@@ -96,10 +75,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
             onClick={() => setShowMobileMenu(false)}
           />
         ) : (
-          <div
-            onClick={() => setShowMobileMenu(true)}
-            className="nav-bar-mobile-menu-open-btn"
-          />
+          <div onClick={() => setShowMobileMenu(true)} className="nav-bar-mobile-menu-open-btn" />
         )}
       </div>
       {showMobileMenu && (

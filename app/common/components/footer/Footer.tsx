@@ -2,7 +2,7 @@ import "./footer.scss";
 
 import Image from "next/image";
 import { client } from "@/../sanity/lib/client";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 import { Link } from "@/../navigation";
 import logo from "../../assets/images/footer/logoVector/mamuthLogo.svg";
 import { CookiePreferencesText } from "./CookiePreferenceText";
@@ -12,25 +12,20 @@ type FooterProps = {
 };
 
 export const Footer: React.FC<FooterProps> = ({ data }) => {
-  const builder = imageUrlBuilder(client);
+  const builder = createImageUrlBuilder(client);
 
   return (
     <div className="footer-container">
       <div className="footer-top">
         <div className="footer-info">
-          <p className="footer-info-description">
-            {data[0].aboutUs.shortDescription}
-          </p>
+          <p className="footer-info-description">{data[0].aboutUs.shortDescription}</p>
           <div className="email-and-logo-container">
             <a href={`mailto:${data[0].email}`} className="footer-info-email">
               {data[0].email}
             </a>
             <Image
               className="footer-info-apdiq-logo"
-              src={builder
-                .image(data[0].apdiqLogo.asset.url)
-                .quality(100)
-                .url()}
+              src={builder.image(data[0].apdiqLogo.asset.url).quality(100).url()}
               alt="Logo de l'association professionnelle des designers d'intérieur du Québec."
               width={0}
               height={0}
@@ -78,10 +73,7 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
             <Link className="footer-link" href={{ pathname: "/faq" }}>
               {data[0].faq.pageTitle}
             </Link>
-            <div
-              style={{ display: "flex", flexDirection: "row", marginTop: 0 }}
-              className="footer-link"
-            >
+            <div style={{ display: "flex", flexDirection: "row", marginTop: 0 }} className="footer-link">
               {data[0].socialMedias.map((socialMedia: any, index: number) => {
                 return (
                   <Link

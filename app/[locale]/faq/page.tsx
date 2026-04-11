@@ -1,5 +1,5 @@
 import { QueryParams, SanityDocument } from "next-sanity";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { loadQuery } from "@/../sanity/lib/store";
 import { draftMode } from "next/headers";
 import {
@@ -9,12 +9,14 @@ import {
 import { FaqPageContainer } from "./components/FaqPageContainer";
 import { FaqPageContainerPreview } from "./components/FaqPageContainerPreview";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<QueryParams> }) {
+  const resolvedParams = await params;
+  const { isEnabled } = await draftMode();
   const initial = await loadQuery<SanityDocument>(
     FAQ_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
@@ -25,18 +27,20 @@ export async function generateMetadata({ params }: any) {
 }
 
 type FaqPageProps = {
-  params: QueryParams;
+  params: Promise<QueryParams>;
 };
 
 const FaqPage: React.FC<FaqPageProps> = async ({ params }) => {
-  unstable_setRequestLocale(params.locale);
+  const resolvedParams = await params;
+  setRequestLocale(resolvedParams.locale);
 
-  const initial = await loadQuery<SanityDocument>(FAQ_PAGE_QUERY, params, {
-    perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+  const { isEnabled } = await draftMode();
+  const initial = await loadQuery<SanityDocument>(FAQ_PAGE_QUERY, resolvedParams, {
+    perspective: isEnabled ? "previewDrafts" : "published",
   });
 
-  return draftMode().isEnabled ? (
-    <FaqPageContainerPreview initial={initial} params={params} />
+  return isEnabled ? (
+    <FaqPageContainerPreview initial={initial} params={resolvedParams} />
   ) : (
     <FaqPageContainer data={initial.data[0]} />
   );

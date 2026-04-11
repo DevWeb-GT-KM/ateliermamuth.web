@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 import createNextIntlPlugin from "next-intl/plugin";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const nextConfig = {
   images: {
@@ -10,14 +15,15 @@ const nextConfig = {
         hostname: "cdn.sanity.io",
       },
     ],
+    qualities: [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100],
   },
   experimental: {
     taint: true,
   },
   sassOptions: {
     additionalData: `
-      @import "./app/common/scss/variables";
-      @import "./app/common/scss/common";
+      @use "${join(__dirname, "app/common/scss/variables").replace(/\\/g, "/")}" as *;
+      @use "${join(__dirname, "app/common/scss/common").replace(/\\/g, "/")}" as *;
     `,
   },
   // async redirects() {

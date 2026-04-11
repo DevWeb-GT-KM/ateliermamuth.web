@@ -1,13 +1,13 @@
 import "./sanityImageWrapper.scss";
 
 import Image from "next/image";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 
 import { client } from "@/../sanity/lib/client";
 import { SanityImageBuilderConfig } from "./sanityImageBuilderConfig";
 import { getImageSource } from "@/common/helpers/ImageHelper";
 
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 
 type SanityImageWrapperProps = {
   sanityImage: any;
@@ -28,13 +28,10 @@ export const SanityImageWrapper: React.FC<SanityImageWrapperProps> = ({
         <>
           <Image
             className={`sanity-image ${effectOnHover ? "sanity-image-hover-effect" : ""}`}
-            src={
-              sanityImage?.blob ??
-              getImageSource(sanityImage, builder, imageBuilderConfig)
-            }
+            src={sanityImage?.blob ?? getImageSource(sanityImage, builder, imageBuilderConfig)}
             placeholder={sanityImage?.asset?.metadata?.lqip ? "blur" : "empty"}
             blurDataURL={sanityImage?.asset?.metadata?.lqip}
-            alt={sanityImage?.alt}
+            alt={sanityImage?.alt || " "}
             width={imageBuilderConfig.size.width}
             height={imageBuilderConfig.size.height}
             quality={imageBuilderConfig.quality}

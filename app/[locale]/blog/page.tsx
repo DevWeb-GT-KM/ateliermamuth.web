@@ -1,5 +1,5 @@
 import { QueryParams, SanityDocument } from "next-sanity";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { loadQuery } from "@/../sanity/lib/store";
 import {
   BLOG_PAGE_METADATA_QUERY_BY_LANG,
@@ -9,12 +9,14 @@ import { draftMode } from "next/headers";
 import { BlogPageContainerPreview } from "./components/BlogPageContainerPreview";
 import { BlogPageContainer } from "./components/BlogPageContainer";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<QueryParams> }) {
+  const resolvedParams = await params;
+  const { isEnabled } = await draftMode();
   const initial = await loadQuery<SanityDocument>(
     BLOG_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
@@ -25,18 +27,20 @@ export async function generateMetadata({ params }: any) {
 }
 
 type BlogPageProps = {
-  params: QueryParams;
+  params: Promise<QueryParams>;
 };
 
 const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
-  unstable_setRequestLocale(params.locale);
+  const resolvedParams = await params;
+  setRequestLocale(resolvedParams.locale);
 
-  const initial = await loadQuery<SanityDocument>(BLOG_QUERY_BY_LANG, params, {
-    perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+  const { isEnabled } = await draftMode();
+  const initial = await loadQuery<SanityDocument>(BLOG_QUERY_BY_LANG, resolvedParams, {
+    perspective: isEnabled ? "previewDrafts" : "published",
   });
 
-  return draftMode().isEnabled ? (
-    <BlogPageContainerPreview initial={initial} params={params} />
+  return isEnabled ? (
+    <BlogPageContainerPreview initial={initial} params={resolvedParams} />
   ) : (
     <BlogPageContainer data={initial.data} />
   );
