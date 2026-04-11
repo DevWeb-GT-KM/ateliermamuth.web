@@ -1,13 +1,4 @@
-:has(.service-page-design-interieur-container) {
-  body {
-    background: rgba(229, 229, 255, 0.5);
-  }
-  .footer-container {
-    background-color: $lavande-500;
-  }
-}
-
-:has(.service-page-architecture-residentielle-container) {
+:has(.service-page-default-container, .service-page-architecture-residentielle-container) {
   body {
     background-color: #eef6f0;
   }
@@ -17,7 +8,16 @@
   }
 }
 
-:has(.service-page-e-design-container) {
+:has(.service-page-design-interieur-container) {
+  body {
+    background: rgba(229, 229, 255, 0.5);
+  }
+  .footer-container {
+    background-color: $lavande-500;
+  }
+}
+
+:has(.service-page-design-interieur-commercial-container) {
   body {
     background-color: #e5f1ff;
   }

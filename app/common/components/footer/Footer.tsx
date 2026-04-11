@@ -23,15 +23,17 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
             <a href={`mailto:${data[0].email}`} className="footer-info-email">
               {data[0].email}
             </a>
-            <Image
-              className="footer-info-apdiq-logo"
-              src={builder.image(data[0].apdiqLogo.asset.url).quality(100).url()}
-              alt="Logo de l'association professionnelle des designers d'intérieur du Québec."
-              width={0}
-              height={0}
-              quality={100}
-              unoptimized
-            />
+            <a href="https://www.apdiq.com/fr/a-propos-de-apdiq" target="_blank" rel="noopener noreferrer">
+              <Image
+                className="footer-info-apdiq-logo"
+                src={builder.image(data[0].apdiqLogo.asset.url).quality(100).url()}
+                alt="Logo de l'association professionnelle des designers d'intérieur du Québec."
+                width={0}
+                height={0}
+                quality={100}
+                unoptimized
+              />
+            </a>
           </div>
         </div>
         <div className="footer-links">
