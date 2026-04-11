@@ -7,7 +7,7 @@
 
     @include small {
       height: 50vh;
-      margin: 0px -$sidePaddingMobile;
+      margin: 0 (-$sidePaddingMobile);
     }
 
     .contact-page-title {

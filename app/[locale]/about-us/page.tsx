@@ -1,5 +1,5 @@
 import { QueryParams, SanityDocument } from "next-sanity";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { draftMode } from "next/headers";
 
 import { loadQuery } from "@/../sanity/lib/store";
@@ -10,12 +10,14 @@ import {
 } from "@/../sanity/lib/queries";
 import { AboutUsPageContainerPreview } from "./components/AboutPageContainerPreview";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<QueryParams> }) {
+  const resolvedParams = await params;
+  const { isEnabled } = await draftMode();
   const initial = await loadQuery<SanityDocument>(
     ABOUT_US_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
@@ -26,23 +28,24 @@ export async function generateMetadata({ params }: any) {
 }
 
 type AboutUsPageProps = {
-  params: QueryParams;
+  params: Promise<QueryParams>;
 };
 
 const AboutUsPage: React.FC<AboutUsPageProps> = async ({ params }) => {
-  unstable_setRequestLocale(params.locale);
+  const resolvedParams = await params;
+  setRequestLocale(resolvedParams.locale);
 
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const initial = await loadQuery<SanityDocument>(
     ABOUT_US_PAGE_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
       perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
   return isEnabled ? (
-    <AboutUsPageContainerPreview initial={initial} params={params} />
+    <AboutUsPageContainerPreview initial={initial} params={resolvedParams} />
   ) : (
     <AboutUsPageContainer data={initial.data} />
   );

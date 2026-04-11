@@ -7,7 +7,7 @@
 
     @include small {
       height: 170vw;
-      margin: 0px -$sidePaddingMobile;
+      margin: 0 (-$sidePaddingMobile);
     }
 
     .projects-page-title {

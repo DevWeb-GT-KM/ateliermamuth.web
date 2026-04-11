@@ -43,7 +43,7 @@
 
     @include small {
       height: 170vw;
-      margin: 0px -$sidePaddingMobile;
+      margin: 0 (-$sidePaddingMobile);
       background-image: url("../../../common/assets/images/servicesPage/shapesMobile.svg");
     }
 

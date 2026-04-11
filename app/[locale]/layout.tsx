@@ -4,7 +4,8 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { QueryParams, SanityDocument } from "next-sanity";
 import { draftMode } from "next/headers";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 
 import { FRENCH_LOCALE } from "@/../navigation";
 import favIcon from "../common/assets/favicon.ico";
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: React.ReactNode;
-  params: QueryParams;
+  params: Promise<QueryParams>;
 };
 
 export async function generateStaticParams() {
@@ -60,21 +61,24 @@ export async function generateStaticParams() {
 }
 
 const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
-  unstable_setRequestLocale(params.locale);
+  const resolvedParams = await params;
+  setRequestLocale(resolvedParams.locale);
+
+  const { isEnabled } = await draftMode();
 
   const footerData = await loadQuery<SanityDocument[]>(
     FOOTER_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
   const navBarData = await loadQuery<SanityDocument[]>(
     NAV_BAR_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
@@ -82,7 +86,7 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
     <PageOverlayProvider>
       <ServicesContextProvider>
         <CookiesConsentContextProvider>
-          <html lang={params.locale}>
+          <html lang={resolvedParams.locale}>
             <head>
               <meta
                 name="google-site-verification"
@@ -92,18 +96,20 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params }) => {
             <body
               className={`${saansTrial.variable} ${centuryOldStyleStd.variable}`}
             >
-              <PageOverlay />
-              <header>
-                <NavBar data={navBarData.data} />
-              </header>
-              <main>
-                {children}
-                <CookiesConsent />
-              </main>
-              <footer>
-                <Footer data={footerData.data} />
-              </footer>
-              {draftMode().isEnabled && <LiveVisualEditing />}
+              <NextIntlClientProvider locale={resolvedParams.locale}>
+                <PageOverlay />
+                <header>
+                  <NavBar data={navBarData.data} />
+                </header>
+                <main>
+                  {children}
+                  <CookiesConsent />
+                </main>
+                <footer>
+                  <Footer data={footerData.data} />
+                </footer>
+                {isEnabled && <LiveVisualEditing />}
+              </NextIntlClientProvider>
             </body>
           </html>
         </CookiesConsentContextProvider>
