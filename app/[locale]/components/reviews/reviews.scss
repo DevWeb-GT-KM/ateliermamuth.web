@@ -1,0 +1,111 @@
+.home-page-reviews-container {
+  // Break out of main's side margins to go full-width
+  margin: 5vw (-$sidePaddingDesktop) 20vw;
+
+  @include small {
+    margin: 40px (-$sidePaddingMobile) 120px;
+  }
+
+  .home-page-reviews-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vw;
+
+    @include small {
+      margin-bottom: 40px;
+    }
+
+    .home-page-reviews-title {
+      color: $noir-boise-700;
+      font-family: $saansTrial;
+      font-size: 3.5vw;
+      line-height: 3.5vw;
+      font-style: normal;
+      font-weight: 400;
+
+      @include small {
+        font-size: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+
+  // Track wrapper: full-width, clips overflow
+  .home-page-reviews-track-wrapper {
+    overflow: hidden;
+    padding: 1vw 0 2vw;
+
+    // Desktop: card 46vw, gap 4vw → side cards ~50% visible
+    --card-width: 46vw;
+    --card-height: 22vw;
+    --gap: 4vw;
+    --card-slot: calc(var(--card-width) + var(--gap));
+    --offset: calc(50vw - var(--card-width) / 2);
+
+    @include medium {
+      padding: 8px 0 16px;
+      --card-width: 65vw;
+      --card-height: auto;
+      --gap: 4vw;
+    }
+
+    @include small {
+      --card-width: 75vw;
+      --card-height: auto;
+      --gap: 4vw;
+    }
+  }
+
+  .home-page-reviews-track {
+    display: flex;
+    gap: var(--gap);
+    transform: translateX(
+      calc(var(--offset) - var(--active-index) * var(--card-slot))
+    );
+    transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+
+    &.no-transition {
+      transition: none;
+    }
+  }
+
+  .home-page-reviews-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6vw;
+    margin-top: 2.5vw;
+
+    @include small {
+      gap: 8px;
+      margin-top: 32px;
+    }
+
+    .home-page-reviews-dot {
+      width: 0.5vw;
+      height: 0.5vw;
+      border-radius: 50%;
+      border: none;
+      background-color: $noir-boise-200;
+      cursor: pointer;
+      padding: 0;
+      transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+
+      @include small {
+        width: 8px;
+        height: 8px;
+      }
+
+      &.active {
+        background-color: $noir-boise-700;
+        transform: scale(1.4);
+      }
+
+      &:hover:not(.active) {
+        background-color: $noir-boise-400;
+      }
+    }
+  }
+}
