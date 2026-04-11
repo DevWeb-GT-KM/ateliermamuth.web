@@ -92,25 +92,19 @@
   }
 }
 
-:has(.service-page-design-interieur-container) {
-  .nav-bar-container {
-    background-color: #f2f2ff;
-  }
-}
-
-:has(.service-page-design-interieur-container) {
-  .nav-bar-container {
-    background-color: #f2f2ff;
-  }
-}
-
-:has(.service-page-architecture-residentielle-container) {
+:has(.service-page-default-container, .service-page-architecture-residentielle-container) {
   .nav-bar-container {
     background-color: #eef6f0;
   }
 }
 
-:has(.service-page-e-design-container) {
+:has(.service-page-design-interieur-container) {
+  .nav-bar-container {
+    background-color: #f2f2ff;
+  }
+}
+
+:has(.service-page-design-interieur-commercial-container) {
   .nav-bar-container {
     background-color: #e5f1ff;
   }

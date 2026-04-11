@@ -4,6 +4,7 @@ import { ServiceStep } from "./ServiceStep";
 import "./servicePageContainer.scss";
 
 import { SanityDocument } from "next-sanity";
+import { getServiceType } from "@/common/helpers/ServiceHelper";
 
 type ServicePageContainerProps = {
   service: SanityDocument;
@@ -12,9 +13,10 @@ type ServicePageContainerProps = {
 export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
   service,
 }) => {
+  const serviceType = getServiceType(service.slug.current);
   return (
     <div
-      className={`service-page-container service-page-${service.slug.current}-container`}
+      className={`service-page-container service-page-${serviceType}-container`}
     >
       <div className="service-page-header">
         <h1 className="service-page-title">{service.name}</h1>
@@ -32,7 +34,7 @@ export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
           <ServiceStep data={service.steps} />
         </div>
       </div>
-      <ContactUs serviceType={service.slug.current} />
+      <ContactUs serviceType={serviceType} />
     </div>
   );
 };
