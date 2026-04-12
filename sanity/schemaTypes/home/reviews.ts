@@ -60,9 +60,10 @@ export default defineType({
               title: "name",
               subtitle: "score",
             },
-            prepare({ title, subtitle }: { title: string; subtitle: number }) {
-              const full = Math.floor(subtitle ?? 0);
-              const half = (subtitle ?? 0) % 1 !== 0 ? "½" : "";
+            prepare({ title, subtitle }) {
+              const score = subtitle as number ?? 0;
+              const full = Math.floor(score);
+              const half = score % 1 !== 0 ? "½" : "";
               return {
                 title,
                 subtitle: "★".repeat(full) + half,

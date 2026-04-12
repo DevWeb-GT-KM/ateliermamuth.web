@@ -34,7 +34,7 @@ export const ReferralStep: React.FC<ReferralStepProps> = ({
   }>({
     defaultValues: {
       referralSource: contactFormContext.state.referralSource,
-      referralOther: contactFormContext.state.referralOther,
+      referralOther: "",
     },
     mode: "onChange",
   });
