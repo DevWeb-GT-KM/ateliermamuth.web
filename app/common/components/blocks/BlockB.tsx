@@ -4,7 +4,7 @@ import React from "react";
 import { PortableText } from "@portabletext/react";
 
 import { Carousel } from "../images/carousel/Carousel";
-import { SANITY_IMAGE_FORMAT } from "../images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "../images/sanityImageBuilderConfig";
 import { BottomToTopSlider } from "../animations/BottomToTopSlider";
 
 type BlockBProps = {
@@ -29,12 +29,9 @@ export const BlockB: React.FC<BlockBProps> = ({
           <Carousel
             images={data.block.images}
             imageBuilderConfig={{
-              format: SANITY_IMAGE_FORMAT.Jpg,
-              quality: 80,
-              size: {
-                width: 1920,
-                height: 1080,
-              },
+              format: IMAGE_DEFAULT_FORMAT,
+              quality: IMAGE_DEFAULT_QUALITY,
+              size: IMAGE_SIZES.FULL_HD_LANDSCAPE,
             }}
           />
         </div>

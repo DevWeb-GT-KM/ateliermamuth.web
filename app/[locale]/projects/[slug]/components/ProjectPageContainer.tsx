@@ -11,7 +11,7 @@ import { BlockC } from "@/common/components/blocks/BlockC";
 import { BlockD } from "@/common/components/blocks/BlockD";
 import { PageSelector } from "@/common/components/pageSelector/PageSelector";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
-import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "@/common/components/images/sanityImageBuilderConfig";
 import { BottomToTopSlider } from "@/common/components/animations/BottomToTopSlider";
 import { notFound } from "next/navigation";
 
@@ -69,12 +69,9 @@ export const ProjectPageContainer: React.FC<ProjectPageContainerProps> = ({
           <SanityImageWrapper
             sanityImage={project.secondaryImage}
             imageBuilderConfig={{
-              quality: 80,
-              format: SANITY_IMAGE_FORMAT.Jpg,
-              size: {
-                width: 1920,
-                height: 1080,
-              },
+              quality: IMAGE_DEFAULT_QUALITY,
+              format: IMAGE_DEFAULT_FORMAT,
+              size: IMAGE_SIZES.FULL_HD_LANDSCAPE,
             }}
           />
         </BottomToTopSlider>
