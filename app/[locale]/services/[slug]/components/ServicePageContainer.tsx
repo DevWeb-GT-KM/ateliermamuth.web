@@ -4,6 +4,13 @@ import { ServiceStep } from "./ServiceStep";
 import "./servicePageContainer.scss";
 
 import { SanityDocument } from "next-sanity";
+import { Link } from "@/../navigation";
+
+const PROJECT_TYPE_BY_SLUG: Record<string, string> = {
+  "design-interieur": "residentiel",
+  "architecture-residentielle": "residentiel",
+  "design-interieur-commercial": "commercial",
+};
 
 type ServicePageContainerProps = {
   service: SanityDocument;
@@ -12,6 +19,8 @@ type ServicePageContainerProps = {
 export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
   service,
 }) => {
+  const projectType = PROJECT_TYPE_BY_SLUG[service.slug.current];
+
   return (
     <div
       className={`service-page-container service-page-${service.slug.current}-container`}
@@ -32,6 +41,19 @@ export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
           <ServiceStep data={service.steps} />
         </div>
       </div>
+      {service.projectsCta && (
+        <div className="service-page-projects-cta">
+          <p className="service-page-projects-cta-title">
+            {service.projectsCta.title}
+          </p>
+          <Link
+            className="service-page-projects-cta-link"
+            href={{ pathname: "/projects", query: projectType ? { type: projectType } : undefined }}
+          >
+            {service.projectsCta.buttonLabel}
+          </Link>
+        </div>
+      )}
       <ContactUs serviceType={service.slug.current} />
     </div>
   );

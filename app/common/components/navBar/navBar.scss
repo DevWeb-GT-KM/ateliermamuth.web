@@ -110,7 +110,7 @@
   }
 }
 
-:has(.service-page-e-design-container) {
+:has(.service-page-design-interieur-commercial-container) {
   .nav-bar-container {
     background-color: #e5f1ff;
   }
@@ -211,12 +211,6 @@
 
     .nav-bar-link {
       color: $noir-boise-700;
-      font-family: $saansTrial;
-      font-size: 1vw;
-      line-height: 1vw;
-      font-style: normal;
-      font-weight: 400;
-      margin-right: 2vw;
     }
 
     .nav-bar-contact-us {
@@ -244,16 +238,37 @@
       display: inline;
     }
 
-    .nav-bar-mobile-menu-open-btn {
-      margin-top: 1rem;
-      border-top: 2px solid $noir-boise-700;
-      border-bottom: 2px solid $noir-boise-700;
+    .nav-bar-menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       width: 32px;
-      height: 10px;
-    }
+      height: 14px;
+      margin-top: 1rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
 
-    .nav-bar-mobile-menu-close-btn {
-      margin-top: 0.6rem;
+      span {
+        display: block;
+        width: 32px;
+        height: 2px;
+        background-color: $noir-boise-700;
+        transition:
+          transform 0.3s ease,
+          opacity 0.3s ease;
+        transform-origin: center;
+      }
+
+      &.is-open {
+        span:first-child {
+          transform: translateY(6px) rotate(45deg);
+        }
+        span:last-child {
+          transform: translateY(-6px) rotate(-45deg);
+        }
+      }
     }
   }
 
@@ -289,6 +304,22 @@
       font-weight: 400;
       line-height: 16px;
       margin: 30px 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      color: $noir-boise-700;
+    }
+
+    .nav-bar-mobile-back-btn {
+      position: absolute;
+      bottom: 96px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 16px;
     }
 
     @include small {

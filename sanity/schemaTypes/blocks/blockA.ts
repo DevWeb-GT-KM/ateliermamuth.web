@@ -48,6 +48,12 @@ export default defineType({
       ],
       validation: (Rule: any) => Rule.required(),
     }),
+    defineField({
+      name: "reverse",
+      title: "Inverser (75% à droite, 25% à gauche)",
+      type: "boolean",
+      initialValue: false,
+    }),
     defineField(LANGUAGE_FIELD),
   ],
 });

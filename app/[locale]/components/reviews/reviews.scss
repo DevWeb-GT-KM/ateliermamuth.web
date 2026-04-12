@@ -70,42 +70,4 @@
     }
   }
 
-  .home-page-reviews-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.6vw;
-    margin-top: 2.5vw;
-
-    @include small {
-      gap: 8px;
-      margin-top: 32px;
-    }
-
-    .home-page-reviews-dot {
-      width: 0.5vw;
-      height: 0.5vw;
-      border-radius: 50%;
-      border: none;
-      background-color: $noir-boise-200;
-      cursor: pointer;
-      padding: 0;
-      transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
-
-      @include small {
-        width: 8px;
-        height: 8px;
-      }
-
-      &.active {
-        background-color: $noir-boise-700;
-        transform: scale(1.4);
-      }
-
-      &:hover:not(.active) {
-        background-color: $noir-boise-400;
-      }
-    }
-  }
 }

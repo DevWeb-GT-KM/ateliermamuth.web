@@ -209,8 +209,14 @@ export const CONTACT_FORM_PAGE_QUERY = groq`*[_type == "contactForm" && language
   projectNatures[],
   budgetTitle,
   budgetRanges[],
+  deadlineAvailabilityTitle,
+  deadlineLabel,
+  availabilityLabel,
   moreDetailsTitle,
-  moreDetailsLabel
+  moreDetailsLabel,
+  referralTitle,
+  referralOptions[],
+  referralOtherLabel
 }`;
 
 export const FAQ_PAGE_QUERY = groq`*[_type == "faq" && language == $locale]{
@@ -311,6 +317,14 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
         asset->,
         hotspot
       }
+    }
+  },
+  reviews->{
+    sectionTitle,
+    reviews[]{
+      name,
+      comment,
+      score
     }
   }
 }`;

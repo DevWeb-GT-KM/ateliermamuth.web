@@ -3,6 +3,7 @@ import project from "../project/project";
 import aboutUs from "../aboutUs/aboutUs";
 import services from "../service/services";
 import values from "./values";
+import reviews from "./reviews";
 import { CiHome } from "react-icons/ci";
 import blog from "../blog/blog";
 import projects from "../project/projects";
@@ -60,6 +61,13 @@ export default defineType({
       title: "Rubrique",
       type: "reference",
       to: [{ type: blog.name }],
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: "reviews",
+      title: "Avis",
+      type: "reference",
+      to: [{ type: reviews.name }],
       validation: (Rule: any) => Rule.required(),
     }),
     defineField(LANGUAGE_FIELD),

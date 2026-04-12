@@ -15,6 +15,7 @@ import credit from "./schemaTypes/project/credit";
 import projectArchived from "./schemaTypes/project/projectArchived";
 import home from "./schemaTypes/home/home";
 import values from "./schemaTypes/home/values";
+import reviews from "./schemaTypes/home/reviews";
 import publications from "./schemaTypes/aboutUs/publications";
 import contactForm from "./schemaTypes/contact/contactForm";
 import footer from "./schemaTypes/footer";
@@ -36,6 +37,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     footer,
     home,
     values,
+    reviews,
     services,
     service,
     step,

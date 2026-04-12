@@ -21,7 +21,7 @@ export const HomePageContainer: React.FC<HomePageContainerProps> = ({ data }) =>
       <Projects data={data} />
       <Blog data={data} />
       <Publications data={data} />
-      <Reviews />
+      <Reviews data={data} />
     </div>
   );
 };

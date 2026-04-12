@@ -109,6 +109,24 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
+      name: "deadlineAvailabilityTitle",
+      title: "Délai et disponibilité titre",
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: "deadlineLabel",
+      title: "Délai étiquette",
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: "availabilityLabel",
+      title: "Disponibilité étiquette",
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
       name: "moreDetailsTitle",
       title: "Plus de d'étails titre",
       type: "string",
@@ -117,6 +135,25 @@ export default defineType({
     defineField({
       name: "moreDetailsLabel",
       title: "Plus de d'étails étiquette",
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: "referralTitle",
+      title: "Référencement titre",
+      type: "string",
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: "referralOptions",
+      title: "Options de référencement",
+      type: "array",
+      of: [{ type: "string" }],
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: "referralOtherLabel",
+      title: "Autre - étiquette",
       type: "string",
       validation: (Rule: any) => Rule.required(),
     }),

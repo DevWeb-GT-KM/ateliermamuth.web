@@ -9,7 +9,10 @@ export type ContactForm = {
   projectType: string;
   projectNature: string;
   budget: string;
+  deadline: string;
+  availability: string;
   moreDetails: string;
+  referralSource: string;
 };
 
 export type TextButtons = {

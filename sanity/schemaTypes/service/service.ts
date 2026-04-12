@@ -58,6 +58,23 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: "projectsCta",
+      title: "Appel à l'action — Projets",
+      type: "object",
+      fields: [
+        {
+          name: "title",
+          title: "Titre",
+          type: "string",
+        },
+        {
+          name: "buttonLabel",
+          title: "Nom du bouton",
+          type: "string",
+        },
+      ],
+    }),
     defineField(IMAGE_FIELD()),
     defineField(LANGUAGE_FIELD),
   ],

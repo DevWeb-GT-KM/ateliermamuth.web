@@ -5,24 +5,28 @@ import { ContactFormContext } from "@/common/contexts/ContactFormContext";
 import { StepWrapper } from "./StepWrapper";
 import { FormTextareaInput } from "@/common/components/inputs/FormTextareaInput";
 
-type MoreDetailsStepProps = {
+type DeadlineAvailabilityStepProps = {
   title: string;
-  moreDetailsLabel: string;
+  deadlineLabel: string;
+  availabilityLabel: string;
 };
 
-export const MoreDetailsStep: React.FC<MoreDetailsStepProps> = ({
-  title,
-  moreDetailsLabel,
-}) => {
+export const DeadlineAvailabilityStep: React.FC<
+  DeadlineAvailabilityStepProps
+> = ({ title, deadlineLabel, availabilityLabel }) => {
   const contactFormContext = useContext(ContactFormContext);
 
-  const useFormMethods = useForm<{ moreDetails: string }>({
+  const useFormMethods = useForm<{
+    deadline: string;
+    availability: string;
+  }>({
     defaultValues: {
-      moreDetails: contactFormContext.state.moreDetails,
+      deadline: contactFormContext.state.deadline,
+      availability: contactFormContext.state.availability,
     },
   });
 
-  const onSubmit = (data: { moreDetails: string }) => {
+  const onSubmit = (data: { deadline: string; availability: string }) => {
     contactFormContext.updateState(data);
     contactFormContext.updateCurrentStep(1);
   };
@@ -36,10 +40,11 @@ export const MoreDetailsStep: React.FC<MoreDetailsStepProps> = ({
     <FormProvider {...useFormMethods}>
       <form onSubmit={useFormMethods.handleSubmit(onSubmit)}>
         <StepWrapper title={title} previousStep={onPreviousStep}>
-          <div className="contact-form-more-details-input">
+          <div className="contact-form-deadline-availability-inputs">
+            <FormTextareaInput property="deadline" placeholder={deadlineLabel} />
             <FormTextareaInput
-              property="moreDetails"
-              placeholder={moreDetailsLabel}
+              property="availability"
+              placeholder={availabilityLabel}
             />
           </div>
         </StepWrapper>

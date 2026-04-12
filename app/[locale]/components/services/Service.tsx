@@ -5,9 +5,7 @@ import { useState } from "react";
 import AnimateHeight from "react-animate-height";
 import { Link } from "@/../navigation";
 
-import Image from "next/image";
-import plus from "../../../common/assets/images/homePage/services/servicePlus.svg";
-import minus from "../../../common/assets/images/homePage/services/serviceMinus.svg";
+import { PlusMinusToggle } from "@/common/components/PlusMinusToggle";
 
 type ServiceProps = {
   data: any;
@@ -23,12 +21,9 @@ export const Service: React.FC<ServiceProps> = ({ data }) => {
         onClick={() => setHeight(height == "auto" ? 0 : "auto")}
       >
         <h3 className="home-page-service-title">{data.name}</h3>
-        <Image
+        <PlusMinusToggle
+          isOpen={height === "auto"}
           className="home-page-service-plus-img"
-          src={height == "auto" ? minus : plus}
-          alt="plus"
-          width={0}
-          unoptimized
         />
       </div>
       <AnimateHeight

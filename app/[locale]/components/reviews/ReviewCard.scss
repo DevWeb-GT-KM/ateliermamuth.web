@@ -2,7 +2,7 @@
   flex-shrink: 0;
   width: var(--card-width);
   min-height: var(--card-height);
-  background-color: $noir-boise-700;
+  background-color: #448854;
   border-radius: 1vw;
   padding: 3vw;
   display: flex;
@@ -54,7 +54,7 @@
 
     .home-page-review-card-star {
       font-size: 1.25vw;
-      color: $noir-boise-400;
+      color: rgba(0, 0, 0, 0.25);
       line-height: 1;
 
       @include small {
@@ -63,6 +63,20 @@
 
       &.filled {
         color: $blanc;
+      }
+
+      &.half {
+        position: relative;
+
+        &::before {
+          content: "★";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 50%;
+          overflow: hidden;
+          color: $blanc;
+        }
       }
     }
   }
