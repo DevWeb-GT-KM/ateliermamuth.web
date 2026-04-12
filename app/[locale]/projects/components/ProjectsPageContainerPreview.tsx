@@ -9,11 +9,12 @@ import { ProjectsPageContainer } from "./ProjectsPageContainer";
 type ProjectsPageContainerPreviewProps = {
   initial: QueryResponseInitial<SanityDocument>;
   params: QueryParams;
+  typeFilter?: string | null;
 };
 
 export const ProjectsPageContainerPreview: React.FC<
   ProjectsPageContainerPreviewProps
-> = ({ initial, params }) => {
+> = ({ initial, params, typeFilter }) => {
   const { data } = useQuery<SanityDocument | null>(
     PROJECTS_PAGE_QUERY,
     params,
@@ -22,5 +23,5 @@ export const ProjectsPageContainerPreview: React.FC<
     }
   );
 
-  return data ? <ProjectsPageContainer data={data[0]} /> : <></>;
+  return data ? <ProjectsPageContainer data={data[0]} typeFilter={typeFilter} /> : <></>;
 };
