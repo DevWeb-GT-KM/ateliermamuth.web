@@ -102,13 +102,13 @@ export const ProjectPageContainer: React.FC<ProjectPageContainerProps> = ({
         previous={{
           title: project.previousProject.name,
           shortDescription: project.previousProject.subtitle,
-          image: project.previousProject.mainImage,
+          image: project.previousProject.secondaryImage,
           slug: project.previousProject.slug.current,
         }}
         next={{
           title: project.nextProject.name,
           shortDescription: project.nextProject.subtitle,
-          image: project.nextProject.mainImage,
+          image: project.nextProject.secondaryImage,
           slug: project.nextProject.slug.current,
         }}
       />

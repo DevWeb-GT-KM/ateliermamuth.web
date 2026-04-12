@@ -35,7 +35,7 @@ export const Project: React.FC<ProjectProps> = ({
       >
         <SanityImageWrapper
           effectOnHover={true}
-          sanityImage={data.mainImage}
+          sanityImage={data.secondaryImage}
           imageBuilderConfig={{
             format: IMAGE_DEFAULT_FORMAT,
             quality: IMAGE_DEFAULT_QUALITY,
