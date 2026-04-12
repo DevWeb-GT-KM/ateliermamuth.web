@@ -1,4 +1,15 @@
-.service-page-contact-us-e-design {
+.service-page-contact-us-default,
+.service-page-contact-us-architecture-residentielle {
+  background-color: $vert-pistache-500;
+  background-image: url("../../../../common/assets/images/servicesPage/service/residentialArchitectCtaShapes.svg");
+
+  @include small {
+    background-image: url("../../../../common/assets/images/servicesPage/service/residentialArchitectCtaShapesMobile.svg");
+  }
+}
+
+
+.service-page-contact-us-design-interieur-commercial {
   background-color: $bleu-helvetia-400;
   background-image: url("../../../../common/assets/images/servicesPage/service/eDesignCtaShapes.svg");
 
@@ -13,15 +24,6 @@
 
   @include small {
     background-image: url("../../../../common/assets/images/servicesPage/service/interiorDesignCtaShapesMobile.svg");
-  }
-}
-
-.service-page-contact-us-architecture-residentielle {
-  background-color: $vert-pistache-500;
-  background-image: url("../../../../common/assets/images/servicesPage/service/residentialArchitectCtaShapes.svg");
-
-  @include small {
-    background-image: url("../../../../common/assets/images/servicesPage/service/residentialArchitectCtaShapesMobile.svg");
   }
 }
 

@@ -1,4 +1,6 @@
 .projects-page-container {
+  padding-bottom: 15vw;
+
   .projects-page-header {
     display: flex;
     justify-content: center;
@@ -7,7 +9,7 @@
 
     @include small {
       height: 170vw;
-      margin: 0px -$sidePaddingMobile;
+      margin: 0 (-$sidePaddingMobile);
     }
 
     .projects-page-title {
@@ -22,6 +24,8 @@
       @include small {
         font-size: 40px;
         line-height: 56px;
+        text-align: center;
+        padding: 0 $sidePaddingMobile;
       }
     }
   }
@@ -63,7 +67,7 @@
     }
 
     .projects-page-archives {
-      margin: 15vw 0px;
+      margin-top: 15vw;
 
       .projects-page-archives-title {
         text-align: center;

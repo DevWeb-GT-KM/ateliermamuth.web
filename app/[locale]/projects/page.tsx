@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 import { QueryParams, SanityDocument } from "next-sanity";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import { loadQuery } from "@/../sanity/lib/store";
 import {
@@ -10,12 +10,14 @@ import {
 import { ProjectsPageContainerPreview } from "./components/ProjectsPageContainerPreview";
 import { ProjectsPageContainer } from "./components/ProjectsPageContainer";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<QueryParams> }) {
+  const resolvedParams = await params;
+  const { isEnabled } = await draftMode();
   const initial = await loadQuery<SanityDocument>(
     PROJECTS_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
@@ -26,22 +28,28 @@ export async function generateMetadata({ params }: any) {
 }
 
 type ProjectsPageProps = {
-  params: QueryParams;
+  params: Promise<QueryParams>;
+  searchParams: Promise<{ type?: string }>;
 };
 
-const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params }) => {
-  unstable_setRequestLocale(params.locale);
+const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params, searchParams }) => {
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
+  setRequestLocale(resolvedParams.locale);
 
-  const initial = await loadQuery<SanityDocument>(PROJECTS_PAGE_QUERY, params, {
-    perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+  const typeFilter = resolvedSearchParams.type ?? null;
+
+  const { isEnabled } = await draftMode();
+  const initial = await loadQuery<SanityDocument>(PROJECTS_PAGE_QUERY, resolvedParams, {
+    perspective: isEnabled ? "previewDrafts" : "published",
   });
 
   return (
     <div>
-      {draftMode().isEnabled ? (
-        <ProjectsPageContainerPreview initial={initial} params={params} />
+      {isEnabled ? (
+        <ProjectsPageContainerPreview initial={initial} params={resolvedParams} typeFilter={typeFilter} />
       ) : (
-        <ProjectsPageContainer data={initial.data[0]} />
+        <ProjectsPageContainer data={initial.data[0]} typeFilter={typeFilter} />
       )}
     </div>
   );

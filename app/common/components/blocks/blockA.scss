@@ -70,6 +70,14 @@
     display: flex;
     gap: 1vw;
 
+    &.reversed {
+      flex-direction: row-reverse;
+
+      @include small {
+        flex-direction: column;
+      }
+    }
+
     @include small {
       gap: 16px;
       flex-direction: column;

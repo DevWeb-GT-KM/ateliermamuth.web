@@ -1,0 +1,52 @@
+.condensed-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4vw;
+  margin-top: 2.5vw;
+
+  @include small {
+    gap: 6px;
+    margin-top: 32px;
+  }
+}
+
+.condensed-dot {
+  border: none;
+  border-radius: 50%;
+  background-color: $noir-boise-200;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+
+  &--active {
+    width: 12px;
+    height: 12px;
+    background-color: $noir-boise-50;
+  }
+
+  &--adjacent {
+    width: 12px;
+    height: 12px;
+  }
+
+  &--normal {
+    width: 12px;
+    height: 12px;
+  }
+
+  &--edge {
+    width: 6px;
+    height: 6px;
+    opacity: 0.5;
+  }
+
+  &:hover:not(.condensed-dot--active) {
+    background-color: $noir-boise-400;
+    opacity: 1;
+  }
+}

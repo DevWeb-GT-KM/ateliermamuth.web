@@ -2,14 +2,8 @@
 
 import "./socialMediaShareButton.scss";
 import { isMobile } from "react-device-detect";
-import {
-  FaXmark,
-  FaFacebook,
-  FaFacebookMessenger,
-  FaSquarePinterest,
-  FaLinkedin,
-} from "react-icons/fa6";
-import imageUrlBuilder from "@sanity/image-url";
+import { FaXmark, FaFacebook, FaFacebookMessenger, FaSquarePinterest, FaLinkedin } from "react-icons/fa6";
+import { createImageUrlBuilder } from "@sanity/image-url";
 import {
   FacebookShareButton,
   FacebookMessengerShareButton,
@@ -28,12 +22,9 @@ type SocialMediaShareButtonProps = {
   title: string;
 };
 
-export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({
-  image,
-  title,
-}) => {
+export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({ image, title }) => {
   const { isPageOverlayHidden, setIsPageOverlayHidden } = usePageOverlay();
-  const imageBuilder = imageUrlBuilder(client);
+  const imageBuilder = createImageUrlBuilder(client);
 
   const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
 
@@ -41,9 +32,7 @@ export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({
   const [imageForSharingUrl, setImageForSharingUrl] = useState<string>("");
 
   useEffect(() => {
-    setImageForSharingUrl(
-      imageBuilder.image(image).format(SANITY_IMAGE_FORMAT.Jpg).url()
-    );
+    setImageForSharingUrl(imageBuilder.image(image).format(SANITY_IMAGE_FORMAT.WebP).url());
 
     setCurrentUrl(window.location.href);
   }, []);
@@ -66,9 +55,7 @@ export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({
         partager +
       </button>
 
-      <div
-        className={`social-media-share-modal ${isModalOpened ? "opened" : ""}`}
-      >
+      <div className={`social-media-share-modal ${isModalOpened ? "opened" : ""}`}>
         <div className="social-media-share-modal-header">
           <p className="social-media-share-modal-header-title">Partager</p>
           <FaXmark
@@ -82,17 +69,11 @@ export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({
 
         <div className="social-media-share-modal-icon-container">
           {isMobile ? (
-            <Link
-              href={`fb-messenger://share/?link=${currentUrl}&app_id=478599831508654`}
-              target="_blank"
-            >
+            <Link href={`fb-messenger://share/?link=${currentUrl}&app_id=478599831508654`} target="_blank">
               <FaFacebookMessenger className="social-media-share-modal-icon" />
             </Link>
           ) : (
-            <FacebookMessengerShareButton
-              url={currentUrl}
-              appId="478599831508654"
-            >
+            <FacebookMessengerShareButton url={currentUrl} appId="478599831508654">
               <FaFacebookMessenger className="social-media-share-modal-icon" />
             </FacebookMessengerShareButton>
           )}
@@ -102,17 +83,10 @@ export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({
           </FacebookShareButton>
 
           <LinkedinShareButton url={currentUrl}>
-            <FaLinkedin
-              className="social-media-share-modal-icon"
-              media={imageForSharingUrl}
-            />
+            <FaLinkedin className="social-media-share-modal-icon" media={imageForSharingUrl} />
           </LinkedinShareButton>
 
-          <PinterestShareButton
-            url={currentUrl}
-            media={imageForSharingUrl}
-            description={title}
-          >
+          <PinterestShareButton url={currentUrl} media={imageForSharingUrl} description={title}>
             <FaSquarePinterest className="social-media-share-modal-icon" />
           </PinterestShareButton>
         </div>

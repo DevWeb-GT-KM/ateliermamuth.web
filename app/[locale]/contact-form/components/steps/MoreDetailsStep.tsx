@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { useContext } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 
 import { ContactFormContext } from "@/common/contexts/ContactFormContext";
@@ -15,10 +14,7 @@ export const MoreDetailsStep: React.FC<MoreDetailsStepProps> = ({
   title,
   moreDetailsLabel,
 }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isError, setIsError] = useState<boolean>(false);
   const contactFormContext = useContext(ContactFormContext);
-  useEffect(() => emailjs.init("Hmrqb9fckWMuBYR18"), []);
 
   const useFormMethods = useForm<{ moreDetails: string }>({
     defaultValues: {
@@ -26,31 +22,9 @@ export const MoreDetailsStep: React.FC<MoreDetailsStepProps> = ({
     },
   });
 
-  const onSubmit = async (data: { moreDetails: string }) => {
-    setIsLoading(true);
+  const onSubmit = (data: { moreDetails: string }) => {
     contactFormContext.updateState(data);
-
-    emailjs
-      .send("service_9txqq6n", "template_7hdok1m", {
-        pronoun: contactFormContext.state.pronoun,
-        name: contactFormContext.state.name,
-        email: contactFormContext.state.email,
-        projectAddress: contactFormContext.state.projectAddress,
-        phoneNumber: contactFormContext.state.phoneNumber,
-        projectType: contactFormContext.state.projectType,
-        projectNature: contactFormContext.state.projectNature,
-        budget: contactFormContext.state.budget,
-        moreDetails: data.moreDetails,
-      })
-      .then(() => {
-        setIsLoading(false);
-        setIsError(false);
-        contactFormContext.updateCurrentStep(1);
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setIsError(true);
-      });
+    contactFormContext.updateCurrentStep(1);
   };
 
   const onPreviousStep = () => {
@@ -61,20 +35,13 @@ export const MoreDetailsStep: React.FC<MoreDetailsStepProps> = ({
   return (
     <FormProvider {...useFormMethods}>
       <form onSubmit={useFormMethods.handleSubmit(onSubmit)}>
-        <StepWrapper
-          title={title}
-          previousStep={onPreviousStep}
-          isLoading={isLoading}
-        >
-          <FormTextareaInput
-            property="moreDetails"
-            placeholder={moreDetailsLabel}
-          />
-          {isError && (
-            <p className="contact-form-sending-email-error">
-              {contactFormContext.textErrors.submitFormError}
-            </p>
-          )}
+        <StepWrapper title={title} previousStep={onPreviousStep}>
+          <div className="contact-form-more-details-input">
+            <FormTextareaInput
+              property="moreDetails"
+              placeholder={moreDetailsLabel}
+            />
+          </div>
         </StepWrapper>
       </form>
     </FormProvider>

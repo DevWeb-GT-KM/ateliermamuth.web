@@ -3,7 +3,9 @@ import "./pageSelector.scss";
 import { Link } from "@/../navigation";
 import { SanityImageWrapper } from "../images/SanityImageWrapper";
 import {
-  SANITY_IMAGE_FORMAT,
+  IMAGE_DEFAULT_QUALITY,
+  IMAGE_DEFAULT_FORMAT,
+  IMAGE_SIZES,
   SanityImageBuilderConfig,
 } from "../images/sanityImageBuilderConfig";
 
@@ -29,12 +31,9 @@ export const PageSelector: React.FC<PageSelectorProps> = ({
     linkType === "project" ? "/projects/[slug]" : "/blog/[slug]";
 
   const imgBuilderConfig: SanityImageBuilderConfig = {
-    size: {
-      width: 500,
-      height: 500,
-    },
-    format: SANITY_IMAGE_FORMAT.Jpg,
-    quality: 70,
+    size: IMAGE_SIZES.SQUARE_THUMBNAIL,
+    format: IMAGE_DEFAULT_FORMAT,
+    quality: IMAGE_DEFAULT_QUALITY,
   };
 
   return (

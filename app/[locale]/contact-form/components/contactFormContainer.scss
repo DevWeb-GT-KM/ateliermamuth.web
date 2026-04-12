@@ -271,6 +271,83 @@
     }
   }
 
+  .contact-form-deadline-availability-inputs {
+    .contact-form-textarea-input-container {
+      margin-top: 40px;
+
+      @include small {
+        margin-top: 24px;
+      }
+    }
+
+    .contact-form-textarea-input {
+      height: 120px;
+
+      @include small {
+        height: 120px;
+      }
+    }
+  }
+
+  .contact-form-more-details-input {
+    .contact-form-textarea-input-container {
+      margin-top: 40px;
+
+      @include small {
+        margin-top: 24px;
+      }
+    }
+
+    .contact-form-textarea-input {
+      height: 280px;
+
+      @include small {
+        height: 280px;
+      }
+    }
+  }
+
+  .contact-form-referral-other-input {
+    margin-top: 24px;
+
+    .form-text-input-box {
+      border-bottom: 1px solid $noir-boise-50;
+      padding-bottom: 0.25vw;
+    }
+
+    input {
+      background-color: $bleu-helvetia-500;
+      border: 0;
+      color: $noir-boise-50;
+      font-family: $saansTrial;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .form-text-input-error-message {
+      color: $noir-boise-50;
+      font-family: $saansTrial;
+      line-height: 24px;
+      font-size: 12px;
+    }
+  }
+
+  .contact-form-referral-required-error {
+    color: $noir-boise-50;
+    font-family: $saansTrial;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 16px;
+  }
+
   .contact-form-sending-email-error {
     color: $noir-boise-50;
     font-family: $saansTrial;

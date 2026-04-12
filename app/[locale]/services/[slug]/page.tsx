@@ -1,5 +1,5 @@
 import { QueryParams, SanityDocument } from "next-sanity";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { client } from "@/../sanity/lib/client";
 import {
@@ -13,20 +13,23 @@ import { draftMode } from "next/headers";
 import { ServicePageContainerPreview } from "./components/ServicePageContainerPreview";
 import { ServicePageContainer } from "./components/ServicePageContainer";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<QueryParams> }) {
+  const resolvedParams = await params;
+  const { isEnabled } = await draftMode();
+
   const servicesPageMetadata = await loadQuery<SanityDocument>(
     SERVICES_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
   const currentServiceMetadata = await loadQuery<SanityDocument>(
     SERVICE_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
@@ -43,32 +46,34 @@ export async function generateStaticParams({
 }) {
   const localizedServices = await client.fetch<SanityDocument[]>(
     SERVICES_LIST_QUERY,
-    { locale: locale }
+    { locale }
   );
 
   return localizedServices.map((service: any) => ({
-    locale: locale,
+    locale,
     slug: service.slug.current,
   }));
 }
 
 type ServicePageProps = {
-  params: QueryParams;
+  params: Promise<QueryParams>;
 };
 
 const ServicePage: React.FC<ServicePageProps> = async ({ params }) => {
-  unstable_setRequestLocale(params.locale);
+  const resolvedParams = await params;
+  setRequestLocale(resolvedParams.locale);
 
-  const initial = await loadQuery<SanityDocument>(SERVICE_QUERY, params, {
-    perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+  const { isEnabled } = await draftMode();
+  const initial = await loadQuery<SanityDocument>(SERVICE_QUERY, resolvedParams, {
+    perspective: isEnabled ? "previewDrafts" : "published",
   });
 
   if (!initial) {
     return notFound();
   }
 
-  return draftMode().isEnabled ? (
-    <ServicePageContainerPreview initial={initial} params={params} />
+  return isEnabled ? (
+    <ServicePageContainerPreview initial={initial} params={resolvedParams} />
   ) : (
     <ServicePageContainer service={initial.data} />
   );

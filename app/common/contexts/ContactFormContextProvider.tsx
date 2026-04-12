@@ -22,7 +22,10 @@ export const ContactFormContextProvider: FunctionComponent<
     projectType: "",
     projectNature: "",
     budget: "",
+    deadline: "",
+    availability: "",
     moreDetails: "",
+    referralSource: "",
   };
 
   const initialTextButtonsValues = {

@@ -1,6 +1,6 @@
 import { QueryParams, SanityDocument } from "next-sanity";
 import { draftMode } from "next/headers";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { ProjectPageContainer } from "./components/ProjectPageContainer";
@@ -14,20 +14,23 @@ import {
 } from "@/../sanity/lib/queries";
 import { client } from "@/../sanity/lib/client";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<QueryParams> }) {
+  const resolvedParams = await params;
+  const { isEnabled } = await draftMode();
+
   const projectsPageMetadata = await loadQuery<SanityDocument>(
     PROJECTS_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
   const currentProjectMetadata = await loadQuery<SanityDocument>(
     PROJECT_PAGE_METADATA_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
@@ -44,32 +47,34 @@ export async function generateStaticParams({
 }) {
   const localizedProjects = await client.fetch<SanityDocument[]>(
     PROJECTS_QUERY_BY_LANG,
-    { locale: locale }
+    { locale }
   );
 
   return localizedProjects.map((project: any) => ({
-    locale: locale,
+    locale,
     slug: project.slug.current,
   }));
 }
 
 type ProjectPageProps = {
-  params: QueryParams;
+  params: Promise<QueryParams>;
 };
 
 const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
-  unstable_setRequestLocale(params.locale);
+  const resolvedParams = await params;
+  setRequestLocale(resolvedParams.locale);
 
+  const { isEnabled } = await draftMode();
   const projectQuery = await loadQuery<SanityDocument>(
     PROJECT_QUERY_BY_LANG,
-    params,
+    resolvedParams,
     {
-      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+      perspective: isEnabled ? "previewDrafts" : "published",
     }
   );
 
-  return draftMode().isEnabled ? (
-    <ProjectPageContainerPreview initial={projectQuery} params={params} />
+  return isEnabled ? (
+    <ProjectPageContainerPreview initial={projectQuery} params={resolvedParams} />
   ) : (
     <ProjectPageContainer project={projectQuery.data} />
   );

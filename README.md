@@ -2,9 +2,9 @@
 
 ## Getting Started
 
-Node version: 20.11.1
+Node version: 24.14.1
 
-Npm version: 10.5.0
+Npm version: 11.11.0
 
 Run the development server:
 
