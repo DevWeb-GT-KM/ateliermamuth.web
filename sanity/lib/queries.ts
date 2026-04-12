@@ -113,6 +113,7 @@ export const PROJECTS_PAGE_QUERY = groq`*[_type == "projects" && language == $lo
   pageTitle,
   projects[]->{
     type,
+    type2,
     secondaryImage{ asset->, alt, hotspot },
     projectTypes,
     name,

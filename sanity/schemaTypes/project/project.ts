@@ -19,12 +19,26 @@ export default defineType({
     defineField(PAGE_PARTIAL_METADATA_FIELD()),
     defineField({
       name: "type",
-      title: "Type",
+      title: "Type d'affichage",
       type: "string",
       options: {
         list: [
           { title: "Primaire", value: "primary" },
           { title: "Secondaire", value: "secondary" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: "type2",
+      title: "Type de projet",
+      type: "string",
+      options: {
+        list: [
+          { title: "Résidentiel", value: "residentiel" },
+          { title: "Commercial", value: "commercial" },
         ],
         layout: "radio",
         direction: "horizontal",
