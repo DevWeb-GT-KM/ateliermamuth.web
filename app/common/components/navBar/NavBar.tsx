@@ -15,8 +15,8 @@ type MobileMenuView = "main" | "services" | "projects";
 const SERVICES_SUB_ITEMS: NavTabSubItem[] = [
   { label: "Voir tous les services", href: { pathname: "/services" } },
   { label: "Design intérieur résidentiel", href: { pathname: "/services/[slug]", params: { slug: "design-interieur" } } },
-  { label: "Architecture résidentielle", href: { pathname: "/services/[slug]", params: { slug: "architecture-residentielle" } } },
   { label: "Design intérieur commercial", href: { pathname: "/services/[slug]", params: { slug: "design-interieur-commercial" } } },
+  { label: "Architecture résidentielle", href: { pathname: "/services/[slug]", params: { slug: "architecture-residentielle" } } },
 ];
 
 const PROJECTS_SUB_ITEMS: NavTabSubItem[] = [
