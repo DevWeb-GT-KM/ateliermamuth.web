@@ -5,7 +5,7 @@ import "./contactPageContainer.scss";
 import { PortableText } from "@portabletext/react";
 import { ContactUs } from "./ContactUs";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
-import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "@/common/components/images/sanityImageBuilderConfig";
 import { BottomToTopSlider } from "@/common/components/animations/BottomToTopSlider";
 import { motion } from "framer-motion";
 
@@ -58,12 +58,9 @@ export const ContactPageContainer: React.FC<ContactPageContainerProps> = ({
             <SanityImageWrapper
               sanityImage={data.img}
               imageBuilderConfig={{
-                quality: 80,
-                format: SANITY_IMAGE_FORMAT.Jpg,
-                size: {
-                  width: 1050,
-                  height: 1350,
-                },
+                quality: IMAGE_DEFAULT_QUALITY,
+                format: IMAGE_DEFAULT_FORMAT,
+                size: { width: 1400, height: 1800 },
               }}
             />
           </motion.div>

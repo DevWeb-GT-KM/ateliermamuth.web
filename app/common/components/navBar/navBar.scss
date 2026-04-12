@@ -22,22 +22,8 @@
 
 :has(.projects-page-container) {
   .nav-bar-top {
-    .nav-bar-link {
-      color: $gris-neutre-700 !important;
-    }
-
     .nav-bar-link-projects {
       color: $noir-boise-200 !important;
-    }
-
-    .nav-bar-contact-us {
-      color: $gris-neutre-700 !important;
-      border: 1px solid $gris-neutre-700 !important;
-
-      &:hover {
-        color: $gris-neutre-400 !important;
-        background-color: $gris-neutre-700 !important;
-      }
     }
   }
 }
@@ -92,23 +78,18 @@
   }
 }
 
-:has(.service-page-design-interieur-container) {
-  .nav-bar-container {
-    background-color: #f2f2ff;
-  }
-}
-
-:has(.service-page-design-interieur-container) {
-  .nav-bar-container {
-    background-color: #f2f2ff;
-  }
-}
-
-:has(.service-page-architecture-residentielle-container) {
+:has(.service-page-default-container, .service-page-architecture-residentielle-container) {
   .nav-bar-container {
     background-color: #eef6f0;
   }
 }
+
+:has(.service-page-design-interieur-container) {
+  .nav-bar-container {
+    background-color: #f2f2ff;
+  }
+}
+
 
 :has(.service-page-design-interieur-commercial-container) {
   .nav-bar-container {

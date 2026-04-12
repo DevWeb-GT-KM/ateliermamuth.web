@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { Link } from "@/../navigation";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
-import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "@/common/components/images/sanityImageBuilderConfig";
 import { motion } from "framer-motion";
 
 export type ServicesListingProps = {
@@ -83,12 +83,9 @@ export const ServicesListing: React.FC<ServicesListingProps> = ({
               <SanityImageWrapper
                 sanityImage={service?.img}
                 imageBuilderConfig={{
-                  size: {
-                    width: 1920,
-                    height: 1080,
-                  },
-                  format: SANITY_IMAGE_FORMAT.Jpg,
-                  quality: 70,
+                  size: IMAGE_SIZES.FULL_HD_LANDSCAPE,
+                  format: IMAGE_DEFAULT_FORMAT,
+                  quality: IMAGE_DEFAULT_QUALITY,
                 }}
               />
             </motion.div>

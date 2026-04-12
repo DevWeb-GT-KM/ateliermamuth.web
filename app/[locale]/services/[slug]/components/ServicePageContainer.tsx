@@ -5,6 +5,7 @@ import "./servicePageContainer.scss";
 
 import { SanityDocument } from "next-sanity";
 import { Link } from "@/../navigation";
+import { getServiceType } from "@/common/helpers/ServiceHelper";
 
 const PROJECT_TYPE_BY_SLUG: Record<string, string> = {
   "design-interieur": "residentiel",
@@ -19,11 +20,11 @@ type ServicePageContainerProps = {
 export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
   service,
 }) => {
+  const serviceType = getServiceType(service.slug.current);
   const projectType = PROJECT_TYPE_BY_SLUG[service.slug.current];
-
   return (
     <div
-      className={`service-page-container service-page-${service.slug.current}-container`}
+      className={`service-page-container service-page-${serviceType}-container`}
     >
       <div className="service-page-header">
         <h1 className="service-page-title">{service.name}</h1>
@@ -54,7 +55,7 @@ export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
           </Link>
         </div>
       )}
-      <ContactUs serviceType={service.slug.current} />
+      <ContactUs serviceType={serviceType} />
     </div>
   );
 };

@@ -23,7 +23,10 @@ export const ReferralStep: React.FC<ReferralStepProps> = ({
   const [showRequiredError, setShowRequiredError] = useState<boolean>(false);
   const contactFormContext = useContext(ContactFormContext);
 
-  useEffect(() => emailjs.init("Hmrqb9fckWMuBYR18"), []);
+  useEffect(
+    () => emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!),
+    []
+  );
 
   const useFormMethods = useForm<{
     referralSource: string;
@@ -62,20 +65,24 @@ export const ReferralStep: React.FC<ReferralStepProps> = ({
     contactFormContext.updateState({ referralSource });
 
     emailjs
-      .send("service_9txqq6n", "template_7hdok1m", {
-        pronoun: contactFormContext.state.pronoun,
-        name: contactFormContext.state.name,
-        email: contactFormContext.state.email,
-        projectAddress: contactFormContext.state.projectAddress,
-        phoneNumber: contactFormContext.state.phoneNumber,
-        projectType: contactFormContext.state.projectType,
-        projectNature: contactFormContext.state.projectNature,
-        budget: contactFormContext.state.budget,
-        deadline: contactFormContext.state.deadline,
-        availability: contactFormContext.state.availability,
-        moreDetails: contactFormContext.state.moreDetails,
-        referralSource,
-      })
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          pronoun: contactFormContext.state.pronoun,
+          name: contactFormContext.state.name,
+          email: contactFormContext.state.email,
+          projectAddress: contactFormContext.state.projectAddress,
+          phoneNumber: contactFormContext.state.phoneNumber,
+          projectType: contactFormContext.state.projectType,
+          projectNature: contactFormContext.state.projectNature,
+          budget: contactFormContext.state.budget,
+          deadline: contactFormContext.state.deadline,
+          availability: contactFormContext.state.availability,
+          moreDetails: contactFormContext.state.moreDetails,
+          referralSource,
+        }
+      )
       .then(() => {
         setIsLoading(false);
         setIsEmailError(false);

@@ -32,7 +32,7 @@ export const SocialMediaShareButton: React.FC<SocialMediaShareButtonProps> = ({ 
   const [imageForSharingUrl, setImageForSharingUrl] = useState<string>("");
 
   useEffect(() => {
-    setImageForSharingUrl(imageBuilder.image(image).format(SANITY_IMAGE_FORMAT.Jpg).url());
+    setImageForSharingUrl(imageBuilder.image(image).format(SANITY_IMAGE_FORMAT.WebP).url());
 
     setCurrentUrl(window.location.href);
   }, []);
