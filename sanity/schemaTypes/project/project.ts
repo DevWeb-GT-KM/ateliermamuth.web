@@ -19,12 +19,26 @@ export default defineType({
     defineField(PAGE_PARTIAL_METADATA_FIELD()),
     defineField({
       name: "type",
-      title: "Type",
+      title: "Type d'affichage",
       type: "string",
       options: {
         list: [
           { title: "Primaire", value: "primary" },
           { title: "Secondaire", value: "secondary" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: "type2",
+      title: "Type de projet",
+      type: "string",
+      options: {
+        list: [
+          { title: "Résidentiel", value: "residentiel" },
+          { title: "Commercial", value: "commercial" },
         ],
         layout: "radio",
         direction: "horizontal",
@@ -57,9 +71,9 @@ export default defineType({
       description:
         'Vous devez simplement cliquer sur le bouton "Generate" lorsque le nom du projet sera renseigné',
     }),
-    defineField(IMAGE_FIELD("mainImage", "Image principale desktop")),
-    defineField(IMAGE_FIELD("mainImageMobile", "Image principale mobile")),
-    defineField(IMAGE_FIELD("secondaryImage", "Image secondaire")),
+    defineField(IMAGE_FIELD("mainImage", "Image carrousel page accueil (desktop)")),
+    defineField(IMAGE_FIELD("mainImageMobile", "Image carrousel page accueil (mobile)")),
+    defineField(IMAGE_FIELD("secondaryImage", "Image partout ailleurs")),
     defineField({
       name: "shortDescription",
       title: "Description courte",

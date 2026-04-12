@@ -29,11 +29,15 @@ export async function generateMetadata({ params }: { params: Promise<QueryParams
 
 type ProjectsPageProps = {
   params: Promise<QueryParams>;
+  searchParams: Promise<{ type?: string }>;
 };
 
-const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params }) => {
+const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params, searchParams }) => {
   const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
   setRequestLocale(resolvedParams.locale);
+
+  const typeFilter = resolvedSearchParams.type ?? null;
 
   const { isEnabled } = await draftMode();
   const initial = await loadQuery<SanityDocument>(PROJECTS_PAGE_QUERY, resolvedParams, {
@@ -43,9 +47,9 @@ const ProjectsPage: React.FC<ProjectsPageProps> = async ({ params }) => {
   return (
     <div>
       {isEnabled ? (
-        <ProjectsPageContainerPreview initial={initial} params={resolvedParams} />
+        <ProjectsPageContainerPreview initial={initial} params={resolvedParams} typeFilter={typeFilter} />
       ) : (
-        <ProjectsPageContainer data={initial.data[0]} />
+        <ProjectsPageContainer data={initial.data[0]} typeFilter={typeFilter} />
       )}
     </div>
   );

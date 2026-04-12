@@ -59,7 +59,10 @@ const HorizontalSlider: React.FC<SliderProps> = ({ images }) => {
             imageBuilderConfig={{
               format: IMAGE_DEFAULT_FORMAT,
               quality: IMAGE_DEFAULT_QUALITY,
-              size: IMAGE_SIZES.HD_LANDSCAPE,
+              size: {
+                width: 960,
+                height: 540,
+              },
             }}
           />
         );

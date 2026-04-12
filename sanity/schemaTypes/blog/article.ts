@@ -40,7 +40,7 @@ export default defineType({
       type: "text",
       validation: (Rule: any) => Rule.required(),
     }),
-    defineField(IMAGE_FIELD("mainImage", "Photo principale")),
+    defineField(IMAGE_FIELD("mainImage", "Image")),
     defineField({
       name: "subtitle",
       title: "Sous-titre",

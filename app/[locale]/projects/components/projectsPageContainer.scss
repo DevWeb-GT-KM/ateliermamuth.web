@@ -1,4 +1,6 @@
 .projects-page-container {
+  padding-bottom: 15vw;
+
   .projects-page-header {
     display: flex;
     justify-content: center;
@@ -63,7 +65,7 @@
     }
 
     .projects-page-archives {
-      margin: 15vw 0px;
+      margin-top: 15vw;
 
       .projects-page-archives-title {
         text-align: center;

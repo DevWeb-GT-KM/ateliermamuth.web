@@ -83,11 +83,6 @@ export const PROJECT_QUERY_BY_LANG = groq`*[_type == "project" && language == $l
   slug,
   name,
   subtitle,
-  mainImage {
-    alt,
-    asset->,
-    hotspot
-  },
   secondaryImage {
     alt,
     asset->,
@@ -97,8 +92,8 @@ export const PROJECT_QUERY_BY_LANG = groq`*[_type == "project" && language == $l
   shortDescription,
   projectTypes,
   credits,
-  "previousProject": coalesce(*[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current && _createdAt <= ^._createdAt] | order(_createdAt desc)[0], *[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current] | order(_createdAt desc)[0]) { slug, name, subtitle, mainImage { alt, asset->, hotspot } },
-  "nextProject": coalesce(*[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current && _createdAt >= ^._createdAt] | order(_createdAt asc)[0], *[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current] | order(_createdAt asc)[0]) { slug, name, subtitle, mainImage { alt, asset->, hotspot } }
+  "previousProject": coalesce(*[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current && _createdAt <= ^._createdAt] | order(_createdAt desc)[0], *[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current] | order(_createdAt desc)[0]) { slug, name, subtitle, secondaryImage { alt, asset->, hotspot } },
+  "nextProject": coalesce(*[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current && _createdAt >= ^._createdAt] | order(_createdAt asc)[0], *[_type == "project" && defined(slug) && language == $locale && slug.current != ^.slug.current] | order(_createdAt asc)[0]) { slug, name, subtitle, secondaryImage { alt, asset->, hotspot } }
 }`;
 
 export const ARTICLES_QUERY_BY_LANG = groq`*[_type == "article" && language == $locale && defined(slug)]`;
@@ -118,7 +113,8 @@ export const PROJECTS_PAGE_QUERY = groq`*[_type == "projects" && language == $lo
   pageTitle,
   projects[]->{
     type,
-    mainImage{ asset->, alt, hotspot },
+    type2,
+    secondaryImage{ asset->, alt, hotspot },
     projectTypes,
     name,
     shortDescription,
@@ -299,7 +295,7 @@ export const HOME_PAGE_QUERY_BY_LANG = groq`*[_type == "home" && language == $lo
     pageTitle,
     projects[0...4]->{
       type,
-      mainImage{ asset->, alt, hotspot },
+      secondaryImage{ asset->, alt, hotspot },
       projectTypes,
       name,
       shortDescription,
