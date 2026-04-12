@@ -2,7 +2,7 @@ import "./blockA.scss";
 import React from "react";
 import { PortableText } from "@portabletext/react";
 
-import { SANITY_IMAGE_FORMAT } from "../images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "../images/sanityImageBuilderConfig";
 import { Carousel } from "../images/carousel/Carousel";
 import { BottomToTopSlider } from "../animations/BottomToTopSlider";
 
@@ -29,12 +29,9 @@ export const BlockA: React.FC<BlockAProps> = ({
             <Carousel
               images={data.leftBlock.images}
               imageBuilderConfig={{
-                format: SANITY_IMAGE_FORMAT.Jpg,
-                quality: 80,
-                size: {
-                  width: 1920,
-                  height: 1080,
-                },
+                format: IMAGE_DEFAULT_FORMAT,
+                quality: IMAGE_DEFAULT_QUALITY,
+                size: IMAGE_SIZES.FULL_HD_LANDSCAPE,
               }}
             />
           </div>
@@ -43,12 +40,9 @@ export const BlockA: React.FC<BlockAProps> = ({
             <Carousel
               images={data.rightBlock.images}
               imageBuilderConfig={{
-                format: SANITY_IMAGE_FORMAT.Jpg,
-                quality: 80,
-                size: {
-                  width: 810,
-                  height: 1440,
-                },
+                format: IMAGE_DEFAULT_FORMAT,
+                quality: IMAGE_DEFAULT_QUALITY,
+                size: IMAGE_SIZES.FULL_HD_PORTRAIT,
               }}
             />
           </div>

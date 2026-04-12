@@ -4,7 +4,7 @@ import { SanityDocument } from "next-sanity";
 
 import { Link } from "@/../navigation";
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
-import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "@/common/components/images/sanityImageBuilderConfig";
 import { motion } from "framer-motion";
 import { buildSeeMoreString } from "@/common/helpers/TextHelper";
 
@@ -43,12 +43,9 @@ export const Article: React.FC<ArticleProps> = ({ article }) => {
         <SanityImageWrapper
           sanityImage={article.mainImage}
           imageBuilderConfig={{
-            size: {
-              width: 500,
-              height: 500,
-            },
-            format: SANITY_IMAGE_FORMAT.Jpg,
-            quality: 70,
+            size: IMAGE_SIZES.SQUARE_THUMBNAIL,
+            format: IMAGE_DEFAULT_FORMAT,
+            quality: IMAGE_DEFAULT_QUALITY,
           }}
         />
       </Link>

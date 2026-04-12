@@ -7,7 +7,7 @@ import { isMobileOnly } from "react-device-detect";
 
 import { CarouselIndex } from "@/common/components/images/carousel/CarouselIndex";
 import { ProjectInformation } from "./ProjectInformation";
-import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "@/common/components/images/sanityImageBuilderConfig";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { client } from "../../../../sanity/lib/client";
 import { getImageSource } from "@/common/helpers/ImageHelper";
@@ -72,12 +72,9 @@ export const HomePageCarousel: React.FC<CarouselProps> = ({ data }) => {
     const promises = data[0].carousel.map((image: any) => {
       return fetch(
         getImageSource(isMobileOnly ? image.mainImageMobile : image.mainImage, builder, {
-          size: {
-            width: isMobileOnly ? 1080 : 2560,
-            height: isMobileOnly ? 1920 : 1440,
-          },
-          quality: 90,
-          format: SANITY_IMAGE_FORMAT.Jpg,
+          size: isMobileOnly ? IMAGE_SIZES.FULL_HD_PORTRAIT : IMAGE_SIZES.QHD_LANDSCAPE,
+          quality: IMAGE_DEFAULT_QUALITY,
+          format: IMAGE_DEFAULT_FORMAT,
         }),
         { cache: "force-cache" }
       );

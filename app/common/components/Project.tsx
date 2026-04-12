@@ -2,7 +2,7 @@
 import "./project.scss";
 
 import { SanityImageWrapper } from "./images/SanityImageWrapper";
-import { SANITY_IMAGE_FORMAT } from "./images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "./images/sanityImageBuilderConfig";
 import { Link } from "@/../navigation";
 import { motion } from "framer-motion";
 import { extractFirstSentence } from "../helpers/TextHelper";
@@ -37,12 +37,9 @@ export const Project: React.FC<ProjectProps> = ({
           effectOnHover={true}
           sanityImage={data.mainImage}
           imageBuilderConfig={{
-            format: SANITY_IMAGE_FORMAT.Jpg,
-            quality: 70,
-            size: {
-              width: 1920,
-              height: 1080,
-            },
+            format: IMAGE_DEFAULT_FORMAT,
+            quality: IMAGE_DEFAULT_QUALITY,
+            size: IMAGE_SIZES.FULL_HD_LANDSCAPE,
           }}
         />
         <div className="project-description">

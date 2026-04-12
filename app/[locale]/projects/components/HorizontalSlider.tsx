@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import "./horizontalSlider.scss";
 
 import { SanityImageWrapper } from "@/common/components/images/SanityImageWrapper";
-import { SANITY_IMAGE_FORMAT } from "@/common/components/images/sanityImageBuilderConfig";
+import { IMAGE_DEFAULT_QUALITY, IMAGE_DEFAULT_FORMAT, IMAGE_SIZES } from "@/common/components/images/sanityImageBuilderConfig";
 
 interface SliderProps {
   images: any[];
@@ -57,12 +57,9 @@ const HorizontalSlider: React.FC<SliderProps> = ({ images }) => {
             key={index}
             sanityImage={item.img}
             imageBuilderConfig={{
-              format: SANITY_IMAGE_FORMAT.Jpg,
-              quality: 70,
-              size: {
-                width: 960,
-                height: 540,
-              },
+              format: IMAGE_DEFAULT_FORMAT,
+              quality: IMAGE_DEFAULT_QUALITY,
+              size: IMAGE_SIZES.HD_LANDSCAPE,
             }}
           />
         );
