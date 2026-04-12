@@ -4,10 +4,8 @@ import "./question.scss";
 import { useState } from "react";
 import AnimateHeight from "react-animate-height";
 
-import Image from "next/image";
-import plus from "../../../common/assets/images/homePage/services/servicePlus.svg";
-import minus from "../../../common/assets/images/homePage/services/serviceMinus.svg";
 import { PortableText } from "@portabletext/react";
+import { PlusMinusToggle } from "@/common/components/PlusMinusToggle";
 
 type QuestionProps = {
   data: any;
@@ -23,12 +21,9 @@ export const Question: React.FC<QuestionProps> = ({ data }) => {
         onClick={() => setHeight(height == "auto" ? 0 : "auto")}
       >
         <h2 className="faq-page-question-question">{data.question}</h2>
-        <Image
+        <PlusMinusToggle
+          isOpen={height === "auto"}
           className="faq-page-question-plus-img"
-          src={height == "auto" ? minus : plus}
-          alt="plus"
-          width={0}
-          unoptimized
         />
       </div>
       <AnimateHeight duration={1000} height={height}>

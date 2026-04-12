@@ -1,0 +1,83 @@
+.home-page-review-card {
+  flex-shrink: 0;
+  width: var(--card-width);
+  min-height: var(--card-height);
+  background-color: #448854;
+  border-radius: 1vw;
+  padding: 3vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+
+  @include small {
+    border-radius: 12px;
+    padding: 28px 24px;
+    gap: 20px;
+  }
+
+  .home-page-review-card-name {
+    color: $blanc;
+    font-family: $saansTrial;
+    font-size: 1.25vw;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.5vw;
+
+    @include small {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  .home-page-review-card-text {
+    color: $noir-boise-200;
+    font-family: $saansTrial;
+    font-size: 1.1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75vw;
+    flex: 1;
+
+    @include small {
+      font-size: 15px;
+      line-height: 24px;
+    }
+  }
+
+  .home-page-review-card-stars {
+    display: flex;
+    gap: 0.3vw;
+
+    @include small {
+      gap: 4px;
+    }
+
+    .home-page-review-card-star {
+      font-size: 1.25vw;
+      color: rgba(0, 0, 0, 0.25);
+      line-height: 1;
+
+      @include small {
+        font-size: 18px;
+      }
+
+      &.filled {
+        color: $blanc;
+      }
+
+      &.half {
+        position: relative;
+
+        &::before {
+          content: "★";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 50%;
+          overflow: hidden;
+          color: $blanc;
+        }
+      }
+    }
+  }
+}

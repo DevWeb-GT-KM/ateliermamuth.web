@@ -24,7 +24,7 @@ export const BlockA: React.FC<BlockAProps> = ({
       </BottomToTopSlider>
 
       <BottomToTopSlider isDesactivated={isAnimationDesactivated}>
-        <div className="block-a-images-container">
+        <div className={`block-a-images-container${data.reverse ? " reversed" : ""}`}>
           <div className="block-a-images-left">
             <Carousel
               images={data.leftBlock.images}

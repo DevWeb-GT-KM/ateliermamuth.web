@@ -66,7 +66,7 @@ export const StepWrapper: React.FC<StepWrapperProps> = ({
               aria-label="Loading Spinner"
               data-testid="loader"
             />
-          ) : contactFormContext.currentStep == 4 ? (
+          ) : contactFormContext.currentStep == 6 ? (
             contactFormContext.textButtons.submit
           ) : (
             contactFormContext.textButtons.next

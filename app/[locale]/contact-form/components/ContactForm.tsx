@@ -5,7 +5,9 @@ import { ContactInformationStep } from "./steps/ContactInformationStep";
 import { PersonalInformationStep } from "./steps/PersonalInformationStep";
 import { ProjectTypeStep } from "./steps/ProjectTypeStep";
 import { BudgetStep } from "./steps/BudgetStep";
+import { DeadlineAvailabilityStep } from "./steps/DeadlineAvailabilityStep";
 import { MoreDetailsStep } from "./steps/MoreDetailsStep";
+import { ReferralStep } from "./steps/ReferralStep";
 import { ConfirmationStep } from "./steps/ConfirmationStep";
 import { ContactFormContext } from "@/common/contexts/ContactFormContext";
 
@@ -60,13 +62,25 @@ export const ContactForm: React.FC<ContactFormProps> = ({ data }) => {
         title={data.budgetTitle}
         budgetOptions={data.budgetRanges}
       />,
-      <MoreDetailsStep
+      <DeadlineAvailabilityStep
         key={5}
+        title={data.deadlineAvailabilityTitle}
+        deadlineLabel={data.deadlineLabel}
+        availabilityLabel={data.availabilityLabel}
+      />,
+      <MoreDetailsStep
+        key={6}
         moreDetailsLabel={data.moreDetailsLabel}
         title={data.moreDetailsTitle}
       />,
+      <ReferralStep
+        key={7}
+        title={data.referralTitle}
+        referralOptions={data.referralOptions}
+        referralOtherLabel={data.referralOtherLabel}
+      />,
       <ConfirmationStep
-        key={6}
+        key={8}
         confirmationMessage={data.confirmationMessage}
       />,
     ],
@@ -75,7 +89,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ data }) => {
       ContactInformationStep,
       ProjectTypeStep,
       BudgetStep,
+      DeadlineAvailabilityStep,
       MoreDetailsStep,
+      ReferralStep,
       ConfirmationStep,
     ]
   );
