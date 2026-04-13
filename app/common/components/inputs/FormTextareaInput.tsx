@@ -6,6 +6,7 @@ type FormTextareaInputProps = {
   placeholder?: string;
   property: string;
   required?: boolean;
+  requiredMessage?: string;
   validations?:
     | Validate<any, FieldValues>
     | Record<string, Validate<any, FieldValues>>;
@@ -15,6 +16,7 @@ export const FormTextareaInput: React.FC<FormTextareaInputProps> = ({
   placeholder,
   property,
   required,
+  requiredMessage,
   validations,
 }) => {
   const {
@@ -31,7 +33,7 @@ export const FormTextareaInput: React.FC<FormTextareaInputProps> = ({
             ""
           }`}
           {...register(property, {
-            required: required ? "Ce champs est requis" : false,
+            required: required ? (requiredMessage ?? "Ce champs est requis") : false,
             validate: validations,
             setValueAs: (value: string) => value.trim(),
           })}

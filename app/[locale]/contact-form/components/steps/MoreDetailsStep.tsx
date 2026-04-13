@@ -40,6 +40,8 @@ export const MoreDetailsStep: React.FC<MoreDetailsStepProps> = ({
             <FormTextareaInput
               property="moreDetails"
               placeholder={moreDetailsLabel}
+              required
+              requiredMessage={contactFormContext.textErrors.required}
             />
           </div>
         </StepWrapper>

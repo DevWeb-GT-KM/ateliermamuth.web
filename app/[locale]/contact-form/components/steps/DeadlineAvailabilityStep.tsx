@@ -41,10 +41,12 @@ export const DeadlineAvailabilityStep: React.FC<
       <form onSubmit={useFormMethods.handleSubmit(onSubmit)}>
         <StepWrapper title={title} previousStep={onPreviousStep}>
           <div className="contact-form-deadline-availability-inputs">
-            <FormTextareaInput property="deadline" placeholder={deadlineLabel} />
+            <FormTextareaInput property="deadline" placeholder={deadlineLabel} required requiredMessage={contactFormContext.textErrors.required} />
             <FormTextareaInput
               property="availability"
               placeholder={availabilityLabel}
+              required
+              requiredMessage={contactFormContext.textErrors.required}
             />
           </div>
         </StepWrapper>

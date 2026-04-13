@@ -62,16 +62,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({ data }) => {
         title={data.budgetTitle}
         budgetOptions={data.budgetRanges}
       />,
-      <DeadlineAvailabilityStep
+      <MoreDetailsStep
         key={5}
+        moreDetailsLabel={data.moreDetailsLabel}
+        title={data.moreDetailsTitle}
+      />,
+      <DeadlineAvailabilityStep
+        key={6}
         title={data.deadlineAvailabilityTitle}
         deadlineLabel={data.deadlineLabel}
         availabilityLabel={data.availabilityLabel}
-      />,
-      <MoreDetailsStep
-        key={6}
-        moreDetailsLabel={data.moreDetailsLabel}
-        title={data.moreDetailsTitle}
       />,
       <ReferralStep
         key={7}
