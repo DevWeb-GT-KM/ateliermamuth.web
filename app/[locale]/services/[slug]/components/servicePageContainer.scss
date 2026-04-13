@@ -19,7 +19,7 @@
   }
 }
 
-:has(.service-page-design-interieur-container) {
+:has(.service-page-design-interieur-residentiel-container) {
   body {
     background: rgba(229, 229, 255, 0.5);
   }
@@ -150,7 +150,9 @@
       display: block;
       text-align: center;
       width: fit-content;
-      transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+      transition:
+        color 0.2s ease-in-out,
+        background-color 0.2s ease-in-out;
       padding: 0.875vw 1.75vw;
       margin-top: 1.5vw;
 

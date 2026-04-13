@@ -8,7 +8,7 @@ import { Link } from "@/../navigation";
 import { getServiceType } from "@/common/helpers/ServiceHelper";
 
 const PROJECT_TYPE_BY_SLUG: Record<string, string> = {
-  "design-interieur": "residentiel",
+  "design-interieur-residentiel": "residentiel",
   "architecture-residentielle": "residentiel",
   "design-interieur-commercial": "commercial",
 };
@@ -17,15 +17,11 @@ type ServicePageContainerProps = {
   service: SanityDocument;
 };
 
-export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
-  service,
-}) => {
+export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({ service }) => {
   const serviceType = getServiceType(service.slug.current);
   const projectType = PROJECT_TYPE_BY_SLUG[service.slug.current];
   return (
-    <div
-      className={`service-page-container service-page-${serviceType}-container`}
-    >
+    <div className={`service-page-container service-page-${serviceType}-container`}>
       <div className="service-page-header">
         <h1 className="service-page-title">{service.name}</h1>
       </div>
@@ -34,9 +30,7 @@ export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
       </BottomToTopSlider>
       <div className="service-page-steps-section">
         <div className="service-page-steps-section-header">
-          <h2 className="service-page-steps-section-title">
-            {service.stepsTitle}
-          </h2>
+          <h2 className="service-page-steps-section-title">{service.stepsTitle}</h2>
         </div>
         <div className="service-page-steps-section-body">
           <ServiceStep data={service.steps} />
@@ -44,9 +38,7 @@ export const ServicePageContainer: React.FC<ServicePageContainerProps> = ({
       </div>
       {service.projectsCta && (
         <div className="service-page-projects-cta">
-          <p className="service-page-projects-cta-title">
-            {service.projectsCta.title}
-          </p>
+          <p className="service-page-projects-cta-title">{service.projectsCta.title}</p>
           <Link
             className="service-page-projects-cta-link"
             href={{ pathname: "/projects", query: projectType ? { type: projectType } : undefined }}
