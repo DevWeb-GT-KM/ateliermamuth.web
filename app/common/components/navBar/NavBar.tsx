@@ -14,9 +14,18 @@ type MobileMenuView = "main" | "services" | "projects";
 
 const SERVICES_SUB_ITEMS: NavTabSubItem[] = [
   { label: "Voir tous les services", href: { pathname: "/services" } },
-  { label: "Design intérieur résidentiel", href: { pathname: "/services/[slug]", params: { slug: "design-interieur" } } },
-  { label: "Design intérieur commercial", href: { pathname: "/services/[slug]", params: { slug: "design-interieur-commercial" } } },
-  { label: "Architecture résidentielle", href: { pathname: "/services/[slug]", params: { slug: "architecture-residentielle" } } },
+  {
+    label: "Design intérieur résidentiel",
+    href: { pathname: "/services/[slug]", params: { slug: "design-interieur-residentiel" } },
+  },
+  {
+    label: "Design intérieur commercial",
+    href: { pathname: "/services/[slug]", params: { slug: "design-interieur-commercial" } },
+  },
+  {
+    label: "Architecture résidentielle",
+    href: { pathname: "/services/[slug]", params: { slug: "architecture-residentielle" } },
+  },
 ];
 
 const PROJECTS_SUB_ITEMS: NavTabSubItem[] = [
@@ -88,11 +97,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
           href={{ pathname: "/about-us" }}
           className="nav-bar-link nav-bar-link-about-us"
         />
-        <NavTab
-          label={data[0].blogLink}
-          href={{ pathname: "/blog" }}
-          className="nav-bar-link nav-bar-link-blog"
-        />
+        <NavTab label={data[0].blogLink} href={{ pathname: "/blog" }} className="nav-bar-link nav-bar-link-blog" />
         <Link className="nav-bar-link nav-bar-contact-us" href={{ pathname: "/contact" }}>
           {data[0].contactUs}
         </Link>
@@ -100,7 +105,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
       <div className="nav-bar-links-mobile">
         <button
           className={`nav-bar-menu-toggle ${showMobileMenu ? "is-open" : ""}`}
-          onClick={() => showMobileMenu ? closeMobileMenu() : setShowMobileMenu(true)}
+          onClick={() => (showMobileMenu ? closeMobileMenu() : setShowMobileMenu(true))}
           aria-label="Menu"
         >
           <span />
@@ -109,11 +114,7 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
       </div>
       {showMobileMenu && (
         <div className="nav-bar-mobile-menu">
-          <Link
-            className="nav-bar-mobile-menu-link"
-            href={{ pathname: "/" }}
-            onClick={closeMobileMenu}
-          />
+          <Link className="nav-bar-mobile-menu-link" href={{ pathname: "/" }} onClick={closeMobileMenu} />
 
           {mobileMenuView === "main" ? (
             <>
@@ -143,30 +144,18 @@ export const NavBar: React.FC<NavBarProps> = ({ data }) => {
               >
                 {data[0].blogLink}
               </Link>
-              <Link
-                className="nav-bar-mobile-link"
-                href={{ pathname: "/contact" }}
-                onClick={closeMobileMenu}
-              >
+              <Link className="nav-bar-mobile-link" href={{ pathname: "/contact" }} onClick={closeMobileMenu}>
                 {data[0].contactUs}
               </Link>
             </>
           ) : (
             <>
               {subItems.map((item, index) => (
-                <Link
-                  key={index}
-                  className="nav-bar-mobile-link"
-                  href={item.href}
-                  onClick={closeMobileMenu}
-                >
+                <Link key={index} className="nav-bar-mobile-link nav-bar-mobile-sublink" href={item.href} onClick={closeMobileMenu}>
                   {item.label}
                 </Link>
               ))}
-              <button
-                className="nav-bar-mobile-back-btn"
-                onClick={() => setMobileMenuView("main")}
-              >
+              <button className="nav-bar-mobile-back-btn" onClick={() => setMobileMenuView("main")}>
                 <Image src={backArrow} width={56} height={28} alt="Retour" unoptimized />
               </button>
             </>

@@ -52,7 +52,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ data }) => {
     if (count === 0) return;
     const interval = setInterval(() => {
       setIndex((prev) => prev + 1);
-    }, 4000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [count, autoAdvanceKey]);
 

@@ -84,12 +84,11 @@
   }
 }
 
-:has(.service-page-design-interieur-container) {
+:has(.service-page-design-interieur-residentiel-container) {
   .nav-bar-container {
     background-color: #f2f2ff;
   }
 }
-
 
 :has(.service-page-design-interieur-commercial-container) {
   .nav-bar-container {
@@ -295,6 +294,13 @@
       text-align: center;
       width: 100%;
       box-sizing: border-box;
+    }
+
+    .nav-bar-mobile-sublink {
+      font-size: 22px;
+      line-height: 32px;
+      display: flex;
+      justify-content: center;
     }
 
     .nav-bar-mobile-back-btn {

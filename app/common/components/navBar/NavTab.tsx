@@ -1,6 +1,6 @@
 "use client";
 import "./navTab.scss";
-import { ComponentProps, useState } from "react";
+import { ComponentProps, useEffect, useState } from "react";
 import { Link } from "@/../navigation";
 
 export type NavTabSubItem = {
@@ -19,6 +19,13 @@ type NavTabProps = {
 export const NavTab: React.FC<NavTabProps> = ({ label, href, className, subItems, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
   const hasSubItems = subItems && subItems.length > 0;
+
+  useEffect(() => {
+    if (!isHovered) return;
+    const handleScroll = () => setIsHovered(false);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHovered]);
 
   return (
     <div
